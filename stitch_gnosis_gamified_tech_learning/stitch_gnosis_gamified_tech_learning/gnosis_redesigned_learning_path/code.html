@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#25005a",
+                        "on-surface": "#dae2fd",
+                        "on-secondary": "#472a00",
+                        "background": "#0b1326",
+                        "inverse-surface": "#dae2fd",
+                        "surface-container": "#171f33",
+                        "on-surface-variant": "#ccc3d8",
+                        "surface-dim": "#0b1326",
+                        "secondary": "#ffb95f",
+                        "surface-container-high": "#222a3d",
+                        "error": "#ffb4ab",
+                        "tertiary-container": "#007650",
+                        "secondary-container": "#ee9800",
+                        "primary-fixed-dim": "#d2bbff",
+                        "tertiary": "#4edea3",
+                        "on-secondary-fixed": "#2a1700",
+                        "on-primary-container": "#ede0ff",
+                        "inverse-on-surface": "#283044",
+                        "on-error": "#690005",
+                        "on-primary": "#3f008e",
+                        "on-secondary-container": "#5b3800",
+                        "surface-tint": "#d2bbff",
+                        "tertiary-fixed": "#6ffbbe",
+                        "secondary-fixed-dim": "#ffb95f",
+                        "on-error-container": "#ffdad6",
+                        "error-container": "#93000a",
+                        "outline": "#958da1",
+                        "surface-bright": "#31394d",
+                        "primary-fixed": "#eaddff",
+                        "surface-variant": "#2d3449",
+                        "surface": "#0b1326",
+                        "on-tertiary-container": "#76ffc2",
+                        "outline-variant": "#4a4455",
+                        "on-tertiary": "#003824",
+                        "primary": "#d2bbff",
+                        "surface-container-lowest": "#060e20",
+                        "on-background": "#dae2fd",
+                        "on-primary-fixed-variant": "#5a00c6",
+                        "secondary-fixed": "#ffddb8",
+                        "on-secondary-fixed-variant": "#653e00",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "primary-container": "#7c3aed",
+                        "surface-container-highest": "#2d3449",
+                        "inverse-primary": "#732ee4",
+                        "surface-container-low": "#131b2e",
+                        "on-tertiary-fixed": "#002113"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "12px",
+                        "base": "8px",
+                        "gutter": "24px",
+                        "xl": "64px",
+                        "xs": "4px",
+                        "lg": "40px",
+                        "md": "24px",
+                        "margin": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Space Grotesk"],
+                        "headline-md": ["Space Grotesk"],
+                        "body-lg": ["Inter"],
+                        "display-xl": ["Space Grotesk"],
+                        "label-md": ["Space Grotesk"],
+                        "label-sm": ["Space Grotesk"],
+                        "body-md": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .zigzag-svg {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .active-node-glow {
+            box-shadow: 0 0 30px 5px rgba(124, 58, 237, 0.5);
+        }
+        .completion-badge-glow {
+            filter: drop-shadow(0 0 8px rgba(78, 222, 163, 0.6));
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen selection:bg-primary-container selection:text-white">
+<!-- TopAppBar -->
+<header class="bg-[#0F172A]/80 backdrop-blur-md text-[#7C3AED] font-['Space_Grotesk'] tracking-tight docked full-width top-0 sticky z-50 border-b border-[#334155] shadow-[0_0_15px_rgba(124,58,237,0.1)] flex justify-between items-center w-full px-6 py-4">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest border border-[#7C3AED] flex items-center justify-center overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A highly detailed 3D avatar of a futuristic tech student wearing glowing purple augmented reality glasses and a sleek navy blue tactical hoodie." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABjIlW9qavQljLHyQr1aHLpt53zEwjTeafhGUWk6Rqu8oSzoIypoCnM33vKJG1i1n4CXlp-bpYoQXp_CKaymL3F32Lx50WqnqOI6h5CVrVHdAzazHeGZU88D7PoMMVJBoO7gGAMhlY3NF1lKj4_6YpS8tqx2eycWSKfCcFTLdWdZeXulw6QxOQFxLZxumnKnBRbjjHalupokrZgBaaoLcg9KibdbP7WVbHi8mMUJnWnWaSxTHhhDBWmW3pGUoxeaireuzCEQ3ylxI"/>
+</div>
+<div>
+<h1 class="text-2xl font-bold tracking-tighter text-slate-50">Gnosis</h1>
+<p class="text-[10px] font-label-sm text-[#7C3AED] uppercase tracking-widest">CyberStudent</p>
+</div>
+</div>
+<div class="flex items-center gap-xs md:gap-gutter">
+<div class="flex items-center gap-1 bg-surface-container-low px-3 py-1.5 rounded-full border border-surface-variant">
+<span class="material-symbols-outlined text-secondary text-lg" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-headline-md text-sm text-secondary">15</span>
+</div>
+<div class="hidden sm:flex items-center gap-1 bg-surface-container-low px-3 py-1.5 rounded-full border border-surface-variant">
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-headline-md text-sm text-primary">12,450</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-low px-3 py-1.5 rounded-full border border-surface-variant">
+<span class="material-symbols-outlined text-tertiary text-lg">military_tech</span>
+<span class="font-headline-md text-sm text-tertiary">#42</span>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="bg-[#0F172A] font-['Space_Grotesk'] h-screen w-64 fixed left-0 top-0 border-r border-[#334155] hidden lg:flex flex-col p-6 space-y-4 z-40">
+<div class="text-2xl font-black text-[#7C3AED] mb-8">GNOSIS</div>
+<nav class="flex-1 space-y-2">
+<a class="bg-[#1E293B] text-slate-50 border-r-4 border-[#7C3AED] rounded-r-lg flex items-center gap-3 px-4 py-3 transition-all" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="font-label-md">Path</span>
+</a>
+<a class="text-slate-400 hover:bg-[#1E293B]/50 flex items-center gap-3 px-4 py-3 transition-all hover:text-slate-200 active:translate-x-1" href="#">
+<span class="material-symbols-outlined">sports_esports</span>
+<span class="font-label-md">Lobby</span>
+</a>
+<a class="text-slate-400 hover:bg-[#1E293B]/50 flex items-center gap-3 px-4 py-3 transition-all hover:text-slate-200 active:translate-x-1" href="#">
+<span class="material-symbols-outlined">workspace_premium</span>
+<span class="font-label-md">Rankings</span>
+</a>
+<a class="text-slate-400 hover:bg-[#1E293B]/50 flex items-center gap-3 px-4 py-3 transition-all hover:text-slate-200 active:translate-x-1" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md">Settings</span>
+</a>
+</nav>
+<div class="mt-auto space-y-4">
+<div class="border-[#334155] pt-4 flex flex-col gap-2">
+<a class="text-slate-500 hover:text-slate-200 flex items-center gap-3 text-sm px-4" href="#">
+<span class="material-symbols-outlined text-lg">help_outline</span>
+                    Help
+                </a>
+<a class="text-slate-500 hover:text-slate-200 flex items-center gap-3 text-sm px-4" href="#">
+<span class="material-symbols-outlined text-lg">logout</span>
+                    Logout
+                </a>
+</div>
+</div>
+</aside>
+<main class="lg:ml-64 pb-32 pt-8 px-gutter flex flex-col items-center min-h-screen">
+<!-- Learning Path Container -->
+<div class="max-w-xl w-full relative min-h-[1200px]">
+<!-- Zig-zag SVG Path -->
+<svg class="zigzag-svg opacity-30" fill="none" preserveaspectratio="none" viewbox="0 0 400 1200" xmlns="http://www.w3.org/2000/svg">
+<path d="M200,50 Q300,150 200,250 T200,450 T200,650 T200,850 T200,1050" stroke="url(#pathGradient)" stroke-dasharray="1 15" stroke-linecap="round" stroke-width="8"></path>
+<defs>
+<lineargradient id="pathGradient" x1="0" x2="0" y1="0" y2="100%">
+<stop offset="0%" stop-color="#4edea3"></stop>
+<stop offset="30%" stop-color="#7C3AED"></stop>
+<stop offset="100%" stop-color="#334155"></stop>
+</lineargradient>
+</defs>
+</svg>
+<div class="flex flex-col items-center gap-xl relative z-10 py-12">
+<!-- Completed Node 1 (Zig left) -->
+<div class="relative flex flex-col items-center -translate-x-20">
+<div class="relative w-20 h-20">
+<div class="w-full h-full rounded-full bg-tertiary-container/30 border-4 border-tertiary flex items-center justify-center text-white shadow-lg overflow-hidden backdrop-blur-sm">
+<span class="material-symbols-outlined text-4xl opacity-80">variables</span>
+</div>
+<!-- Premium Completion Indicator -->
+<div class="absolute -top-3 -right-3 w-10 h-10 bg-tertiary text-on-tertiary rounded-full flex items-center justify-center shadow-lg completion-badge-glow">
+<span class="material-symbols-outlined text-xl font-bold" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+</div>
+<div class="mt-3 bg-surface-container-high px-4 py-1 rounded-full border border-surface-variant">
+<span class="text-[11px] font-label-md text-on-surface uppercase font-bold">Basics of Logic</span>
+</div>
+</div>
+<!-- Completed Node 2 (Zig right) -->
+<div class="relative flex flex-col items-center translate-x-20">
+<div class="relative w-20 h-20">
+<div class="w-full h-full rounded-full bg-tertiary-container/30 border-4 border-tertiary flex items-center justify-center text-white shadow-lg overflow-hidden backdrop-blur-sm">
+<span class="material-symbols-outlined text-4xl opacity-80">account_tree</span>
+</div>
+<div class="absolute -top-3 -right-3 w-10 h-10 bg-tertiary text-on-tertiary rounded-full flex items-center justify-center shadow-lg completion-badge-glow">
+<span class="material-symbols-outlined text-xl font-bold" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+</div>
+</div>
+<div class="mt-3 bg-surface-container-high px-4 py-1 rounded-full border border-surface-variant">
+<span class="text-[11px] font-label-md text-on-surface uppercase font-bold">Binary Systems</span>
+</div>
+</div>
+<!-- Completed Node 3 (Zig left) -->
+<div class="relative flex flex-col items-center -translate-x-12">
+<div class="relative w-20 h-20">
+<div class="w-full h-full rounded-full bg-tertiary-container/30 border-4 border-tertiary flex items-center justify-center text-white shadow-lg overflow-hidden backdrop-blur-sm">
+<span class="material-symbols-outlined text-4xl opacity-80">developer_board</span>
+</div>
+<div class="absolute -top-3 -right-3 w-10 h-10 bg-tertiary text-on-tertiary rounded-full flex items-center justify-center shadow-lg completion-badge-glow">
+<span class="material-symbols-outlined text-xl font-bold" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+</div>
+<div class="mt-3 bg-surface-container-high px-4 py-1 rounded-full border border-surface-variant">
+<span class="text-[11px] font-label-md text-on-surface uppercase font-bold">Assembly Prep</span>
+</div>
+</div>
+<!-- Active Node (Center-ish) -->
+<div class="relative flex flex-col items-center translate-x-8">
+<div class="absolute -top-6 -right-6 bg-secondary text-on-secondary px-3 py-1.5 rounded-lg font-black text-[11px] animate-pulse z-20 shadow-lg border border-secondary/50 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">bolt</span> ACTIVE
+                    </div>
+<button class="w-28 h-28 rounded-full bg-gradient-to-br from-[#7C3AED] to-[#6D28D9] border-4 border-primary active-node-glow flex items-center justify-center text-white transform hover:scale-110 transition-all cursor-pointer group shadow-[0_0_20px_rgba(124,58,237,0.3)]">
+<span class="material-symbols-outlined text-6xl group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">terminal</span>
+</button>
+<div class="mt-4 bg-[#7C3AED] px-6 py-2 rounded-xl shadow-xl border border-primary/50 text-center">
+<span class="block text-[10px] font-bold text-primary-container brightness-200 uppercase tracking-widest mb-0.5">Chapter 4</span>
+<span class="text-sm font-headline-md text-white">Advanced Kernel Ops</span>
+</div>
+</div>
+<!-- Locked Node 5 (Zig right) -->
+<div class="relative flex flex-col items-center translate-x-24">
+<div class="relative w-20 h-20 opacity-40 grayscale group">
+<div class="w-full h-full rounded-full bg-surface-container-high border-4 border-dashed border-outline flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-4xl">sync_alt</span>
+</div>
+<div class="absolute inset-0 flex items-center justify-center bg-background/60 rounded-full">
+<span class="material-symbols-outlined text-3xl text-white drop-shadow-md">lock</span>
+</div>
+</div>
+<div class="mt-3 bg-surface-container px-4 py-1 rounded-full border border-surface-variant opacity-50">
+<span class="text-[11px] font-label-md uppercase">Concurrency</span>
+</div>
+</div>
+<!-- Locked Node 6 (Zig left) -->
+<div class="relative flex flex-col items-center -translate-x-28">
+<div class="relative w-20 h-20 opacity-40 grayscale group">
+<div class="w-full h-full rounded-full bg-surface-container-high border-4 border-dashed border-outline flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-4xl">memory</span>
+</div>
+<div class="absolute inset-0 flex items-center justify-center bg-background/60 rounded-full">
+<span class="material-symbols-outlined text-3xl text-white drop-shadow-md">lock</span>
+</div>
+</div>
+<div class="mt-3 bg-surface-container px-4 py-1 rounded-full border border-surface-variant opacity-50">
+<span class="text-[11px] font-label-md uppercase">Memory Safety</span>
+</div>
+</div>
+<!-- Locked Node 7 (Zig right) -->
+<div class="relative flex flex-col items-center translate-x-12">
+<div class="relative w-20 h-20 opacity-40 grayscale group">
+<div class="w-full h-full rounded-full bg-surface-container-high border-4 border-dashed border-outline flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-4xl">hub</span>
+</div>
+<div class="absolute inset-0 flex items-center justify-center bg-background/60 rounded-full">
+<span class="material-symbols-outlined text-3xl text-white drop-shadow-md">lock</span>
+</div>
+</div>
+<div class="mt-3 bg-surface-container px-4 py-1 rounded-full border border-surface-variant opacity-50">
+<span class="text-[11px] font-label-md uppercase">Network Mesh</span>
+</div>
+</div>
+<!-- Locked Node 8 (Zig center) -->
+<div class="relative flex flex-col items-center">
+<div class="relative w-24 h-24 opacity-40 grayscale group">
+<div class="w-full h-full rounded-full bg-surface-container-highest border-4 border-dashed border-outline flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-5xl">architecture</span>
+</div>
+<div class="absolute inset-0 flex items-center justify-center bg-background/60 rounded-full">
+<span class="material-symbols-outlined text-4xl text-white drop-shadow-md">lock</span>
+</div>
+</div>
+<div class="mt-3 bg-surface-container px-4 py-1 rounded-full border border-surface-variant opacity-50">
+<span class="text-[11px] font-label-md uppercase font-bold">The Architect</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden bg-[#0F172A]/90 backdrop-blur-lg fixed bottom-0 w-full z-50 border-t border-[#334155] shadow-[0_-4px_20px_rgba(0,0,0,0.5)] flex justify-around items-center h-20 px-4 pb-safe">
+<a class="flex flex-col items-center justify-center text-[#7C3AED] relative after:content-[''] after:absolute after:-top-2 after:w-8 after:h-1 after:bg-[#7C3AED] after:rounded-full after:shadow-[0_0_10px_#7C3AED]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<span class="font-['Space_Grotesk'] text-[10px] font-bold uppercase tracking-widest mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-slate-200 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">swords</span>
+<span class="font-['Space_Grotesk'] text-[10px] font-bold uppercase tracking-widest mt-1">Battle</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-slate-200 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-['Space_Grotesk'] text-[10px] font-bold uppercase tracking-widest mt-1">Leaderboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-slate-200 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Space_Grotesk'] text-[10px] font-bold uppercase tracking-widest mt-1">Profile</span>
+</a>
+</nav>
+<!-- Floating Action Button -->
+<button class="fixed bottom-24 right-6 md:right-12 md:bottom-12 w-14 h-14 bg-secondary-container rounded-full flex items-center justify-center text-on-secondary shadow-lg active:scale-95 transition-all lg:hidden">
+<span class="material-symbols-outlined text-3xl font-bold">bolt</span>
+</button>
+</body></html>

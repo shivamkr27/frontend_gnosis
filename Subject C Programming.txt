@@ -1,0 +1,254 @@
+Subject: C Programming
+
+Level 1: Memory Layout (Stack vs Heap), Storage Classes, Operator Precedence.
+
+Level 2: Pointer Arithmetic, Array-Pointer duality, Function Pointers.
+
+Level 3: Dynamic Memory Allocation (malloc/calloc/free/realloc), File I/O.
+
+Level 4: Structures, Unions, Bit-fields, and Low-level Hardware interfacing.
+
+Subject: Java Development
+
+Level 1: JVM Architecture (JDK vs JRE vs JVM), Bytecode, Wrapper Classes.
+
+Level 2: OOPs Deep Dive (Inheritance, Polymorphism, Abstract classes vs Interfaces).
+
+Level 3: Multithreading, Synchronization, Collection Framework (Internals of HashMap/ArrayList).
+
+Level 4: Exception Hierarchy, Java 8 Features (Streams, Lambda), Reflection API.
+
+Subject: Python for Engineers
+
+Level 1: List Comprehensions, Decorators, Generators, Iterators.
+
+Level 2: OOPs in Python, Dunder methods, Class vs Static methods.
+
+Level 3: Exception Handling, Context Managers, File Handling (JSON/CSV).
+
+Level 4: FastAPI/Flask basics, Concurrency (Asyncio), GIL (Global Interpreter Lock).
+
+Subject: Linux & Shell Scripting
+
+Level 1: File Permissions (chmod/chown), System Monitoring (top, ps, netstat).
+
+Level 2: Text Processing (Grep, Sed, Awk), Regex patterns.
+
+Level 3: User Management, SSH Tunneling, Package Managers (Apt/Yum).
+
+Level 4: Cron jobs, Kernel Tuning, Boot Process (Systemd), Bash scripting automation.
+
+🧠 Core Computer Science (The Fundamentals)
+Subject: Data Structures (DSA)
+
+Level 1: Linked Lists (Singly, Doubly, Circular), Stack/Queue using Arrays.
+
+Level 2: Binary Trees, BST, AVL Trees, Heaps (Min/Max).
+
+Level 3: Hashing (Collision techniques), Graph Representations (Adj Matrix/List).
+
+Level 4: Advanced Trees (Tries, Segment Trees), Disjoint Set Union (DSU).
+
+Subject: Analysis of Algorithms (DAA)
+
+Level 1: Asymptotic Notations (Big O, Omega, Theta), Space-Time Complexity.
+
+Level 2: Sorting (Quick, Merge, Heap) and Searching (Binary, Exponential).
+
+Level 3: Greedy Algorithms, Dynamic Programming (Knapsack, LCS).
+
+Level 4: Backtracking (N-Queens), NP-Completeness, Graph Algorithms (Dijkstra, Floyd-Warshall).
+
+Subject: Operating Systems (OS)
+
+Level 1: Process vs Threads, Context Switching, System Calls.
+
+Level 2: CPU Scheduling (SJF, Round Robin), Inter-Process Communication (IPC).
+
+Level 3: Process Synchronization (Mutex, Semaphores), Deadlock Prevention/Avoidance.
+
+Level 4: Memory Management (Paging, Segmentation, Virtual Memory), Disk Scheduling.
+
+Subject: Database Management (DBMS)
+
+Level 1: SQL Joins, Normalization (1NF, 2NF, 3NF, BCNF), ACID Properties.
+
+Level 2: NoSQL Concepts (MongoDB Collections/Documents), Sharding vs Replication.
+
+Level 3: Database Indexing (B-Trees), Transaction Isolation Levels, Query Optimization.
+
+Level 4: Distributed Databases, Redis Caching, AWS S3 as Data Lake, CAP Theorem.
+
+Subject: Computer Networks (DCN)
+
+Level 1: OSI & TCP/IP Models, Subnetting (IPv4/IPv6), ICMP.
+
+Level 2: Transport Layer (TCP 3-way Handshake vs UDP), Flow/Error Control.
+
+Level 3: Application Layer Protocols (DNS, HTTP/S, FTP, SMTP, DHCP).
+
+Level 4: Network Security (TLS/SSL), Routing Algorithms (BGP, OSPF), CDNs & Proxies.
+
+⚙️ DevOps & Cloud (Your Specialization)
+Subject: Docker & Containerization
+
+Level 1: Docker Architecture, Images vs Containers, Docker Hub.
+
+Level 2: Writing Optimized Dockerfiles, Multi-stage builds, Layers.
+
+Level 3: Docker Networking, Volumes, Resource Limits (CPU/Memory).
+
+Level 4: Docker Compose (Multi-container setup), Security (Docker Bench).
+
+Subject: Kubernetes (K8s)
+
+Level 1: K8s Components (Control Plane, Nodes, Pods), Kubectl commands.
+
+Level 2: Deployments, Services (ClusterIP, NodePort, LoadBalancer), ReplicaSets.
+
+Level 3: ConfigMaps, Secrets, Ingress Controllers, Persistent Volumes (PV/PVC).
+
+Level 4: Helm Charts, RBAC, Network Policies, Horizontal Pod Autoscaler (HPA).
+
+Subject: CI/CD Pipelines
+
+Level 1: YAML Syntax, GitHub Actions Workflow basics, Jenkins Jobs.
+
+Level 2: Pipeline Stages (Build, Test, Deploy), Artifact Management.
+
+Level 3: Webhooks, Self-hosted Runners, Environment Variables/Secrets management.
+
+Level 4: Blue-Green Deployments, Canary Releases, GitOps (ArgoCD basics).
+
+Subject: Infrastructure as Code (Terraform)
+
+Level 1: HCL Syntax, Terraform Init/Plan/Apply, Providers.
+
+Level 2: State Management, Remote Backends (S3/DynamoDB), Locking.
+
+Level 3: Modules, Variables, Outputs, Provisioners.
+
+Level 4: Terraform Cloud, Workspace management, Drift detection, Terragrunt.
+
+Subject: Cloud Computing (AWS)
+
+Level 1: IAM (Users, Groups, Roles, Policies), Root Account security.
+
+Level 2: Compute (EC2, Lambda, Auto-scaling), Storage (S3, EBS, EFS).
+
+Level 3: Networking (VPC, Subnets, IGW, Route Tables), Security Groups.
+
+Level 4: Database (RDS, DynamoDB), Monitoring (CloudWatch), Serverless Architecture.
+
+Subject: DevSecOps & Security
+
+Level 1: Vulnerability Scanning (Trivy), SAST vs DAST concepts.
+
+Level 2: Container Image Scanning, Secrets Scanning in Code (TruffleHog).
+
+Level 3: OWASP Top 10, Pen-testing basics, SSL/TLS Certificates management.
+
+Level 4: Identity & Access Management (OAuth2, OIDC), K8s Security Hardening.
+
+🛡️ Specialized Tech & Systems
+Subject: Object Oriented Analysis (OOAD)
+
+Level 1: Class Diagrams, UML Basics, Object Relationships.
+
+Level 2: Design Patterns (Singleton, Factory, Observer, Strategy).
+
+Level 3: SOLID Principles, Dry Principle, KISS Principle.
+
+Level 4: Case Studies: Library Mgmt, Parking Lot, ATM System design.
+
+Subject: AI, ML & Data Science
+
+Level 1: Data Preprocessing (Cleaning, Scaling), NumPy/Pandas basics.
+
+Level 2: Supervised Learning (Regression, Classification), Scikit-Learn.
+
+Level 3: Unsupervised Learning (Clustering, PCA), Model Evaluation (F1-score, ROC).
+
+Level 4: Deep Learning basics, Neural Networks, Generative AI (LLM integration).
+
+Subject: IoT & Embedded Systems
+
+Level 1: Sensors, Actuators, Microcontrollers (Arduino/Raspberry Pi).
+
+Level 2: Communication Protocols (MQTT, HTTP, CoAP, Zigbee).
+
+Level 3: Edge Computing, Cloud-IoT integration.
+
+Level 4: IoT Security, Real-time Operating Systems (RTOS).
+
+Subject: Cryptography & Blockchain
+
+Level 1: Hashing (SHA-256), Symmetric vs Asymmetric Encryption.
+
+Level 2: Digital Signatures, PKI (Public Key Infrastructure).
+
+Level 3: Blockchain Fundamentals (Nodes, Blocks, Consensus).
+
+Level 4: Smart Contracts (Solidity), Ethereum vs Hyperledger, DeFi basics.
+
+Subject: Theory of Computation (FLAT)
+
+Level 1: DFA, NFA, Regular Expressions.
+
+Level 2: Context-Free Grammars (CFG), Pushdown Automata (PDA).
+
+Level 3: Turing Machines, Halting Problem.
+
+Level 4: P and NP Complexity classes, Chomsky Hierarchy.
+
+Subject: Software Engineering
+
+Level 1: SDLC Models (Waterfall, Agile, Scrum).
+
+Level 2: Requirement Elicitation (SRS), Software Testing (Unit, Integration, System).
+
+Level 3: Software Maintenance, Metrics (Cyclomatic Complexity).
+
+Level 4: Version Control (Git Internals), Project Management (Risk analysis).
+
+📊 Aptitude & Placements
+Subject: Quantitative Ability
+
+Level 1: Number Systems, Percentages, Ratio & Proportion.
+
+Level 2: Profit & Loss, Simple/Compound Interest, Time & Work.
+
+Level 3: Speed, Distance, Time, Permutation & Combination.
+
+Level 4: Probability, Geometry, Mensuration, Data Interpretation.
+
+Subject: Logical Reasoning
+
+Level 1: Series Completion, Blood Relations, Coding-Decoding.
+
+Level 2: Syllogisms, Venn Diagrams, Seating Arrangement.
+
+Level 3: Clocks & Calendars, Directions, Puzzles.
+
+Level 4: Critical Reasoning, Statement-Assumption, Decision Making.
+
+Subject: Computer Architecture (COA)
+
+Level 1: Binary/Hex systems, Logic Gates, Multiplexers.
+
+Level 2: Instruction Cycle, Addressing Modes, CPU Registers.
+
+Level 3: Pipelining, Cache Memory (Direct, Associative Mapping).
+
+Level 4: I/O Interface (DMA, Interrupts), Parallel Processing.
+
+Subject: Discrete Mathematics
+
+Level 1: Set Theory, Relations, Functions.
+
+Level 2: Propositional Logic (Truth tables, Tautologies).
+
+Level 3: Graph Theory (Euler, Hamiltonian paths).
+
+Level 4: Trees, Group Theory, Combinatorics.
+

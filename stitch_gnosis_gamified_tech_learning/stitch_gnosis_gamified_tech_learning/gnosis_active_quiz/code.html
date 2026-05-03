@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gnosis - Active Battle</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom shrinking timer animation simulation in static HTML */
+        .timer-shrink {
+            width: 35%; /* Simulating a point in time */
+            transition: width 1s linear;
+        }
+        /* Glassmorphism utility */
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(51, 65, 85, 0.5);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-fixed": "#25005a",
+                      "on-surface": "#dae2fd",
+                      "on-secondary": "#472a00",
+                      "background": "#0b1326",
+                      "inverse-surface": "#dae2fd",
+                      "surface-container": "#171f33",
+                      "on-surface-variant": "#ccc3d8",
+                      "surface-dim": "#0b1326",
+                      "secondary": "#ffb95f",
+                      "surface-container-high": "#222a3d",
+                      "error": "#ffb4ab",
+                      "tertiary-container": "#007650",
+                      "secondary-container": "#ee9800",
+                      "primary-fixed-dim": "#d2bbff",
+                      "tertiary": "#4edea3",
+                      "on-secondary-fixed": "#2a1700",
+                      "on-primary-container": "#ede0ff",
+                      "inverse-on-surface": "#283044",
+                      "on-error": "#690005",
+                      "on-primary": "#3f008e",
+                      "on-secondary-container": "#5b3800",
+                      "surface-tint": "#d2bbff",
+                      "tertiary-fixed": "#6ffbbe",
+                      "secondary-fixed-dim": "#ffb95f",
+                      "on-error-container": "#ffdad6",
+                      "error-container": "#93000a",
+                      "outline": "#958da1",
+                      "surface-bright": "#31394d",
+                      "primary-fixed": "#eaddff",
+                      "surface-variant": "#2d3449",
+                      "surface": "#0b1326",
+                      "on-tertiary-container": "#76ffc2",
+                      "outline-variant": "#4a4455",
+                      "on-tertiary": "#003824",
+                      "primary": "#d2bbff",
+                      "surface-container-lowest": "#060e20",
+                      "on-background": "#dae2fd",
+                      "on-primary-fixed-variant": "#5a00c6",
+                      "secondary-fixed": "#ffddb8",
+                      "on-secondary-fixed-variant": "#653e00",
+                      "on-tertiary-fixed-variant": "#005236",
+                      "tertiary-fixed-dim": "#4edea3",
+                      "primary-container": "#7c3aed",
+                      "surface-container-highest": "#2d3449",
+                      "inverse-primary": "#732ee4",
+                      "surface-container-low": "#131b2e",
+                      "on-tertiary-fixed": "#002113"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "sm": "12px",
+                      "base": "8px",
+                      "gutter": "24px",
+                      "xl": "64px",
+                      "xs": "4px",
+                      "lg": "40px",
+                      "md": "24px",
+                      "margin": "32px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Space Grotesk"],
+                      "headline-md": ["Space Grotesk"],
+                      "body-lg": ["Inter"],
+                      "display-xl": ["Space Grotesk"],
+                      "label-md": ["Space Grotesk"],
+                      "label-sm": ["Space Grotesk"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "display-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.08em", "fontWeight": "500"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-white overflow-hidden h-screen flex flex-col">
+<!-- Top Navigation Header (Suppressed as per task, but keeping Brand Header as TopAppBar) -->
+<header class="bg-[#0F172A]/80 backdrop-blur-md text-[#7C3AED] font-['Space_Grotesk'] tracking-tight docked full-width top-0 sticky z-50 border-b border-[#334155] shadow-[0_0_15px_rgba(124,58,237,0.1)] flex justify-between items-center w-full px-6 py-4">
+<div class="text-2xl font-bold tracking-tighter text-slate-50 font-headline-md">
+            Gnosis
+        </div>
+<div class="flex items-center gap-gutter">
+<div class="flex flex-col items-end">
+<span class="text-label-sm uppercase tracking-widest text-on-surface-variant">Active Session</span>
+<span class="text-label-md text-primary font-bold">C Programming - Level 1</span>
+</div>
+<div class="flex gap-sm">
+<span class="material-symbols-outlined text-tertiary" data-icon="bolt" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="material-symbols-outlined text-secondary" data-icon="workspace_premium" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+</div>
+</header>
+<!-- Main Active Quiz Canvas -->
+<main class="flex-grow flex flex-col items-center justify-center px-gutter py-xl relative">
+<!-- Progress & Stats Layer -->
+<div class="w-full max-w-4xl mb-lg">
+<div class="flex justify-between items-end mb-base">
+<div class="space-y-1">
+<p class="font-headline-md text-on-surface flex items-center gap-xs">
+<span class="text-primary">Question</span>
+<span class="font-bold">3</span><span class="text-on-surface-variant">/10</span>
+</p>
+</div>
+<div class="bg-surface-container-high px-md py-sm rounded-lg border border-outline-variant flex items-center gap-sm shadow-[0_0_20px_rgba(124,58,237,0.1)]">
+<span class="material-symbols-outlined text-secondary" data-icon="military_tech" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+<div class="flex flex-col">
+<span class="text-label-sm text-on-surface-variant uppercase">Earned</span>
+<span class="font-display-xl text-headline-md text-secondary">150 XP</span>
+</div>
+</div>
+</div>
+<!-- Main Progress Bar -->
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary shadow-[0_0_10px_#7C3AED]" style="width: 30%;"></div>
+</div>
+</div>
+<!-- Question Section -->
+<div class="w-full max-w-4xl text-center mb-xl">
+<h1 class="font-display-xl text-headline-lg md:text-display-xl text-on-surface leading-tight">
+                Which of the following is a valid variable name in C?
+            </h1>
+</div>
+<!-- Options Bento Grid -->
+<div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-md mb-lg">
+<!-- Option A -->
+<button class="glass-card p-6 rounded-xl flex items-center gap-md text-left transition-all hover:border-primary group active:scale-95 duration-200">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest border border-outline-variant flex items-center justify-center font-headline-md text-primary-fixed-dim group-hover:bg-primary-container group-hover:text-white transition-colors">
+                    A
+                </div>
+<span class="font-body-lg text-on-surface">2variable_name</span>
+</button>
+<!-- Option B -->
+<button class="glass-card p-6 rounded-xl flex items-center gap-md text-left transition-all hover:border-primary group active:scale-95 duration-200">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest border border-outline-variant flex items-center justify-center font-headline-md text-primary-fixed-dim group-hover:bg-primary-container group-hover:text-white transition-colors">
+                    B
+                </div>
+<span class="font-body-lg text-on-surface">variable_name_2</span>
+</button>
+<!-- Option C -->
+<button class="glass-card p-6 rounded-xl flex items-center gap-md text-left transition-all hover:border-primary group active:scale-95 duration-200">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest border border-outline-variant flex items-center justify-center font-headline-md text-primary-fixed-dim group-hover:bg-primary-container group-hover:text-white transition-colors">
+                    C
+                </div>
+<span class="font-body-lg text-on-surface">variable-name</span>
+</button>
+<!-- Option D -->
+<button class="glass-card p-6 rounded-xl flex items-center gap-md text-left transition-all hover:border-primary group active:scale-95 duration-200">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest border border-outline-variant flex items-center justify-center font-headline-md text-primary-fixed-dim group-hover:bg-primary-container group-hover:text-white transition-colors">
+                    D
+                </div>
+<span class="font-body-lg text-on-surface">$variable_name</span>
+</button>
+</div>
+</main>
+<!-- Bottom Timer & Status -->
+<footer class="w-full bg-[#0F172A] border-t border-[#334155] p-0 overflow-hidden relative h-16 flex flex-col justify-end">
+<div class="flex justify-between items-center px-6 mb-2">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-error" data-icon="alarm">alarm</span>
+<span class="text-label-md font-bold text-on-surface">Hurry! 08 Seconds Left</span>
+</div>
+<div class="flex items-center gap-base">
+<div class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></div>
+<span class="text-label-sm text-on-surface-variant uppercase tracking-widest">Network Synchronized</span>
+</div>
+</div>
+<!-- Animated Timer Bar -->
+<div class="w-full h-2 bg-surface-container-lowest">
+<!-- Simulated shrinking from right to left using absolute positioning and width -->
+<!-- In a real app, 'width' would decrease over time. 'bg-error' represents the red state as time runs out -->
+<div class="h-full bg-error shadow-[0_0_15px_#ffb4ab] timer-shrink ml-auto"></div>
+</div>
+</footer>
+<!-- Background Decorative Elements -->
+<div class="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 overflow-hidden">
+<div class="absolute top-[10%] left-[5%] w-[400px] h-[400px] bg-primary/5 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-[10%] right-[5%] w-[300px] h-[300px] bg-secondary/5 rounded-full blur-[100px]"></div>
+<!-- Grid overlay -->
+<div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(#958da1 1px, transparent 1px); background-size: 32px 32px;">
+</div>
+</div>
+</body></html>

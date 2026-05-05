@@ -10,7 +10,9 @@
     "option_b": "host",
     "option_c": "overlay",
     "option_d": "macvlan",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "In 'host' mode, there is no isolation between host and container networking."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "To enable communication between containers on DIFFERENT Docker hosts (Swarm/K8s)",
     "option_c": "To hide the container's IP",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Overlay networks create a distributed network across multiple nodes."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "It allows you to use one image for building and another for the final runtime, significantly reducing final image size",
     "option_c": "It allows you to run multiple containers from one file",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Multi-stage builds allow you to leave build tools (like compilers) behind, keeping the final production image small."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "Mapping a specific, absolute path on the host machine to a path in the container",
     "option_c": "A type of network connection",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Bind mounts are useful for development, as changes on the host are instantly reflected in the container."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "It defines the startup order for services (e.g., start DB before App)",
     "option_c": "It links the container to the internet",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Note: 'depends_on' doesn't wait for the app inside the container to be 'ready', just for the container to 'start'."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "ARG is for build-time only; ENV is available at both build-time and runtime inside the container",
     "option_c": "ENV is for numbers only",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Use ARG for things like version numbers during build; use ENV for app configuration like DB_URL."
   },
   {
@@ -94,7 +106,9 @@
     "option_b": "If an instruction and its files Haven't changed, Docker reuses the cached layer from a previous build to save time",
     "option_c": "It only caches the first layer",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This is why you should put instructions that change frequently (like COPY code) at the end of the Dockerfile."
   },
   {
@@ -108,7 +122,9 @@
     "option_b": "Stops the container after 1 hour",
     "option_c": "Only restarts on severe errors",
     "option_d": "none of the above",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Unlike 'always', 'unless-stopped' won't restart the container when the Docker daemon reboots if the container was already stopped."
   },
   {
@@ -122,7 +138,9 @@
     "option_b": "If an attacker breaks out of the container, they might gain root access to the host machine's kernel",
     "option_c": "Root users cannot connect to the internet",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 'Principle of Least Privilege' dictates running as a non-root user whenever possible."
   },
   {
@@ -136,7 +154,9 @@
     "option_b": "docker-compose up -d",
     "option_c": "docker-compose run background",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "'up' creates and starts the containers; '-d' detaches the session."
   },
   {
@@ -150,7 +170,9 @@
     "option_b": "By running the official 'registry' image as a container (docker run -p 5000:5000 registry:2)",
     "option_c": "You cannot run a private registry locally",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Docker provides a simple image to self-host your own registry."
   },
   {
@@ -164,7 +186,9 @@
     "option_b": "--cpus sets a hard limit on total CPU usage; --cpu-shares sets a relative weighting compared to other containers",
     "option_c": "They are the same",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Shares use 1024 as the default base weight."
   },
   {
@@ -178,7 +202,9 @@
     "option_b": "docker history [image]",
     "option_c": "docker inspect --layers",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This is useful for debugging image size and seeing how an image was built."
   },
   {
@@ -192,7 +218,9 @@
     "option_b": "Creates a new image from the current state of a running or stopped container",
     "option_c": "Updates the Docker engine",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "While useful for debugging, it's generally better to use a Dockerfile for reproducibility."
   },
   {
@@ -206,7 +234,9 @@
     "option_b": "By using Docker's internal DNS (if they are on a custom-created network)",
     "option_c": "By editing /etc/hosts manually",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Custom bridge networks provide automatic service discovery."
   },
   {
@@ -220,7 +250,9 @@
     "option_b": "docker cp",
     "option_c": "docker send",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Usage: docker cp [host_path] [container_id]:[path] or vice versa."
   },
   {
@@ -234,7 +266,9 @@
     "option_b": "To override the default shell used for the shell form of inline commands (RUN, CMD, ENTRYPOINT)",
     "option_c": "To enable SSH access",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Commonly used on Windows to switch from cmd to powershell."
   },
   {
@@ -248,7 +282,9 @@
     "option_b": "Sets the system call signal that will be sent to the container to exit (default is SIGTERM)",
     "option_c": "Tells the coder to stop",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Useful for apps that require a specific signal (like SIGUSR1) to shut down gracefully."
   },
   {
@@ -262,7 +298,9 @@
     "option_b": "/var/lib/docker/volumes",
     "option_c": "/home/user/volumes",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This is where Docker manages data for named volumes."
   },
   {
@@ -276,7 +314,9 @@
     "option_b": "docker diff",
     "option_c": "docker inspect --fs",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It shows Added (A), Deleted (D), or Changed (C) files."
   },
   {
@@ -290,7 +330,9 @@
     "option_b": "To reduce the number of layers in the image, keeping it smaller and more efficient",
     "option_c": "To bypass errors",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Every RUN instruction creates a new layer; combining them prevents 'dead' data from being saved in intermediate layers."
   },
   {
@@ -304,7 +346,9 @@
     "option_b": "Analyzing the software packages inside an image for known security vulnerabilities (CVEs)",
     "option_c": "Speeding up the image build",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Tools like Snyk or Trivy scan images for outdated and insecure libraries."
   },
   {
@@ -318,7 +362,9 @@
     "option_b": "docker mv",
     "option_c": "docker update --name",
     "option_d": "none of the above",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Usage: docker rename [old_name] [new_name]."
   },
   {
@@ -332,7 +378,9 @@
     "option_b": "docker events",
     "option_c": "docker watch",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Useful for auditing or building automation tools that react to container changes."
   },
   {
@@ -346,7 +394,9 @@
     "option_b": "A setting that controls how aggressively the kernel swaps container memory to disk",
     "option_c": "Deleting the RAM",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Setting --memory-swappiness to 0 avoids swapping altogether."
   },
   {
@@ -360,7 +410,9 @@
     "option_b": "Tells Docker how to test if the container application is actually 'healthy' and functioning correctly",
     "option_c": "Automatically fixes bugs",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "If a health check fails repeatedly, the container is marked as unhealthy."
   },
   {
@@ -374,7 +426,9 @@
     "option_b": "Unused images with no name/tag (often displayed as <none>:<none>)",
     "option_c": "Images that have errors",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "These are usually old layers left behind after building an image with the same name/tag."
   },
   {
@@ -388,7 +442,9 @@
     "option_b": "Exporting an image to a tar archive for manual transfer to another machine without a registry",
     "option_c": "Saving the state of the PC",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Useful for 'air-gapped' environments with no internet access."
   },
   {
@@ -402,7 +458,9 @@
     "option_b": "A small manager (like 'tini') that handles zombie processes and signals, often used as the entrypoint",
     "option_c": "The first user that logs in",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Running with '--init' in Docker run helps solve the 'PID 1' zombie harvesting problem."
   },
   {
@@ -416,7 +474,9 @@
     "option_b": "Loading many environment variables from a text file into the container at once",
     "option_c": "Deleting environment variables",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This keeps secrets and config separate from your orchestration code."
   },
   {
@@ -430,7 +490,9 @@
     "option_b": "Run Docker on a Mac",
     "option_c": "Translate IP addresses to names",
     "option_d": "none of the above",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Macvlan is helpful for legacy apps that expect to be on a specific physical subnet."
   },
   {
@@ -444,7 +506,9 @@
     "option_b": "Volumes are managed by Docker; Bind mounts rely on the host's folder structure",
     "option_c": "There is no difference",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Docker handles the backup, migration, and storage of volumes automatically."
   },
   {
@@ -458,7 +522,9 @@
     "option_b": "A feature that allows digital signing of images, proving their authenticity and integrity",
     "option_c": "Trusting everyone on the network",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "By enabling DCT, you ensure that you only pull images that have been signed by a trusted publisher."
   },
   {
@@ -472,7 +538,9 @@
     "option_b": "The 'docker run' value overrides the Dockerfile value",
     "option_c": "Both are ignored",
     "option_d": "It causes a crash",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Runtime configuration always takes precedence over build-time defaults."
   },
   {
@@ -486,7 +554,9 @@
     "option_b": "Displaying the running processes of a specific container",
     "option_c": "Seeing the top users",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It helps you see what the entrypoint process is actually doing inside."
   },
   {
@@ -500,7 +570,9 @@
     "option_b": "Mapping a container path to the host's system memory (RAM) instead of the disk",
     "option_c": "A mount for text files only",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "tmpfs is fast and secure as the data is wiped when the container stops."
   },
   {
@@ -514,7 +586,9 @@
     "option_b": "Adds a trigger instruction to an image that will execute later when the image is used as the base for another build",
     "option_c": "Stops the build",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Useful for creating 'template' images (like a boilerplate base image)."
   },
   {
@@ -528,7 +602,9 @@
     "option_b": "docker-compose up --force-recreate",
     "option_c": "docker-compose restart all",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This forces Compose to ignore existing containers even if the config hasn't changed."
   },
   {
@@ -542,7 +618,9 @@
     "option_b": "It provides automatic DNS resolution by container name and better isolation",
     "option_c": "It is exactly the same",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The default bridge network requires messy '--link' commands for discovery."
   },
   {
@@ -556,7 +634,9 @@
     "option_b": "Alpine Linux",
     "option_c": "Debian",
     "option_d": "CentOS",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Alpine is the gold standard for minimal, high-performance container images."
   },
   {
@@ -570,7 +650,9 @@
     "option_b": "--user 1000",
     "option_c": "-u root:new",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Passing -u (or --user) overrides the value set in the Dockerfile."
   },
   {
@@ -584,7 +666,9 @@
     "option_b": "Blocking the terminal session until a container stops, and then printing its exit code",
     "option_c": "Adding a delay to start",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Often used in CI/CD scripts to wait for a database to finish its migration or a test to finish."
   },
   {
@@ -598,7 +682,9 @@
     "option_b": "It copies EVERYTHING in the current folder, including node_modules or large local binaries, making the image huge",
     "option_c": "Docker asks you what to copy",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This can make builds extremely slow and images bloated."
   },
   {
@@ -612,7 +698,9 @@
     "option_b": "docker-compose logs -f [service_name]",
     "option_c": "docker show logs [id]",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The -f flag follows the log stream live."
   },
   {
@@ -626,7 +714,9 @@
     "option_b": "An OS feature that kills a container (or process) if it exceeds its allotted memory and impacts system stability",
     "option_c": "A tool to delete logs",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "You can use '--oom-kill-disable' but it's dangerous for host stability."
   },
   {
@@ -640,7 +730,9 @@
     "option_b": "Binds port 80 of the container to port 80 of the host and makes it accessible from any network interface on the host",
     "option_c": "Hides the port",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Using 127.0.0.1:80:80 would instead only make it accessible from the local host itself."
   },
   {
@@ -654,7 +746,9 @@
     "option_b": "docker system df",
     "option_c": "docker usage",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It helps you identify where large amounts of space are being consumed."
   },
   {
@@ -668,7 +762,9 @@
     "option_b": "The image used as the starting point for your Dockerfile (defined in FROM instruction)",
     "option_c": "A black and white image",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Every Dockerfile build starts on top of a base image."
   },
   {
@@ -682,7 +778,9 @@
     "option_b": "To inform Docker that a specific directory will be used for persistent data and should have its own mount",
     "option_c": "To name the container",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Even if the user doesn't map a volume, Docker creates an anonymous volume for that path."
   },
   {
@@ -696,7 +794,9 @@
     "option_b": "docker pause",
     "option_c": "docker freeze",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It sends a SIGSTOP signal, freezing the container's state in memory."
   }
 ]

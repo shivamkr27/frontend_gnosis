@@ -10,7 +10,9 @@
     "option_b": "extends",
     "option_c": "inherits",
     "option_d": "using",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 'extends' keyword is used to establish inheritance between classes in Java."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "java.lang.System",
     "option_c": "java.lang.Class",
     "option_d": "java.lang.Base",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Object is the root of the class hierarchy. Every class has Object as a superclass."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "protected",
     "option_c": "internal",
     "option_d": "private",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Java has public, protected, private, and default (no keyword). 'internal' is used in languages like C# or Kotlin."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "Up to two",
     "option_c": "Multiple",
     "option_d": "None",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Java supports multiple inheritance through interfaces, allowing a class to implement any number of them."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "throw",
     "option_c": "catch",
     "option_d": "throws",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The 'catch' block contains code that executes if an exception of a specific type occurs in the try block."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "const",
     "option_c": "final",
     "option_d": "sealed",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Declaring a method as 'final' prevents it from being overridden by subclasses."
   },
   {
@@ -94,7 +106,9 @@
     "option_b": "Creating multiple objects of a class",
     "option_c": "A single action to be performed in different ways",
     "option_d": "Faster execution of code",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Polymorphism (many forms) allows one interface/method to be used for a general class of actions."
   },
   {
@@ -108,7 +122,9 @@
     "option_b": "IndexOutOfBoundsException",
     "option_c": "BoundaryException",
     "option_d": "ArrayOverflowException",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "ArrayIndexOutOfBoundsException is specifically thrown when an invalid index is used to access an array."
   },
   {
@@ -122,7 +138,9 @@
     "option_b": "It cannot have methods",
     "option_c": "It can have both abstract and non-abstract methods",
     "option_d": "It must be final",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Abstract classes serve as blueprints and can contain both implemented methods and abstract method signatures."
   },
   {
@@ -136,7 +154,9 @@
     "option_b": "throw",
     "option_c": "try",
     "option_d": "new",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 'throw' keyword is used to transfer control to an exception handler with a specific exception object."
   },
   {
@@ -150,7 +170,9 @@
     "option_b": "Overloading is run-time polymorphism, overriding is compile-time polymorphism",
     "option_c": "They are exactly the same",
     "option_d": "Overloading belongs to inheritance, overriding does not",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Overloading (static) is resolved at compile time based on parameters; Overriding (dynamic) is resolved at runtime based on object type."
   },
   {
@@ -164,7 +186,9 @@
     "option_b": "It only executes if no exception occurs",
     "option_c": "It executes regardless of whether an exception occurs or not",
     "option_d": "It is required for every try block",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The finally block is guaranteed to run after try/catch, unless System.exit() is called or the JVM crashes."
   },
   {
@@ -178,7 +202,9 @@
     "option_b": "Yes, but only if it has default methods",
     "option_c": "No, interfaces cannot be instantiated directly",
     "option_d": "Only if it is a functional interface",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Interfaces do not represent stateful objects and cannot be instantiated, so they don't have constructors."
   },
   {
@@ -192,7 +218,9 @@
     "option_b": "base()",
     "option_c": "super()",
     "option_d": "parent()",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The 'super()' call invokes the constructor of the immediate parent class."
   },
   {
@@ -206,7 +234,9 @@
     "option_b": "RuntimeException",
     "option_c": "SQLException",
     "option_d": "ClassNotFoundException",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Unchecked exceptions are those that inherit from RuntimeException or Error."
   },
   {
@@ -220,7 +250,9 @@
     "option_b": "A static class",
     "option_c": "An abstract class",
     "option_d": "An inner class",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "If a concrete class lacks implementations for inherited abstract methods, it cannot be instantiated and must be declared abstract."
   },
   {
@@ -234,7 +266,9 @@
     "option_b": "The finally block (if any) executes, and the exception is propagated to the caller",
     "option_c": "The program enters an infinite loop",
     "option_d": "The JVM automatically generates a default catch block for it",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Uncaught exceptions propagate up the call stack after finally blocks finish. If never caught, the thread terminates."
   },
   {
@@ -248,7 +282,9 @@
     "option_b": "Static and final variables (Constants)",
     "option_c": "Private methods (Java 9+)",
     "option_d": "Both B and C",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "Interfaces can have public static final variables and private methods since Java 9 for internal logic sharing."
   },
   {
@@ -262,7 +298,11 @@
     "option_b": "static on a method",
     "option_c": "final on a method",
     "option_d": "private on a method",
-    "correct_options": ["A", "C", "D"],
+    "correct_options": [
+      "A",
+      "C",
+      "D"
+    ],
     "explanation": "final class prevents inheritance; final method prevents overriding; private method is essentially hidden from subclasses and cannot be overridden."
   },
   {
@@ -276,7 +316,11 @@
     "option_b": "Declaring the exception in the method signature using 'throws'",
     "option_c": "Using a 'catch-all' block with Exception class",
     "option_d": "Using a 'goto' statement",
-    "correct_options": ["A", "B", "C"],
+    "correct_options": [
+      "A",
+      "B",
+      "C"
+    ],
     "explanation": "Java uses try-catch-finally and 'throws' for exception handling. 'goto' is not used for logic control or exception handling."
   },
   {
@@ -290,7 +334,9 @@
     "option_b": "C, B, A",
     "option_c": "B, C, A",
     "option_d": "Execution is simultaneous",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Constructors are called from the top of the hierarchy (superclass) down to the bottom (subclass)."
   },
   {
@@ -304,7 +350,9 @@
     "option_b": "No, static methods can only be hidden",
     "option_c": "No, static methods cannot be redefined in subclasses",
     "option_d": "Yes, if they are public",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Static methods belong to the class, not instance. If a subclass has an identical static method, it 'hides' the parent's method (Static Polymorphism)."
   },
   {
@@ -318,7 +366,9 @@
     "option_b": "Multiple interface inheritance; Java uses abstract classes",
     "option_c": "Circular dependency; Java uses garbage collector",
     "option_d": "Runtime error; Java uses static analysis",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Multiple inheritance of classes can cause ambiguity (Diamond Problem). Java allows multiple interface implementation and requires manual conflict resolution for default methods."
   },
   {
@@ -332,7 +382,9 @@
     "option_b": "10",
     "option_c": "Compile error",
     "option_d": "Runtime error",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "A 'return' statement in a finally block overrides any previous return or exception from the try or catch block."
   },
   {
@@ -346,7 +398,9 @@
     "option_b": "Clients should not be forced to depend on methods they do not use",
     "option_c": "All classes should implement at least one interface",
     "option_d": "Interfaces should only be used for public APIs",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Large interfaces should be split into smaller, more specific ones so that callers only see methods relevant to them."
   },
   {
@@ -360,7 +414,9 @@
     "option_b": "It can only throw unchecked exceptions",
     "option_c": "It cannot throw broader checked exceptions than the superclass method",
     "option_d": "It must throw exactly the same exceptions",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "To maintain polymorphic behavior, an overridden method cannot throw more general checked exceptions."
   },
   {
@@ -374,7 +430,9 @@
     "option_b": "Checked must be caught or declared; Unchecked do not have this requirement",
     "option_c": "Checked exceptions are for system failure; Unchecked for logic error",
     "option_d": "Checked are faster to handle",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Java compiler forces handling of checked exceptions (descendants of Exception but not RuntimeException)."
   },
   {
@@ -388,7 +446,9 @@
     "option_b": "Serializable",
     "option_c": "AutoCloseable",
     "option_d": "Cloneable",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The AutoCloseable interface (or its sub-interface Closeable) provides the close() method that JVM calls automatically."
   },
   {
@@ -402,7 +462,11 @@
     "option_b": "Variables can be polymorphic, but methods cannot",
     "option_c": "A reference of a superclass can point to an object of a subclass",
     "option_d": "Overriding leads to runtime polymorphism",
-    "correct_options": ["A", "C", "D"],
+    "correct_options": [
+      "A",
+      "C",
+      "D"
+    ],
     "explanation": "Dynamic dispatch (JVM selecting the right overridden method) is central to runtime polymorphism using superclass references."
   },
   {
@@ -416,7 +480,10 @@
     "option_b": "They can be declared as final",
     "option_c": "They must be overridden by the first concrete subclass",
     "option_d": "They can reside in a non-abstract class",
-    "correct_options": ["A", "C"],
+    "correct_options": [
+      "A",
+      "C"
+    ],
     "explanation": "Abstract methods cannot be final (they MUST be overridden) and can ONLY exist inside an abstract class."
   },
   {
@@ -430,7 +497,9 @@
     "option_b": "It cannot be inherited by any class",
     "option_c": "It can be inherited but not instantiated",
     "option_d": "It causes a compiler warning",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Since a subclass constructor must call a parent constructor, a private parent constructor makes inheritance impossible."
   },
   {
@@ -444,7 +513,9 @@
     "option_b": "No, only methods can be accessed",
     "option_c": "No, only members (methods/fields) defined in the parent class are accessible",
     "option_d": "Yes, if cast to the subclass",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The reference type determines which members are visible. To see subclass-specific fields, you must cast the reference."
   },
   {
@@ -458,7 +529,9 @@
     "option_b": "Parent class method executes",
     "option_c": "Neither executes",
     "option_d": "Throws ClassCastException",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Static methods are not polymorphic. They are dispatched based on the reference type (Parent), not the object type."
   },
   {
@@ -472,7 +545,9 @@
     "option_b": "Explicitly call super(int) in its constructor",
     "option_c": "Initialize B's variables directly",
     "option_d": "A does not need to call super()",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Automatically added 'super()' only works if a zero-argument constructor exists in the parent."
   },
   {
@@ -486,7 +561,9 @@
     "option_b": "Yes, but only a different type of exception",
     "option_c": "Yes, using the 'throw' keyword again",
     "option_d": "Only if inside another try block",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Re-throwing is a common pattern to perform some logic (log error) and then let the caller handle the final outcome."
   },
   {
@@ -500,7 +577,9 @@
     "option_b": "Nothing is printed",
     "option_c": "Exception is thrown",
     "option_d": "System hangs",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "System.exit stops the JVM immediately. This is one of the rare cases where 'finally' does NOT execute."
   },
   {
@@ -514,7 +593,9 @@
     "option_b": "Yes, narrower or unchecked is allowed",
     "option_c": "Yes, but only if the signature adds 'throws'",
     "option_d": "No, RuntimeException is broader",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Overriding methods can throw any Unchecked Exception or a more specific Checked Exception than the parent."
   },
   {
@@ -528,7 +609,9 @@
     "option_b": "Yes, it is valid syntax",
     "option_c": "Yes, but results in a warning",
     "option_d": "Only if code is inside finally",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "A try/finally without catch is valid when you just want cleanup logic to run regardless of the block's outcome."
   },
   {
@@ -542,7 +625,10 @@
     "option_b": "protected",
     "option_c": "default (no modifier)",
     "option_d": "private",
-    "correct_options": ["A", "B"],
+    "correct_options": [
+      "A",
+      "B"
+    ],
     "explanation": "Public is visible everywhere; protected is visible in subclasses even in different packages."
   },
   {
@@ -556,7 +642,10 @@
     "option_b": "Final classes",
     "option_c": "Interfaces",
     "option_d": "Static classes",
-    "correct_options": ["A", "C"],
+    "correct_options": [
+      "A",
+      "C"
+    ],
     "explanation": "Abstract classes and Interfaces are specifically designed to be extended or implemented."
   },
   {
@@ -570,7 +659,9 @@
     "option_b": "To protect internal state and promote modularity",
     "option_c": "To increase speed of execution",
     "option_d": "To force subclasses to implement methods",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Encapsulation bundles data and methods, hiding the internal implementation and using public methods to control access."
   },
   {
@@ -584,7 +675,9 @@
     "option_b": "By increasing memory efficiency",
     "option_c": "By reducing the total number of classes in a project",
     "option_d": "By providing faster data access",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "When logic works with a superclass/interface reference, you can add new implementations later and existing logic will 'just work'."
   },
   {
@@ -598,7 +691,9 @@
     "option_b": "Association",
     "option_c": "Inheritance",
     "option_d": "Aggregation",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Inheritance represents the IS-A relationship (e.g., Cat IS-A Animal)."
   },
   {
@@ -612,7 +707,9 @@
     "option_b": "Focuses on 'what' the object does rather than 'how' it does it",
     "option_c": "Automatically generates documentation",
     "option_d": "Replaces the need for variables",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Abstraction hides complexity by focusing on the essential features of an object."
   },
   {
@@ -626,7 +723,9 @@
     "option_b": "Composition provides greater flexibility by allowing runtime behavior changes",
     "option_c": "Composition only works with interfaces",
     "option_d": "Inheritance is deprecated in modern Java",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Composition (HAS-A) avoids the rigid class hierarchy and 'fragile base class' problem of inheritance."
   },
   {
@@ -640,7 +739,9 @@
     "option_b": "Classes must have only one reason to change",
     "option_c": "Interfaces should be small",
     "option_d": "Objects should be created via factories",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "LSP ensures that inheriting classes do not break the expectations set by the parent class interface."
   },
   {
@@ -654,7 +755,9 @@
     "option_b": "Try-with-resources",
     "option_c": "Throws declaration",
     "option_d": "Manual null checks",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Try-with-resources (introduced in Java 7) automatically closes resources, preventing leaks and reducing boilerplate."
   },
   {
@@ -668,7 +771,9 @@
     "option_b": "Mark a method as obsolete",
     "option_c": "Inform the compiler that a method is intended to override a superclass method",
     "option_d": "Prevent other classes from overriding the method",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "@Override helps catch errors (like typos) at compile time if the signature doesn't match an inherited method."
   },
   {
@@ -682,7 +787,9 @@
     "option_b": "Treating a reference of one type as another type",
     "option_c": "Deleting an object",
     "option_d": "Multiplying class instances",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Upcasting (automatic) treats subclass as superclass; Downcasting (manual) treats superclass as subclass."
   },
   {
@@ -696,7 +803,9 @@
     "option_b": "To provide domain-specific error information",
     "option_c": "To make the program run faster",
     "option_d": "To bypass the JVM exception handler",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Creating your own exception classes allows you to provide more meaningful error context for specific application logic."
   }
 ]

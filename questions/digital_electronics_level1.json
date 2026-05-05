@@ -10,7 +10,9 @@
     "option_b": "8-bit",
     "option_c": "16-bit",
     "option_d": "32-bit",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The Intel 8085 is an 8-bit general-purpose microprocessor."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "Register C",
     "option_c": "Register A",
     "option_d": "Register L",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Register A is the accumulator where most arithmetic and logical operations store their results."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "Z (Zero)",
     "option_c": "P (Parity)",
     "option_d": "CY (Carry)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The Zero flag bit is 1 if the ALU result is zero, and 0 otherwise."
   },
   {
@@ -52,7 +58,11 @@
     "option_b": "WR (Write)",
     "option_c": "ALE (Address Latch Enable)",
     "option_d": "CLK OUT",
-    "correct_options": ["A", "B", "C"],
+    "correct_options": [
+      "A",
+      "B",
+      "C"
+    ],
     "explanation": "RD, WR, and ALE are key control signals for memory and I/O access."
   },
   {
@@ -66,7 +76,9 @@
     "option_b": "2 (PC and SP)",
     "option_c": "6 (B, C, D, E, H, L)",
     "option_d": "1 (Accumulator)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "While it's an 8-bit processor, the Program Counter (PC) and Stack Pointer (SP) are 16 bits long to address 64KB of memory."
   },
   {
@@ -80,7 +92,9 @@
     "option_b": "64 KB",
     "option_c": "1 MB",
     "option_d": "4 GB",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "With a 16-bit address bus, 2^16 = 65,536 bytes (64 KB) can be addressed."
   },
   {
@@ -94,7 +108,9 @@
     "option_b": "To de-multiplex the address/data bus (AD0-AD7)",
     "option_c": "To signal an interrupt",
     "option_d": "To provide a clock signal",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "ALE (Address Latch Enable) is used to capture the lower 8 bits of the address from the multiplexed AD bus."
   },
   {
@@ -108,7 +124,9 @@
     "option_b": "RST 7.5",
     "option_c": "TRAP",
     "option_d": "RST 5.5",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "TRAP is the highest priority non-maskable interrupt in the 8085."
   },
   {
@@ -122,7 +140,9 @@
     "option_b": "6",
     "option_c": "8",
     "option_d": "10",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 6 general-purpose registers are B, C, D, E, H, and L."
   },
   {
@@ -136,7 +156,9 @@
     "option_b": "HOLD",
     "option_c": "HLDA",
     "option_d": "INTR",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "The READY pin is used to synchronize the microprocessor with slower peripherals by adding wait states."
   },
   {
@@ -150,7 +172,9 @@
     "option_b": "Move Immediate",
     "option_c": "Move Variable Integer",
     "option_d": "Multiplication Value",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "MVI A, 32H moves the 8-bit value 32H directly into the Accumulator."
   },
   {
@@ -164,7 +188,9 @@
     "option_b": "I/O Read",
     "option_c": "Memory Write",
     "option_d": "I/O Write",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "IO/M' high selects I/O; RD' low selects Read."
   },
   {
@@ -178,7 +204,9 @@
     "option_b": "Stack Pointer",
     "option_c": "H-L Register Pair",
     "option_d": "Accumulator",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The Stack Pointer (SP) tracks the top of the stack in memory."
   },
   {
@@ -192,7 +220,9 @@
     "option_b": "+5 V",
     "option_c": "12 V",
     "option_d": "1.8 V",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The standard Intel 8085 operates on a single +5V DC power supply."
   },
   {
@@ -206,7 +236,9 @@
     "option_b": "A8-A15",
     "option_c": "D0-D7",
     "option_d": "ALE and WR",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "AD0-AD7 are used for both the lower 8 bits of the address and the 8 bits of data."
   },
   {
@@ -220,7 +252,9 @@
     "option_b": "AC",
     "option_c": "Z",
     "option_d": "S",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The Auxiliary Carry (AC) flag is used internally for BCD arithmetic instructions like DAA."
   },
   {
@@ -234,7 +268,9 @@
     "option_b": "16 bits",
     "option_c": "20 bits",
     "option_d": "32 bits",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The PC is 16 bits to store the address of the next instruction in memory."
   },
   {
@@ -248,7 +284,9 @@
     "option_b": "HOLD",
     "option_c": "READY",
     "option_d": "RESET IN",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "A master peripheral like a DMA controller places a high signal on the HOLD pin."
   },
   {
@@ -262,7 +300,9 @@
     "option_b": "0034H",
     "option_c": "003CH",
     "option_d": "002CH",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "TRAP (RST 4.5) has a vector address of 0024H."
   },
   {
@@ -276,7 +316,9 @@
     "option_b": "DE",
     "option_c": "HL",
     "option_d": "AF",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The HL register pair holds the 16-bit address for 'M' (Memory) operand operations."
   },
   {
@@ -290,7 +332,9 @@
     "option_b": "Loads the Accumulator with content of 2000H",
     "option_c": "Adds 2000H to Accumulator",
     "option_d": "Jumps to 2000H",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "STA stands for Store Accumulator Direct."
   },
   {
@@ -304,7 +348,9 @@
     "option_b": "4",
     "option_c": "6",
     "option_d": "10",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The opcode fetch cycle typically takes 4 T-states (T1, T2, T3, T4)."
   },
   {
@@ -318,7 +364,9 @@
     "option_b": "SID and SOD",
     "option_c": "AD0 and AD1",
     "option_d": "INTR and INTA",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "SID (Serial Input Data) and SOD (Serial Output Data) are dedicated pins for simple serial communication."
   },
   {
@@ -332,7 +380,9 @@
     "option_b": "The time required to complete one operation of accessing memory or I/O",
     "option_c": "The speed of the clock",
     "option_d": "One clock pulse",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "An instruction is composed of one or more machine cycles."
   },
   {
@@ -346,7 +396,9 @@
     "option_b": "0.5 microseconds",
     "option_c": "1 microsecond",
     "option_d": "3 microseconds",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "T = 1/f = 1 / (3 * 10^6) approx 333 nanoseconds or 0.33 microseconds."
   },
   {
@@ -360,7 +412,9 @@
     "option_b": "ALU",
     "option_c": "Register Array",
     "option_d": "Instruction Decoder",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The Arithmetic Logic Unit (ALU) performs all math and logic operations."
   },
   {
@@ -374,7 +428,9 @@
     "option_b": "40",
     "option_c": "64",
     "option_d": "80",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The Intel 8085 is a 40-pin Dual In-line Package (DIP) chip."
   },
   {
@@ -388,7 +444,9 @@
     "option_b": "INTR",
     "option_c": "TRAP",
     "option_d": "RST 6.5",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "INTR is a maskable, level-triggered interrupt."
   },
   {
@@ -402,7 +460,9 @@
     "option_b": "High level trigger",
     "option_c": "Handle logical truth",
     "option_d": "Hold lightning fast transfers",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "HLT stops the CPU until an interrupt or reset occurs."
   },
   {
@@ -416,7 +476,9 @@
     "option_b": "ORG (Origin)",
     "option_c": "EQU",
     "option_d": "DB",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "ORG 2000H tells the assembler to place the subsequent code starting at memory address 2000H."
   },
   {
@@ -430,7 +492,9 @@
     "option_b": "1, 1, 1",
     "option_c": "0, 0, 1",
     "option_d": "0, 1, 0",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "For Opcode Fetch: IO/M=0 (Memory), S1=1, S0=1."
   },
   {
@@ -444,7 +508,9 @@
     "option_b": "Little-Endian",
     "option_c": "Middle-Endian",
     "option_d": "Doesn't use bytes",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 8085 stores the lower byte at the lower address and the higher byte at the higher address."
   },
   {
@@ -458,7 +524,9 @@
     "option_b": "Address Bus",
     "option_c": "Control Bus",
     "option_d": "System Bus",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The address bus only flows from the CPU to external memory/IO."
   },
   {
@@ -472,7 +540,9 @@
     "option_b": "DAA",
     "option_c": "CMA",
     "option_d": "RAR",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "DAA (Decimal Adjust Accumulator) converts the binary result in the accumulator to BCD format."
   },
   {
@@ -486,7 +556,9 @@
     "option_b": "Instruction Cycle",
     "option_c": "T-State",
     "option_d": "Clock Pulse",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This is the complete process of processing a single instruction."
   },
   {
@@ -500,7 +572,9 @@
     "option_b": "Accumulator",
     "option_c": "Stack",
     "option_d": "Memory Pointed by HL",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Register A (Accumulator) is the default destination for arithmetic operations."
   },
   {
@@ -514,7 +588,9 @@
     "option_b": "CMC",
     "option_c": "ANA",
     "option_d": "ORI",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "CMA (Complement Accumulator) performs a 1's complement of the data in A."
   },
   {
@@ -528,7 +604,9 @@
     "option_b": "256",
     "option_c": "1024",
     "option_d": "65536",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "With an 8-bit port address bus (A0-A7 used for I/O), it can access 2^8 = 256 ports."
   },
   {
@@ -542,7 +620,9 @@
     "option_b": "PC is cleared to 0000H",
     "option_c": "Interrupts are disabled",
     "option_d": "All of the above",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "Reseting the processor initializes the PC and various internal states."
   },
   {
@@ -556,7 +636,9 @@
     "option_b": "Both High",
     "option_c": "RD Low, WR High",
     "option_d": "RD High, WR Low",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Since these are active-low signals, they stay high when inactive."
   },
   {
@@ -570,7 +652,9 @@
     "option_b": "MVI R, data",
     "option_c": "LXI Rp, d16",
     "option_d": "LDA addr",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "MOV B, C copies the content of register C to register B."
   },
   {
@@ -584,7 +668,9 @@
     "option_b": "5",
     "option_c": "8",
     "option_d": "3",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The five flags are S, Z, AC, P, and CY."
   },
   {
@@ -598,7 +684,9 @@
     "option_b": "To provide the master timing signal for all internal operations",
     "option_c": "To count the number of instructions",
     "option_d": "To manage interrupts",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "An external crystal oscillator is connected to X1 and X2 pins."
   },
   {
@@ -612,7 +700,9 @@
     "option_b": "Between T2 and T3",
     "option_c": "After T4",
     "option_d": "Before T1",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It is introduced between T2 and T3 to allow slow memory/I/O components to catch up."
   },
   {
@@ -626,7 +716,9 @@
     "option_b": "No",
     "option_c": "Depends on the version",
     "option_d": "Only for addition",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "8085 only supports integer operations; floating point must be implemented in software."
   },
   {
@@ -640,7 +732,9 @@
     "option_b": "2",
     "option_c": "3",
     "option_d": "4",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Jump instructions are 3-byte instructions (1 for opcode, 2 for address)."
   },
   {
@@ -654,7 +748,9 @@
     "option_b": "INTR",
     "option_c": "RST 5.5",
     "option_d": "RST 0",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "TRAP is highest; INTR is the lowest priority interrupt."
   },
   {
@@ -668,7 +764,9 @@
     "option_b": "Contents of the memory location pointed to by HL register pair",
     "option_c": "Multiple registers",
     "option_d": "Middle bit",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "M is a virtual register that references memory address [HL]."
   },
   {
@@ -682,7 +780,9 @@
     "option_b": "CISC",
     "option_c": "Neither",
     "option_d": "Both",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "8085 is a Complex Instruction Set Computer (CISC)."
   },
   {
@@ -696,49 +796,9 @@
     "option_b": "Adds A to A",
     "option_c": "Swaps high and low nibbles",
     "option_d": "Shifts A left",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Any value XOR'd with itself is 0, so XRA A is an efficient way to clear Register A and the carry flag."
-  },
-  {
-    "subject_name": "Microprocessors",
-    "level_number": 1,
-    "level_topic": "Architecture",
-    "question_type": "medium",
-    "timer_seconds": 30,
-    "question_text": "What is the function of the 'Instruction Decoder'?",
-    "option_a": "To clear memory",
-    "option_b": "To interpret the opcode and determine which control signals to activate",
-    "option_c": "To add numbers",
-    "option_d": "To store results",
-    "correct_options": ["B"],
-    "explanation": "The instruction decoder is the part of the control unit that translates instructions into actions."
-  },
-  {
-    "subject_name": "Microprocessors",
-    "level_number": 1,
-    "level_topic": "Addressing Modes",
-    "question_type": "medium",
-    "timer_seconds": 35,
-    "question_text": "What addressing mode is used in the instruction 'MOV A, B'?",
-    "option_a": "Direct Addressing",
-    "option_b": "Register Addressing",
-    "option_c": "Immediate Addressing",
-    "option_d": "Implicit Addressing",
-    "correct_options": ["B"],
-    "explanation": "Register addressing mode specifies that the source and destination are both internal registers."
-  },
-  {
-    "subject_name": "Microprocessors",
-    "level_number": 1,
-    "level_topic": "Addressing Modes",
-    "question_type": "medium",
-    "timer_seconds": 30,
-    "question_text": "What addressing mode is used in 'MVI A, 45H'?",
-    "option_a": "Direct Addressing",
-    "option_b": "Register Indirect Addressing",
-    "option_c": "Immediate Addressing",
-    "option_d": "Register Addressing",
-    "correct_options": ["C"],
-    "explanation": "In immediate addressing, the operand (data) is provided immediately after the opcode."
   }
 ]

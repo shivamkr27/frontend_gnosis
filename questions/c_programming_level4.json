@@ -10,7 +10,9 @@
     "option_b": "struct",
     "option_c": "union",
     "option_d": "object",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Struct is the keyword for creating a user-defined data type that groups different variables."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "*",
     "option_c": "->",
     "option_d": "&",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The arrow operator (->) is shorthand for dereferencing a pointer and accessing a member."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "Union members share the same memory location",
     "option_c": "Struct is for strings only",
     "option_d": "Unions are not allowed in C",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "In a union, all members start at the same memory address, whereas struct members are sequential."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "sizeof",
     "option_c": "lengthof",
     "option_d": "memsize",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "sizeof structure_name returns the total bytes required by that structure."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "1 bit (conceptually)",
     "option_c": "4 bytes",
     "option_d": "Compiler dependent",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Bit-fields allow specifying the exact number of bits used by a member."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "static",
     "option_c": "volatile",
     "option_d": "register",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "volatile prevents the compiler from optimizing out repeated reads/writes to hardware addresses."
   },
   {
@@ -94,7 +106,9 @@
     "option_b": "No",
     "option_c": "Only if defined as pointers",
     "option_d": "Only for recursive structs",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "C supports nesting of structures inside one another."
   },
   {
@@ -108,7 +122,9 @@
     "option_b": "Creates an alias for an existing type",
     "option_c": "Defines a new variable",
     "option_d": "Initializes a struct",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "typedef makes code cleaner by providing shorter names for complex types like structs."
   },
   {
@@ -122,7 +138,9 @@
     "option_b": "Data/BSS segment",
     "option_c": "Heap",
     "option_d": "Register file",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Global structs behave like global variables and are placed in data or BSS segments."
   },
   {
@@ -136,7 +154,9 @@
     "option_b": "65 ('A' in ASCII)",
     "option_c": "Crash",
     "option_d": "y is zero",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Unions share memory, so modifying x also affects the bytes seen through y."
   },
   {
@@ -150,7 +170,9 @@
     "option_b": "Non-used bytes added by compiler for alignment",
     "option_c": "Initial zeroing of struct",
     "option_d": "Buffer protection",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Compilers add padding bytes to ensure members are aligned on word boundaries for efficiency."
   },
   {
@@ -164,7 +186,9 @@
     "option_b": "Yes, including floats",
     "option_c": "Only with pointers",
     "option_d": "Yes, with structs",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Bit-fields must be declared using integral types."
   },
   {
@@ -178,7 +202,9 @@
     "option_b": "They allocate memory for only the largest member",
     "option_c": "They use short integers only",
     "option_d": "They reside in the registers",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The size of a union is determined by its largest component."
   },
   {
@@ -192,7 +218,9 @@
     "option_b": "7 (assuming unsigned)",
     "option_c": "15",
     "option_d": "depends on size of int",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "3 bits can store 2^3 colors (0-7 for unsigned)."
   },
   {
@@ -206,7 +234,9 @@
     "option_b": "A structure that inherits from itself",
     "option_c": "A structure with only one member",
     "option_d": "An illegal construct in C",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "These are used for Linked Lists and Trees (e.g., struct Node { struct Node *next; })."
   },
   {
@@ -220,7 +250,9 @@
     "option_b": "Saving disk space",
     "option_c": "Encapsulation",
     "option_d": "Recursive calls",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Aligned data can be fetched in fewer bus cycles by most processors."
   },
   {
@@ -234,7 +266,9 @@
     "option_b": "By reference always",
     "option_c": "Only pointers are passed",
     "option_d": "Recursive copying occurs",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Passing a struct directly creates a full copy of the entire structure."
   },
   {
@@ -248,7 +282,9 @@
     "option_b": "An unsized array as the last member of a struct",
     "option_c": "A dynamic array on stack",
     "option_d": "A pointer to an array",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Allows structs to have variable-sized data at the end (introduces C99)."
   },
   {
@@ -262,7 +298,9 @@
     "option_b": "#pragma nopad",
     "option_c": "struct_compact",
     "option_d": "tighten(struct)",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "__attribute__((packed)) tells the compiler to use minimum space, ignoring alignment."
   },
   {
@@ -276,7 +314,9 @@
     "option_b": "Yes, using &",
     "option_c": "Only if size is 8 bits",
     "option_d": "Only for char bit-fields",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "The & operator cannot be used on bit-fields because they may not start on a byte boundary."
   },
   {
@@ -290,7 +330,9 @@
     "option_b": "Order of bytes in multi-byte types (Big-Endian vs Little-Endian)",
     "option_c": "Padding inconsistency",
     "option_d": "Voltage levels",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Different systems store the most significant byte differently, affecting cross-hardware communication."
   },
   {
@@ -304,7 +346,9 @@
     "option_b": "8",
     "option_c": "4",
     "option_d": "16 (due to alignment)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Union size is the size of its largest member; alignment might increase it slightly but 8 is base."
   },
   {
@@ -318,7 +362,9 @@
     "option_b": "r = open_reg(0x4000);",
     "option_c": "Hard-coding in the struct definition",
     "option_d": "It's impossible in standard C",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Casting an integer literal to a struct pointer is standard for memory-mapped I/O."
   },
   {
@@ -332,7 +378,9 @@
     "option_b": "Directly accessing union members without naming the union",
     "option_c": "Naming conflicts",
     "option_d": "To hide data from debugger",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Anonymous unions allow members to be accessed like direct struct members."
   },
   {
@@ -346,7 +394,9 @@
     "option_b": "No, it causes infinite loop in memory",
     "option_c": "Only if defined as static",
     "option_d": "Only in C++",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Initialization works fine; the pointer just stores an address (or NULL)."
   },
   {
@@ -360,7 +410,9 @@
     "option_b": "offsetof",
     "option_c": "ptr_offset",
     "option_d": "memb_pos",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "offsetof from stddef.h provides the byte offset of a member within a struct."
   },
   {
@@ -374,7 +426,9 @@
     "option_b": "Forces alignment to the next storage unit boundary",
     "option_c": "Does nothing",
     "option_d": "Clears the struct",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "An unnamed bit-field with size 0 aligns the next field to a new underlying type boundary."
   },
   {
@@ -388,7 +442,9 @@
     "option_b": "Member-wise copy occurs (deep copy for non-pointers)",
     "option_c": "Error",
     "option_d": "Only first member is copied",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Assignment of structs performs a bitwise/member-wise copy of everything in the struct."
   },
   {
@@ -402,7 +458,9 @@
     "option_b": "After (includes padding)",
     "option_c": "Compiler chooses",
     "option_d": "Structure size never has padding",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "sizeof returns the total footprint in memory, including all alignment padding."
   },
   {
@@ -416,7 +474,9 @@
     "option_b": "The largest one",
     "option_c": "None, they are overlapped; previous data is corrupted",
     "option_d": "C has garbage collection for unions",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Unions do not manage 'active' members; writing to one just overwrites the common memory space."
   },
   {
@@ -430,7 +490,9 @@
     "option_b": "Padding",
     "option_c": "Left uninitialized",
     "option_d": "Cause a crash",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Compilers normally fill remaining bits in a word with padding or leave them unused."
   },
   {
@@ -444,7 +506,9 @@
     "option_b": "No, bit-fields don't have standard addresses",
     "option_c": "Only for single bits",
     "option_d": "Depends on the CPU",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Standard C forbids arrays of bit-fields because each element wouldn't have a byte-aligned address."
   },
   {
@@ -458,7 +522,9 @@
     "option_b": "20",
     "option_c": "Garbage",
     "option_d": "Error",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Struct assignment copies the values; they are independent copies in memory."
   },
   {
@@ -472,7 +538,9 @@
     "option_b": "A NULL pointer",
     "option_c": "A void struct",
     "option_d": "Illegal definition",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "0x0 is interpreted as NULL by the C standard for all pointer types."
   },
   {
@@ -486,7 +554,9 @@
     "option_b": "No, the compiler can reorder for space",
     "option_c": "Only for unions",
     "option_d": "Only for packing",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "The order of struct members in memory must match their declaration order (ignoring padding)."
   },
   {
@@ -500,7 +570,9 @@
     "option_b": "No, they contain garbage",
     "option_c": "Only the pointer is NULL",
     "option_d": "Only bit-fields are 0",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Automatic (local) structures, like primitive variables, are uninitialized by default."
   },
   {
@@ -514,7 +586,9 @@
     "option_b": "Recursive data types (links, trees)",
     "option_c": "Memory-mapped I/O registers",
     "option_d": "All of the above",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "Structs are versatile for grouping info, building complex nodes, and mapping hardware."
   },
   {
@@ -528,7 +602,9 @@
     "option_b": "Alignment padding",
     "option_c": "Member pointers",
     "option_d": "Recursive references",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Padding to align members with processor word boundaries increases struct size."
   },
   {
@@ -542,7 +618,9 @@
     "option_b": "Memory optimization (mutually exclusive data)",
     "option_c": "Both A and B",
     "option_d": "Faster file I/O",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Unions allow data interpretation in multiple ways and save space for items never used together."
   },
   {
@@ -556,7 +634,9 @@
     "option_b": "It makes the code faster",
     "option_c": "It prevents memory leaks",
     "option_d": "Hardware only accepts volatile data",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "volatile tells the compiler to reload the value from memory every time, as the hardware might have updated it."
   },
   {
@@ -570,7 +650,9 @@
     "option_b": "Higher precision for floats",
     "option_c": "Faster arithmetic",
     "option_d": "Automatic overflow checking",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Bit-fields pack multiple Boolean or small numeric values into a single memory word."
   },
   {
@@ -584,7 +666,9 @@
     "option_b": "Mapping Command/Status registers of peripherals",
     "option_c": "Browser development",
     "option_d": "SQL queries",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Structs provide a structured way to access fixed hardware memory layouts."
   },
   {
@@ -598,7 +682,9 @@
     "option_b": "By pointer (address)",
     "option_c": "Global copy",
     "option_d": "By copying to heap",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Passing a pointer avoids the overhead of copying every byte of a large structure."
   },
   {
@@ -612,7 +698,9 @@
     "option_b": "UML Diagrams",
     "option_c": "Bit-fields",
     "option_d": "Recursion",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "One can use bitwise operators (masking) or bit-fields to manipulate specific bits."
   },
   {
@@ -626,7 +714,11 @@
     "option_b": "Passing to a function by value",
     "option_c": "Comparison with '==' operator",
     "option_d": "Retrieving address with &",
-    "correct_options": ["A", "B", "D"],
+    "correct_options": [
+      "A",
+      "B",
+      "D"
+    ],
     "explanation": "C does not allow direct comparison of structs with '=='; you must compare members manually."
   },
   {
@@ -640,7 +732,11 @@
     "option_b": "Total size is size of its largest member",
     "option_c": "Provides type punning (accessing raw bytes differently)",
     "option_d": "Members are placed at sequential addresses",
-    "correct_options": ["A", "B", "C"],
+    "correct_options": [
+      "A",
+      "B",
+      "C"
+    ],
     "explanation": "Union members start at the SAME address, sequentially is for structures."
   },
   {
@@ -654,7 +750,12 @@
     "option_b": "union",
     "option_c": "enum",
     "option_d": "typedef",
-    "correct_options": ["A", "B", "C", "D"],
+    "correct_options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
     "explanation": "structs, unions, enums, and typedef are the building blocks of C custom types."
   },
   {
@@ -668,7 +769,11 @@
     "option_b": "Endianness might flip multi-byte data",
     "option_c": "Hardware might not allow byte-access (alignment)",
     "option_d": "The struct name is uploaded to the device",
-    "correct_options": ["A", "B", "C"],
+    "correct_options": [
+      "A",
+      "B",
+      "C"
+    ],
     "explanation": "Careful control over alignment and endianness is vital; names are just for the code."
   },
   {
@@ -682,7 +787,11 @@
     "option_b": "Basic unit of a Linked List",
     "option_c": "Can be nested infinitely by value",
     "option_d": "Used to describe tree hierarchies",
-    "correct_options": ["A", "B", "D"],
+    "correct_options": [
+      "A",
+      "B",
+      "D"
+    ],
     "explanation": "You cannot nest a struct inside itself by value (infinite size); you must use pointers."
   },
   {
@@ -696,7 +805,11 @@
     "option_b": "struct S s = { .a = 5 }; (Designated)",
     "option_c": "struct S s = s_other;",
     "option_d": "s = calloc(1, size);",
-    "correct_options": ["A", "B", "C"],
+    "correct_options": [
+      "A",
+      "B",
+      "C"
+    ],
     "explanation": "A, B, and C are declaration-time initializations. D is a runtime assignment."
   }
 ]

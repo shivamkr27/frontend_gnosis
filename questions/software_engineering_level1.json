@@ -10,7 +10,9 @@
     "option_b": "Waterfall",
     "option_c": "Spiral",
     "option_d": "Scrum",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "In Waterfall, each phase must be completed before the next one begins (Reqs -> Design -> Implementation -> Test)."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "A fixed-time period (typically 2-4 weeks) in which a specific set of work is completed",
     "option_c": "A person who writes code very fast",
     "option_d": "A document describing all features",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The Sprint is the heart of Scrum, focusing the team on delivering a 'done' increment of the product."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "Risk Analysis",
     "option_c": "Documentation size",
     "option_d": "Marketing",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The Spiral model is a risk-driven process model that combines elements of design and prototyping-in-stages."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "Functional defines 'what' the system does; Non-functional defines 'how' the system performs (quality attributes)",
     "option_c": "Functional requirements are code; non-functional are tests",
     "option_d": "There is no difference",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Functional: 'User can login'. Non-functional: 'Response time must be < 1s'."
   },
   {
@@ -66,7 +74,11 @@
     "option_b": "Deployment",
     "option_c": "Hardware Manufacturing",
     "option_d": "Maintenance",
-    "correct_options": ["A", "B", "D"],
+    "correct_options": [
+      "A",
+      "B",
+      "D"
+    ],
     "explanation": "Requirements, Analysis, Design, Implementation, Testing, Deployment, and Maintenance are standard SDLC phases."
   },
   {
@@ -80,7 +92,9 @@
     "option_b": "To find bugs and ensure quality",
     "option_c": "To write documentation",
     "option_d": "To sell the software",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Testing aims to uncover defects and verify that requirements are met."
   },
   {
@@ -94,7 +108,9 @@
     "option_b": "System Testing",
     "option_c": "Unit Testing",
     "option_d": "Acceptance Testing",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Unit testing is performed by developers to verify the logic of a single function or class."
   },
   {
@@ -108,7 +124,9 @@
     "option_b": "Achievable",
     "option_c": "Accurate",
     "option_d": "Automated",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "SMART stands for Specific, Measurable, Achievable, Relevant, and Time-bound."
   },
   {
@@ -122,7 +140,9 @@
     "option_b": "Product Backlog",
     "option_c": "Requirement Spec",
     "option_d": "Design Document",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The Product Backlog is a dynamic list of everything that might be needed in the product."
   },
   {
@@ -136,7 +156,9 @@
     "option_b": "Corrective Maintenance",
     "option_c": "Perfective Maintenance",
     "option_d": "Preventive Maintenance",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Corrective maintenance addresses actual faults in the system."
   },
   {
@@ -150,7 +172,9 @@
     "option_b": "Adaptive",
     "option_c": "Perfective",
     "option_d": "Preventive",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Adaptive maintenance is about staying compatible with external changes."
   },
   {
@@ -164,7 +188,9 @@
     "option_b": "The ease with which software can be moved from one environment to another",
     "option_c": "The size of the installer",
     "option_d": "The number of users supported",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Portability is a key non-functional requirement for cross-platform apps."
   },
   {
@@ -178,7 +204,9 @@
     "option_b": "To help users understand and clarify requirements",
     "option_c": "To test the hardware",
     "option_d": "To train the developers",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Prototypes are mock-ups used to gather feedback early in the design phase."
   },
   {
@@ -192,7 +220,9 @@
     "option_b": "The degree to which elements within a module belong together",
     "option_c": "The speed of module execution",
     "option_d": "The number of lines in a module",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "High cohesion is desirable as it indicates a module has a single, well-defined purpose."
   },
   {
@@ -206,7 +236,9 @@
     "option_b": "The measure of interdependence between software modules",
     "option_c": "The process of joining two programmers",
     "option_d": "The length of the module",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Low coupling is desirable as it makes modules easier to change independently."
   },
   {
@@ -220,7 +252,9 @@
     "option_b": "Process or Transformation",
     "option_c": "External Entity",
     "option_d": "Data Flow",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Circles represent functions or processes that transform input data into output."
   },
   {
@@ -234,7 +268,9 @@
     "option_b": "Software Requirements Specification",
     "option_c": "System Requirement Spreadsheet",
     "option_d": "Standardized Review Set",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The SRS is the foundational document that describes what the software should do."
   },
   {
@@ -248,7 +284,9 @@
     "option_b": "To synchronize activities and identify blockers",
     "option_c": "To perform code reviews",
     "option_d": "To plan the next sprint",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It's a short synchronization meeting for the development team."
   },
   {
@@ -262,7 +300,9 @@
     "option_b": "Verification is 'Are we building the product right?'; Validation is 'Are we building the right product?'",
     "option_c": "Verification is automated; Validation is manual",
     "option_d": "Verification happens at the end; Validation happens at the start",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Verification ensures the product matches designs/specs. Validation ensures it meets user needs."
   },
   {
@@ -276,7 +316,9 @@
     "option_b": "Gantt Chart",
     "option_c": "Scatter Plot",
     "option_d": "Flowchart",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Gantt charts visualize the start and finish dates of the terminal elements and summary elements of a project."
   },
   {
@@ -290,7 +332,9 @@
     "option_b": "Makes the system easier to understand, develop, and maintain",
     "option_c": "Reduces the number of lines of code",
     "option_d": "Removes the need for testing",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Dividing a system into modules reduces complexity by creating smaller, more manageable units."
   },
   {
@@ -304,7 +348,9 @@
     "option_b": "User Acceptance Testing (UAT)",
     "option_c": "Integration Testing",
     "option_d": "Code Review",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The V-model links development phases to their corresponding testing phases."
   },
   {
@@ -318,7 +364,9 @@
     "option_b": "An informal, natural language description of one or more features from an end-user perspective",
     "option_c": "A biography of the founder",
     "option_d": "A training manual",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "User stories are a primary way requirements are captured in Agile."
   },
   {
@@ -332,7 +380,9 @@
     "option_b": "Constructive Cost Model",
     "option_c": "Computerized Cost Model",
     "option_d": "Complex Coding Model",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "COCOMO is an algorithmic software cost estimation model."
   },
   {
@@ -346,7 +396,9 @@
     "option_b": "Spiral",
     "option_c": "Prototyping",
     "option_d": "Build and Fix",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The Spiral model's heavy focus on risk analysis makes it ideal for complex projects."
   },
   {
@@ -360,7 +412,9 @@
     "option_b": "QA is process-oriented (preventing defects); QC is product-oriented (identifying defects)",
     "option_c": "QA is done by clients; QC is done by developers",
     "option_d": "QA is automated; QC is manual",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "QA focuses on the process of building the product, while QC focuses on the final product."
   },
   {
@@ -374,7 +428,9 @@
     "option_b": "Re-running functional and non-functional tests to ensure that previously developed and tested software still performs after a change",
     "option_c": "Testing the software with random inputs",
     "option_d": "Testing the hardware compatibility",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It ensures that 'bug fixes' or 'updates' don't break existing functionality."
   },
   {
@@ -388,7 +444,9 @@
     "option_b": "Starting with the overall system view and breaking it into sub-systems",
     "option_c": "Focusing only on the UI",
     "option_d": "Focusing only on the database",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Top-down decomposition handles complexity by refining a high-level view into detailed parts."
   },
   {
@@ -402,7 +460,9 @@
     "option_b": "Testing with full access to the source code",
     "option_c": "Testing the physical hardware",
     "option_d": "Testing in the dark",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Black box testing focuses on functional requirements (input vs output)."
   },
   {
@@ -416,7 +476,9 @@
     "option_b": "Testing with knowledge of the internal logic and code structure",
     "option_c": "Testing done by users",
     "option_d": "Testing with empty files",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "White box testing (or clear box) involves checking the code paths and internal logic."
   },
   {
@@ -430,7 +492,9 @@
     "option_b": "The uncontrolled growth or continuous change in a project's scope",
     "option_c": "A type of software bug",
     "option_d": "Moving the project to a new server",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Scope creep typically happens when requirements are not clearly defined or managed."
   },
   {
@@ -444,7 +508,9 @@
     "option_b": "To manage changes to source code over time and allow collaboration",
     "option_c": "To encrypt the final product",
     "option_d": "To host the marketing website",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Version control allows tracking history, branching, and merging collaborative work."
   },
   {
@@ -458,7 +524,9 @@
     "option_b": "The number of independent paths through a program's source code",
     "option_c": "The amount of memory used",
     "option_d": "The number of users",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It helps in determining the number of test cases needed to cover every logic path."
   },
   {
@@ -472,7 +540,9 @@
     "option_b": "Restructuring existing code without changing its external behavior",
     "option_c": "Deleting the entire project",
     "option_d": "Writing the documentation",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Refactoring improves code readability, maintainability, and complexity."
   },
   {
@@ -486,7 +556,9 @@
     "option_b": "Product Owner",
     "option_c": "Developer",
     "option_d": "Project Manager",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The Product Owner prioritizes the backlog based on business value."
   },
   {
@@ -500,7 +572,9 @@
     "option_b": "Unified Modeling Language",
     "option_c": "Unit Management Level",
     "option_d": "User Map Logic",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "UML is a standardized way to visualize system architecture and design."
   },
   {
@@ -514,7 +588,9 @@
     "option_b": "A process where developers check each others' work for errors or quality issues",
     "option_c": "Managers checking the progress",
     "option_d": "Comparing with competitors",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Code reviews are a critical part of maintaining a high-quality codebase."
   },
   {
@@ -528,7 +604,9 @@
     "option_b": "A collection of programs, documentation, and configuration data",
     "option_c": "The internet",
     "option_d": "A type of hardware",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Software is more than just code; it includes everything that makes the code usable."
   },
   {
@@ -542,7 +620,9 @@
     "option_b": "Maintainability",
     "option_c": "Reliability",
     "option_d": "Usability",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Maintainability covers testability, modifiability, and reusability."
   },
   {
@@ -556,7 +636,9 @@
     "option_b": "Software Design Description",
     "option_c": "System Data Diagram",
     "option_d": "Software Development Details",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The SDD describes how the software system will be structured to satisfy requirements."
   },
   {
@@ -570,7 +652,9 @@
     "option_b": "Prototyping Model",
     "option_c": "Iterative Model",
     "option_d": "Big Bang Model",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Prototyping helps in early validation with users."
   },
   {
@@ -584,7 +668,9 @@
     "option_b": "The sequence of tasks that determines the shortest time possible to complete the project",
     "option_c": "A list of dangerous bugs",
     "option_d": "The path to the server",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Any delay in the critical path tasks results in a delay of the entire project."
   },
   {
@@ -598,7 +684,9 @@
     "option_b": "End-users or Clients",
     "option_c": "Project Managers",
     "option_d": "Hardware Engineers",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It's the final stage before 'Go Live' to ensure the product satisfies business requirements."
   },
   {
@@ -612,7 +700,9 @@
     "option_b": "Testing by the internal development team inside the organization",
     "option_c": "Testing on mobile devices",
     "option_d": "The first test ever done",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Alpha testing is 'internal' acceptance testing."
   },
   {
@@ -626,7 +716,9 @@
     "option_b": "Testing done by a select group of actual users in a 'real-world' environment",
     "option_c": "Testing for performance only",
     "option_d": "A second round of unit testing",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Beta testing gather feedback from real users before official release."
   },
   {
@@ -640,7 +732,9 @@
     "option_b": "Maximum Time Before Fix",
     "option_c": "Maintainability Testing Base Frequency",
     "option_d": "Measured Total Bug Factor",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "MTBF is a statistical measure of how reliable a system is."
   },
   {
@@ -654,7 +748,9 @@
     "option_b": "Temporary dummy modules that simulate the behavior of lower-level components",
     "option_c": "Broken pieces of code",
     "option_d": "Test reports",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Stubs allow testing the high-level logic before low-level parts are ready."
   },
   {
@@ -668,7 +764,9 @@
     "option_b": "Special modules that trigger or 'drive' the test on lower-level components",
     "option_c": "Testers who drive to the office",
     "option_d": "Documentation tools",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Drivers substitute for high-level logic to test utility modules."
   },
   {
@@ -682,7 +780,9 @@
     "option_b": "Difficult to accommodate changes late in the project",
     "option_c": "Requires no documentation",
     "option_d": "Only for small teams",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Because it's linear, returning to a previous stage is very costly."
   },
   {
@@ -696,7 +796,9 @@
     "option_b": "The application of engineering principles to software development",
     "option_c": "Hackathon culture",
     "option_d": "A way to avoid hardware books",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It emphasizes discipline, professional processes, and measurable quality."
   }
 ]

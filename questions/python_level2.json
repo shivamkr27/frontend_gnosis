@@ -10,7 +10,9 @@
     "option_b": "except",
     "option_c": "error",
     "option_d": "throws",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Python uses 'try...except' blocks for exception handling."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "A tuple of variable positional arguments",
     "option_c": "A list of required arguments",
     "option_d": "A pointer to an array",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "*args allows a function to accept any number of positional arguments which are gathered into a tuple."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "with open('file.txt', 'r') as f:",
     "option_c": "f = open('file.txt'); read(f)",
     "option_d": "read_file('file.txt')",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 'with' statement (context manager) ensures the file is closed automatically after the block."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "An anonymous, one-line function",
     "option_c": "A function that returns multiple values",
     "option_d": "A high-order generator",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Lambda expressions allow you to create small, one-off, anonymous functions."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "5",
     "option_c": "6",
     "option_d": "IndexError",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The list comprehension produces [6, 7, 8, 9]. The element at index 0 is 6."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "[1, 2, 3]",
     "option_c": "[1, 3]",
     "option_d": "Error",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Converting a list to a set removes duplicates. Converting back to a list gives the unique elements."
   },
   {
@@ -94,7 +106,11 @@
     "option_b": ".extend()",
     "option_c": ".insert()",
     "option_d": ".add()",
-    "correct_options": ["A", "B", "C"],
+    "correct_options": [
+      "A",
+      "B",
+      "C"
+    ],
     "explanation": ".append adds one item, .extend adds an iterable, .insert adds at a specific index. .add is for sets."
   },
   {
@@ -108,7 +124,9 @@
     "option_b": "A mechanism that allows only one thread to execute bytecode at a time",
     "option_c": "A memory management system",
     "option_d": "An encryption standard",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The GIL is a mutex that prevents multiple native threads from executing Python bytecodes at once."
   },
   {
@@ -122,7 +140,9 @@
     "option_b": "d.keys()",
     "option_c": "d.get_keys()",
     "option_d": "keys(d)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The keys() method returns a view object that displays a list of all the keys in the dictionary."
   },
   {
@@ -136,7 +156,9 @@
     "option_b": "Accessing a range of elements from a sequence",
     "option_c": "Splitting a string by space",
     "option_d": "A way to sort data",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Slicing uses the [start:stop:step] syntax to extract portions of sequences like lists or strings."
   },
   {
@@ -150,7 +172,9 @@
     "option_b": "__new__",
     "option_c": "constructor",
     "option_d": "main",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "The __init__ method is called when an object is created from a class and allows it to initialize the attributes."
   },
   {
@@ -164,7 +188,9 @@
     "option_b": "The instance of the class",
     "option_c": "A global variable",
     "option_d": "The first attribute",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "'self' represents the instance of the object itself, allowing access to its attributes and methods."
   },
   {
@@ -178,7 +204,9 @@
     "option_b": "__my_attr",
     "option_c": "_my_attr",
     "option_d": "my_attr!",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Attributes with a double underscore prefix are subject to name mangling to hinder external access."
   },
   {
@@ -192,7 +220,9 @@
     "option_b": "Iterates over multiple iterables in parallel, yielding tuples",
     "option_c": "Combines strings with a delimiter",
     "option_d": "Fast-forwards a loop",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "zip() is a built-in function that takes iterables and aggregates them into an iterator of tuples."
   },
   {
@@ -206,7 +236,9 @@
     "option_b": "A concise way to create lists using a single line of code",
     "option_c": "A list that contains other lists",
     "option_d": "Checking if an element is in a list",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "List comprehensions provide a short syntax for creating a new list based on existing sequences."
   },
   {
@@ -220,7 +252,9 @@
     "option_b": "Raises a KeyError",
     "option_c": "Creates the key automatically",
     "option_d": "Returns 0",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Direct access with brackets raises an error if the key is missing; use d.get(key) to avoid this."
   },
   {
@@ -234,7 +268,9 @@
     "option_b": "To execute code regardless of whether an exception was raised or not",
     "option_c": "To end the program",
     "option_d": "To skip the error",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The finally block is often used for cleanup actions, like closing files."
   },
   {
@@ -248,7 +284,9 @@
     "option_b": "Creating a new class based on an existing class",
     "option_c": "Hiding internal data",
     "option_d": "Sharing variables between functions",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Inheritance allows a child class to inherit attributes and methods from a parent class."
   },
   {
@@ -262,7 +300,9 @@
     "option_b": "Imports the math module and gives it the alias 'm'",
     "option_c": "Imports a module named 'm'",
     "option_d": "Error",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 'as' keyword is used to create an alias for a module to make it easier or shorter to reference."
   },
   {
@@ -276,7 +316,9 @@
     "option_b": "'abc'",
     "option_c": "'a b c'",
     "option_d": "Error",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The join() method takes all items in an iterable and joins them into one string using the delimiter (' ')."
   },
   {
@@ -290,7 +332,9 @@
     "option_b": "list(L)",
     "option_c": "import copy; copy.deepcopy(L)",
     "option_d": "L[:]",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "deepcopy() handles nested objects, ensuring the entire structure is copied independently."
   },
   {
@@ -304,7 +348,9 @@
     "option_b": "Optional keyword and positional arguments",
     "option_c": "To pass a variable number of positional or keyword arguments",
     "option_d": "Naming constants",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "They allow a function to accept any number of extra arguments."
   },
   {
@@ -318,7 +364,9 @@
     "option_b": "A function that returns an iterator which yields values one by one using 'yield'",
     "option_c": "A ways to name files",
     "option_d": "A massive list",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Generators are memory-efficient because they produce values on the fly rather than storing them in a list."
   },
   {
@@ -332,7 +380,9 @@
     "option_b": "Applies a given function to each item of an iterable",
     "option_c": "Finds a value in a list",
     "option_d": "Sorts a dictionary",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "map(function, iterable) returns an iterator that applies the function to each element."
   },
   {
@@ -346,7 +396,9 @@
     "option_b": "Constructs an iterator from elements of an iterable for which a function returns true",
     "option_c": "Cleans the console",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "filter(function, iterable) extracts elements that satisfy the condition."
   },
   {
@@ -360,7 +412,9 @@
     "option_b": "A function that takes another function and extends its behavior without explicitly modifying it",
     "option_c": "A ways to name variables",
     "option_d": "A training system",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Decorators use the @ notation to wrap a function with additional logic."
   },
   {
@@ -374,7 +428,9 @@
     "option_b": "Hiding data",
     "option_c": "Deleting objects",
     "option_d": "A math library",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Polymorphism allows methods to behave differently based on the object calling them."
   },
   {
@@ -388,7 +444,9 @@
     "option_b": "It automatically closes the file even if an exception occurs",
     "option_c": "It encrypts the file",
     "option_d": "It finds the file faster",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The context manager protocol ensures resources are released properly."
   },
   {
@@ -402,7 +460,9 @@
     "option_b": "Formatted string literal; a way to embed expressions inside string literals",
     "option_c": "A fixed string",
     "option_d": "A function for strings",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "f-strings (f'...') are the most efficient and readable way to format strings in modern Python."
   },
   {
@@ -416,7 +476,9 @@
     "option_b": "Returns a proxy object that delegates method calls to a parent or sibling class",
     "option_c": "Deletes the class",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "super() is commonly used in __init__ to call the parent's constructor."
   },
   {
@@ -430,7 +492,9 @@
     "option_b": "False",
     "option_c": "None",
     "option_d": "Error",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "a and b are two different objects in memory, despite having the same values."
   },
   {
@@ -444,7 +508,9 @@
     "option_b": "re",
     "option_c": "regex",
     "option_d": "standard_re",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 're' module provides support for regular expressions."
   },
   {
@@ -458,7 +524,9 @@
     "option_b": "json",
     "option_c": "jsontool",
     "option_d": "none",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 'json' module provides methods for parsing and creating JSON."
   },
   {
@@ -472,7 +540,9 @@
     "option_b": "Adds a counter to an iterable and returns it as an enumerate object",
     "option_c": "Deletes every second item",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It's perfect for getting both the index and the value in a loop: for i, val in enumerate(list)."
   },
   {
@@ -486,7 +556,9 @@
     "option_b": "intersection",
     "option_c": "difference",
     "option_d": "symmetric_difference",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The intersection() method or & operator returns a set of shared elements."
   },
   {
@@ -500,7 +572,9 @@
     "option_b": "A method that is bound to the class and not the instance, taking 'cls' as the first argument",
     "option_c": "A method for private use",
     "option_d": "A training tool",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Class methods can access and modify class state that applies across all instances."
   },
   {
@@ -514,7 +588,9 @@
     "option_b": "A method that doesn't receive an implicit first argument (neither self nor cls)",
     "option_c": "A slow method",
     "option_d": "A training session",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Static methods behave like plain functions but belong to the class's namespace."
   },
   {
@@ -528,7 +604,9 @@
     "option_b": "False",
     "option_c": "None",
     "option_d": "Error",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Any non-empty string evaluates to True, even the string 'False'."
   },
   {
@@ -542,7 +620,9 @@
     "option_b": "raise Error",
     "option_c": "catch Error",
     "option_d": "trigger Error",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 'raise' keyword is used to raise a specific exception."
   },
   {
@@ -556,7 +636,9 @@
     "option_b": "threading",
     "option_c": "parallel",
     "option_d": "multi",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The threading module provides higher-level threading interfaces."
   },
   {
@@ -570,7 +652,9 @@
     "option_b": "Extracting values from an iterable into multiple variables, e.g., a, b = (1, 2)",
     "option_c": "Deleting memory",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Unpacking is a efficient way to assign variables from lists or tuples."
   },
   {
@@ -584,7 +668,9 @@
     "option_b": "Runs if the loop is broken",
     "option_c": "Runs every iteration",
     "option_d": "Error",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "The else block in a loop executes only if the loop was not terminated by a break statement."
   },
   {
@@ -598,7 +684,9 @@
     "option_b": "requests",
     "option_c": "net",
     "option_d": "url",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "'requests' is the most popular third-party library for making HTTP calls (though 'urllib' is in the stdlib)."
   },
   {
@@ -612,7 +700,9 @@
     "option_b": "Serializing and de-serializing Python objects into a byte stream",
     "option_c": "Cleaning code",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The pickle module is used for saving complex Python objects to disk."
   },
   {
@@ -626,7 +716,9 @@
     "option_b": "s.lower()",
     "option_c": "lower(s)",
     "option_d": "s.low()",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The lower() string method returns a lowercased copy of the string."
   },
   {
@@ -640,7 +732,9 @@
     "option_b": "d1 | d2",
     "option_c": "d1 + d2",
     "option_d": "merge(d1, d2)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Python 3.9 introduced the union operator (|) for dictionaries."
   },
   {
@@ -654,7 +748,9 @@
     "option_b": "apele",
     "option_c": "apple",
     "option_d": "Error",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "replace(old, new) replaces occurrences of the old substring with the new one."
   },
   {
@@ -668,7 +764,9 @@
     "option_b": "sys",
     "option_c": "os",
     "option_d": "terminal",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "sys.argv contains the command-line arguments passed to a Python script."
   },
   {
@@ -682,7 +780,9 @@
     "option_b": "4",
     "option_c": "3.5",
     "option_d": "Error",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "In Python 3, round(3.5) rounds to the nearest even number if exactly in between, which is 4."
   },
   {
@@ -696,7 +796,9 @@
     "option_b": "range(2, 10)",
     "option_c": "range(0, 10, 1)",
     "option_d": "none of the above",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "range(start, stop, step) generates numbers from start to stop-1 with the given step."
   }
 ]

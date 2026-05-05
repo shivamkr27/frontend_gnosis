@@ -10,7 +10,9 @@
     "option_b": "To exponentially increase the congestion window (cwnd) until a threshold (ssthresh) is reached",
     "option_c": "To reduce the speed of the sender during errors",
     "option_d": "To wait for a slow receiver",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Slow start quickly discovers the available bandwidth by doubling the cwnd every RTT."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "It doubles the transmission speed",
     "option_c": "It sends packets even if the receiver is not ready",
     "option_d": "It deletes the congestion window",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Fast retransmit speeds up loss recovery by inferring a lost packet from out-of-order ACKs."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "Header Checksum",
     "option_c": "Payload Length",
     "option_d": "Hop Limit",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "IPv6 removed the header checksum to improve routing performance (Layer 2 and 4 already handle error checking)."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "Dijkstra",
     "option_c": "RIP",
     "option_d": "Dual",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "OSPF is a Link State protocol that uses the Shortest Path First (SPF/Dijkstra) algorithm."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "Transport mode encrypts only the payload; Tunnel mode encrypts the entire IP packet including the original header",
     "option_c": "Tunnel mode is faster than Transport mode",
     "option_d": "There is no difference",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Tunnel mode is typically used for site-to-site VPNs because it hides the original source/destination IPs."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "Opening many connections at once",
     "option_c": "Reusing the same IP twice",
     "option_d": "Compressing the HTTP header",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Pipelining allows multiple HTTP requests to be sent on a single TCP connection without waiting for ACKs between them."
   },
   {
@@ -94,7 +106,9 @@
     "option_b": "To negotiate encryption algorithms and share keys before data transmission begins",
     "option_c": "To close the connection safely",
     "option_d": "To check for viruses in the data",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The TLS handshake establishes a secure session using asymmetric cryptography (like RSA or Diffie-Hellman)."
   },
   {
@@ -108,7 +122,9 @@
     "option_b": "Variation in the delay of received packets, which can cause poor quality in real-time voice and video",
     "option_c": "The speed of the network",
     "option_d": "A physical bug in the router",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "High jitter requires a 'jitter buffer' at the receiver to smooth out packet playback."
   },
   {
@@ -122,7 +138,9 @@
     "option_b": "A technique that allows subnets to have different masks, enabling efficient use of the IP address space",
     "option_c": "Changing the IP address every hour",
     "option_d": "A way to hide subnets",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "VLSM allows you to allocate addresses based on the specific number of hosts needed in each subnet."
   },
   {
@@ -136,7 +154,9 @@
     "option_b": "Congestion avoidance by periodically dropping packets before the queue becomes completely full, signaling senders to slow down",
     "option_c": "Finding the fastest route",
     "option_d": "Randomly selecting a port",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "RED prevents 'Global Synchronization' of TCP flows and manages queue size proactively."
   },
   {
@@ -150,7 +170,9 @@
     "option_b": "Performs functions similar to ARP (address resolution) and ICMP Router Discovery",
     "option_c": "Encrypts data for neighbors",
     "option_d": "Calculates the distance between nodes",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "NDP is the replacement for ARP and ICMP redirected messages in the IPv6 world."
   },
   {
@@ -164,7 +186,9 @@
     "option_b": "15 hops",
     "option_c": "255 hops",
     "option_d": "10 hops",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "RIP uses hop count as a metric; a value of 16 means the destination is unreachable."
   },
   {
@@ -178,7 +202,9 @@
     "option_b": "A method to prevent loops by not sending routing information back out of the interface it was received on",
     "option_c": "Splitting a packet into two",
     "option_d": "Routing data in two directions",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Split Horizon is a critical loop-prevention mechanism for protocols like RIP."
   },
   {
@@ -192,7 +218,9 @@
     "option_b": "A server that does all the work of finding the IP address by querying and following the DNS hierarchy on behalf of the client",
     "option_c": "A server that only stores local names",
     "option_d": "A type of firewall",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The resolver acts as the middleman between the user's computer and the global DNS servers."
   },
   {
@@ -206,7 +234,9 @@
     "option_b": "A property of key-agreement protocols that ensures session keys are not compromised even if the private key of the server is stolen later",
     "option_c": "Passwords that never expire",
     "option_d": "A way to encrypt files forever",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "PFS (usually using Diffie-Hellman) ensures that past traffic cannot be decrypted even if keys are leaked today."
   },
   {
@@ -220,7 +250,9 @@
     "option_b": "NAT Overload",
     "option_c": "Dynamic NAT",
     "option_d": "Proxy NAT",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "PAT allows multiple devices on a local network to share a single public IP by using unique port numbers for each connection."
   },
   {
@@ -234,7 +266,9 @@
     "option_b": "The maximum amount of data in a TCP segment that a host can receive, negotiated during the handshake",
     "option_c": "The speed of the network",
     "option_d": "The number of users on a port",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "MSS helps avoid IP fragmentation by matching segment size to the network's MTU."
   },
   {
@@ -248,7 +282,9 @@
     "option_b": "IPS actively stops detected attacks in real-time; IDS only monitors and alerts on suspicious activity",
     "option_c": "IPS is for software only",
     "option_d": "There is no difference",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Modern firewalls often integrate IPS functionality to drop malicious packets automatically."
   },
   {
@@ -262,7 +298,9 @@
     "option_b": "Data Link Layer",
     "option_c": "Network Layer",
     "option_d": "Application Layer",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Layer 1 defines all hardware-level specifications."
   },
   {
@@ -276,7 +314,9 @@
     "option_b": "Update",
     "option_c": "Keepalive",
     "option_d": "Notification",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The BGP Update message is the core mechanism for distributing routing changes across the internet."
   },
   {
@@ -290,7 +330,9 @@
     "option_b": "To allow for receive window sizes larger than 64KB for high-bandwidth/high-latency links (Long Fat Pipes)",
     "option_c": "To scale the website's window globally",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Standard 16-bit window field is too small for modern fast networks; scaling allows for windows up to 1GB."
   },
   {
@@ -304,7 +346,9 @@
     "option_b": "To forward DHCP requests between clients and servers when they are on different IP subnets",
     "option_c": "To assign a static IP to everyone",
     "option_d": "To encrypt DHCP traffic",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Broadcast DHCP requests can't cross routers without a relay agent."
   },
   {
@@ -318,7 +362,9 @@
     "option_b": "A firewall that keeps track of the state of active connections and makes decisions based on established communication flows",
     "option_c": "A firewall that reboots every hour",
     "option_d": "A firewall for text files only",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Stateful firewalls are more secure than simple packet filters as they understand context (e.g., denying an unsolicited packet)."
   },
   {
@@ -332,7 +378,9 @@
     "option_b": "Management Information Base",
     "option_c": "Multi-Interface Bridge",
     "option_d": "Maintenance Inspection Board",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The MIB is a database of objects that can be monitored or managed in a network device."
   },
   {
@@ -346,7 +394,9 @@
     "option_b": "When a single lost packet causes all subsequent received packets to be buffered, delaying delivery to the application until the missing one is retransmitted",
     "option_c": "A security policy in firewalls",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "TCP ensures in-order delivery; this property creates a bottleneck if a packet is lost in a multi-stream connection."
   },
   {
@@ -360,7 +410,9 @@
     "option_b": "Consolidating multiple smaller route entries into a single advertisement to reduce the size of routing tables",
     "option_c": "Simplifying the code for routing",
     "option_d": "Deleting unused routes",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Supernetting prevents routing tables from becoming unmanageably large."
   },
   {
@@ -374,7 +426,9 @@
     "option_b": "TFTP uses UDP and has no login/authentication, designed for simple bootloading or config transfers",
     "option_c": "TFTP is faster than regular FTP but more secure",
     "option_d": "TFTP requires a dedicated physical cable",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Trivial File Transfer Protocol (TFTP) is extremely simple and suitable for devices with low memory."
   },
   {
@@ -388,7 +442,9 @@
     "option_b": "Forwarding a frame immediately after reading the destination MAC address, without waiting for the whole frame",
     "option_c": "Stopping the switch manually",
     "option_d": "A type of firewall bypass",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Cut-through is minimal latency but doesn't check for errors (FCS)."
   },
   {
@@ -402,7 +458,9 @@
     "option_b": "Differentiated Services Code Point",
     "option_c": "Digital Segment Communication Port",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The DSCP field in the IP header is used to mark packets for specific priority treatment in a network."
   },
   {
@@ -416,7 +474,9 @@
     "option_b": "Main Transfer Utility",
     "option_c": "Minimum Tier Unit",
     "option_d": "Master Traffic Universal",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "The MTU is the largest size packet or frame that can be sent in a single network transaction."
   },
   {
@@ -430,7 +490,9 @@
     "option_b": "To synchronize the clocks of computers on a network to a common reference time",
     "option_c": "To set timers in a database",
     "option_d": "To schedule social media posts",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "NTP ensures consistent time stamps for logs, transactions, and security protocols."
   },
   {
@@ -444,7 +506,9 @@
     "option_b": "The method of carrying multiple VLANs over a single physical link by adding meta-information (tags)",
     "option_c": "A way to merge two VLANs into one",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Trunking allows switches to share multiple VLANs across a single cable."
   },
   {
@@ -458,7 +522,9 @@
     "option_b": "When a failure or incorrect config causes a packet to be continuously forwarded between routers without reaching its destination",
     "option_c": "Repeating the same code in a router",
     "option_d": "A way to speed up routing",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Routing loops waste bandwidth and can crash a network."
   },
   {
@@ -472,7 +538,9 @@
     "option_b": "An address assigned to multiple interfaces, where packets are delivered to the 'nearest' one",
     "option_c": "Sending data to everyone",
     "option_d": "A random address",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Anycast is useful for load balancing and DNS infrastructure."
   },
   {
@@ -486,7 +554,9 @@
     "option_b": "To slow down its rate of transmission because of network congestion (deprecated)",
     "option_c": "To send more data",
     "option_d": "To encrypt the data",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Source Quench was an early form of congestion control, though mostly ignored in modern TCP."
   },
   {
@@ -500,7 +570,9 @@
     "option_b": "A header that provides connectionless integrity and data origin authentication, but NO encryption",
     "option_c": "A way to hide IP addresses",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "AH proves the data hasn't been tampered with but doesn't hide the content (unlike ESP)."
   },
   {
@@ -514,7 +586,9 @@
     "option_b": "Provides confidentiality (encryption), integrity, and authentication of packets",
     "option_c": "Hiding the MAC address",
     "option_d": "Redirecting internet traffic",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "ESP is the primary protocol for building encrypted VPN tunnels."
   },
   {
@@ -528,7 +602,9 @@
     "option_b": "Virtual circuits maintain state for a connection path; Datagrams are treated independently with no prior path setup",
     "option_c": "Virtual circuit is always wireless",
     "option_d": "Datagram is only for email",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The internet (IP) is a datagram network; traditional telephone networks use virtual circuits."
   },
   {
@@ -542,7 +618,9 @@
     "option_b": "The maximum shortest path (number of hops) between any two nodes in a network",
     "option_c": "The cost of the network to build",
     "option_d": "The total number of users",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Lower diameter networks generally have lower latency."
   },
   {
@@ -556,7 +634,9 @@
     "option_b": "A feature that allows traffic to flow even if the appliance hardware or software fails, ensuring it doesn't become a single point of failure",
     "option_c": "A way to hack the firewall",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Bypass mode prioritizes connectivity over security during a hardware failure."
   },
   {
@@ -570,7 +650,9 @@
     "option_b": "The Network Prefix (Subnet)",
     "option_c": "Reserved for future use",
     "option_d": "Random bits",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "IPv6 addresses are typically split into a 64-bit network prefix and a 64-bit interface identifier."
   },
   {
@@ -584,7 +666,9 @@
     "option_b": "Setting the distance to a failed route to infinity when telling the neighbor you learned it from",
     "option_c": "Reversing the direction of packets",
     "option_d": "A way to speed up IP resolution",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Poison Reverse, combined with Split Horizon, helps eliminate routing loops quickly."
   },
   {
@@ -598,7 +682,9 @@
     "option_b": "Type 3, Code 3",
     "option_c": "Type 11, Code 0",
     "option_d": "Type 8, Code 8",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "ICMP Type 3 is Destination Unreachable; Code 3 specifically indicates the target port is closed."
   },
   {
@@ -612,7 +698,9 @@
     "option_b": "Encapsulating one network protocol inside another (e.g., IPv6 inside IPv4)",
     "option_c": "A faster way to send data",
     "option_d": "Direct peer-to-peer connection",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Tunneling is used for VPNs and transitioning between incompatible network technologies."
   },
   {
@@ -626,7 +714,9 @@
     "option_b": "It provides no proof of identity and is vulnerable to Man-in-the-Middle attacks",
     "option_c": "It costs too much",
     "option_d": "It doesn't work on mobile",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Anyone can create a self-signed cert; the security of SSL relies on trusted Certificate Authorities (CAs)."
   },
   {
@@ -640,7 +730,9 @@
     "option_b": "Mark a bit in the IP header to signal congestion to the sender without actually dropping the packet",
     "option_c": "Encrypt the packet header",
     "option_d": "Redirect packets to a faster link",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "ECN helps reduce latency by informing senders of congestion early, avoiding destructive packet loss."
   },
   {
@@ -654,7 +746,9 @@
     "option_b": "Reducing the number of small packets by delaying transmission until a full MTU can be sent",
     "option_c": "Encrypting the server logs",
     "option_d": "Managing user login sessions",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Nagle's algorithm improves efficiency for high-latency connections but can hurt real-time applications like gaming (where it is often disabled)."
   },
   {
@@ -668,7 +762,9 @@
     "option_b": "Modifying the source IP address in a packet's header to pretend it came from a trusted machine",
     "option_c": "A way to get free internet",
     "option_d": "A physical bug in cables",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "IP spoofing is a common technique used in DDoS and man-in-the-middle attacks."
   },
   {
@@ -682,7 +778,9 @@
     "option_b": "Decoupling the network's control logic (Control Plane) from the underlying hardware that forwards traffic (Data Plane)",
     "option_c": "A network that only has virtual machines",
     "option_d": "A way to install software over the net",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "SDN allows networks to be programmed and managed centrally with a global view of the topology."
   },
   {
@@ -696,7 +794,9 @@
     "option_b": "FF02::2",
     "option_c": "FF01::1",
     "option_d": "::1",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "FF02::1 is the IPv6 equivalent of a broadcast to all nodes on the immediate segment."
   }
 ]

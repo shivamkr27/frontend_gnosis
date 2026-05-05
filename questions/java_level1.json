@@ -10,7 +10,9 @@
     "option_b": ".class",
     "option_c": ".exe",
     "option_d": ".jar",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Java source code (.java) is compiled into bytecode (.class) which runs on the JVM."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "JRE",
     "option_c": "JVM",
     "option_d": "JIT",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The Java Virtual Machine (JVM) is the engine that provides the runtime environment to drive the Java Code."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "javac",
     "option_c": "javadoc",
     "option_d": "javap",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 'javac' command is the Java compiler included in the JDK."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "Unboxing",
     "option_c": "Typecasting",
     "option_d": "Binding",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Autoboxing is the automatic conversion that the Java compiler makes between the primitive types and their corresponding object wrapper classes."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "Byte",
     "option_c": "String",
     "option_d": "Character",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "String is a regular class in java.lang, not a wrapper for a primitive type."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "Java Definition Kit",
     "option_c": "Java Development Kit",
     "option_d": "Java Design Kit",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "JDK is the full development environment that includes JRE and development tools."
   },
   {
@@ -94,7 +106,9 @@
     "option_b": "Heap",
     "option_c": "Method Area",
     "option_d": "PC Register",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The Method Area (or Metaspace in newer versions) stores per-class structures such as the runtime constant pool and static fields."
   },
   {
@@ -108,7 +122,9 @@
     "option_b": "JVM + Compiler",
     "option_c": "Compiler + Debugger",
     "option_d": "Only JVM",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Java Runtime Environment (JRE) consists of the JVM and the core class libraries needed to run Java apps."
   },
   {
@@ -122,7 +138,9 @@
     "option_b": "Source code",
     "option_c": "Bytecode",
     "option_d": "Assembly code",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The compiler transforms readable Java code into platform-independent bytecode."
   },
   {
@@ -136,7 +154,9 @@
     "option_b": "string",
     "option_c": "byte",
     "option_d": "short",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "The 'char' primitive is wrapped by the 'Character' class."
   },
   {
@@ -150,7 +170,9 @@
     "option_b": "To optimize bytecode into machine code at runtime",
     "option_c": "To manage memory allocation",
     "option_d": "To debug the code line by line",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Just-In-Time (JIT) compiler improves performance by compiling frequently executed bytecode sequences into native machine code."
   },
   {
@@ -164,7 +186,9 @@
     "option_b": "Method Area",
     "option_c": "Heap",
     "option_d": "Native Method Stack",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "All Java objects are allocated on the heap, and governed by Garbage Collection."
   },
   {
@@ -178,7 +202,9 @@
     "option_b": "false",
     "option_c": "Compilation error",
     "option_d": "Runtime error",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Java caches Integer objects for values between -128 and 127."
   },
   {
@@ -192,7 +218,9 @@
     "option_b": "false",
     "option_c": "true if using .equals()",
     "option_d": "false if using .equals()",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Values outside the -128 to 127 range are not cached, so '==' compares different object references."
   },
   {
@@ -206,7 +234,9 @@
     "option_b": "Class Loader",
     "option_c": "Garbage Collector",
     "option_d": "Native interface",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The Class Loader subsystem loads, links, and initializes the class files."
   },
   {
@@ -220,7 +250,9 @@
     "option_b": "An intermediate representation of code for the JVM",
     "option_c": "Optimized assembly language",
     "option_d": "The same as binary machine code",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Bytecode is a highly optimized set of instructions designed to be executed by the Java Virtual Machine."
   },
   {
@@ -234,7 +266,9 @@
     "option_b": "Boolean",
     "option_c": "Double",
     "option_d": "None of the above (All are final)",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "All primitive wrapper classes in Java are declared as 'final' and cannot be inherited."
   },
   {
@@ -248,7 +282,9 @@
     "option_b": "To store method execution frames and local variables",
     "option_c": "To store class level information",
     "option_d": "To store runtime code",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Each thread has a private JVM stack, created at the same time as the thread, storing frames."
   },
   {
@@ -262,7 +298,9 @@
     "option_b": "The JVM and Execution Engine",
     "option_c": "The JAR packager",
     "option_d": "The documentation generator",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 'java' command launches the JVM and starts executing the main method of the specified class."
   },
   {
@@ -276,7 +314,9 @@
     "option_b": "Method Area",
     "option_c": "JVM Stack",
     "option_d": "Shared Library Area",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "JVM Stacks and PC Registers are per-thread, while Heap and Method Area are shared."
   },
   {
@@ -290,7 +330,9 @@
     "option_b": "JDK = JRE + Development tools (javac, debugger, etc.)",
     "option_c": "JRE = JDK + JVM",
     "option_d": "There is no functional difference",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "JDK is the super-set used by developers, whereas JRE is a minimum requirement to execute programs."
   },
   {
@@ -304,7 +346,9 @@
     "option_b": "Interpreter",
     "option_c": "Profiler",
     "option_d": "Garbage Collector",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The Interpreter reads bytecode instructions one by one and executes them."
   },
   {
@@ -318,7 +362,9 @@
     "option_b": "The value of local variables",
     "option_c": "The reference to the main thread",
     "option_d": "Memory limit details",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "The Program Counter (PC) register contains the address of the Java Virtual Machine instruction currently being executed."
   },
   {
@@ -332,7 +378,9 @@
     "option_b": "Long",
     "option_c": "Boolean",
     "option_d": "Short",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Boolean and Character wrapper classes do not extend Number; they extend Object directly."
   },
   {
@@ -346,7 +394,9 @@
     "option_b": "8 bits (1 byte)",
     "option_c": "16 bits",
     "option_d": "32 bits",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "As the name suggest, each opcode in Java bytecode is exactly one byte long."
   },
   {
@@ -360,7 +410,9 @@
     "option_b": "p becomes null",
     "option_c": "NullPointerException at runtime",
     "option_d": "Compilation Error",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Unboxing a null wrapper object into a primitive results in a NullPointerException."
   },
   {
@@ -374,7 +426,9 @@
     "option_b": "Garbage Collector",
     "option_c": "Memory Management Subsystem",
     "option_d": "Interpreter",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The Execution Engine uses its memory management system to allocate space in the heap."
   },
   {
@@ -388,7 +442,9 @@
     "option_b": "Yes, using -Xms and -Xmx arguments",
     "option_c": "Yes, but only via Java code",
     "option_d": "Only in Java EE",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "-Xms sets initial heap size, -Xmx sets maximum heap size."
   },
   {
@@ -402,7 +458,9 @@
     "option_b": "d1.equals(d2)",
     "option_c": "d1.compareTo(d2) == 0",
     "option_d": "B and C both",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "'==' compares references; .equals() and .compareTo() compare the actual values."
   },
   {
@@ -416,7 +474,9 @@
     "option_b": "1 byte",
     "option_c": "Varies by JVM implementation (typically 12-16 bytes)",
     "option_d": "4 bytes",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Primitive boolean size is small, but a Wrapper Object has object overhead (header, etc.)."
   },
   {
@@ -430,7 +490,9 @@
     "option_b": "No, it requires a JVM instance to translate it",
     "option_c": "Yes, starting from Java 9",
     "option_d": "Only on Linux",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Bytecode is virtual machine code; it is translated to native instructions by the JVM at runtime."
   },
   {
@@ -444,7 +506,9 @@
     "option_b": "It compiles and executes in memory without creating a .class file",
     "option_c": "It only checks for syntax",
     "option_d": "It opens as a text file",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "JEP 330 allows running single-file source code programs directly without manual compilation step."
   },
   {
@@ -458,7 +522,9 @@
     "option_b": "Method Bytecode and Class metadata",
     "option_c": "Instance objects",
     "option_d": "Temporary strings",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Metaspace replaced the Permanent Generation (PermGen) and uses native memory to store class metadata."
   },
   {
@@ -472,7 +538,9 @@
     "option_b": "Class Loader Subsystem",
     "option_c": "Runtime Data Areas",
     "option_d": "Native Method Library",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It's part of the loading process where you can define how classes are find and loaded."
   },
   {
@@ -486,7 +554,9 @@
     "option_b": "False, JVM is platform-dependent",
     "option_c": "Depends on the vendor (Oracle vs IBM)",
     "option_d": "True only for JRE",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Java (the language) is independent, but the JVM itself must be built specifically for each OS (Windows, Mac, Linux)."
   },
   {
@@ -500,7 +570,9 @@
     "option_b": "java.lang.Integer",
     "option_c": "java.lang.Object",
     "option_d": "Compilation Error",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The primitive '10' is autoboxed into an 'Integer' object."
   },
   {
@@ -514,7 +586,9 @@
     "option_b": "CAFEBABE",
     "option_c": "DEADBEEF",
     "option_d": "BABECAFE",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "All Java .class files start with the hex sequence 0xCAFEBABE."
   },
   {
@@ -528,7 +602,9 @@
     "option_b": "Method Area",
     "option_c": "JIT Compiler",
     "option_d": "PC Register",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The JIT compiler is part of the Execution Engine, not the Data Areas."
   },
   {
@@ -542,7 +618,9 @@
     "option_b": "No",
     "option_c": "Only Integer is immutable",
     "option_d": "Depends on the Java version",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Like String, all primitive wrapper classes are immutable; once created, their values cannot be changed."
   },
   {
@@ -556,7 +634,9 @@
     "option_b": "Bytecode can be verified and executed by any platform-specific JVM",
     "option_c": "Source code is translated to C++",
     "option_d": "Java doesn't need an OS",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The portability is achieved by using Bytecode which the JVM interprets or compiles to native code."
   },
   {
@@ -570,7 +650,9 @@
     "option_b": "Security and Integrity of code",
     "option_c": "Compression",
     "option_d": "Code formatting",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The Verifier checks that bytecode doesn't violate access constraints or pointer rules before execution."
   },
   {
@@ -584,7 +666,9 @@
     "option_b": "Heap is cleared fully",
     "option_c": "Static variables are deleted",
     "option_d": "The whole thread is terminated",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Local variables used in the method (stored in the frame) are automatically removed when the frame is popped off the stack."
   },
   {
@@ -598,7 +682,9 @@
     "option_b": "To allow null values",
     "option_c": "To use utility methods like Integer.parseInt()",
     "option_d": "All of the above",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "Collections require objects, and wrappers provide nullability and useful static methods."
   },
   {
@@ -612,7 +698,9 @@
     "option_b": "Static compile time check",
     "option_c": "Fixed stack size",
     "option_d": "Native compiler",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Classes are loaded on demand (when first referenced), not all at once at startup."
   },
   {
@@ -626,7 +714,9 @@
     "option_b": "Java 5",
     "option_c": "Java 8",
     "option_d": "Java 11",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "J2SE 5.0 introduced autoboxing, unboxing, generics, and enums."
   },
   {
@@ -640,7 +730,11 @@
     "option_b": "jar (archiver)",
     "option_c": "java (launcher)",
     "option_d": "jlink",
-    "correct_options": ["A", "B", "D"],
+    "correct_options": [
+      "A",
+      "B",
+      "D"
+    ],
     "explanation": "JRE only contains tools for execution; dev tools like javac and jar are JDK exclusive."
   },
   {
@@ -654,7 +748,11 @@
     "option_b": "Native Method Stack",
     "option_c": "PC Register",
     "option_d": "Method Area",
-    "correct_options": ["A", "B", "C"],
+    "correct_options": [
+      "A",
+      "B",
+      "C"
+    ],
     "explanation": "Stacks and registers are thread-private. Method area and Heap are common."
   },
   {
@@ -668,7 +766,11 @@
     "option_b": "Stored in the stack only",
     "option_c": "Stored in the heap",
     "option_d": "Subject to garbage collection",
-    "correct_options": ["A", "C", "D"],
+    "correct_options": [
+      "A",
+      "C",
+      "D"
+    ],
     "explanation": "As they are objects, they live on the heap and follow object life cycles."
   },
   {
@@ -682,7 +784,10 @@
     "option_b": "AtomicInteger",
     "option_c": "Double",
     "option_d": "Numeric",
-    "correct_options": ["A", "C"],
+    "correct_options": [
+      "A",
+      "C"
+    ],
     "explanation": "Numeric is not a class; AtomicInteger is for concurrency, not a simple primitive wrapper."
   },
   {
@@ -696,7 +801,11 @@
     "option_b": "JIT Compiler",
     "option_c": "Symbolic Linker",
     "option_d": "Garbage Collector",
-    "correct_options": ["A", "B", "D"],
+    "correct_options": [
+      "A",
+      "B",
+      "D"
+    ],
     "explanation": "Interpretation, Optimization, and Memory Cleanup are core execution tasks."
   }
 ]

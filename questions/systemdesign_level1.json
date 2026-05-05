@@ -10,7 +10,9 @@
     "option_b": "Increasing the capacity (CPU, RAM) of a single existing machine",
     "option_c": "Moving the server to a higher building",
     "option_d": "A styling method for charts",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Vertical scaling (scaling up) involves upgrading the hardware of an existing server."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "To distribute incoming network or application traffic across multiple servers",
     "option_c": "To store backup data",
     "option_d": "To encrypt passwords",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Load balancers prevent any single server from becoming a bottleneck and increase system availability."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "Making the machines smaller",
     "option_c": "Rotating the server 90 degrees",
     "option_d": "Sharing code horizontally",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Horizontal scaling (scaling out) involves adding more nodes (servers) to the system."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "A distributed network of servers that delivers content based on geography",
     "option_c": "A database for images",
     "option_d": "A data encryption algorithm",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "CDNs reduce latency by caching content closer to the end-user's physical location."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "To store data in a fast-access layer (like RAM) for rapid retrieval",
     "option_c": "To delete temporary files",
     "option_d": "To manage server hardware",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Caching improves performance by keeping frequently accessed data in fast memory."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "Data Network Service",
     "option_c": "Digital Name Server",
     "option_d": "Distributed Node Storage",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "DNS translates human-friendly domain names (like google.com) into IP addresses."
   },
   {
@@ -94,7 +106,9 @@
     "option_b": "The system remains operational and accessible for a high percentage of time",
     "option_c": "The system can store infinite data",
     "option_d": "The system has many developers",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "High availability aims for minimal downtime, often targeted as '99.99%' (four nines)."
   },
   {
@@ -108,7 +122,9 @@
     "option_b": "Strong data consistency and support for complex ACID transactions",
     "option_c": "Unlimited speed for all operations",
     "option_d": "Built-in image processing",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "SQL databases are excellent for structured data where relationships and consistency are critical."
   },
   {
@@ -122,7 +138,9 @@
     "option_b": "A server that blocks the internet",
     "option_c": "A type of database",
     "option_d": "A way to backup code",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "A reverse proxy (like Nginx) sits in front of web servers and handles requests from clients."
   },
   {
@@ -136,7 +154,9 @@
     "option_b": "The time it takes for a request to travel from source to destination",
     "option_c": "The number of users online",
     "option_d": "The weight of the silver cables",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Latency is the delay in communication between systems."
   },
   {
@@ -150,7 +170,9 @@
     "option_b": "Horizontal Scaling",
     "option_c": "Manual Scaling",
     "option_d": "Internal Scaling",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Horizontal scaling adds more servers, so a Load Balancer is needed to distribute traffic among them."
   },
   {
@@ -164,7 +186,9 @@
     "option_b": "In a centralized store like Redis or a Database",
     "option_c": "In the RAM of the CPU",
     "option_d": "Session data is not allowed",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Stateless servers don't store client data locally, allowing any server to handle any request by fetching state from a central store."
   },
   {
@@ -178,7 +202,9 @@
     "option_b": "The duplication of critical components to increase reliability",
     "option_c": "Making the system slower on purpose",
     "option_d": "Increasing the price of the server",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Redundancy ensures that if one component fails, a backup is ready to take its place."
   },
   {
@@ -192,7 +218,9 @@
     "option_b": "DNS Server",
     "option_c": "Mail Server",
     "option_d": "File Server",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The DNS server resolves the domain name into an IP address so the browser can connect."
   },
   {
@@ -206,7 +234,9 @@
     "option_b": "A part of a system that, if it fails, will stop the entire system from working",
     "option_c": "A slow database query",
     "option_d": "An expensive server",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "SPOFs are avoided by introducing redundancy and high availability."
   },
   {
@@ -220,7 +250,9 @@
     "option_b": "Horizontal partitioning of data across multiple database instances",
     "option_c": "Merging two databases together",
     "option_d": "Deleting old logs",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Sharding splits a large database into smaller, faster, more manageable pieces called data shards."
   },
   {
@@ -234,7 +266,9 @@
     "option_b": "The number of requests a system can handle in a given time period",
     "option_c": "The total size of the database",
     "option_d": "The speed of the CPU",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Throughput measures the total volume of work processed."
   },
   {
@@ -248,7 +282,9 @@
     "option_b": "HTTP/HTTPS",
     "option_c": "SSH",
     "option_d": "SMTP",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "HTTP (Hypertext Transfer Protocol) is the foundation of data communication for the World Wide Web."
   },
   {
@@ -262,7 +298,9 @@
     "option_b": "A unique numerical label assigned to each device connected to a computer network",
     "option_c": "A type of password",
     "option_d": "A way to count users",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "IP addresses identify devices on a network, allowing them to communicate."
   },
   {
@@ -276,7 +314,9 @@
     "option_b": "Distributing requests to each server in a fixed, sequential order",
     "option_c": "Distributing requests randomly",
     "option_d": "Storing requests in a circle",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Round Robin is one of the simplest load balancing algorithms."
   },
   {
@@ -290,7 +330,9 @@
     "option_b": "Data is only written to the cache",
     "option_c": "Data is written to the database first, then the cache is updated later",
     "option_d": "Data is written to disk twice",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Write-through ensures consistency between the cache and the database but adds latency to write operations."
   },
   {
@@ -304,7 +346,9 @@
     "option_b": "99.999%",
     "option_c": "95.555%",
     "option_d": "90.00000%",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Five nines (99.999%) corresponds to less than 6 minutes of downtime per year."
   },
   {
@@ -318,7 +362,9 @@
     "option_b": "PostgreSQL",
     "option_c": "MongoDB",
     "option_d": "Oracle DB",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "MongoDB is a document-oriented NoSQL database."
   },
   {
@@ -332,7 +378,9 @@
     "option_b": "Solid State Drive (SSD)",
     "option_c": "Random Access Memory (RAM)",
     "option_d": "External USB",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Redis is an in-memory data structure store, making it extremely fast."
   },
   {
@@ -346,7 +394,9 @@
     "option_b": "A system with many small servers",
     "option_c": "A type of database index",
     "option_d": "A stone monument",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Monolithic architecture is the traditional unified model for software development."
   },
   {
@@ -360,7 +410,9 @@
     "option_b": "443",
     "option_c": "21",
     "option_d": "22",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "HTTP uses port 80; HTTPS (secure) uses port 443."
   },
   {
@@ -374,7 +426,9 @@
     "option_b": "A guarantee that if no new updates are made, eventually all accesses will return the last updated value",
     "option_c": "Data will never be consistent",
     "option_d": "Data is consistent once a month",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Eventual consistency is common in distributed NoSQL databases to allow high availability."
   },
   {
@@ -388,7 +442,9 @@
     "option_b": "A feature where all requests from a specific client are routed to the same server for a session",
     "option_c": "Sessions that never log out",
     "option_d": "A database backup method",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Sticky sessions (session affinity) help maintain locally stored session data on a specific server."
   },
   {
@@ -402,7 +458,9 @@
     "option_b": "Temporarily storing IP addresses locally to avoid frequent DNS lookups",
     "option_c": "Deleting DNS records",
     "option_d": "An internet security protocol",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "DNS caching at the browser or OS level speeds up web browsing."
   },
   {
@@ -416,7 +474,9 @@
     "option_b": "Data traveling across long physical distances (e.g., across oceans)",
     "option_c": "Using a small font on the website",
     "option_d": "Having too many monitors",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Physical distance and the number of hops between systems increase latency."
   },
   {
@@ -430,7 +490,9 @@
     "option_b": "The sender sends a message and doesn't wait for an immediate response to continue",
     "option_c": "Communication that only happens on weekends",
     "option_d": "Using two phones at once",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Asynchronous communication (often using queues) improves system decoupling and responsiveness."
   },
   {
@@ -444,7 +506,9 @@
     "option_b": "One server handles all writes, and data is copied to other servers (slaves) for reading",
     "option_c": "Servers take turns being the master",
     "option_d": "A way to delete data automatically",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This pattern scales read requests but the Master can be a bottleneck for writes."
   },
   {
@@ -458,7 +522,9 @@
     "option_b": "To ensure traffic is only sent to servers that are active and responding correctly",
     "option_c": "To count how many files are on the server",
     "option_d": "To update the operating system",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Health checks allow the load balancer to remove unhealthy servers from the pool automatically."
   },
   {
@@ -472,7 +538,9 @@
     "option_b": "A server that acts as an entry point for all API requests, handling tasks like routing and security",
     "option_c": "A list of IP addresses",
     "option_d": "A type of database table",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "API Gateways simplify client interactions and centralize security and monitoring."
   },
   {
@@ -486,7 +554,9 @@
     "option_b": "Storing massive amounts of unstructured data like images, videos, and backups",
     "option_c": "Running a web server",
     "option_d": "Storing temporary variables",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Services like AWS S3 are examples of object storage designed for scalability and durability."
   },
   {
@@ -500,7 +570,9 @@
     "option_b": "The automatic switching to a redundant or standby computer server or network upon failure",
     "option_c": "A way to reset a password",
     "option_d": "Sending the wrong data",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Failover is key to maintaining high availability during hardware or software crashes."
   },
   {
@@ -514,7 +586,9 @@
     "option_b": "It has an upper hardware limit and usually causes downtime during upgrades",
     "option_c": "It requires complex load balancing",
     "option_d": "It makes the code harder to write",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "You can only add so much RAM or CPU to a single machine before hitting a limit."
   },
   {
@@ -528,7 +602,11 @@
     "option_b": "Availability",
     "option_c": "Partition Tolerance",
     "option_d": "Performance",
-    "correct_options": ["A", "B", "C"],
+    "correct_options": [
+      "A",
+      "B",
+      "C"
+    ],
     "explanation": "CAP Theorem states a distributed system can only guarantee two out of these three."
   },
   {
@@ -542,7 +620,9 @@
     "option_b": "A guarantee that any read request will return the most recent write or an error",
     "option_c": "Consistency of code style",
     "option_d": "No data is ever lost",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Strong consistency is hard to achieve in highly distributed systems without sacrificing availability."
   },
   {
@@ -556,7 +636,9 @@
     "option_b": "Encrypt sensitive columns",
     "option_c": "Delete duplicate rows",
     "option_d": "Compressed the database size",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Indexing allows the database engine to find data without searching every row."
   },
   {
@@ -570,7 +652,9 @@
     "option_b": "Independent deployment and scaling of different parts of the system",
     "option_c": "Simpler debugging",
     "option_d": "Zero network latency",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Microservices allow teams to work on and scale different features independently."
   },
   {
@@ -584,7 +668,9 @@
     "option_b": "Keeping copies of data on multiple servers to increase durability and availability",
     "option_c": "Moving the database to a new cloud provider",
     "option_d": "Creating mock data for testing",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Replication protects against data loss and helps with read scalability."
   },
   {
@@ -598,7 +684,9 @@
     "option_b": "The maximum rate of data transfer across a network path",
     "option_c": "The width of the server rack",
     "option_d": "The number of servers in a cluster",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Bandwidth identifies how much data can move through a network connection in a given time."
   },
   {
@@ -612,7 +700,9 @@
     "option_b": "Servers are assigned a weight based on capacity, and more power servers receive more requests",
     "option_c": "A random selection method",
     "option_d": "Selecting the server that was added last",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This ensures that more powerful servers handle a larger share of the traffic."
   },
   {
@@ -626,7 +716,9 @@
     "option_b": "One of the most difficult challenges in computer science (maintaining data freshness)",
     "option_c": "A way to add more data to the cache",
     "option_d": "A database maintenance tool",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "As the quote goes: 'There are only two hard things in Computer Science: cache invalidation and naming things.'"
   },
   {
@@ -640,7 +732,9 @@
     "option_b": "An IP address that is permanently assigned to a computer or device",
     "option_c": "An address for a website that is down",
     "option_d": "A secret password",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Static IPs are used for servers that need to be reachable at the same address consistently."
   },
   {
@@ -654,7 +748,9 @@
     "option_b": "Transport Layer (TCP)",
     "option_c": "Application Layer (HTTP/HTTPS)",
     "option_d": "Physical Layer",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Layer 7 load balancers can make routing decisions based on URL, cookies, or HTTP headers."
   },
   {
@@ -668,7 +764,9 @@
     "option_b": "Redis",
     "option_c": "S3 (Simple Storage Service)",
     "option_d": "PostgreSQL",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "S3 is highly durable object storage widely used in modern architectures."
   },
   {
@@ -682,7 +780,9 @@
     "option_b": "Signal to other nodes that a specific node is still alive and operational",
     "option_c": "Sync timestamps",
     "option_d": "Count the number of users",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Heartbeats are essential for failure detection in distributed clusters."
   },
   {
@@ -696,7 +796,9 @@
     "option_b": "It allows a database to scale horizontally by distributing data across many servers",
     "option_c": "It reduces the amount of data stored",
     "option_d": "It replaces the need for indexes",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Sharding is used when a single database server can no longer handle the load or store the data."
   }
 ]

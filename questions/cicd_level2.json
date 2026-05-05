@@ -10,7 +10,9 @@
     "option_b": "A strategy where developers frequently merge small updates to a single shared branch (trunk)",
     "option_c": "Deleting the main branch",
     "option_d": "Only working on weekends",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Trunk-based development avoids long-lived feature branches and reduces 'merge hell'."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "Test (Unit/Integration)",
     "option_c": "Market Research",
     "option_d": "Coding",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Artifacts produced in the build stage must be verified by tests before they are considered safe for deployment."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "To propose changes and request a code review before merging into the target branch",
     "option_c": "To delete a repository",
     "option_d": "To reset the server",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "PRs are essential for collaboration and maintaining code quality through peer review."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "A centralized server for storing and managing dependency libraries and build outputs (artifacts)",
     "option_c": "A ways to name pods",
     "option_d": "A source code hosting service",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Artifact repositories ensure that builds are reproducible and dependencies are secure."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "Declarative defines the desired final 'state'; Imperative defines the series of 'commands' to reach it",
     "option_c": "There is no difference",
     "option_d": "Declarative is for users, Imperative is for machines",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Declarative IaC (like Terraform) is generally preferred because it is easier to maintain and reason about."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "An operational framework that uses Git repositories as the 'single source of truth' for infrastructure and application configurations",
     "option_c": "Only used for frontend apps",
     "option_d": "A ways to delete Git history",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "With GitOps, every change to the environment is executed by updating the configuration in Git."
   },
   {
@@ -94,7 +106,9 @@
     "option_b": "Static Application Security Testing",
     "option_c": "Source Analysis and System Tracking",
     "option_d": "Secret Access Security Token",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "SAST tools analyze source code for vulnerabilities without executing the program."
   },
   {
@@ -108,7 +122,9 @@
     "option_b": "The property where a script produces the same result no matter how many times it is run from the same starting state",
     "option_c": "A script that deletes data",
     "option_d": "A ways to rename a server",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Idempotency is crucial for reliable infrastructure automation to prevent duplicate resources."
   },
   {
@@ -122,7 +138,9 @@
     "option_b": "Blue-Green Deployment",
     "option_c": "Recreate",
     "option_d": "Direct Push",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Blue-Green allows zero-downtime deployments and instant rollbacks."
   },
   {
@@ -136,7 +154,9 @@
     "option_b": "A text file that contains the definition of a Jenkins Pipeline as code",
     "option_c": "A log file",
     "option_d": "A backup file",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Jenkinsfiles allow you to version control your pipeline configuration alongside your app code."
   },
   {
@@ -150,7 +170,9 @@
     "option_b": "Applies the changes from a specific commit from another branch onto the current branch",
     "option_c": "Reverts the branch",
     "option_d": "Renames a branch",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Cherry-picking is useful for bringing specific bug fixes into a release branch without merging everything."
   },
   {
@@ -164,7 +186,9 @@
     "option_b": "In Environment Variables",
     "option_c": "In a database",
     "option_d": "In the user's brain",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Storing config in environment variables keeps it separate from code and allows it to vary across environments."
   },
   {
@@ -178,7 +202,9 @@
     "option_b": "Merge creates a new commit combining histories; Rebase moves your changes on top of the target branch's base, rewriting history",
     "option_c": "There is no difference",
     "option_d": "Merge is faster",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Rebasing creates a cleaner linear history but should be used carefully on shared branches."
   },
   {
@@ -192,7 +218,9 @@
     "option_b": "A Container Registry",
     "option_c": "A cloud provider",
     "option_d": "An operating system",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Docker Hub is a public registry for sharing and storing container images."
   },
   {
@@ -206,7 +234,9 @@
     "option_b": "To notify external services (like CI servers) automatically when an event happens (like a push or pull request)",
     "option_c": "To name a branch",
     "option_d": "To delete a user",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Webhooks 'trigger' the pipeline as soon as code is pushed to the repository."
   },
   {
@@ -220,7 +250,9 @@
     "option_b": "release",
     "option_c": "master",
     "option_d": "feature",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Release branches allow for last-minute bug fixes and documentation updates before a major merge into master."
   },
   {
@@ -234,7 +266,9 @@
     "option_b": "Releasing a new version to a small subset of users first to monitor for issues before a full rollout",
     "option_c": "Updating the whole cluster at once",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Canary releases reduce risk by testing live traffic on a small percentage of the infrastructure."
   },
   {
@@ -248,7 +282,9 @@
     "option_b": "Dynamic Application Security Testing",
     "option_c": "Direct Access Security Test",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "DAST tests the application while it is running, usually by simulating attacks on the exposed endpoints."
   },
   {
@@ -262,7 +298,9 @@
     "option_b": "The process where a deployment system automatically reverts to the previous stable version if health checks fail",
     "option_c": "Rolling a dice",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Automated rollbacks minimize the impact of faulty deployments on end users."
   },
   {
@@ -276,7 +314,9 @@
     "option_b": "Infrastructure that is replaced rather than modified when updates are needed",
     "option_c": "Infrastructure that cannot be deleted",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Immutability prevents 'configuration drift' where servers slowly become different from their original setup."
   },
   {
@@ -290,7 +330,9 @@
     "option_b": "A mechanism to enable or disable features in an application at runtime without redeploying code",
     "option_c": "A bug in the code",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Feature flags enable 'dark launches' and rapid A/B testing."
   },
   {
@@ -304,7 +346,9 @@
     "option_b": "Scans the source code for bugs, vulnerabilities, and code smells without executing it",
     "option_c": "Increases the server speed",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Static analysis helps maintain high standards for maintainability and security."
   },
   {
@@ -318,7 +362,9 @@
     "option_b": "Running multiple jobs or tests simultaneously to reduce the total pipeline duration",
     "option_c": "Deleting the pipeline",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Parallelism is the primary way to speed up slow test suites in large projects."
   },
   {
@@ -332,7 +378,9 @@
     "option_b": "Identifying and managing vulnerabilities in open-source dependencies (libraries) used by your application",
     "option_c": "Analyzing the user interface",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "SCA tools (like Snyk or Dependabot) ensure you aren't shiping code with known security holes in its libraries."
   },
   {
@@ -346,7 +394,9 @@
     "option_b": "A feature that allows using multiple intermediate images in one Dockerfile to keep the final production image small and clean",
     "option_c": "A ways to name the layers",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Multi-stage builds allow you to include build tools in the build phase but exclude them from the final image."
   },
   {
@@ -360,7 +410,9 @@
     "option_b": "Service Level Indicator",
     "option_c": "System Level Integration",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "SLIs are specific quantitative measures of some aspect of the level of service that is provided (e.g., latency)."
   },
   {
@@ -374,7 +426,9 @@
     "option_b": "A way to call the manager",
     "option_c": "A list of server names",
     "option_d": "none of the above",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "SLOs represent the 'reliability targets' that a dev team tries to meet."
   },
   {
@@ -388,7 +442,9 @@
     "option_b": "A document written after an incident to analyze what happened, why it happened, and how to prevent it in the future",
     "option_c": "Deleting the logs after an error",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Blameless post-mortems are vital for learning and improving system reliability."
   },
   {
@@ -402,7 +458,9 @@
     "option_b": "A mechanism that prevents multiple users from modifying the infrastructure at the same time, avoiding state corruption",
     "option_c": "A ways to delete the state",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "State locking is usually handled by a backend like S3/DynamoDB or Terraform Cloud."
   },
   {
@@ -416,7 +474,9 @@
     "option_b": "A change that is not backwards compatible (e.g., removing a public function)",
     "option_c": "A change that breaks the computer",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Breaking changes require an increment to the 'Major' version number (e.g., 1.x.x to 2.x.x)."
   },
   {
@@ -430,7 +490,9 @@
     "option_b": "Running linters or checks automatically before Git allows a commit to be created",
     "option_c": "Deleting the files",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Pre-commit hooks help developers catch simple mistakes (like formatting or secrets) locally."
   },
   {
@@ -444,7 +506,9 @@
     "option_b": "Creating a personal copy of someone else's repository into your own account to make changes independently",
     "option_c": "Merging two repositories",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Forking is the foundation of open-source collaboration on platforms like GitHub."
   },
   {
@@ -458,7 +522,9 @@
     "option_b": "A distributed machine that offloads build and test processing from the main Jenkins controller",
     "option_c": "A ways to delete Jenkins",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Distributing builds across many agents allows Jenkins to scale and handle hundreds of concurrent pipelines."
   },
   {
@@ -472,7 +538,9 @@
     "option_b": "An artifact that is never changed once it is built and versioned (e.g., v1.1.0 never points to new code)",
     "option_c": "An artifact with no name",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Immutability ensures that 'what you test is what you deploy' and prevents mysterious failures from changing packages."
   },
   {
@@ -486,7 +554,9 @@
     "option_b": "An event (like code push, schedule, or manual click) that starts the execution of a pipeline",
     "option_c": "A ways to delete the code",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Triggers automate the 'Integration' part of CI."
   },
   {
@@ -500,7 +570,9 @@
     "option_b": "Collecting logs from many different sources (servers, containers) into a central location for searching and analysis",
     "option_c": "Deleting the logs",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Tools like ELK stack or Grafana Loki are essential for troubleshooting distributed systems."
   },
   {
@@ -514,7 +586,9 @@
     "option_b": "Giving the account only the minimum permissions necessary to perform its specific task (e.g., 'only push to one bucket')",
     "option_c": "Having no account at all",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Least privilege reduces the 'blast radius' if a CI/CD credentials are stolen."
   },
   {
@@ -528,7 +602,9 @@
     "option_b": "A process to quickly fix a critical bug directly in the production environment or staging, bypassing the normal development cycle",
     "option_c": "Deleting the production server",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Hotfixes are urgent and usually merged back into the development branches immediately."
   },
   {
@@ -542,7 +618,9 @@
     "option_b": "To temporarily save (shelve) uncommitted changes so you can work on something else with a clean directory, and bring them back later",
     "option_c": "To rename a file",
     "option_d": "To speed up Git",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Stashing is helpful when you need to switch branches urgently but aren't ready to commit."
   },
   {
@@ -556,7 +634,9 @@
     "option_b": "A quick set of tests to verify that the most critical functions of the application work after a deployment (e.g., 'does the site load?')",
     "option_c": "Deleting the app",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Smoke tests are the first line of defense after a deploy to catch major failures instantly."
   },
   {
@@ -570,7 +650,9 @@
     "option_b": "4",
     "option_c": "2",
     "option_d": "none",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "In MAJOR.MINOR.PATCH, the second number is the minor version (usually for new features)."
   },
   {
@@ -584,7 +666,9 @@
     "option_b": "A server located in the attic",
     "option_c": "Deleting the code",
     "option_d": "none of the above",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Developers keep their local forks in sync by pulling from the 'upstream' repository."
   },
   {
@@ -598,7 +682,9 @@
     "option_b": "Versioning the image (e.g., 'latest', 'v1.2', or the commit SHA) to identify which version to deploy",
     "option_c": "Deleting the image",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Avoid using 'latest' in production because it can point to different versions at different times, leading to inconsistent environments."
   },
   {
@@ -612,7 +698,9 @@
     "option_b": "A strategy where the new version is brought online without any interruption of service to the users",
     "option_c": "Deleting the app during the day",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This is achieved through techniques like Blue-Green or Rolling Updates."
   },
   {
@@ -626,7 +714,9 @@
     "option_b": "A component used to execute scripts or shell commands on a local or remote machine as part of resource creation/deletion",
     "option_c": "A ways to delete a server",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Provisioners are often used for bootstrapping initial software setup on a newly created server."
   },
   {
@@ -640,7 +730,9 @@
     "option_b": "Uses binary search to find the specific commit that introduced a bug (regression)",
     "option_c": "Deletes the Git folders",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Bisect is a powerful debugging tool for finding when a long-standing bug was merged."
   },
   {
@@ -654,7 +746,9 @@
     "option_b": "Scripted uses full Groovy flexibility; Declarative uses a stricter, pre-defined structure that is easier for most users",
     "option_c": "There is no difference",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Declarative is now the recommended standard for modern Jenkins pipelines."
   },
   {
@@ -668,7 +762,9 @@
     "option_b": "The process of marking an artifact as 'validated' for the next environment (e.g., moving from Staging to Production)",
     "option_c": "Deleting the build",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Promotion ensures that only thoroughly tested binaries reach the production stage."
   },
   {
@@ -682,7 +778,9 @@
     "option_b": "Automatically checking every commit to ensure no passwords, API keys, or certificates are committed in plain text",
     "option_c": "Deleting the commits",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Tools like 'git-secrets' or GitHub's native secret scanning prevent major security leaks."
   },
   {
@@ -696,7 +794,9 @@
     "option_b": "A system where pipelines are triggered by specific events (like a GitHub issue comment, a new image in a registry, or a cloud alert)",
     "option_c": "Deleting the events",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Event-driven workflows enable advanced automation scenarios beyond just code pushes."
   }
 ]

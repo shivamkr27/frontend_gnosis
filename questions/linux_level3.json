@@ -10,7 +10,9 @@
     "option_b": "// start bash",
     "option_c": "<-- bash -->",
     "option_d": "@use bash",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "The shebang tells the OS which interpreter to use to execute the script."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "$#",
     "option_c": "$?",
     "option_d": "$$",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "$? returns 0 if the previous command was successful, and a non-zero value otherwise."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "A scheduled task that runs automatically at specified intervals",
     "option_c": "A way to compile code",
     "option_d": "A virus that slows down the clock",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Crontab is the utility used to schedule periodic tasks in Linux."
   },
   {
@@ -52,7 +58,11 @@
     "option_b": "-ne (not equal)",
     "option_c": "-f (file exists)",
     "option_d": "=== (strict equal)",
-    "correct_options": ["A", "B", "C"],
+    "correct_options": [
+      "A",
+      "B",
+      "C"
+    ],
     "explanation": "Bash uses flags like -eq for numbers and -f for file checks. === is a JavaScript operator."
   },
   {
@@ -66,7 +76,9 @@
     "option_b": "Hello User",
     "option_c": "Hello NAME",
     "option_d": "Nothing",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Double quotes allow variable expansion in bash."
   },
   {
@@ -80,7 +92,9 @@
     "option_b": "VAR=$(command)",
     "option_c": "VAR={command}",
     "option_d": "VAR:command",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The $() syntax is called command substitution."
   },
   {
@@ -94,7 +108,9 @@
     "option_b": "for",
     "option_c": "until",
     "option_d": "loop",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "A 'for' loop is standard for iterating over arrays or command outputs."
   },
   {
@@ -108,7 +124,9 @@
     "option_b": "Only the file owner, directory owner, or root can delete or rename files in that directory",
     "option_c": "Makes all files inside read-only",
     "option_d": "Fast-tracks file access",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The sticky bit is commonly set on /tmp to prevent users from deleting each other's files."
   },
   {
@@ -122,7 +140,9 @@
     "option_b": "Logical Volume Manager",
     "option_c": "Linked Volume Map",
     "option_d": "Low Volume Mode",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "LVM allows for flexible resizing of partitions and spanning across multiple disks."
   },
   {
@@ -136,7 +156,9 @@
     "option_b": "GRUB",
     "option_c": "SYSLINUX",
     "option_d": "BIOS",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "GRUB (Grand Unified Bootloader) allows selecting OS and kernel versions at boot."
   },
   {
@@ -150,7 +172,9 @@
     "option_b": "/etc/hosts",
     "option_c": "/var/net/hosts",
     "option_d": "/root/network",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "/etc/hosts provides local override for name resolution."
   },
   {
@@ -164,7 +188,9 @@
     "option_b": "insmod",
     "option_c": "kernload",
     "option_d": "addmod",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "insmod inserts a .ko file into the running kernel."
   },
   {
@@ -178,7 +204,9 @@
     "option_b": "modprobe",
     "option_c": "insmod",
     "option_d": "rmmod",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "modprobe looks at module dependency files to load everything required."
   },
   {
@@ -192,7 +220,9 @@
     "option_b": "renice",
     "option_c": "priority",
     "option_d": "setprio",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Niceness values range from -20 (highest priority) to 19 (lowest priority)."
   },
   {
@@ -206,7 +236,9 @@
     "option_b": "renice",
     "option_c": "chprio",
     "option_d": "top",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "renice allows you to adjust the priority via PID."
   },
   {
@@ -220,7 +252,9 @@
     "option_b": "journalctl",
     "option_c": "syslog-cat",
     "option_d": "system-logs",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "journalctl queries the systemd journal database."
   },
   {
@@ -234,7 +268,9 @@
     "option_b": "-z",
     "option_c": "-j",
     "option_d": "-v",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "-z invokes gzip; -j invokes bzip2; -J invokes xz."
   },
   {
@@ -248,7 +284,9 @@
     "option_b": "Metadata about a file like size, owner, and timestamps",
     "option_c": "The actual text data inside the file",
     "option_d": "The user's password",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "An Inode stores everything about a file EXCEPT its name and the data itself."
   },
   {
@@ -262,7 +300,9 @@
     "option_b": "A process that has completed execution but still has an entry in the process table",
     "option_c": "A virus that infects other processes",
     "option_d": "A process that runs forever",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Zombies occur when a parent hasn't yet 'reaped' the exit status of its child."
   },
   {
@@ -276,7 +316,9 @@
     "option_b": "SIGINT",
     "option_c": "SIGSTOP",
     "option_d": "SIGKILL",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "SIGINT (Signal Interrupt) cleanly tells a process to stop."
   },
   {
@@ -290,7 +332,9 @@
     "option_b": "SIGTSTP",
     "option_c": "SIGQUIT",
     "option_d": "SIGKILL",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "SIGTSTP (Terminal Stop) pauses the process and sends it to the background."
   },
   {
@@ -304,7 +348,9 @@
     "option_b": "/dev",
     "option_c": "/sys",
     "option_d": "/proc",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "/dev is the 'devices' directory representing hardware as files."
   },
   {
@@ -318,7 +364,9 @@
     "option_b": "/proc",
     "option_c": "/tmp",
     "option_d": "/var",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "/proc is a pseudo-filesystem that allows viewing kernel and process data."
   },
   {
@@ -332,7 +380,9 @@
     "option_b": "SELinux",
     "option_c": "AppArmor",
     "option_d": "Both B and C",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "SELinux and AppArmor reinforce security by restricting what programs can do."
   },
   {
@@ -346,7 +396,9 @@
     "option_b": "Makes a shell variable available to child processes",
     "option_c": "Installs a new package",
     "option_d": "Sends an email",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Without export, a variable is only available in the current shell session."
   },
   {
@@ -360,7 +412,9 @@
     "option_b": "The name of the script itself",
     "option_c": "The number of arguments",
     "option_d": "The process ID",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "$1, $2, etc., are positional parameters; $0 is the script path/name."
   },
   {
@@ -374,7 +428,9 @@
     "option_b": "The total number of arguments passed to the script",
     "option_c": "A comment",
     "option_d": "The root password",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "$# allows scripts to check if the user provided enough input."
   },
   {
@@ -388,7 +444,9 @@
     "option_b": "scp",
     "option_c": "ftp",
     "option_d": "ssh-copy",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "scp (secure copy) uses the SSH protocol for encryption."
   },
   {
@@ -402,7 +460,9 @@
     "option_b": "/etc/resolv.conf",
     "option_c": "/etc/network/dns",
     "option_d": "/root/dns",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "resolv.conf typically contains 'nameserver' lines with IP addresses."
   },
   {
@@ -416,7 +476,9 @@
     "option_b": "blkid",
     "option_c": "diskid",
     "option_d": "fdisk -l",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "blkid (block ID) helps in identifying disks for /etc/fstab."
   },
   {
@@ -430,7 +492,9 @@
     "option_b": "/etc/fstab",
     "option_c": "/etc/boot/mounts",
     "option_d": "/proc/mounts",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "fstab stands for 'File System Table'."
   },
   {
@@ -444,7 +508,9 @@
     "option_b": "Allows a command to continue running even after the user logs out",
     "option_c": "Hides the process from 'top'",
     "option_d": "Speeds up the command",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "nohup ignores the SIGHUP (Hangup) signal sent when a terminal closes."
   },
   {
@@ -458,7 +524,9 @@
     "option_b": "The core part of the OS that manages hardware and system resources",
     "option_c": "A type of shell",
     "option_d": "A collection of apps",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The kernel is the bridge between software and hardware."
   },
   {
@@ -472,7 +540,9 @@
     "option_b": "/etc/shadow",
     "option_c": "/etc/secure",
     "option_d": "/root/pass",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "/etc/shadow is only readable by root for security."
   },
   {
@@ -486,7 +556,9 @@
     "option_b": "env",
     "option_c": "printenv (or set)",
     "option_d": "vars",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "printenv shows environment variables, while 'set' shows all variables."
   },
   {
@@ -500,7 +572,9 @@
     "option_b": "-i",
     "option_c": "-c",
     "option_d": "-l",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "-i ignores case; -v inverts matching; -c counts matches."
   },
   {
@@ -514,7 +588,9 @@
     "option_b": "Pattern scanning and processing language for structured text files (like CSVs)",
     "option_c": "Setting user passwords",
     "option_d": "Building the kernel",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "AWK is a powerful scripting language for field-based text manipulation."
   },
   {
@@ -528,7 +604,9 @@
     "option_b": "rm -f dir",
     "option_c": "rm -rf dir",
     "option_d": "rmdir -force dir",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "r (recursive) and f (force) are needed to remove nested directories."
   },
   {
@@ -542,7 +620,9 @@
     "option_b": "wget",
     "option_c": "download",
     "option_d": "fetch",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "wget (or 'curl') are standard command-line download tools."
   },
   {
@@ -556,7 +636,9 @@
     "option_b": "ls -t",
     "option_c": "grep recent",
     "option_d": "locate -recent",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "-mtime (modification time) accepts days; -mmin accepts minutes."
   },
   {
@@ -570,7 +652,9 @@
     "option_b": "/etc/group",
     "option_c": "/home/groups",
     "option_d": "/root/group",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It lists group name, GID, and members."
   },
   {
@@ -584,7 +668,9 @@
     "option_b": "0",
     "option_c": "99",
     "option_d": "No PID",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 'swapper' or 'idle' process is PID 0."
   },
   {
@@ -598,7 +684,9 @@
     "option_b": "It allows backward scrolling in a file",
     "option_c": "It is colorful",
     "option_d": "It can edit files",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "'less' doesn't have to read the entire file before starting, making it faster for large files."
   },
   {
@@ -612,7 +700,9 @@
     "option_b": "unalias",
     "option_c": "rmalias",
     "option_d": "clear alias",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "unalias alias_name removes it from the current session."
   },
   {
@@ -626,7 +716,9 @@
     "option_b": "lspci",
     "option_c": "showpci",
     "option_d": "cardinfo",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "lspci lists all PCI controllers and attached devices (GPU, NIC, etc.)."
   },
   {
@@ -640,7 +732,9 @@
     "option_b": "lsusb",
     "option_c": "showusb",
     "option_d": "businfo",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "lsusb shows internal and external USB buses and connected hardware."
   },
   {
@@ -654,7 +748,9 @@
     "option_b": "wc",
     "option_c": "stats",
     "option_d": "num",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "wc stands for 'Word Count'."
   },
   {
@@ -668,7 +764,9 @@
     "option_b": "help cd",
     "option_c": "guide cd",
     "option_d": "built-in cd",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Shell built-ins have their own 'help' system separate from manual pages."
   },
   {
@@ -682,7 +780,9 @@
     "option_b": "gzip",
     "option_c": "tar",
     "option_d": "compress",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "gzip replaces the original file with a compressed .gz version."
   },
   {
@@ -696,7 +796,9 @@
     "option_b": "unique",
     "option_c": "uniq",
     "option_d": "single",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "'uniq' only works on sorted input to find repeating lines."
   }
 ]

@@ -10,7 +10,9 @@
     "option_b": "Network Layer",
     "option_c": "Transport Layer",
     "option_d": "Physical Layer",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The Network Layer (Layer 3) handles IP addressing and routing packets between different networks."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "OSI has 7 layers, TCP/IP has 4 (or 5 standard)",
     "option_c": "OSI is practical, TCP/IP is theoretical",
     "option_d": "There is no difference in the number of layers",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The OSI model is a 7-layer theoretical framework, while the practical TCP/IP model is generally interpreted as 4 or 5 layers."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "30",
     "option_c": "14",
     "option_d": "62",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "A /27 subnet has 32 addresses total. 30 are usable (32 - 2 for Network and Broadcast)."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "32 bits",
     "option_c": "64 bits",
     "option_d": "128 bits",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "IPv4 addresses are 32-bit binary numbers, typically expressed in dotted-decimal format."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "64 bits",
     "option_c": "128 bits",
     "option_d": "256 bits",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "IPv6 uses 128-bit addresses to provide a much larger address space than IPv4."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "Transport Layer",
     "option_c": "Session Layer",
     "option_d": "Data Link Layer",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The Transport Layer (Layer 4) ensures reliable data transfer between the source and destination hosts."
   },
   {
@@ -94,7 +106,9 @@
     "option_b": "FTP",
     "option_c": "DNS",
     "option_d": "ARP",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "DNS (Domain Name System) is the phonebook of the internet."
   },
   {
@@ -108,7 +122,9 @@
     "option_b": "Data Link Layer",
     "option_c": "Network Layer",
     "option_d": "Transport Layer",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "A repeater is a physical layer device used to regenerate and amplify signals."
   },
   {
@@ -122,7 +138,9 @@
     "option_b": "48 bits",
     "option_c": "64 bits",
     "option_d": "128 bits",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "A MAC address is a 48-bit (6-byte) unique identifier assigned to a network interface controller."
   },
   {
@@ -136,7 +154,9 @@
     "option_b": "Presentation Layer",
     "option_c": "Session Layer",
     "option_d": "Data Link Layer",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The Presentation Layer (Layer 6) transforms data into the format that the application layer can accept."
   },
   {
@@ -150,7 +170,9 @@
     "option_b": "Advanced Routing Protocol",
     "option_c": "Access Remote Port",
     "option_d": "Application Relay Port",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "ARP is used to map an IP address to a physical MAC address on a local area network."
   },
   {
@@ -164,7 +186,9 @@
     "option_b": "Star",
     "option_c": "Mesh",
     "option_d": "Ring",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "In a Star topology, all devices are connected to a central switch or hub."
   },
   {
@@ -178,7 +202,9 @@
     "option_b": "A Switch is intelligent and sends data to a specific destination port; a Hub broadcasts to everyone",
     "option_c": "Hubs use IP addresses; Switches use MAC addresses",
     "option_d": "Switches are Physical layer devices",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Switches work at Layer 2 and use MAC addresses to forward data selectively, reducing collisions."
   },
   {
@@ -192,7 +218,9 @@
     "option_b": "Half-Duplex",
     "option_c": "Full-Duplex",
     "option_d": "Quarter-Duplex",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Full-duplex allows simultaneous two-way communication (like a phone call)."
   },
   {
@@ -206,7 +234,9 @@
     "option_b": "Detecting errors in data transmission",
     "option_c": "Encrypting data",
     "option_d": "Compresing files",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "CRC (Cyclic Redundancy Check) is an error-detecting code used to verify the integrity of data."
   },
   {
@@ -220,7 +250,9 @@
     "option_b": "Class B",
     "option_c": "Class C",
     "option_d": "Class D",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Class C uses a /24 default mask, supporting up to 254 hosts per network."
   },
   {
@@ -234,7 +266,9 @@
     "option_b": "128.0.0.0 to 191.255.255.255",
     "option_c": "192.0.0.0 to 223.255.255.255",
     "option_d": "224.0.0.0 to 239.255.255.255",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Class A addresses have a leading bit of 0, ranging from 1 to 126 (127 is reserved for loopback)."
   },
   {
@@ -248,7 +282,9 @@
     "option_b": "To automatically assign dynamic IP addresses to devices on a network",
     "option_c": "To host web pages",
     "option_d": "To manage emails",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Dynamic Host Configuration Protocol (DHCP) automates the IP assignment process."
   },
   {
@@ -262,7 +298,9 @@
     "option_b": "Switch",
     "option_c": "Gateway",
     "option_d": "Repeater",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "A gateway acts as a node connecting two networks that use different protocols."
   },
   {
@@ -276,7 +314,9 @@
     "option_b": "Data Link Layer",
     "option_c": "Network Layer",
     "option_d": "Transport Layer",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The Data Link Layer (Layer 2) organizes bits into frames."
   },
   {
@@ -290,7 +330,9 @@
     "option_b": "UDP",
     "option_c": "HTTP",
     "option_d": "FTP",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "UDP (User Datagram Protocol) does not perform a handshake or maintain a connection state."
   },
   {
@@ -304,7 +346,9 @@
     "option_b": "TCP",
     "option_c": "IP",
     "option_d": "ICMP",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "TCP establishes a connection using SYN, SYN-ACK, and ACK messages."
   },
   {
@@ -318,7 +362,9 @@
     "option_b": "Unshielded Twisted Pair (UTP)",
     "option_c": "Fiber Optic Cable",
     "option_d": "Shielded Twisted Pair (STP)",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Fiber optics use light pulses, making them immune to EMI."
   },
   {
@@ -332,7 +378,9 @@
     "option_b": "Providing flow control and multiplexing protocols across the link",
     "option_c": "Physical signal timing",
     "option_d": "Routing data",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The Logical Link Control (LLC) sublayer interacts with the Network layer."
   },
   {
@@ -346,7 +394,9 @@
     "option_b": "255.255.0.0",
     "option_c": "255.255.255.0",
     "option_d": "255.255.255.255",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "A Class B network has a 16-bit network portion (/16)."
   },
   {
@@ -360,7 +410,9 @@
     "option_b": "Network error reporting and diagnostic (e.g., Ping)",
     "option_c": "Email delivery",
     "option_d": "IP to MAC resolution",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "ICMP (Internet Control Message Protocol) is used by network devices to send error messages and operational information."
   },
   {
@@ -374,7 +426,9 @@
     "option_b": "The process of adding headers (and sometimes trailers) to data as it moves down the OSI layers",
     "option_c": "Encrypting a file",
     "option_d": "Deleting used packets",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Each layer adds its own control information to the data passed from the layer above."
   },
   {
@@ -388,7 +442,9 @@
     "option_b": "The packet/frame is discarded",
     "option_c": "The system ignores the error",
     "option_d": "The user is notified immediately",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Network protocols discard corrupted packets to maintain data integrity."
   },
   {
@@ -402,7 +458,9 @@
     "option_b": "Controlled Signal Multiple Access with Collision Detection",
     "option_c": "Common Server Media Access with Coding Detection",
     "option_d": "Carrier Source Mobile Access",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "CSMA/CD is used in wired Ethernet to manage how nodes share the communication medium."
   },
   {
@@ -416,7 +474,9 @@
     "option_b": "22",
     "option_c": "80",
     "option_d": "443",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Standard (unencrypted) web traffic uses port 80."
   },
   {
@@ -430,7 +490,9 @@
     "option_b": "22",
     "option_c": "25",
     "option_d": "53",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Secure Shell (SSH) uses port 22 by default."
   },
   {
@@ -444,7 +506,9 @@
     "option_b": "127.0.0.1",
     "option_c": "192.168.1.1",
     "option_d": "10.0.0.1",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "127.0.0.1 refers to the local machine (localhost)."
   },
   {
@@ -458,7 +522,9 @@
     "option_b": "Layer 2",
     "option_c": "Layer 3",
     "option_d": "Layer 4",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Routers use IP addresses (Layer 3) to forward packets between different networks."
   },
   {
@@ -472,7 +538,9 @@
     "option_b": "Sending Emails",
     "option_c": "Managing databases",
     "option_d": "Network time sync",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Simple Mail Transfer Protocol (SMTP) is used to send email messages."
   },
   {
@@ -486,7 +554,9 @@
     "option_b": "16 bytes",
     "option_c": "20 bytes",
     "option_d": "32 bytes",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The standard TCP header without options is 20 bytes long."
   },
   {
@@ -500,7 +570,9 @@
     "option_b": "20 bytes",
     "option_c": "32 bytes",
     "option_d": "Variable",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "A UDP header is fixed at 8 bytes (Source Port, Destination Port, Length, Checksum)."
   },
   {
@@ -514,7 +586,9 @@
     "option_b": "Deleting corrupted packets",
     "option_c": "Duplicating packets for safety",
     "option_d": "Encrypting individual bits",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "If a packet is larger than the Maximum Transmission Unit (MTU), it must be fragmented."
   },
   {
@@ -528,7 +602,9 @@
     "option_b": "100 meters",
     "option_c": "500 meters",
     "option_d": "1000 meters",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Standard twisted-pair Ethernet cables are limited to 100 meters per segment."
   },
   {
@@ -542,7 +618,9 @@
     "option_b": "36.8%",
     "option_c": "50%",
     "option_d": "100%",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Pure ALOHA has a peak throughput of approximately 18.4% due to collisions."
   },
   {
@@ -556,7 +634,9 @@
     "option_b": "36.8%",
     "option_c": "73.6%",
     "option_d": "100%",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Slotted ALOHA doubles the efficiency of Pure ALOHA by synchronizing transmissions."
   },
   {
@@ -570,7 +650,9 @@
     "option_b": "Star",
     "option_c": "Bus",
     "option_d": "Ring",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "In a Bus topology, one long cable acts as a backbone to link all the devices in a network."
   },
   {
@@ -584,7 +666,9 @@
     "option_b": "Switch",
     "option_c": "Hub",
     "option_d": "Modem",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "A hub creates a single collision domain and is generally considered obsolete."
   },
   {
@@ -598,7 +682,9 @@
     "option_b": "MAC Address",
     "option_c": "Port Number",
     "option_d": "URL",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Port numbers identify specific services or applications on a device."
   },
   {
@@ -612,7 +698,9 @@
     "option_b": "RJ-45",
     "option_c": "BNC",
     "option_d": "USB-C",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The RJ-45 (Registered Jack 45) is the 8-pin connector used for Ethernet networking."
   },
   {
@@ -626,7 +714,9 @@
     "option_b": "Transferring files between a client and server",
     "option_c": "Syncing time",
     "option_d": "Streaming video",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "File Transfer Protocol (FTP) is designed for transferring files over a network."
   },
   {
@@ -640,7 +730,9 @@
     "option_b": "A logical connection between two applications that allows for dialogue control and synchronization",
     "option_c": "A database query",
     "option_d": "One internet packet",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The Session Layer (Layer 5) manages the establishment, maintenance, and termination of conversations."
   },
   {
@@ -654,7 +746,9 @@
     "option_b": "Error detection and correction (ECC)",
     "option_c": "Routing",
     "option_d": "Compression",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Hamming code can detect up to two-bit errors and correct one-bit errors."
   },
   {
@@ -668,7 +762,9 @@
     "option_b": "Using many frequencies together",
     "option_c": "Wireless transmission",
     "option_d": "Satellite communication",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Digital signals in Ethernet use baseband transmission."
   },
   {
@@ -682,7 +778,9 @@
     "option_b": "Modulates/Demodulates signals between digital and analog formats",
     "option_c": "Routes IP packets",
     "option_d": "Repeats electrical signals",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "A modem allows digital devices to communicate over analog lines (like phone or cable)."
   },
   {
@@ -696,7 +794,9 @@
     "option_b": "16 bits",
     "option_c": "32 bits",
     "option_d": "48 bits",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Port numbers range from 0 to 65535, which is the range of a 16-bit integer."
   }
 ]

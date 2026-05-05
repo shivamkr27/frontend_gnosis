@@ -10,7 +10,9 @@
     "option_b": "Inserting a 0 after five consecutive 1s in data to avoid it being mistaken for a flag sequence",
     "option_c": "Deleting bits to compress data",
     "option_d": "Encrypting the bits during transmission",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Bit stuffing ensures the frame delimiter (flag) only appears at the start and end of a frame."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "All packets from 4 onwards in the current window",
     "option_c": "No packets; it waits for 10 seconds",
     "option_d": "Only the last packet",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Go-Back-N retransmits the lost packet and all subsequent packets that were sent after it in the window."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "All packets starting from 4",
     "option_c": "The entire window",
     "option_d": "Nothing is retransmitted",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Selective Repeat is more efficient as it only retransmits the specific frames that were lost or damaged."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "Each router shares its routing table with its immediate neighbors periodically",
     "option_c": "It uses the Dijkstra algorithm",
     "option_d": "It never has loops",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Distance Vector protocols (like RIP) calculate the best path based on reports from neighbors."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "Link State",
     "option_c": "Static Routing",
     "option_d": "Flooding",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Link State protocols (like OSPF) use Dijkstra to find the shortest path after building a full topology map."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "The sender must wait for an ACK for every single frame, wasting time on high-latency links",
     "option_c": "It is hard to code",
     "option_d": "It doesn't detect errors",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It has very low bandwidth utilization because it only allows one pending frame at a time."
   },
   {
@@ -94,7 +106,9 @@
     "option_b": "To prevent packets from looping infinitely in a network",
     "option_c": "To tell the user how long wait",
     "option_d": "To encrypt the payload",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Time To Live (TTL) is decremented by 1 at each router; if it reaches 0, the packet is discarded."
   },
   {
@@ -108,7 +122,9 @@
     "option_b": "64 bytes",
     "option_c": "128 bytes",
     "option_d": "1500 bytes",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Standard 802.3 Ethernet requires a minimum frame size of 64 bytes for collision detection to function correctly."
   },
   {
@@ -122,7 +138,9 @@
     "option_b": "Circuit switching reserves a dedicated path; Packet switching sends data in small pieces through shared resources",
     "option_c": "Packet switching is only for voice calls",
     "option_d": "Circuit switching is how a modern Router works",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Packet switching is more efficient for variable data traffic, while circuit switching is traditional for telephony."
   },
   {
@@ -136,7 +154,9 @@
     "option_b": "A routing loop where neighbors keep incrementing the hop count to a failed destination",
     "option_c": "A database scaling issue",
     "option_d": "When the network has too many nodes",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Count to infinity occurs when two nodes share misleading distance updates about a failed link."
   },
   {
@@ -150,7 +170,9 @@
     "option_b": "A connection-oriented network where all packets follow a pre-established path during a session",
     "option_c": "A network that doesn't use cables",
     "option_d": "A simulated physical network",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Virtual Circuits (like X.25 or ATM) establish a path before data transfer starts."
   },
   {
@@ -164,7 +186,9 @@
     "option_b": "The ratio of original information bits to the total number of bits transmitted (including parity)",
     "option_c": "The number of errors per second",
     "option_d": "The cost of the hardware",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Code rate (k/n) represents the redundancy overhead of an error correction scheme."
   },
   {
@@ -178,7 +202,9 @@
     "option_b": "Combining an acknowledgment with a regular data frame being sent to the same destination",
     "option_c": "Using someone else's Wi-Fi",
     "option_d": "Encrypting multiple files together",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Piggybacking saves bandwidth by avoiding separate acknowledgment-only frames."
   },
   {
@@ -192,7 +218,9 @@
     "option_b": "Inserting an ESC character before control characters (like Flag) found inside the data during transmission",
     "option_c": "Converting bits to bytes",
     "option_d": "A way to compress text",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Byte stuffing allows binary data containing frame delimiters to be sent safely."
   },
   {
@@ -206,7 +234,9 @@
     "option_b": "No, it can only detect an odd number of errors; it cannot locate or fix them",
     "option_c": "Yes, if the error is at the end",
     "option_d": "Only in fiber optics",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Simple parity is the most basic error detection method and provides no correction ability."
   },
   {
@@ -220,7 +250,9 @@
     "option_b": "1024 to 49151",
     "option_c": "49152 to 65535",
     "option_d": "0 to 65535",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Well-known ports are reserved for common system services (like HTTP, SSH, FTP)."
   },
   {
@@ -234,7 +266,9 @@
     "option_b": "W",
     "option_c": "W-1",
     "option_d": "Unlimited",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The window size defines the maximum number of sent but unacknowledged packets."
   },
   {
@@ -248,7 +282,9 @@
     "option_b": "O(N^2) or O(E*log N)",
     "option_c": "O(N^3)",
     "option_d": "O(1)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Computational efficiency is key for Link State routing protocols in large networks."
   },
   {
@@ -262,7 +298,9 @@
     "option_b": "Destination Unreachable",
     "option_c": "Time Exceeded",
     "option_d": "Source Quench",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "An ICMP 'Time Exceeded' message (Type 11) is sent to tell the sender the packet was discarded."
   },
   {
@@ -276,7 +314,9 @@
     "option_b": "802.11",
     "option_c": "802.15",
     "option_d": "802.1",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "IEEE 802.11 governs the physical and data link layers for wireless network communication."
   },
   {
@@ -290,7 +330,9 @@
     "option_b": "Determining how long to wait after a collision in CSMA/CD before retransmitting",
     "option_c": "Doubling network speed",
     "option_d": "Encrypting the packet payload",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It helps nodes avoid repeated collisions by adding increasing amounts of random delay."
   },
   {
@@ -304,7 +346,9 @@
     "option_b": "A 7-byte pattern of alternating 1s and 0s used to synchronize receiver clocks",
     "option_c": "The footer of the frame",
     "option_d": "An encryption key",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Synchronization is vital for reliable bit-level data reception in physical media."
   },
   {
@@ -318,7 +362,9 @@
     "option_b": "16",
     "option_c": "24",
     "option_d": "32",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Class C networks (/24) use the first 24 bits for the network ID and the last 8 bits for the host ID."
   },
   {
@@ -332,7 +378,9 @@
     "option_b": "A logical group of network devices that appear to be on the same broadcast domain despite physical location",
     "option_c": "A network for only video data",
     "option_d": "A virtual router",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Virtual LANs improve security and network performance by segmenting broadcast domains."
   },
   {
@@ -346,7 +394,9 @@
     "option_b": "Exterior Gateway Protocol (EGP)",
     "option_c": "Transport Layer Protocol",
     "option_d": "Data Link Protocol",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "BGP is the routing protocol of the internet, used to exchange routing information between autonomous systems."
   },
   {
@@ -360,7 +410,9 @@
     "option_b": "RST",
     "option_c": "FIN",
     "option_d": "PSH",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "FIN (Finish) indicates that the sender has no more data to transmit."
   },
   {
@@ -374,7 +426,9 @@
     "option_b": "RST",
     "option_c": "ACK",
     "option_d": "SYN",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "RST (Reset) is used to immediately abort a connection."
   },
   {
@@ -388,7 +442,9 @@
     "option_b": "The part of a network where data packets can collide with each other",
     "option_c": "All users on the internet",
     "option_d": "A database table",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Hubs create one single collision domain, while switches create one for each port."
   },
   {
@@ -402,7 +458,9 @@
     "option_b": "Box and Router",
     "option_c": "Broadband and Router",
     "option_d": "Buffer and Router",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Brouters perform bridging for some protocols and routing for others."
   },
   {
@@ -416,7 +474,9 @@
     "option_b": "It is the first fragment of a fragmented packet",
     "option_c": "The packet is the last fragment",
     "option_d": "The packet header is corrupt",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The offset specifies where in the original packet this fragment starts; 0 means it's the beginning."
   },
   {
@@ -430,7 +490,9 @@
     "option_b": "Frames",
     "option_c": "Packets",
     "option_d": "Segments",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Layer 2 organizes raw bits into structured frames."
   },
   {
@@ -444,7 +506,9 @@
     "option_b": "Frames",
     "option_c": "Packets",
     "option_d": "Segments (TCP) or Datagrams (UDP)",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "The Transport Layer uses segments or datagrams depending on the protocol used."
   },
   {
@@ -458,7 +522,9 @@
     "option_b": "Sending a packet to all outgoing links except the one it arrived on",
     "option_c": "Sending many emails at once",
     "option_d": "A DDoS attack",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Flooding ensures a packet reaches every node but consumes vast amounts of bandwidth."
   },
   {
@@ -472,7 +538,9 @@
     "option_b": "d + 1",
     "option_c": "2d + 1",
     "option_d": "d - 1",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "To detect d errors, you need a distance of d+1. To correct d errors, you need 2d+1."
   },
   {
@@ -486,7 +554,9 @@
     "option_b": "CSMA/CD",
     "option_c": "Token Ring",
     "option_d": "Slotted ALOHA",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Token Ring ensures only the device holding the token can transmit, eliminating collisions."
   },
   {
@@ -500,7 +570,9 @@
     "option_b": "Flags and Fragment Offset",
     "option_c": "Source IP",
     "option_d": "Protocol",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The Flags (DF, MF) and Offset determine how a packet is split and reassembled."
   },
   {
@@ -514,7 +586,9 @@
     "option_b": "Receiving and checking the entire frame for errors before forwarding it to the target port",
     "option_c": "Storing a frame for 24 hours",
     "option_d": "A way to backup the switch",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Store-and-forward is safer as it discards damaged frames, but it adds latency compared to Cut-Through."
   },
   {
@@ -528,7 +602,9 @@
     "option_b": "192.168.1.255",
     "option_c": "255.255.255.255",
     "option_d": "192.168.1.1",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The broadcast address has all host bits set to 1. For a Class C (/24), it is .255."
   },
   {
@@ -542,7 +618,9 @@
     "option_b": "A collection of connected IP routing prefixes under the control of one or more network operators on behalf of a single administrative entity",
     "option_c": "A small home network",
     "option_d": "An isolated group of hackers",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The internet is a network of autonomous systems (like ISPs or large universities)."
   },
   {
@@ -556,7 +634,9 @@
     "option_b": "Flag Bytes",
     "option_c": "Physical Layer Coding Violations",
     "option_d": "Binary Count",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Flag bytes (like PPP) use special delimiters like 0x7E to frame data."
   },
   {
@@ -570,7 +650,9 @@
     "option_b": "Mapping MAC to IP (Inverse of ARP)",
     "option_c": "Routing packets",
     "option_d": "Assigning port numbers",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Reverse ARP was used to find the IP address of a host with only its hardware address; it is replaced by DHCP."
   },
   {
@@ -584,7 +666,9 @@
     "option_b": "A performance problem where small amounts of data are sent in many packets, leading to high overhead",
     "option_c": "An oversized network window",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Silley window syndrome can occur if the sender or receiver updates the window size in very small increments."
   },
   {
@@ -598,7 +682,9 @@
     "option_b": "2",
     "option_c": "3",
     "option_d": "4",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Formula: 2d + 1. So for d=1, 2(1)+1 = 3."
   },
   {
@@ -612,7 +698,9 @@
     "option_b": "Data sent only at night",
     "option_c": "Data sent at variable speeds",
     "option_d": "Data sent to many people",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Asynchronous transmission is simple but has higher overhead due to start/stop bits."
   },
   {
@@ -626,7 +714,9 @@
     "option_b": "Using different frequencies for different users",
     "option_c": "Merging many cables into one",
     "option_d": "A type of database indexing",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "TDM is used to combine multiple digital signals into one high-speed link."
   },
   {
@@ -640,7 +730,9 @@
     "option_b": "Sending to all addresses in the network",
     "option_c": "Sending a packet to a specific group of subscribers",
     "option_d": "Sending the same email twice",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Multicasting is used for applications like IPTV or video conferencing."
   },
   {
@@ -654,7 +746,9 @@
     "option_b": "Regions or Clusters",
     "option_c": "Top and Bottom",
     "option_d": "Masters and Slaves",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Hierarchical routing reduces the size of routing tables in very large networks."
   },
   {
@@ -668,7 +762,9 @@
     "option_b": "Shaping traffic and preventing congestion by enforcing a constant output rate",
     "option_c": "Fixing internet leaks",
     "option_d": "Deleting old logs",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Leaky bucket averages out traffic peaks to maintain a steady flow into the network."
   },
   {
@@ -682,7 +778,9 @@
     "option_b": "The actual amount of data transferred successfully per unit of time",
     "option_c": "The time it takes to send one bit",
     "option_d": "The cost of data",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Throughput measures the actual performance of a link under real-world conditions."
   },
   {
@@ -696,7 +794,9 @@
     "option_b": "255.255.192.0",
     "option_c": "255.255.240.0",
     "option_d": "255.255.255.0",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The first 16 bits are 1s, and the next 2 bits are also 1s (11000000 = 192)."
   }
 ]

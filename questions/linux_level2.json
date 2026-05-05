@@ -10,7 +10,9 @@
     "option_b": ">> overwrites the file, while > appends",
     "option_c": "> is for errors, >> is for data",
     "option_d": "There is no difference",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Single bracket wipes existing content; double bracket adds to the end of the file."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "It takes the output of the first command and passes it as input to the second command",
     "option_c": "It creates a backup",
     "option_d": "It hides the output from the screen",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Piping is a core Unix philosophy: building complex tools by chaining simple ones together."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "find",
     "option_c": "grep",
     "option_d": "awk",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "grep (Global Regular Expression Print) searches through files for lines that match a given pattern."
   },
   {
@@ -52,7 +58,11 @@
     "option_b": "locate config.json",
     "option_c": "grep config.json",
     "option_d": "ls -R | grep config.json",
-    "correct_options": ["A", "B", "D"],
+    "correct_options": [
+      "A",
+      "B",
+      "D"
+    ],
     "explanation": "find and locate search for filenames. Grep searches inside file content. Chaining ls and grep is a manual way to find files."
   },
   {
@@ -66,7 +76,9 @@
     "option_b": "command 2> error.log",
     "option_c": "command E> error.log",
     "option_d": "command | error.log",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "In Linux, fd 1 is stdout and fd 2 is stderr. Using 2> targets the error stream specifically."
   },
   {
@@ -80,7 +92,9 @@
     "option_b": "kill",
     "option_c": "exit",
     "option_d": "end",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 'kill' command sends a signal (defaults to SIGTERM) to a process."
   },
   {
@@ -94,7 +108,9 @@
     "option_b": "15",
     "option_c": "9",
     "option_d": "0",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "kill -9 sends SIGKILL, which cannot be ignored or handled by the process."
   },
   {
@@ -108,7 +124,9 @@
     "option_b": "Changes the file owner to root and group to admins",
     "option_c": "Changes permissions for root",
     "option_d": "Deletes the file",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The colon separates the user and the group in the chown command."
   },
   {
@@ -122,7 +140,9 @@
     "option_b": "ln file linkname",
     "option_c": "ln -s file linkname",
     "option_d": "cp -l file linkname",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The -s flag specifies a symbolic (soft) link."
   },
   {
@@ -136,7 +156,9 @@
     "option_b": "ftp",
     "option_c": "ssh",
     "option_d": "login",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "SSH (Secure Shell) provides encrypted communication for remote access."
   },
   {
@@ -150,7 +172,9 @@
     "option_b": "?",
     "option_c": ".",
     "option_d": "!",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "'?' is the single-character wildcard; '*' matches any number of characters."
   },
   {
@@ -164,7 +188,9 @@
     "option_b": "/home/passwd",
     "option_c": "/etc/passwd",
     "option_d": "/root/users",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "/etc/passwd contains UID, GID, home directory, and default shell."
   },
   {
@@ -178,7 +204,9 @@
     "option_b": "cron",
     "option_c": "init",
     "option_d": "bash",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 'cron' daemon executes commands at specified intervals defined in 'crontabs'."
   },
   {
@@ -192,7 +220,9 @@
     "option_b": "uname -a",
     "option_c": "kernel",
     "option_d": "osinfo",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "uname -a provides a full system summary."
   },
   {
@@ -206,7 +236,9 @@
     "option_b": "set MY_VAR value",
     "option_c": "export MY_VAR=value",
     "option_d": "env MY_VAR=value",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "'export' turns a shell variable into an environment variable."
   },
   {
@@ -220,7 +252,9 @@
     "option_b": "pstree",
     "option_c": "top",
     "option_d": "tree",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "pstree shows parents and children processes visually."
   },
   {
@@ -234,7 +268,9 @@
     "option_b": "netstat",
     "option_c": "ping",
     "option_d": "traceroute",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "netstat (or its replacement 'ss') is used for network troubleshooting."
   },
   {
@@ -248,7 +284,9 @@
     "option_b": "File",
     "option_c": "Directory",
     "option_d": "Shell",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 'everything is a file' philosophy includes hardware devices, sockets, and pipes."
   },
   {
@@ -262,7 +300,9 @@
     "option_b": "shortcut ll='ls -l'",
     "option_c": "map ll='ls -l'",
     "option_d": "ll := 'ls -l'",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "'alias' creates temporary command shortcuts in the current shell session."
   },
   {
@@ -276,7 +316,9 @@
     "option_b": "mkfs.ext4",
     "option_c": "format",
     "option_d": "mount",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "mkfs (make filesystem) creates common Linux partition formats."
   },
   {
@@ -290,7 +332,9 @@
     "option_b": "ls -lh ~",
     "option_c": "grep 100MB ~",
     "option_d": "locate 100M",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "The find command allows filtering by various metadata like size or type."
   },
   {
@@ -304,7 +348,9 @@
     "option_b": ".profile",
     "option_c": ".bashrc",
     "option_d": ".bash_history",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": ".bashrc contains shell configurations, aliases, and functions."
   },
   {
@@ -318,7 +364,9 @@
     "option_b": "/dev/null",
     "option_c": "/tmp/null",
     "option_d": "/etc/shadow",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "/dev/null is the 'black hole' of the file system; output sent there is discarded."
   },
   {
@@ -332,7 +380,9 @@
     "option_b": "sed",
     "option_c": "cut",
     "option_d": "tr",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The 'cut' command extracts sections from each line of a file."
   },
   {
@@ -346,7 +396,9 @@
     "option_b": "vim",
     "option_c": "sed",
     "option_d": "awk",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "sed (stream editor) is used to perform basic transformations on an input stream."
   },
   {
@@ -360,7 +412,9 @@
     "option_b": "An Access Control List (ACL) is attached to the file",
     "option_c": "The file is a directory",
     "option_d": "The file is extra large",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "ACLs allow more granular permissions than the standard owner-group-other model."
   },
   {
@@ -374,7 +428,9 @@
     "option_b": "dmesg",
     "option_c": "syslog",
     "option_d": "bootlog",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "dmesg helps in diagnosing drivers and hardware detection issues."
   },
   {
@@ -388,7 +444,9 @@
     "option_b": "route",
     "option_c": "traceroute",
     "option_d": "path",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "traceroute lists all the intermediate routers between your computer and the destination."
   },
   {
@@ -402,7 +460,9 @@
     "option_b": "usermod",
     "option_c": "groupadd",
     "option_d": "groupmod",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "usermod -aG groupname username is the standard way to modify user group memberships."
   },
   {
@@ -416,7 +476,9 @@
     "option_b": "Allowing a user to execute a file with the permissions of the file owner",
     "option_c": "Hiding a file",
     "option_d": "Running a file in the background",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "SUID is often used on commands like 'passwd' so users can update root-protected files."
   },
   {
@@ -430,7 +492,9 @@
     "option_b": "yum (or dnf)",
     "option_c": "brew",
     "option_d": "pacman",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "dnf is the modern successor to the yum package manager."
   },
   {
@@ -444,7 +508,9 @@
     "option_b": "dbupdate",
     "option_c": "updatedb",
     "option_d": "findupdate",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "locate is fast because it uses a database, which needs periodically updated via updatedb."
   },
   {
@@ -458,7 +524,9 @@
     "option_b": "/home/logs",
     "option_c": "/var/log",
     "option_d": "/root/log",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "/var/log contains logs for the kernel, auth, web servers, and more."
   },
   {
@@ -472,7 +540,9 @@
     "option_b": "$USER",
     "option_c": "$PATH",
     "option_d": "$SHELL",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "PATH is a colon-separated list of directories."
   },
   {
@@ -486,7 +556,9 @@
     "option_b": "init (or systemd)",
     "option_c": "kthreadd",
     "option_d": "login",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "PID 1 is the parent of all other non-kernel processes."
   },
   {
@@ -500,7 +572,9 @@
     "option_b": "mount",
     "option_c": "link",
     "option_d": "map",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Mounting makes the contents of a drive accessible at a point in the file tree."
   },
   {
@@ -514,7 +588,9 @@
     "option_b": "whatis",
     "option_c": "intro",
     "option_d": "help",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "whatis searches the manual page descriptions for keywords."
   },
   {
@@ -528,7 +604,9 @@
     "option_b": "!last",
     "option_c": "..",
     "option_d": "rep",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "!! is an 'event designator' that translates to the previous command line."
   },
   {
@@ -542,7 +620,9 @@
     "option_b": "& at the end",
     "option_c": "run-bg",
     "option_d": "detach",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "sleep 10 & runs the sleep process without blocking the terminal."
   },
   {
@@ -556,7 +636,9 @@
     "option_b": "444",
     "option_c": "Read All",
     "option_d": "666",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "r=4, w=2, x=1. 4+0+0 = 4."
   },
   {
@@ -570,7 +652,9 @@
     "option_b": "700",
     "option_c": "Full owner",
     "option_d": "100",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "4+2+1=7 for owner, 0 for group/others."
   },
   {
@@ -584,7 +668,9 @@
     "option_b": "unzip",
     "option_c": "tar -xvz",
     "option_d": "gunzip",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The unzip utility is standard on most distributions."
   },
   {
@@ -598,7 +684,9 @@
     "option_b": "uptime",
     "option_c": "runstats",
     "option_d": "clock",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "uptime shows current time, duration since boot, and load average."
   },
   {
@@ -612,7 +700,9 @@
     "option_b": "fg",
     "option_c": "front",
     "option_d": "call",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "fg (foreground) restores a stopped or backgrounded task."
   },
   {
@@ -626,7 +716,9 @@
     "option_b": "Redirects data to errors",
     "option_c": "Hides all errors",
     "option_d": "Duplicates a file",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "It sends the stderr stream (fd 2) to the same location as the stdout stream (fd 1)."
   },
   {
@@ -640,7 +732,9 @@
     "option_b": "hostname",
     "option_c": "name",
     "option_d": "domain",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "hostname prints or sets the system's network name."
   },
   {
@@ -654,7 +748,9 @@
     "option_b": "sort",
     "option_c": "order",
     "option_d": "organize",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "'sort' command re-orders lines of text."
   },
   {
@@ -668,7 +764,9 @@
     "option_b": "tac",
     "option_c": "cat -r",
     "option_d": "back",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "tac is 'cat' spelled backwards and prints lines from last to first."
   },
   {
@@ -682,7 +780,9 @@
     "option_b": "free",
     "option_c": "raminfo",
     "option_d": "usage",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 'free' command provides a table of physical and swap memory."
   },
   {
@@ -696,7 +796,9 @@
     "option_b": "find / -name tmp -file f",
     "option_c": "locate tmp",
     "option_d": "ls -d /tmp",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "-type d filters results to only include directories."
   }
 ]

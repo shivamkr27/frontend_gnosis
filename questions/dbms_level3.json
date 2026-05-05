@@ -10,7 +10,9 @@
     "option_b": "B+ Trees store data pointers only in the leaf nodes, creating a linked list for faster range queries, whereas B-Trees store pointers in all nodes",
     "option_c": "B-Trees are faster for deletes",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "B+ trees are the industry standard for database indexing because of their efficient range scanning and predictable height."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "An index that defines the physical order of data in the table (a table can have only one)",
     "option_c": "An index that is encrypted",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The table data itself is stored in the leaf nodes of a clustered index."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "A dynamic hashing technique that uses a directory of pointers to buckets, allowing the file to grow and shrink gracefully",
     "option_c": "Using a very long hash key",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Extendible hashing avoids the rehashing of the entire database by splitting only one bucket at a time."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "A protocol where a transaction has a Growing phase (acquiring locks) and a Shrinking phase (releasing locks), and it cannot acquire new locks after releasing one",
     "option_c": "Using two different keys for one row",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "2PL ensures conflict serializability but does not prevent deadlocks."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "A variation where all exclusive (write) locks are held until the transaction commits or aborts to ensure recoverability",
     "option_c": "A way to delete all locks",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Strict 2PL avoids cascading rollbacks and is used by most commercial databases."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "It allows a write to be ignored if a newer write has already occurred (obsolescence), helping to improve concurrency without violating view serializability",
     "option_c": "Deletes the logs",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Thomas' Write Rule allows some non-conflict serializable schedules to be view serializable."
   },
   {
@@ -94,7 +106,9 @@
     "option_b": "Older dies",
     "option_c": "Younger dies",
     "option_d": "none of the above",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Wait-Die uses timestamps to build a non-circular wait dependency (old waits for young; young dies if requesting old)."
   },
   {
@@ -108,7 +122,9 @@
     "option_b": "Older 'wounds' (aborts) the younger transaction to get the resource",
     "option_c": "Older dies",
     "option_d": "Younger waits",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Wound-Wait is generally more efficient than Wait-Die as it preempts younger transactions."
   },
   {
@@ -122,7 +138,9 @@
     "option_b": "A recovery technique where the database remains consistent by maintaining dual versions of the page table; updates are written to a 'shadow' version",
     "option_c": "Deleting the database shadow",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Shadow paging avoids the overhead of log-based recovery but can lead to disk fragmentation."
   },
   {
@@ -136,7 +154,9 @@
     "option_b": "To reduce the time for recovery after a crash by flushing dirty buffers to disk and marking a safe point in the log",
     "option_c": "To count the number of users",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Recovery only needs to process the log from the last checkpoint rather than from the beginning of time."
   },
   {
@@ -150,7 +170,9 @@
     "option_b": "A procedural piece of code that automatically executes in response to certain events (INSERT, UPDATE, DELETE) on a particular table",
     "option_c": "A user manual for the DB",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Triggers are used for complex integrity checks and auditing."
   },
   {
@@ -164,7 +186,9 @@
     "option_b": "A prepared SQL code that you can save and reuse, allowing for complex logic and better performance (via pre-compilation)",
     "option_c": "The bios setup for DB",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Stored procedures reduce network traffic by executing complex logic on the server side."
   },
   {
@@ -178,7 +202,9 @@
     "option_b": "DENSE_RANK()",
     "option_c": "ROW_NUMBER()",
     "option_d": "PARTITION()",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "ROW_NUMBER() always increments, while RANK() can have gaps if ties occur."
   },
   {
@@ -192,7 +218,9 @@
     "option_b": "DENSE_RANK() does not leave gaps in the rank sequence after a tie (e.g., 1, 2, 2, 3), whereas RANK() would skip (e.g., 1, 2, 2, 4)",
     "option_c": "Rank is faster",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "DENSE_RANK ensures every number is used in a consecutive sequence."
   },
   {
@@ -206,7 +234,9 @@
     "option_b": "The component that analyzes a query and chooses the most efficient execution plan (lowest cost) considering indexes and table statistics",
     "option_c": "Deleting unused tables",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Optimization is the 'brain' of the DBMS, determining whether to use a full table scan or an index."
   },
   {
@@ -220,7 +250,9 @@
     "option_b": "Maintaining multiple versions of data items to allow 'readers' to see a consistent snapshot of the DB without blocking 'writers'",
     "option_c": "Using multiple databases at once",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "MVCC provides high performance for read-heavy workloads (Postgres and InnoDB use it)."
   },
   {
@@ -234,7 +266,9 @@
     "option_b": "The number of pointers (entries) that can fit in a single index block",
     "option_c": "The depth of the tree",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Higher fan-out leads to shallower B+ trees and faster lookups."
   },
   {
@@ -248,7 +282,9 @@
     "option_b": "An unorganized collection of records where data is simply appended to the end of the file",
     "option_c": "Storing data only in RAM",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Heap files are fast for writes but slow for searches without an index."
   },
   {
@@ -262,7 +298,9 @@
     "option_b": "A static multi-level index structure where data is stored in sorted order on disk",
     "option_c": "A way to delete database logs",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "ISAM is efficient for static data but performs poorly when there are many inserts/deletes."
   },
   {
@@ -276,7 +314,9 @@
     "option_b": "Actual database updates are postponed until after the transaction is successfully committed, writing only to the log until then",
     "option_c": "A way to speed up the disk",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Deferred updates eliminate the need for 'Undo' operations during recovery."
   },
   {
@@ -290,7 +330,9 @@
     "option_b": "A technique where database updates are immediately reflected on disk even before the transaction commits",
     "option_c": "Updating only one table",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Immediate updates require both 'Undo' and 'Redo' operations during recovery."
   },
   {
@@ -304,7 +346,9 @@
     "option_b": "Transitioning from an exclusive (write) lock to a shared (read) lock in the shrinking phase",
     "option_c": "Deleting the locks",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Downgrading is allowed during the shrinking phase to improve concurrency."
   },
   {
@@ -318,7 +362,9 @@
     "option_b": "A vulnerability where an attacker can execute arbitrary SQL code by manipulating input untrusted by the application",
     "option_c": "A way to speed up database queries",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Using 'Prepared Statements' or 'Parameterized Queries' is the primary defense against SQL injection."
   },
   {
@@ -332,7 +378,9 @@
     "option_b": "The number of levels from the root node to the leaf nodes",
     "option_c": "The number of users on the site",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Most production B+ trees have a height of 3 or 4, even with millions of records."
   },
   {
@@ -346,7 +394,9 @@
     "option_b": "A dynamic hashing method that grows the file by splitting buckets in a predictable, linear order, avoiding a global directory",
     "option_c": "Hashing only the primary key",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Linear hashing avoids the directory overhead of extendible hashing."
   },
   {
@@ -360,7 +410,9 @@
     "option_b": "Index scan traverses an index tree to find rows; Full Table scan reads every single page of the table from disk",
     "option_c": "Full table scan is always faster",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Index scans are drastically faster for selective queries (e.g., finding 1 user out of 1 million)."
   },
   {
@@ -374,7 +426,9 @@
     "option_b": "A sequential file that records all data-modification operations (and their outcomes) for the purpose of ensuring ACID properties",
     "option_c": "A list of table names",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The log (or WAL - Write Ahead Log) is the primary tool for database durability."
   },
   {
@@ -388,7 +442,9 @@
     "option_b": "When a transaction is never granted a lock it needs because other transactions keep getting the lock first (e.g., constant readers blocking a writer)",
     "option_c": "The database is empty",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Lock scheduling must use fairness (like a FIFO queue for locks) to avoid starvation."
   },
   {
@@ -402,7 +458,9 @@
     "option_b": "When the rollback of one transaction forces the rollback of many other dependent transactions due to uncommitted data being read",
     "option_c": "Deleting the database backup",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Avoiding cascading rollbacks is a key goal for practical database isolation."
   },
   {
@@ -416,7 +474,9 @@
     "option_b": "The part of the metadata that contains info about users, privileges, table structures, and physical storage stats",
     "option_c": "A list of all users on the internet",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The catalog is accessible via 'Information Schema' queries in many SQL systems."
   },
   {
@@ -430,7 +490,9 @@
     "option_b": "A database object that allows for row-by-row processing of a result-set",
     "option_c": "An error code",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Cursors should be used sparingly as they are generally slower than set-based SQL operations."
   },
   {
@@ -444,7 +506,9 @@
     "option_b": "When two different search keys hash to the same bucket address",
     "option_c": "Hiding the hash key",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Collisions are inevitable and are handled by techniques like Overflow Chaining or Open Addressing."
   },
   {
@@ -458,7 +522,9 @@
     "option_b": "Using dual parity to provide protection against the simultaneous failure of any two drives",
     "option_c": "Triple mirroring",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "RAID 6 is very safe but has high write overhead due to calculating complex syndromes."
   },
   {
@@ -472,7 +538,9 @@
     "option_b": "To perform recursive queries, such as navigating hierarchical data like an organizational chart or family tree",
     "option_c": "To repeat the same query forever",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Recursive CTEs (Common Table Expressions) are powerful for processing graph-like or hierarchical data structures."
   },
   {
@@ -486,7 +554,9 @@
     "option_b": "Defining permissions for roles and then assigning users to those roles, simplifying maintenance",
     "option_c": "Using a role-play game to secure data",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "RBAC is the standard for enterprise security management."
   },
   {
@@ -500,7 +570,9 @@
     "option_b": "It allows some schedules that are NOT conflict serializable but ARE view serializable",
     "option_c": "It deletes all writes",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "By ignoring obsolete writes, it relaxes the strict conflict rules while maintaining logical correctness."
   },
   {
@@ -514,7 +586,9 @@
     "option_b": "Background background background background scanning for data corruption and fixing it using parity or ECC",
     "option_c": "Cleaning the hardware with soap",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Data scrubbing prevents silent errors (bit rot) from accumulating."
   },
   {
@@ -528,7 +602,9 @@
     "option_b": "The strategy where the engine evaluates multiple plans and chooses one with the lowest estimated cost in terms of I/O, CPU, and memory",
     "option_c": "Paying the developer to write code",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Cost is estimated using table statistics (row count, selectivity, etc.)."
   },
   {
@@ -542,7 +618,9 @@
     "option_b": "Forcing a page to stay in the buffer pool until a specific operation completes to prevent it from being swapped out",
     "option_c": "A way to backup the computer",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Pinning is required for active data manipulation by the engine."
   },
   {
@@ -556,7 +634,9 @@
     "option_b": "An isolation level where each transaction sees a consistent snapshot of the whole database from when it started, usually implemented via MVCC",
     "option_c": "Hiding the data from users",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Snapshot isolation eliminates many anomalies like Dirty Reads and Unrepeatable Reads."
   },
   {
@@ -570,7 +650,9 @@
     "option_b": "Connecting leaf nodes via pointers to form a doubly linked list for efficient range scans",
     "option_c": "A way to encrypt data",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This allows the engine to satisfy a 'WHERE value BETWEEN x AND y' query by jumping to x and following the links to y."
   },
   {
@@ -584,7 +666,9 @@
     "option_b": "The operation fails and the transaction is typically aborted/rolled back",
     "option_c": "The data is automatically fixed",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Constraints preserve data integrity; violations are rejected."
   },
   {
@@ -598,7 +682,9 @@
     "option_b": "Grouping multiple logical records into a single physical block on disk to improve I/O efficiency",
     "option_c": "Splitting a file into many parts",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Larger blocks use less overhead and fewer IO operations."
   },
   {
@@ -612,7 +698,9 @@
     "option_b": "A weaker isolation level than conflict serializability that allows the same final view of the database",
     "option_c": "A stronger version of serializability that handles obsolete writes correctly",
     "option_d": "None of the above",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "View serializability is more permissive than conflict serializability but difficult to check efficiently (NP-hard)."
   },
   {
@@ -626,8 +714,10 @@
     "option_b": "Set Difference (-)",
     "option_c": "Intersection",
     "option_d": "Projection",
-    "correct_options": ["B"],
-    "explanation": "Set difference yields R \ S."
+    "correct_options": [
+      "B"
+    ],
+    "explanation": "Set difference yields R - S."
   },
   {
     "subject_name": "DBMS",
@@ -635,12 +725,14 @@
     "level_topic": "Algebra",
     "question_type": "medium",
     "timer_seconds": 25,
-    "question_text": "What is the 'Rename' operator (ρ) used for in relational algebra?",
+    "question_text": "What is the 'Rename' operator (\u03c1) used for in relational algebra?",
     "option_a": "Changing the name of the database",
     "option_b": "A way to provide a temporary name for a relation or its attributes during a query (e.g., in a self-join)",
     "option_c": "Deleting a table name",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Rename allows for unambiguous reference in complex joins."
   },
   {
@@ -654,7 +746,9 @@
     "option_b": "A fundamental rule that a log record describing a change MUST be written to stable storage before the actual change is applied to the database on disk",
     "option_c": "A security scan of the logs",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "WAL is required to survive system failures reliably."
   },
   {
@@ -668,7 +762,9 @@
     "option_b": "No",
     "option_c": "Only on Tuesdays",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Exclusive locks are incompatible with any other locks (shared or exclusive)."
   },
   {
@@ -682,7 +778,9 @@
     "option_b": "A view whose query result is physically stored on disk, and updated when the base tables change, to speed up expensive queries",
     "option_c": "A view for only prime attributes",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Materialized views trade storage and update time for ultra-fast read performance."
   },
   {
@@ -696,49 +794,9 @@
     "option_b": "When the OS converts hundreds of individual row-level locks into a single table-level lock to save memory when a transaction is affecting many rows",
     "option_c": "A way to backup the computer",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Lock escalation saves RAM but significantly reduces concurrency (other users are blocked from the whole table)."
-  },
-  {
-    "subject_name": "DBMS",
-    "level_number": 3,
-    "level_topic": "Concurrency",
-    "question_type": "medium",
-    "timer_seconds": 30,
-    "question_text": "What is 'Granularity' of locking?",
-    "option_a": "The physical size of the lock",
-    "option_b": "The size of the database item being locked (e.g., row, page, or whole table)",
-    "option_c": "The speed of the network",
-    "option_d": "None of the above",
-    "correct_options": ["B"],
-    "explanation": "Higher granularity (like row-level) allows for more concurrency but has higher management overhead."
-  },
-  {
-    "subject_name": "DBMS",
-    "level_number": 3,
-    "level_topic": "Query Optimization",
-    "question_type": "hard",
-    "timer_seconds": 45,
-    "question_text": "What is 'Selectivity' of a query predicate?",
-    "option_a": "How much the developer likes the query",
-    "option_b": "The fraction of total rows in a table that meet the filter condition",
-    "option_c": "The speed of the disk",
-    "option_d": "The number of users",
-    "correct_options": ["B"],
-    "explanation": "Predicates with high selectivity (returning few rows) are ideal for index usage."
-  },
-  {
-    "subject_name": "DBMS",
-    "level_number": 3,
-    "level_topic": "Storage",
-    "question_type": "medium",
-    "timer_seconds": 30,
-    "question_text": "What is 'Fragmentation' in a database file?",
-    "option_a": "Splitting data into atoms",
-    "option_b": "The physical scattering of data pages on disk, which can degrade performance due to increased seek times",
-    "option_c": "A type of table join",
-    "option_d": "None of the above",
-    "correct_options": ["B"],
-    "explanation": "Fragmentation occurs over time as records are added and deleted; it can be fixed with index rebuilds or defragmentation."
   }
 ]

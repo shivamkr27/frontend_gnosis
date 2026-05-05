@@ -10,7 +10,9 @@
     "option_b": "A vulnerability where an attacker can trick a server into making unauthorized requests to internal or external systems on its behalf",
     "option_c": "A ways to delete a server",
     "option_d": "A ways to name a user",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "SSRF can be used to bypass firewalls and access internal metadata services (like AWS IMDS)."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "A general-purpose policy engine that enables unified, context-aware policy enforcement across the cloud-native stack",
     "option_c": "Deleting the database",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "OPA uses a language called 'Rego' to define policies like 'who can access which API' or 'what container images are allowed'."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "Cryptographic algorithms that are thought to be secure against an attack by a quantum computer",
     "option_c": "Deleting old keys",
     "option_d": "Naming the keys",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "With the rise of quantum computing, mathematicians are developing new algorithms (like lattice-based cryptography) that current quantum attacks can't break."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "A flow where the access token is returned directly in the URL fragment, making it vulnerable to interception; PKCE is now preferred",
     "option_c": "It's for robots only",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Implicit flow (common in old SPAs) lacks security features like single-use authorization codes or client secrets."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "Controlling and monitoring traffic LEAVING the network to prevent data exfiltration and communication with C2 servers",
     "option_c": "Deleting the gateway",
     "option_d": "Naming the routers",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Egress filtering is a vital part of defense-in-depth; many servers should never need to talk to the public internet."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "A collection of software tools that help an attacker mask their presence on a compromised system, often by modifying the OS kernel",
     "option_c": "A tool to name the root user",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Rootkits are extremely difficult to detect because they subvert the very tools (like `ls` or `ps`) used to find them."
   },
   {
@@ -94,7 +106,9 @@
     "option_b": "A mathematical framework for sharing information about a dataset by injecting 'noise' to protect the privacy of individual entries",
     "option_c": "Deleting private data",
     "option_d": "Naming the data fields",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Differential privacy allows researchers to get accurate summary statistics without revealing anything about specific individuals in the data."
   },
   {
@@ -108,7 +122,9 @@
     "option_b": "The use of malicious JavaScript code to steal credit card details and other information from payment forms on e-commerce websites",
     "option_c": "Deleting the form",
     "option_d": "Naming the fields",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Formjacking is a type of supply chain attack (like the British Airways breach) where third-party scripts are compromised."
   },
   {
@@ -122,7 +138,9 @@
     "option_b": "A formal, machine-readable inventory of all components and dependencies in a software product, allowing for rapid vulnerability tracking",
     "option_c": "A ways to delete old versions",
     "option_d": "Naming the files",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Executive orders and modern security standards now require SBOMs to ensure transparency in the software supply chain."
   },
   {
@@ -136,7 +154,9 @@
     "option_b": "Monitoring system calls and behavior in real-time to detect anomalous or malicious activity (like a shell being spawned in a pod)",
     "option_c": "Deleting the app",
     "option_d": "Naming the pods",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Runtime security provides the final layer of defense, catching attacks that bypassed all previous gates."
   },
   {
@@ -150,7 +170,9 @@
     "option_b": "Standardized passwordless authentication using public-key cryptography (e.g. Yubikey or Biometrics) to prevent phishing",
     "option_c": "It's the second version of Fido",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "FIDO2 is considered the pinnacle of authentication security today, as it is immune to most credential theft attacks."
   },
   {
@@ -164,7 +186,9 @@
     "option_b": "An attack based on information gained from the physical implementation of a computer system (e.g. power consumption, timing, or electromagnetic leaks) rather than the software",
     "option_c": "Deleting the app",
     "option_d": "Naming the users",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Side-channel attacks (like Spectre or Meltdown) can leak high-value secrets like encryption keys."
   },
   {
@@ -178,7 +202,9 @@
     "option_b": "A collaborative security exercise where Red Teams (attackers) and Blue Teams (defenders) work together to improve detection and response",
     "option_c": "Deleting the database",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Purple teaming maximizes the learning from security exercises by breaking the 'adversarial' wall between teams."
   },
   {
@@ -192,7 +218,9 @@
     "option_b": "A type of attack where a hacker publishes a malicious package with the same name as an internal library to a public registry, tricking the build system",
     "option_c": "Deleting the repo",
     "option_d": "Naming the packages",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Dependency confusion exploits the priority order of package managers (like npm or pip) to inject malicious code into trusted builds."
   },
   {
@@ -206,7 +234,9 @@
     "option_b": "A type of encryption that allows computation to be performed on encrypted data without ever decrypting it first",
     "option_c": "Deleting the keys",
     "option_d": "Naming the data",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Homomorphic encryption is the 'holy grail' of data privacy, allowing cloud services to process sensitive data without seeing it."
   },
   {
@@ -220,7 +250,9 @@
     "option_b": "A security framework, a check-list of standards and controls to prevent tampering, improve integrity, and secure packages and infrastructure",
     "option_c": "A ways to delete a server",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "SLSA (pronounced 'salsa') provides a common language for software producers and consumers to discuss artifact security."
   },
   {
@@ -234,7 +266,9 @@
     "option_b": "They contain only your application and its runtime dependencies, omitting shells, package managers, and other tools an attacker could use",
     "option_c": "They are faster to download",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Reducing the attack surface to the bare minimum is a core principle of container hardening."
   },
   {
@@ -248,7 +282,9 @@
     "option_b": "Components that are replaced rather than updated in-place; every change is a fresh deployment from a versioned image",
     "option_c": "Infrastructure with no internet access",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Immutability prevents 'configuration drift' and ensures that any malicious unauthorized changes are wiped out on the next deploy."
   },
   {
@@ -262,7 +298,9 @@
     "option_b": "A security issue where an entity that does not have permission to perform an action can coerce a more-privileged entity to perform the action for it",
     "option_c": "A system where all users are admins",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This often occurs in cross-account service access; AWS uses the 'ExternalID' parameter to mitigate this specific risk."
   },
   {
@@ -276,7 +314,9 @@
     "option_b": "A system that allows users to use a single set of credentials (SSO) to access applications across different trust domains or organizations",
     "option_c": "A tool to delete old users",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Federation (using protocols like SAML or OIDC) centralizes identity and reduces the risk of password fatigue."
   },
   {
@@ -290,7 +330,9 @@
     "option_b": "By allowing programs to run in the kernel without changing kernel source code, providing deep visibility into system calls, networking, and security events",
     "option_c": "By deleting the logs",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Tools like Falco and Cilium use eBPF for high-performance, low-overhead security observability in Kubernetes."
   },
   {
@@ -304,7 +346,9 @@
     "option_b": "A cryptographic method by which one party can prove to another party that a given statement is true, without conveying any information apart from the fact that the statement is true",
     "option_c": "A ways to name a user",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "ZKP allows for privacy-preserving authentication, such as proving you are over 18 without revealing your birth date."
   },
   {
@@ -318,7 +362,9 @@
     "option_b": "Techniques to determine if a vulnerable function within a library is actually accessible and executable by the application code",
     "option_c": "A ways to delete code",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Reachability reduces developer 'alert fatigue' by highlighting vulnerabilities that are truly exploitable in context."
   },
   {
@@ -332,7 +378,9 @@
     "option_b": "The effectiveness of an organization's security controls over a period of time (usually 6-12 months)",
     "option_c": "A ways to name a user",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Type I tests design at a point in time; Type II tests operating effectiveness over a duration."
   },
   {
@@ -346,7 +394,9 @@
     "option_b": "A US government-wide program that provides a standardized approach to security assessment, authorization, and continuous monitoring for cloud products and services",
     "option_c": "A tool to delete old servers",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "FedRAMP is mandatory for any cloud provider selling to US federal agencies."
   },
   {
@@ -360,7 +410,9 @@
     "option_b": "Security Orchestration, Automation, and Response: technologies that enable organizations to collect inputs and respond to low-level security events automatically",
     "option_c": "A tool to delete old code",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "SOAR reduces manual labor for SOC analysts by automating repetitive tasks like IP blocking or ticket creation."
   },
   {
@@ -374,7 +426,9 @@
     "option_b": "The practice of dividing a network into small, distinct security segments down to the individual workload level, with specific security controls for each",
     "option_c": "A ways to name a user",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Micro-segmentation prevents lateral movement by attackers within a data center or cloud VPC."
   },
   {
@@ -388,7 +442,9 @@
     "option_b": "Physical computing devices that safeguard and manage digital keys, perform encryption/decryption, and digital signatures",
     "option_c": "A ways to name a user",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "HSMs are designed to be tamper-evident and tamper-resistant, providing the highest level of key protection."
   },
   {
@@ -402,7 +458,9 @@
     "option_b": "A vulnerability that occurs when untrusted data is used to abuse the logic of an application, leading to Remote Code Execution (RCE) or privilege escalation",
     "option_c": "A ways to name a user",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Deserialization bugs often allow attackers to re-instantiate malicious objects that perform unauthorized actions on the server."
   },
   {
@@ -416,7 +474,9 @@
     "option_b": "Internal controls over financial reporting (ICFR) at a service organization",
     "option_c": "A tool to delete old servers",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "SOC 1 is for financial audits; SOC 2 is for security, availability, and privacy audits."
   },
   {
@@ -430,7 +490,9 @@
     "option_b": "A technology that monitors application execution and identifies vulnerabilities in real-time by combining elements of both static and dynamic analysis",
     "option_c": "A tool to delete code",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "IAST runs inside the application (like an agent) and has access to the code, HTTP traffic, and library info simultaneously."
   },
   {
@@ -444,7 +506,9 @@
     "option_b": "The process of providing proof to a third party that a piece of hardware or software is in a specific, trusted state",
     "option_c": "A tool to delete old servers",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Remote attestation is often used to verify that a cloud server is running a genuine, untampered operating system."
   },
   {
@@ -458,7 +522,9 @@
     "option_b": "A flaw in the design and implementation of an application that allows an attacker to elicit unintended behavior by manipulating the app's workflow",
     "option_c": "A ways to delete code",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Examples include skipping a payment step or applying a discount code multiple times in ways the developers didn't intend."
   },
   {
@@ -472,7 +538,9 @@
     "option_b": "A method of network packet filtering that examines the data part (and possibly the header) of a packet as it passes an inspection point",
     "option_c": "A ways to name a user",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "DPI allows firewalls to block specific application-level protocols or malware patterns hidden within standard traffic."
   },
   {
@@ -486,7 +554,9 @@
     "option_b": "A security property that cryptographically binds a security token (like a cookie or JWT) to the TLS connection between the client and server",
     "option_c": "A tool to delete old users",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Token binding prevents 'token theft' attacks where an attacker steals a cookie to impersonate a user from a different machine."
   },
   {
@@ -500,7 +570,9 @@
     "option_b": "An information security strategy that uses multiple layers of security controls throughout an IT system to protect data",
     "option_c": "A tool to delete old servers",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "If one layer (e.g. firewall) is breached, others (e.g. MFA, encryption) should still prevent a total compromise."
   },
   {
@@ -514,7 +586,9 @@
     "option_b": "The practice of using multiple low-severity or medium-severity vulnerabilities together to achieve a high-impact exploit",
     "option_c": "A tool to delete old code",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "A minor info leak combined with a session flaw might lead to full account takeover."
   },
   {
@@ -528,7 +602,9 @@
     "option_b": "Cloud, Cluster, Container, and Code",
     "option_c": "Cloud, Case, Center, Command",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Security must be applied at all four layers to truly protect a cloud-native application."
   },
   {
@@ -542,7 +618,9 @@
     "option_b": "The practice of managing and enforcing security and compliance policies through code, allowing for automated testing and deployment",
     "option_c": "A tool to delete old users",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "PaC ensures that infrastructure is automatically checked against standards (like CIS Benchmarks) before ever reaching production."
   },
   {
@@ -556,7 +634,9 @@
     "option_b": "Failures that allow users to access functionality or data outside of their intended permissions (e.g. IDOR or horizontal privilege escalation)",
     "option_c": "A tool to delete code",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This is currently the #1 vulnerability in the OWASP Top 10 list."
   },
   {
@@ -570,7 +650,9 @@
     "option_b": "An attack where the attacker sends numerous MFA push notifications to a user's device, hoping the user will eventually click 'Approve' out of annoyance or error",
     "option_c": "A tool to delete old accounts",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Defense against MFA fatigue includes using 'number matching' where the user must type a code shown on the screen."
   },
   {
@@ -584,7 +666,9 @@
     "option_b": "A server-side header that tells browsers to ONLY interact with that domain using HTTPS, preventing SSL stripping attacks",
     "option_c": "A tool to delete old images",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "HSTS ensures that even if a user types `http://`, the browser will automatically upgrade the connection to `https://`."
   },
   {
@@ -598,7 +682,9 @@
     "option_b": "Masking hides part of the data (e.g. ****-1234); Tokenization replaces sensitive data with a non-sensitive 'token' that has no value if stolen",
     "option_c": "A tool to delete old files",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Tokenization is superior for PCI compliance as it removes sensitive data from the environment entirely."
   },
   {
@@ -612,7 +698,9 @@
     "option_b": "A technique where small 'mutations' (changes) are introduced into the code to verify if existing security tests are powerful enough to catch the 'bugs'",
     "option_c": "A ways to delete code",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Mutation testing measures the 'quality' of your security test suite, not just the code itself."
   },
   {
@@ -626,7 +714,9 @@
     "option_b": "The core program that has complete control over everything in the system; it is the most privileged part of the OS",
     "option_c": "A tool to delete old servers",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Vulnerabilities in the kernel (like 'Privilege Escalation') are the most dangerous as they give an attacker total power."
   },
   {
@@ -640,7 +730,9 @@
     "option_b": "A documented process or set of procedures to execute an organization's response to an unplanned incident that threatens its IT infrastructure",
     "option_c": "A tool to delete old servers",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "DRP includes 'RTO' (Recovery Time Objective) and 'RPO' (Recovery Point Objective) goals."
   },
   {
@@ -654,7 +746,9 @@
     "option_b": "The randomness or unpredictability of the source data used to create the absolute strength of a key",
     "option_c": "A tool to delete old keys",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Low entropy (predictability) allows attackers to guess private keys, even for strong algorithms like RSA or AES."
   },
   {
@@ -668,7 +762,9 @@
     "option_b": "A feature that allows anyone to query the API for its entire schema (queries, mutations, types), which helps attackers map out the internal data structure",
     "option_c": "A ways to delete old tables",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Introspection should be disabled in production to prevent information disclosure about the internal API design."
   },
   {
@@ -682,7 +778,9 @@
     "option_b": "A formal document that summarizes the results of an organization's assessment against a specific standard (like PCI DSS or HIPAA)",
     "option_c": "A tool to delete old servers",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The AOC is the final proof provided to customers or partners that an audit was successful."
   },
   {
@@ -696,7 +794,9 @@
     "option_b": "The practice of concealing a file, message, image, or video within another file, message, image, or video",
     "option_c": "A tool to delete old files",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Unlike encryption (which is obvious that data is hidden), steganography hides the very fact that communication is occurring."
   }
 ]

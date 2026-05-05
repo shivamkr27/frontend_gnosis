@@ -10,7 +10,9 @@
     "option_b": "Direct Addressing",
     "option_c": "Immediate Addressing",
     "option_d": "Implicit Addressing",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "In immediate addressing, the data (05H) is provided directly within the instruction."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "Exchange the contents of HL pair with DE pair",
     "option_c": "Exchange the contents of PC and SP",
     "option_d": "XOR the Accumulator",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "XCHG swaps the 16-bit contents of the H-L register pair with the D-E register pair."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "In a register pair (like HL)",
     "option_c": "In the program counter",
     "option_d": "On the stack",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Example: MOV A, M. Here 'M' refers to the memory location pointed to by the HL register pair."
   },
   {
@@ -52,7 +58,10 @@
     "option_b": "MOV A, C",
     "option_c": "SUB 25H",
     "option_d": "MULT D",
-    "correct_options": ["A", "B"],
+    "correct_options": [
+      "A",
+      "B"
+    ],
     "explanation": "8085 has ADD and SUB (SUB requires immediate or register), but it does NOT have a hardware multiplication (MULT) instruction."
   },
   {
@@ -66,7 +75,9 @@
     "option_b": "4",
     "option_c": "6",
     "option_d": "10",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Standard opcode fetch takes 4 T-states (T1-T4). Some complex instructions might take 6."
   },
   {
@@ -80,7 +91,9 @@
     "option_b": "Subtracts 05H immediately from the Accumulator",
     "option_c": "Subs the carry to 5",
     "option_d": "Sets the stack pointer to 05H",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "SUI (Subtract Immediate) subtracts the 8-bit data from the Accumulator."
   },
   {
@@ -94,7 +107,9 @@
     "option_b": "Direct Addressing",
     "option_c": "Register Indirect Addressing",
     "option_d": "Immediate Addressing",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "LDAX B loads the Accumulator with the content of the memory address found in the BC register pair."
   },
   {
@@ -108,7 +123,9 @@
     "option_b": "2",
     "option_c": "4",
     "option_d": "Depends on B",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "PUSH saves a register pair (16 bits total), so SP is decremented twice."
   },
   {
@@ -122,7 +139,9 @@
     "option_b": "Only CY",
     "option_c": "Z, CY, S, P, AC",
     "option_d": "None",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Compare (CMP) is essentially a subtraction that doesn't store the result but sets all arithmetic flags."
   },
   {
@@ -136,7 +155,9 @@
     "option_b": "Reset (0)",
     "option_c": "Invalidated",
     "option_d": "Toggled",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "05H - 05H results in 0, so the Zero flag becomes 1."
   },
   {
@@ -150,7 +171,9 @@
     "option_b": "JNC",
     "option_c": "JZ",
     "option_d": "JNZ",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "JNC stands for Jump on No Carry."
   },
   {
@@ -164,7 +187,9 @@
     "option_b": "3",
     "option_c": "5",
     "option_d": "1",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "CALL involves Opcode Fetch, 2 Memory Reads (target address), and 2 Memory Writes (saving PC to stack)."
   },
   {
@@ -178,7 +203,9 @@
     "option_b": "Left through carry",
     "option_c": "Circular right",
     "option_d": "Circular left",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "RAL (Rotate Accumulator Left through carry) moves the MSB to Carry and Carry to LSB."
   },
   {
@@ -192,7 +219,9 @@
     "option_b": "01H",
     "option_c": "FFH",
     "option_d": "Carry Set",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "XRA A clears A (A=0), and INR A increments it by 1."
   },
   {
@@ -206,7 +235,9 @@
     "option_b": "Maskable interrupts",
     "option_c": "Non-maskable interrupts",
     "option_d": "DMA transfers",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "EI (Enable Interrupts) sets the internal interrupt flip-flop for maskable interrupts (RST 5.5, 6.5, 7.5, INTR)."
   },
   {
@@ -220,7 +251,9 @@
     "option_b": "H = 00H, L = 30H",
     "option_c": "H = 30H, A = 00H",
     "option_d": "PC = 3000H",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "LXI (Load Register Pair Immediate) loads the 16-bit data into the pair."
   },
   {
@@ -234,7 +267,9 @@
     "option_b": "RIM",
     "option_c": "EI",
     "option_d": "DI",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "RIM (Read Interrupt Mask) loads the Accumulator with interrupt status and SID pin status."
   },
   {
@@ -248,7 +283,9 @@
     "option_b": "DAD Rp",
     "option_c": "ADC Rp",
     "option_d": "INR Rp",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "DAD (Double Add) performs 16-bit addition."
   },
   {
@@ -262,7 +299,9 @@
     "option_b": "Program Counter",
     "option_c": "HL pair",
     "option_d": "Accumulator only",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "PSW (Program Status Word) consists of the Accumulator and the Flag Register."
   },
   {
@@ -276,7 +315,9 @@
     "option_b": "2 bytes",
     "option_c": "3 bytes",
     "option_d": "4 bytes",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "1 byte for opcode, 2 bytes for the 16-bit immediate data."
   },
   {
@@ -290,7 +331,9 @@
     "option_b": "Memory locations",
     "option_c": "Interrupts",
     "option_d": "Registers",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "I/O devices share the same 64KB address space as memory chips."
   },
   {
@@ -304,7 +347,9 @@
     "option_b": "0 and 1",
     "option_c": "1 and 0",
     "option_d": "1 and 1",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "IO/M' = 0 (Memory), WR' = 0 (Write)."
   },
   {
@@ -318,7 +363,9 @@
     "option_b": "Inclusive OR Accumulator with 05H",
     "option_c": "Exclusive OR Accumulator with 05H",
     "option_d": "Move and OR",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "ORI is OR Immediate."
   },
   {
@@ -332,7 +379,9 @@
     "option_b": "4",
     "option_c": "6",
     "option_d": "7",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It only requires an Opcode Fetch cycle (4 T-states) as it is a register-to-register move."
   },
   {
@@ -346,7 +395,9 @@
     "option_b": "RET",
     "option_c": "HLT",
     "option_d": "END",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "RET (Return) pops the address from the stack into the Program Counter."
   },
   {
@@ -360,7 +411,9 @@
     "option_b": "Carry",
     "option_c": "Sign",
     "option_d": "Parity",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "STC (Set Carry) explicitly sets the Carry flag to 1."
   },
   {
@@ -374,7 +427,9 @@
     "option_b": "Lowest among maskable",
     "option_c": "Same as TRAP",
     "option_d": "Between RST 5.5 and RST 6.5",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Priorities: TRAP > RST 7.5 > RST 6.5 > RST 5.5 > INTR."
   },
   {
@@ -388,7 +443,9 @@
     "option_b": "Set to 0",
     "option_c": "Cleared to NULL",
     "option_d": "It remains unchanged",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "P=1 for even parity, P=0 for odd parity."
   },
   {
@@ -402,7 +459,9 @@
     "option_b": "Low address",
     "option_c": "0000H always",
     "option_d": "Middle of RAM",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "The stack grows downwards in memory from higher addresses to lower addresses."
   },
   {
@@ -416,7 +475,9 @@
     "option_b": "DE",
     "option_c": "HL",
     "option_d": "PSW",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "SPHL (Stack Pointer toward HL) sets SP = HL."
   },
   {
@@ -430,7 +491,9 @@
     "option_b": "2",
     "option_c": "3",
     "option_d": "4",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Opcode Fetch, Memory Read (data from [HL]), and Memory Write (updated data back to [HL])."
   },
   {
@@ -444,7 +507,9 @@
     "option_b": "Compares register C with literal 32H",
     "option_c": "Complements Accumulator 32 times",
     "option_d": "Clears Parity if it's 32H",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "CPI is Compare Immediate."
   },
   {
@@ -458,7 +523,9 @@
     "option_b": "Interrupt controller",
     "option_c": "Control Unit",
     "option_d": "Bus interface",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The control unit/timing unit produces ALE at the start of each machine cycle."
   },
   {
@@ -472,7 +539,9 @@
     "option_b": "Register L at 2000H and H at 2001H",
     "option_c": "H at 2000H and L at 2001H",
     "option_d": "HL pair at address in register pair BC",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "SHLD (Store HL Direct) stores the low byte (L) at the given address and the high byte (H) at the next address."
   },
   {
@@ -486,7 +555,9 @@
     "option_b": "Direct Addressing",
     "option_c": "Immediate Addressing",
     "option_d": "Register Indirect",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Example: LDA 3000H."
   },
   {
@@ -500,7 +571,9 @@
     "option_b": "It is set (1)",
     "option_c": "It is toggled",
     "option_d": "It remains unchanged",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Logical AND/OR/XOR instructions in 8085 clear the Carry flag."
   },
   {
@@ -514,7 +587,9 @@
     "option_b": "1111 0000",
     "option_c": "1010 1010",
     "option_d": "1111 1111",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "F in hex is 15 dec, which is 1111 in binary."
   },
   {
@@ -528,7 +603,9 @@
     "option_b": "SIM",
     "option_c": "EI",
     "option_d": "DI",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "SIM (Set Interrupt Mask) uses the Accumulator content to mask/unmask RST interrupts."
   },
   {
@@ -542,7 +619,9 @@
     "option_b": "Opcode Fetch",
     "option_c": "I/O Write",
     "option_d": "Bus Idle",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The CPU must first fetch the opcode to know what to do."
   },
   {
@@ -556,7 +635,9 @@
     "option_b": "Memory/I/O devices",
     "option_c": "Cables",
     "option_d": "Flags",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The READY line is used to delay the bus cycle."
   },
   {
@@ -570,7 +651,9 @@
     "option_b": "To Carry only",
     "option_c": "To both LSB and Carry",
     "option_d": "It is lost",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "In RLC, the 7th bit shifts into the 0th bit position and also into the Carry flag."
   },
   {
@@ -584,7 +667,9 @@
     "option_b": "The one pointed to by BC pair",
     "option_c": "The one at address 00H",
     "option_d": "Stack memory",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "M always refers to memory at [HL]."
   },
   {
@@ -598,7 +683,9 @@
     "option_b": "RST 7.5",
     "option_c": "INTR",
     "option_d": "RST 6.5",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "RST 7.5 is positive-edge triggered."
   },
   {
@@ -612,7 +699,9 @@
     "option_b": "4",
     "option_c": "6",
     "option_d": "2",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Read/Write machine cycles take 3 T-states, while Opcode Fetch takes 4 (minimum)."
   },
   {
@@ -626,7 +715,9 @@
     "option_b": "JMP is faster",
     "option_c": "CALL is for errors only",
     "option_d": "They are exactly the same",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "CALL is used for subroutines so that the program can return."
   },
   {
@@ -640,7 +731,9 @@
     "option_b": "A",
     "option_c": "1",
     "option_d": "FFH",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Bits matched with themselves in XOR result in zero."
   },
   {
@@ -654,7 +747,9 @@
     "option_b": "34H",
     "option_c": "00H",
     "option_d": "FFH",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "High byte 12H is stored in H, and L gets 34H (Little endian storage in memory if using SHLD, but register-wise H=High, L=Low)."
   },
   {
@@ -668,7 +763,9 @@
     "option_b": "CY",
     "option_c": "S",
     "option_d": "P",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The Carry (CY) flag captures the 9th bit overflow."
   },
   {
@@ -682,7 +779,9 @@
     "option_b": "Only RST 7.5",
     "option_c": "All maskable interrupts",
     "option_d": "None",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Reset clears the interrupt enable flip-flops."
   },
   {
@@ -696,49 +795,9 @@
     "option_b": "Memory to Port 01H",
     "option_c": "Port 01H to Accumulator",
     "option_d": "Register B to Port 01H",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "OUT is the standard way to send data from the Accumulator to an I/O device."
-  },
-  {
-    "subject_name": "Microprocessors",
-    "level_number": 2,
-    "level_topic": "Architecture",
-    "question_type": "medium",
-    "timer_seconds": 30,
-    "question_text": "What is the function of the 'Accumulator' (Register A)?",
-    "option_a": "To store the address of the next instruction",
-    "option_b": "To act as the primary register for arithmetic and logical operations and store their results",
-    "option_c": "To point to the top of the stack",
-    "option_d": "To store only the data during a write operation",
-    "correct_options": ["B"],
-    "explanation": "In 8085, the Accumulator is an 8-bit register that is the source and destination for almost all ALU operations."
-  },
-  {
-    "subject_name": "Microprocessors",
-    "level_number": 2,
-    "level_topic": "Addressing Modes",
-    "question_type": "medium",
-    "timer_seconds": 35,
-    "question_text": "Which addressing mode is used in 'ADD B'?",
-    "option_a": "Immediate Addressing",
-    "option_b": "Register Addressing",
-    "option_c": "Direct Addressing",
-    "option_d": "Implied Addressing",
-    "correct_options": ["B"],
-    "explanation": "In register addressing, the instruction specifies the source register whose content will be added to the accumulator."
-  },
-  {
-    "subject_name": "Microprocessors",
-    "level_number": 2,
-    "level_topic": "Flag Register",
-    "question_type": "medium",
-    "timer_seconds": 30,
-    "question_text": "What determines if the 'Parity flag' is set in 8085?",
-    "option_a": "Total number of bits in the result",
-    "option_b": "Whether the count of set bits (1s) in the Accumulator is even",
-    "option_c": "If the result is zero",
-    "option_d": "If the result is negative",
-    "correct_options": ["B"],
-    "explanation": "If the result in the accumulator has an even number of ones, then the P-flag is set to 1 (even parity)."
   }
 ]

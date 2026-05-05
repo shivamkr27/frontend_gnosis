@@ -10,7 +10,9 @@
     "option_b": "Dereferences the pointer",
     "option_c": "Calculates the address",
     "option_d": "Multiplies the pointer",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The dereference operator '*' accesses the value stored at the address held by the pointer."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "2 bytes",
     "option_c": "sizeof(int) bytes",
     "option_d": "4 bytes always",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Pointer arithmetic is scaled by the size of the underlying data type."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "&arr",
     "option_c": "arr[1]",
     "option_d": "ptr(arr)",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "The array name decays to a pointer to its first element; dereferencing it yields arr[0]."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "#",
     "option_c": "&",
     "option_d": "@",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The '&' operator retrieves the memory address of a variable."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "random",
     "option_c": "0",
     "option_d": "stack start",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "NULL is a macro representing a pointer that does not point to any valid memory location (often 0)."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "void (*ptr)();",
     "option_c": "void *ptr();",
     "option_d": "void &ptr();",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The parenthesis around *ptr are necessary to distinguish it from a function returning a void pointer."
   },
   {
@@ -94,7 +106,9 @@
     "option_b": "No, it's a constant pointer",
     "option_c": "Only in C++",
     "option_d": "Depends on scope",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Array names are non-modifiable lvalues (essentially constant pointers to their first element)."
   },
   {
@@ -108,7 +122,9 @@
     "option_b": "*(ptr + i)",
     "option_c": "&ptr + i",
     "option_d": "(*ptr) + i",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Array subscripting is defined as dereferencing the sum of the pointer and the offset."
   },
   {
@@ -122,7 +138,9 @@
     "option_b": "generic*",
     "option_c": "void*",
     "option_d": "char*",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "A void pointer (void*) is a generic pointer type that can hold any object address."
   },
   {
@@ -136,7 +154,9 @@
     "option_b": "11",
     "option_c": "Address of a",
     "option_d": "Pointer error",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "++*p increments the value pointed to by p (i.e., a becomes 11) and then prints it."
   },
   {
@@ -150,7 +170,9 @@
     "option_b": "11",
     "option_c": "30",
     "option_d": "Garbage",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "*p is 10. 10 + 1 = 11. (Note: *(p+1) would be 20)."
   },
   {
@@ -164,7 +186,9 @@
     "option_b": "A pointer to a function taking an int and returning void",
     "option_c": "An array of void pointers",
     "option_d": "A function taking a pointer",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This is standard syntax for declaring a function pointer with one argument."
   },
   {
@@ -178,7 +202,9 @@
     "option_b": "Only in older C versions",
     "option_c": "No, it requires an explicit cast (except void*)",
     "option_d": "Yes, if they are the same size",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "C is strictly typed for pointers; void* is the only type that allows implicit conversion usually."
   },
   {
@@ -192,7 +218,9 @@
     "option_b": "A pointer pointing to a deallocated memory block",
     "option_c": "A pointer to a NULL address",
     "option_d": "A pointer that points to itself",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Dangling pointers point to memory that has been freed or is no longer valid."
   },
   {
@@ -206,7 +234,9 @@
     "option_b": "*arr",
     "option_c": "&&arr",
     "option_d": "arr+1",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "The address of the first element is the same as the base address of the array."
   },
   {
@@ -220,7 +250,9 @@
     "option_b": "2 bytes",
     "option_c": "8 bytes",
     "option_d": "Depends on data type",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "On a 64-bit architecture, pointers are 8 bytes to address the full memory space."
   },
   {
@@ -234,7 +266,9 @@
     "option_b": "By reference (using pointers)",
     "option_c": "By constant",
     "option_d": "By copying",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Passing a pointer (address) allows the function to access and modify the original memory."
   },
   {
@@ -248,7 +282,9 @@
     "option_b": "An array of pointers",
     "option_c": "A pointer to a 2D array",
     "option_d": "Multiplication of two pointers",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "This is a double pointer, used for pointer-to-pointer indirection."
   },
   {
@@ -262,7 +298,9 @@
     "option_b": "p1 * p2 (multiplying two pointers)",
     "option_c": "p1 - p2 (subtracting two pointers of same type)",
     "option_d": "p1 / 5",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Subtracting pointers of the same type gives the number of elements between them; other operations are illegal."
   },
   {
@@ -276,7 +314,9 @@
     "option_b": "arr[i]",
     "option_c": "Address of arr[i]",
     "option_d": "Invalid expression",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This is the pointer equivalent of the array subscript notation arr[i]."
   },
   {
@@ -290,7 +330,9 @@
     "option_b": "An uninitialized pointer",
     "option_c": "A pointer to the heap",
     "option_d": "A pointer used in recursions",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Wild pointers are uninitialized pointers that point to arbitrary memory locations."
   },
   {
@@ -304,7 +346,9 @@
     "option_b": "int*",
     "option_c": "int (*)[3]",
     "option_d": "int**",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "In a 2D array, arr[0] is interpreted as a 1D array of 3 integers, which decays to int*."
   },
   {
@@ -318,7 +362,9 @@
     "option_b": "int (*ptr)[5];",
     "option_c": "int ptr[5]*;",
     "option_d": "int *[5]ptr;",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Parenthesis are required to make it a pointer to an array, otherwise it's an array of pointers."
   },
   {
@@ -332,7 +378,9 @@
     "option_b": "p points to a constant integer",
     "option_c": "p is a pointer to a volatile int",
     "option_d": "p can never be NULL",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The value being pointed to cannot be changed via p, but p itself can point elsewhere."
   },
   {
@@ -346,7 +394,9 @@
     "option_b": "delete ptr;",
     "option_c": "free(ptr); ptr = NULL;",
     "option_d": "ptr = 0;",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "free() deallocates memory, but doesn't clear the pointer; it's best practice to manually NULL it."
   },
   {
@@ -360,7 +410,9 @@
     "option_b": "I",
     "option_c": "H",
     "option_d": "f",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "*s is 'H' (72). 72 + 1 = 73, which is 'I' in ASCII."
   },
   {
@@ -374,7 +426,9 @@
     "option_b": "False",
     "option_c": "Only for recursive functions",
     "option_d": "Only if using typedef",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Function pointers are used as arguments to implement 'callback' functions."
   },
   {
@@ -388,7 +442,9 @@
     "option_b": "Memory address",
     "option_c": "Compilation Error",
     "option_d": "Garbage",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "You cannot dereference a void pointer; it must be cast to a specific type first."
   },
   {
@@ -402,7 +458,9 @@
     "option_b": "Address increases by 4 (on standard systems)",
     "option_c": "Undefined behavior",
     "option_d": "Compilation error",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "p is uninitialized; performing arithmetic on a wild pointer is undefined behavior."
   },
   {
@@ -416,7 +474,9 @@
     "option_b": "arr[1]",
     "option_c": "Address of arr",
     "option_d": "Pointer to arr",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "&arr is pointer to array, *(&arr) is array name, *(*(&arr)) is the first element arr[0]."
   },
   {
@@ -430,7 +490,9 @@
     "option_b": "No",
     "option_c": "Only for void pointers",
     "option_d": "Only for char pointers",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Pointer subtraction (moving backward in memory) is perfectly valid."
   },
   {
@@ -444,7 +506,9 @@
     "option_b": "Array name is a constant pointer",
     "option_c": "Pointers cannot be added to constants",
     "option_d": "Missing asterisk",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "You cannot reassign an array name; it is a fixed address."
   },
   {
@@ -458,7 +522,9 @@
     "option_b": "2[a]",
     "option_c": "a[2]",
     "option_d": "All of the above",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "In C, a[2], *(a+2), and 2[a] are all valid and equivalent ways to access the third element."
   },
   {
@@ -472,7 +538,9 @@
     "option_b": "Array size is larger",
     "option_c": "Pointer size is larger",
     "option_d": "Infinite loop",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "sizeof(array) is total memory; sizeof(pointer) is just the address size (4-8 bytes)."
   },
   {
@@ -486,7 +554,9 @@
     "option_b": "arr[3]",
     "option_c": "arr[2]",
     "option_d": "Garbage",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Pointer subtraction by 1 moves it back by one element (arr[2] -> arr[1])."
   },
   {
@@ -500,7 +570,9 @@
     "option_b": "Undefined behavior",
     "option_c": "Total memory size",
     "option_d": "Linker error",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Pointer subtraction is only defined for pointers within the same contiguous memory block (array)."
   },
   {
@@ -514,7 +586,9 @@
     "option_b": "Efficient data structure handling",
     "option_c": "Call by reference",
     "option_d": "All of the above",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "Pointers are fundamental for memory management, speed, and function flexibility in C."
   },
   {
@@ -528,7 +602,9 @@
     "option_b": "The size of the pointed-to object",
     "option_c": "The size of the pointer itself",
     "option_d": "Depends on the CPU",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Pointer arithmetic is scaled by the size (in bytes) of the data type it references."
   },
   {
@@ -542,7 +618,9 @@
     "option_b": "A pointer to its first element",
     "option_c": "A constant data value",
     "option_d": "A function",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "In most contexts, the array name 'decays' to a pointer to the 0th element."
   },
   {
@@ -556,7 +634,9 @@
     "option_b": "(*f_ptr)();",
     "option_c": "Both A and B",
     "option_d": "f_ptr->();",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Either the explicit dereference or the direct name invocation works for function pointers."
   },
   {
@@ -570,7 +650,9 @@
     "option_b": "void*",
     "option_c": "int*",
     "option_d": "float*",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Void pointers don't have associated size, so they cannot be dereferenced directly."
   },
   {
@@ -584,7 +666,9 @@
     "option_b": "Physical address",
     "option_c": "Logical register",
     "option_d": "Relative offset",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Modern C programs work with virtual addresses provided by the operating system."
   },
   {
@@ -598,7 +682,9 @@
     "option_b": "It prevents hard-to-debug wild pointer crashes",
     "option_c": "It sets the size to zero",
     "option_d": "It calls the garbage collector",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Initializing pointers to NULL makes it easy to check if they are currently valid."
   },
   {
@@ -612,7 +698,9 @@
     "option_b": "False, they are identical to the compiler",
     "option_c": "True, only for small arrays",
     "option_d": "Depends on optimization",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "To a C compiler, arr[i] is just a syntactic sugar for *(arr + i)."
   },
   {
@@ -626,7 +714,11 @@
     "option_b": "Subtraction of an integer from a pointer",
     "option_c": "Comparison with NULL",
     "option_d": "Comparison of two pointers to the same array",
-    "correct_options": ["B", "C", "D"],
+    "correct_options": [
+      "B",
+      "C",
+      "D"
+    ],
     "explanation": "Subtracting int, checking for NULL, and comparing related pointers are all valid."
   },
   {
@@ -640,7 +732,11 @@
     "option_b": "Passed by address (pointer to 1st element)",
     "option_c": "Information about array size is lost",
     "option_d": "Pointer decay occurs",
-    "correct_options": ["B", "C", "D"],
+    "correct_options": [
+      "B",
+      "C",
+      "D"
+    ],
     "explanation": "Arrays decay to pointers during function calls; size info must be passed separately."
   },
   {
@@ -654,7 +750,12 @@
     "option_b": "int* ptr;",
     "option_c": "int * ptr;",
     "option_d": "void* ptr;",
-    "correct_options": ["A", "B", "C", "D"],
+    "correct_options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
     "explanation": "C is flexible with whitespace between 'int', '*', and the variable name."
   },
   {
@@ -668,7 +769,11 @@
     "option_b": "Required to modify pointer values in functions",
     "option_c": "Can represent dynamic 2D structures",
     "option_d": "Twice as large as normal pointers",
-    "correct_options": ["A", "B", "C"],
+    "correct_options": [
+      "A",
+      "B",
+      "C"
+    ],
     "explanation": "Double pointers store addresses of other pointers; their size is the same as single pointers."
   },
   {
@@ -682,7 +787,11 @@
     "option_b": "Setting pointer to NULL after free()",
     "option_c": "Always using void*",
     "option_d": "Initializing pointers during declaration",
-    "correct_options": ["A", "B", "D"],
+    "correct_options": [
+      "A",
+      "B",
+      "D"
+    ],
     "explanation": "Robust checks, clearing after free, and proper initialization are key practices."
   },
   {
@@ -696,7 +805,12 @@
     "option_b": "&arr[0] == arr",
     "option_c": "arr[0] == *arr",
     "option_d": "arr+1 == &arr[1]",
-    "correct_options": ["A", "B", "C", "D"],
+    "correct_options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
     "explanation": "These are all standard C equivalences for multi-dimensional and 1D arrays."
   }
 ]

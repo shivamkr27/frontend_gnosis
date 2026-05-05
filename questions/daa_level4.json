@@ -10,7 +10,9 @@
     "option_b": "Is 1+1=2?",
     "option_c": "Are all algorithms O(n)?",
     "option_d": "Can we solve TSP in O(n)?",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "The P vs NP problem asks whether every problem whose solution can be quickly verified by a computer can also be quickly solved by a computer."
   },
   {
@@ -24,8 +26,10 @@
     "option_b": "B is at most as hard as A",
     "option_c": "A and B are equally hard",
     "option_d": "A is harder than B",
-    "correct_options": ["A"],
-    "explanation": "Reduction `A ≤p B` means that if we can solve B efficiently, we can also solve A efficiently by converting A to B."
+    "correct_options": [
+      "A"
+    ],
+    "explanation": "Reduction `A \u2264p B` means that if we can solve B efficiently, we can also solve A efficiently by converting A to B."
   },
   {
     "subject_name": "Algorithms (DAA)",
@@ -38,7 +42,9 @@
     "option_b": "Dijkstra's and Prim's algorithm (improving decrease-key operation to O(1) amortized)",
     "option_c": "String matching",
     "option_d": "Dynamic programming",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Fibonacci heaps offer better amortized performance for many priority queue operations than binary or binomial heaps."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "Minimum Spanning Tree",
     "option_c": "Travelling Salesperson Problem (TSP)",
     "option_d": "Sorting an array",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "TSP involves finding the shortest cycle that visits every node once; it's a fundamental problem in optimization and complexity."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "Shor's Algorithm",
     "option_c": "Deutsch-Jozsa Algorithm",
     "option_d": "QuickSort",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Shor's algorithm can factor integers in polynomial time on a quantum computer, threatening RSA encryption."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "2",
     "option_c": "log n",
     "option_d": "n",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The simple 2-approximation algorithm for vertex cover picks an edge and includes both endpoints in the cover."
   },
   {
@@ -94,7 +106,9 @@
     "option_b": "O(VE^2)",
     "option_c": "O(V^2E)",
     "option_d": "O(E log V)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Edmonds-Karp uses BFS to find augmenting paths, ensuring termination even for irrational capacities and achieving O(VE^2)."
   },
   {
@@ -108,7 +122,9 @@
     "option_b": "A class of problems that can be solved in a running time where the exponent doesn't depend on the parameter k",
     "option_c": "Constant time for any k",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "FPT problems can be solved in O(f(k) * n^c) time, where k is a small parameter (like tree width)."
   },
   {
@@ -122,7 +138,9 @@
     "option_b": "Aho-Corasick",
     "option_c": "Rabin-Karp",
     "option_d": "Boyer-Moore",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Aho-Corasick builds an automaton from the patterns, allowing for efficient multi-pattern matching."
   },
   {
@@ -136,7 +154,9 @@
     "option_b": "Relating the number of processors to the time required for a parallel computation",
     "option_c": "Naming the nodes",
     "option_d": "Deleting threads",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Brent's theorem provides an upper bound on the time to simulate a parallel algorithm with p processors."
   },
   {
@@ -150,7 +170,9 @@
     "option_b": "All nodes must agree",
     "option_c": "Internet is slow",
     "option_d": "Messages are always lost",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Named after Fischer, Lynch, and Paterson, this is a cornerstone result in distributed systems theory."
   },
   {
@@ -164,7 +186,9 @@
     "option_b": "O(n log n)",
     "option_c": "O(n)",
     "option_d": "O(log n)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Fortune's Algorithm (sweep-line) constructs Voronoi diagrams in O(n log n) time."
   },
   {
@@ -174,12 +198,14 @@
     "question_type": "expert",
     "timer_seconds": 60,
     "question_text": "What is the lower bound of comparison-based sorting algorithms in terms of number of comparisons?",
-    "option_a": "Ω(n)",
-    "option_b": "Ω(n log n)",
-    "option_c": "Ω(n^2)",
-    "option_d": "Ω(1)",
-    "correct_options": ["B"],
-    "explanation": "By decision tree theory, any comparison-based sort must make at least log(n!) comparisons, which is Ω(n log n)."
+    "option_a": "\u03a9(n)",
+    "option_b": "\u03a9(n log n)",
+    "option_c": "\u03a9(n^2)",
+    "option_d": "\u03a9(1)",
+    "correct_options": [
+      "B"
+    ],
+    "explanation": "By decision tree theory, any comparison-based sort must make at least log(n!) comparisons, which is \u03a9(n log n)."
   },
   {
     "subject_name": "Algorithms (DAA)",
@@ -192,7 +218,9 @@
     "option_b": "Reducing the complexity of certain O(n^3) DP problems (like Optimal BST) to O(n^2)",
     "option_c": "Naming variables",
     "option_d": "Deleting subproblems",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "If the optimal split point for a range [i, j] lies between the optimal split points of [i, j-1] and [i+1, j], we can narrow the search range."
   },
   {
@@ -206,7 +234,9 @@
     "option_b": "NP",
     "option_c": "BQP",
     "option_d": "PSPACE",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "BQP (Bounded-error Quantum Polynomial time) is the class of decision problems solvable by a quantum computer."
   },
   {
@@ -220,7 +250,9 @@
     "option_b": "Polynomial amount of memory space regardless of time",
     "option_c": "Constant space only",
     "option_d": "Exponential time and exponential space",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "PSPACE is the set of all decision problems that can be solved by a Turing machine using a polynomial amount of space."
   },
   {
@@ -231,10 +263,12 @@
     "timer_seconds": 60,
     "question_text": "What is the 'Ladner's Theorem' concern?",
     "option_a": "Proof that P = NP",
-    "option_b": "If P ≠ NP, then there exist problems in NP that are neither in P nor NP-complete (NP-Intermediate)",
+    "option_b": "If P \u2260 NP, then there exist problems in NP that are neither in P nor NP-complete (NP-Intermediate)",
     "option_c": "Complexity of sorting",
     "option_d": "Halting problem solution",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It shows that if P != NP, the world is more complex than just P and NP-Complete."
   },
   {
@@ -248,7 +282,9 @@
     "option_b": "Fast, but has a non-zero probability of giving an incorrect answer",
     "option_c": "Used for encryption",
     "option_d": "A type of sorting",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Monte Carlo algorithms are useful when a small error probability is acceptable for a big speedup."
   },
   {
@@ -262,7 +298,9 @@
     "option_b": "It supports search, insert, and delete in O(log log U) where U is the universe size",
     "option_c": "It is a type of hash table",
     "option_d": "It uses exponential space",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "vEB trees are extremely fast for small, fixed integers."
   },
   {
@@ -276,7 +314,9 @@
     "option_b": "O(V^2E)",
     "option_c": "O(VE)",
     "option_d": "O(E sqrt(V))",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Dinic's uses 'level graphs' and 'blocking flows' to achieve better performance than Edmonds-Karp."
   },
   {
@@ -290,7 +330,9 @@
     "option_b": "Number of Block I/O operations (accessing disk)",
     "option_c": "Network latency",
     "option_d": "Amount of RAM",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Since disk access is orders of magnitude slower than RAM, minimizing I/O is the goal."
   },
   {
@@ -304,7 +346,9 @@
     "option_b": "Welzl's Algorithm",
     "option_c": "Gift Wrapping",
     "option_d": "Binary Search",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Welzl's is a randomized recursive algorithm with linear expected time."
   },
   {
@@ -315,11 +359,13 @@
     "timer_seconds": 60,
     "question_text": "What is a 'PTAS' (Polynomial-Time Approximation Scheme)?",
     "option_a": "A ways to sort primes",
-    "option_b": "An algorithm that, for any ε > 0, returns a solution within a factor (1 + ε) of optimal in polynomial time",
+    "option_b": "An algorithm that, for any \u03b5 > 0, returns a solution within a factor (1 + \u03b5) of optimal in polynomial time",
     "option_c": "A constant time algorithm",
     "option_d": "A randomized approach to SAT",
-    "correct_options": ["B"],
-    "explanation": "The runtime may be exponential in 1/ε but must be polynomial in n."
+    "correct_options": [
+      "B"
+    ],
+    "explanation": "The runtime may be exponential in 1/\u03b5 but must be polynomial in n."
   },
   {
     "subject_name": "Algorithms (DAA)",
@@ -332,7 +378,9 @@
     "option_b": "A random guesser",
     "option_c": "Its own best-case",
     "option_d": "The speed of light",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "It measures how much we 'lose' by not knowing future inputs."
   },
   {
@@ -346,7 +394,9 @@
     "option_b": "NP-Hard",
     "option_c": "O(1)",
     "option_d": "Constant",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Finding the largest set of pairwise adjacent vertices is a classic NP-hard problem."
   },
   {
@@ -360,7 +410,9 @@
     "option_b": "P (Polynomial time)",
     "option_c": "EXP",
     "option_d": "L",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Developed by Khachiyan, it proved that LP is solvable in polynomial time (unlike Simplex's worst case)."
   },
   {
@@ -374,7 +426,9 @@
     "option_b": "Discrete Logarithm Problem",
     "option_c": "Traveling Salesman",
     "option_d": "Sorting large sets",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Finding 'x' given 'g^x mod p' is computationally difficult on current hardware."
   },
   {
@@ -388,7 +442,9 @@
     "option_b": "Counting the number of set bits (1s) in a binary representation",
     "option_c": "Multiplying by powers of 2",
     "option_d": "Dividing the array in half",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Many CPUs have a hardware instruction for this; otherwise, algorithms like Hamming Weight are used."
   },
   {
@@ -402,7 +458,9 @@
     "option_b": "Finding 'Heavy Hitters' (Frequent elements)",
     "option_c": "Encrypting the stream",
     "option_d": "Sorting the stream",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It finds elements that appear more than n/k times using k counters."
   },
   {
@@ -416,7 +474,9 @@
     "option_b": "Bounded-error Probabilistic Polynomial time",
     "option_c": "Binary Parallel Processing",
     "option_d": "Basic Prime Path",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The class of problems solvable by a randomized Turing machine with error probability at most 1/3."
   },
   {
@@ -430,7 +490,9 @@
     "option_b": "Exponentially decreasing bounds on tail distributions of sums of independent random variables",
     "option_c": "A ways to sort data",
     "option_d": "Memory limits",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "They prove that randomized algorithms with independent trials practically never deviate far from their average case."
   },
   {
@@ -444,7 +506,9 @@
     "option_b": "Johnson's Algorithm",
     "option_c": "Repeated Dijkstra's with Fibonacci Heaps",
     "option_d": "Bellman-Ford",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Johnson's algorithm uses this repeated Dijkstra approach after an initial reweighting step."
   },
   {
@@ -458,7 +522,9 @@
     "option_b": "P = L",
     "option_c": "V^2 = E",
     "option_d": "Recursion limit is reached",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "If P = NP, the entire hierarchy collapses to P."
   },
   {
@@ -472,7 +538,9 @@
     "option_b": "Finding a 3/2-approximation for the Metric Traveling Salesman Problem",
     "option_c": "Sorting strings",
     "option_d": "Drawing graphs",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It's one of the most famous approximation algorithms for TSP, using MST and matching."
   },
   {
@@ -486,7 +554,9 @@
     "option_b": "A technique to optimize DP transitions of the form dp[i] = min(m[j]*x[i] + b[j]) using geometric properties",
     "option_c": "Deleting subproblems",
     "option_d": "Recursive sorting",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It reduces O(n^2) DP to O(n log n) or O(n) by maintaining a set of lines and finding the extreme point."
   },
   {
@@ -500,7 +570,9 @@
     "option_b": "An algorithm designed to perform well on hierarchies of caches without knowing the specific cache sizes or line lengths",
     "option_c": "Deleting the cache manually",
     "option_d": "A very slow algorithm",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "They typically use divide-and-conquer to fit problems into cache at every level of the hierarchy automatically."
   },
   {
@@ -514,7 +586,9 @@
     "option_b": "It preserves the previous version of itself when it is modified",
     "option_c": "It uses only immutable variables",
     "option_d": "It is saved in a database automatically",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Functional programming languages rely heavily on persistent data structures."
   },
   {
@@ -528,7 +602,9 @@
     "option_b": "O(log n) average",
     "option_c": "O(1)",
     "option_d": "O(n log n)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Skip lists are probabilistic data structures that are simpler to implement than balanced trees but offer similar expected performance."
   },
   {
@@ -542,7 +618,9 @@
     "option_b": "Moves the requested item to the front of the list",
     "option_c": "Deletes the last item",
     "option_d": "Sorts the list",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It is highly effective when access patterns show high temporal locality."
   },
   {
@@ -556,7 +634,9 @@
     "option_b": "O((n+k) log n) where k is the number of intersections",
     "option_c": "O(n)",
     "option_d": "O(1)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Bentley-Ottmann algorithm is much faster than checking all pairs if intersections are sparse."
   },
   {
@@ -570,7 +650,9 @@
     "option_b": "NP-Complete",
     "option_c": "L",
     "option_d": "BPP",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Given a graph and a budget K, deciding if a tour exists with cost <= K is NP-complete."
   },
   {
@@ -584,7 +666,9 @@
     "option_b": "Standard BFS",
     "option_c": "Merge Sort",
     "option_d": "Binary Search",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "It finds augmenting paths of minimum cost using algorithms like Bellman-Ford or Dijkstra with node potentials."
   },
   {
@@ -598,7 +682,9 @@
     "option_b": "A hybrid sort that starts with QuickSort and switches to HeapSort if recursion depth exceeds a limit",
     "option_c": "Deleting duplicates",
     "option_d": "A ways to sort strings",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It combines the average-case speed of QuickSort with the worst-case guarantee of HeapSort."
   },
   {
@@ -612,7 +698,9 @@
     "option_b": "Exponential",
     "option_c": "Non-primitive recursive (grows faster than any fixed power of 2)",
     "option_d": "Constant",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "It is a famous example of a computable function that is not primitive recursive."
   },
   {
@@ -626,7 +714,9 @@
     "option_b": "The hardness of approximating certain optimization problems",
     "option_c": "Cryptographic hashing",
     "option_d": "Network flow",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The PCP theorem is a profound result showing that some NP-hard problems are hard to approximate even within a small constant."
   },
   {
@@ -640,7 +730,9 @@
     "option_b": "The amortized cost of memory deallocation that can interrupt application threads",
     "option_c": "Deleting the source code",
     "option_d": "Memory leaks in C++",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Modern GCs aim to minimize 'Stop-the-world' pauses."
   },
   {
@@ -654,7 +746,9 @@
     "option_b": "B is faster than A",
     "option_c": "A is O(1)",
     "option_d": "It uses a for loop",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "A polynomial reduction ensures that an efficient solution for B implies an efficient solution for A."
   },
   {
@@ -668,7 +762,9 @@
     "option_b": "Strassen's",
     "option_c": "Coppersmith-Winograd (or improved variants)",
     "option_d": "Held-Karp",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "It has a complexity of approximately O(n^2.37), though it is not used in practice due to gargantuan constant factors."
   },
   {
@@ -682,7 +778,9 @@
     "option_b": "Estimating the Jaccard similarity between two large sets efficiently",
     "option_c": "Password encryption",
     "option_d": "Matrix inversion",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Commonly used in web search to detect 'near-duplicate' documents."
   },
   {
@@ -696,7 +794,9 @@
     "option_b": "h(n) must never overestimate the actual cost to reach the goal",
     "option_c": "h(n) must be calculated using BFS",
     "option_d": "h(n) must be prime",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Admissibility guarantees that A* will find the optimal solution."
   }
 ]

@@ -10,7 +10,9 @@
     "option_b": "A specialized container that runs before app containers in a Pod, often used for setup scripts or waiting for dependencies",
     "option_c": "A container that starts only when an error occurs",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Init containers must complete successfully before app containers can start."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "Readiness Probe",
     "option_c": "Startup Probe",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "If a readiness probe fails, the endpoints controller removes the Pod's IP address from the endpoints of all Services that match the Pod."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "The kubelet kills the container, and the container is subjected to its restart policy",
     "option_c": "The whole node is rebooted",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Liveness probes tell K8s when a container needs to be restarted (e.g. it's in a deadlock)."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "A service where ClusterIP is set to 'None', allowing you to get a list of Pod IPs directly via DNS instead of a single proxy IP",
     "option_c": "A service that is not exposed to the internet",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Headless services are commonly used with StatefulSets for service discovery like in peer-to-peer applications."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "Role is limited to a single Namespace; ClusterRole is cluster-scoped and can be used across all namespaces",
     "option_c": "There is no difference",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Use ClusterRole for resources like Nodes or for common permissions across the entire cluster."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "RoleBinding",
     "option_c": "AccessRule",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "RoleBinding grants permissions defined in a role to a user or a group of users."
   },
   {
@@ -94,7 +106,9 @@
     "option_b": "To ensure that pods are NOT scheduled onto inappropriate nodes (Taints) unless the pod has a matching Toleration",
     "option_c": "To delete old pods",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Taints allow a node to repel a set of pods."
   },
   {
@@ -108,7 +122,9 @@
     "option_b": "A set of rules used by the scheduler to determine which nodes are eligible for pod placement based on labels on the nodes",
     "option_c": "A ways to delete nodes",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Affinity is like nodeSelector but more flexible (e.g. soft vs hard requirements)."
   },
   {
@@ -122,7 +138,9 @@
     "option_b": "Requests define the MINIMUM resources a pod needs to start; Limits define the MAXIMUM resources a pod can consume",
     "option_c": "They are the same",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Scheduler uses Requests; Kubelet/Kernel enforces Limits."
   },
   {
@@ -136,7 +154,9 @@
     "option_b": "Running a task to completion (e.g. batch processing, database migration) and then stopping",
     "option_c": "Paying the developers",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Unlike Deployments, Jobs expect their pods to terminate successfully."
   },
   {
@@ -150,7 +170,9 @@
     "option_b": "Using a CronJob",
     "option_c": "Using a DaemonSet",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "CronJobs create Jobs at specified intervals using standard cron syntax."
   },
   {
@@ -164,7 +186,9 @@
     "option_b": "A controller that ensures that all (or some) nodes run a copy of a specific Pod (e.g. for logging, monitoring, or networking)",
     "option_c": "A secret group of pods",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "When a new node is added to the cluster, the DaemonSet automatically adds the pod to it."
   },
   {
@@ -178,7 +202,9 @@
     "option_b": "A secondary container in a pod that enhances or extends the functionality of the main application container (e.g. log shipper, proxy)",
     "option_c": "A backup server",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Sidecars help separate concerns (e.g. the app doesn't need to know how to ship logs to ELK)."
   },
   {
@@ -192,7 +218,9 @@
     "option_b": "It automatically provisions an external cloud Load Balancer that routes traffic to your service",
     "option_c": "It deletes old pods to balance load",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This is the easiest way to expose a service to the public internet."
   },
   {
@@ -206,7 +234,9 @@
     "option_b": "kubectl rollout undo deployment my-app",
     "option_c": "kubectl delete deployment my-app and re-apply",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Undo allows quick recovery if a new image version has bugs."
   },
   {
@@ -220,7 +250,9 @@
     "option_b": "The files inside the pod are eventually updated automatically (usually within a minute)",
     "option_c": "The pod crashes",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Pods can react to config changes without restart if the app is designed to watch file changes."
   },
   {
@@ -234,7 +266,9 @@
     "option_b": "An identity created for processes (pods) to define what they can do via the Kubernetes API",
     "option_c": "A billing account",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "By default, pods use the 'default' service account which has very limited permissions."
   },
   {
@@ -248,7 +282,9 @@
     "option_b": "kubectl label pod nginx env=prod",
     "option_c": "kubectl tag pod nginx prod",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Imperatively adding labels is useful for ad-hoc organization."
   },
   {
@@ -262,7 +298,9 @@
     "option_b": "To protect slow-starting containers by disabling liveness and readiness checks until the startup probe succeeds",
     "option_c": "To name the pod",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It avoids premature killing of a container that just takes a long time to initialize."
   },
   {
@@ -276,7 +314,9 @@
     "option_b": "An object that sets default and min/max resource constraints for individual containers in a namespace",
     "option_c": "A billing limit",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "LimitRanges prevent users from creating gigantic pods or pods with no limits at all."
   },
   {
@@ -290,7 +330,9 @@
     "option_b": "Constraints that limit aggregate resource consumption (e.g. max total CPU, max total Pods) per Namespace",
     "option_c": "The cost of the cluster",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Quotas are essential in multi-tenant clusters to ensure fair resource distribution between teams."
   },
   {
@@ -304,7 +346,9 @@
     "option_b": "'get' lists basic info; 'describe' provides exhaustive details, status conditions, and recent events",
     "option_c": "There is no difference",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Always check 'describe' if a pod is in CrashLoopBackOff or Pending."
   },
   {
@@ -318,7 +362,9 @@
     "option_b": "An API object that manages external access to the services in a cluster, typically HTTP (providing load balancing, SSL termination, and name-based virtual hosting)",
     "option_c": "A ways to delete services",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Ingress acts as a smart router/gateway for your cluster."
   },
   {
@@ -332,7 +378,9 @@
     "option_b": "The container is crashing repeatedly, and Kubernetes is waiting longer and longer between restart attempts to save resources",
     "option_c": "The node has lost power",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It indicates an application-level bug or a misconfiguration that causes immediate exit."
   },
   {
@@ -346,7 +394,9 @@
     "option_b": "DaemonSet",
     "option_c": "ReplicaSet",
     "option_d": "StatefulSet",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "DaemonSets are perfect for logging and monitoring agents."
   },
   {
@@ -360,7 +410,9 @@
     "option_b": "What happens to the volume data when the PVC is deleted (e.g. Retain, Recycle, Delete)",
     "option_c": "The backup schedule",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Retain means the data stays even if the claim is gone."
   },
   {
@@ -374,7 +426,9 @@
     "option_b": "Defining privilege and access control settings for a Pod or Container (e.g. runAsUser, allowPrivilegeEscalation, capabilities)",
     "option_c": "Creating a secret",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It's vital for hardening the container (e.g. forcing it to run as a non-root user)."
   },
   {
@@ -388,7 +442,9 @@
     "option_b": "An object that automatically scales the number of Pods in a deployment based on observed CPU utilization or other metrics",
     "option_c": "A human-powered scaling service",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "HPA helps handle traffic spikes by spinning up more replicas automatically."
   },
   {
@@ -402,7 +458,9 @@
     "option_b": "kubectl get events --watch",
     "option_c": "kubectl tail events",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "'--watch' (or '-w') follows the stream of events as they happen."
   },
   {
@@ -416,7 +474,9 @@
     "option_b": "kubectl port-forward pod/myapp 8080:80",
     "option_c": "kubectl tunnel myapp 80",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Port-forwarding is great for accessing internal services without an Ingress."
   },
   {
@@ -430,7 +490,9 @@
     "option_b": "A temporary directory that is created when a Pod is assigned to a Node and exists as long as that Pod is running on that node",
     "option_c": "A folder in the cloud",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It's useful for scratch space or sharing files between containers in the same pod."
   },
   {
@@ -444,7 +506,9 @@
     "option_b": "Yes, using the 'valueFrom' and 'configMapKeyRef' fields",
     "option_c": "Yes, but only for numbers",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This allows apps to read configuration from environment variables without being modified."
   },
   {
@@ -458,7 +522,9 @@
     "option_b": "The pod contains 2 containers, but only 1 is currently healthy and ready to serve traffic",
     "option_c": "The pod is 50% finished building",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This usually indicates that a sidecar started but the main app (or vice versa) is failing readiness check."
   },
   {
@@ -472,7 +538,9 @@
     "option_b": "ReadWriteOnce",
     "option_c": "Run Work Objects",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "RWO means the volume can be mounted as read-write by a single node."
   },
   {
@@ -486,7 +554,9 @@
     "option_b": "Talking to the API Server",
     "option_c": "Talking to the Scheduler",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Kubelet reports status to the API Server and watches it for new Pod assignments."
   },
   {
@@ -500,7 +570,9 @@
     "option_b": "kubectl stats nodes",
     "option_c": "kubectl usage nodes",
     "option_d": "none of the above",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Requires the 'Metrics Server' component to be installed in the cluster."
   },
   {
@@ -514,7 +586,9 @@
     "option_b": "The node was running out of resources (e.g. disk or memory), and the kubelet terminated the pod to save the node",
     "option_c": "The pod finished its job",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Check if your pod requests and limits are set properly."
   },
   {
@@ -528,7 +602,9 @@
     "option_b": "Terminating all existing Pods before new ones are created (leads to downtime)",
     "option_c": "Randomly recreating pods",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Useful if your application doesn't support multiple versions running at the same time."
   },
   {
@@ -542,7 +618,9 @@
     "option_b": "A standard and set of tools for configuring network interfaces for containers (e.g. Flannel, Calico, Weave)",
     "option_c": "A cloud provider network",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "CNI plugins provide the actual network connectivity between pods across the cluster."
   },
   {
@@ -556,7 +634,9 @@
     "option_b": "It is terminated with an OOMKilled error",
     "option_c": "It uses the swap",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Memory is a 'hard' resource; once the limit is hit, the process is killed."
   },
   {
@@ -570,7 +650,9 @@
     "option_b": "It is throttled (it gets less CPU time but keeps running)",
     "option_c": "It steals CPU from other nodes",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "CPU is a 'compressible' resource; limits are enforced via throttling (CFS quota)."
   },
   {
@@ -584,7 +666,9 @@
     "option_b": "A piece of code that intercepts requests to the API Server after authentication but before object persistence (e.g. to enforce policies)",
     "option_c": "A ways to login to the cluster",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Common admission controllers include ResourceQuota and LimitRanger."
   },
   {
@@ -598,7 +682,9 @@
     "option_b": "kubectl explain service",
     "option_c": "kubectl info service",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "'explain' is like a man page for Kubernetes resources."
   },
   {
@@ -612,7 +698,9 @@
     "option_b": "'apply' is incremental and merges changes; 'replace' requires a complete object and overwrites everything",
     "option_c": "There is no difference",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Apply is the standard declarative way of managing infrastructure."
   },
   {
@@ -626,7 +714,9 @@
     "option_b": "kubectl cordon node [name]",
     "option_c": "kubectl pause node [name]",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Cordoning is the first step before performing maintenance on a node."
   },
   {
@@ -640,7 +730,9 @@
     "option_b": "Cords the node and then safely evicts all existing pods from it so the node can be taken offline",
     "option_c": "Deletes the node from the cluster",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Drain is used to move workloads off a node before shutdown."
   },
   {
@@ -654,7 +746,9 @@
     "option_b": "A modular, pluggable DNS server that serves as the cluster's internal DNS",
     "option_c": "A ways to connect to the cloud",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It replaced the older kube-dns component."
   },
   {
@@ -668,7 +762,9 @@
     "option_b": "Millicores (m), where 1000m = 1 CPU core",
     "option_c": "Bps",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "For example, 250m means 25% of one CPU core."
   },
   {
@@ -682,7 +778,9 @@
     "option_b": "To provide credentials (like username/password) needed to pull an image from a private container registry",
     "option_c": "To hide the image from other users",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Essential for using repositories that require authentication."
   },
   {
@@ -696,7 +794,9 @@
     "option_b": "To link your cluster into your cloud provider's API (e.g. to create load balancers or mount cloud drives)",
     "option_c": "To pay the cloud bill",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It allows Kubernetes to interact with cloud infrastructure in a provider-agnostic way."
   }
 ]

@@ -10,7 +10,9 @@
     "option_b": "A major unsolved problem in computer science asking whether every problem whose solution can be quickly verified can also be quickly solved",
     "option_c": "A comparison between private and public variables",
     "option_d": "A database synchronization error",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "P problems are solvable in polynomial time; NP problems have solutions verifiable in polynomial time."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "Efficient string matching/searching in O(n + m) time",
     "option_c": "Compressing text",
     "option_d": "Database indexing",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "KMP avoids redundant comparisons by pre-calculating pattern shifts."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "Disk-based data storage and databases to maintain sorted data and allow efficient search/insert/delete",
     "option_c": "Binary encryption",
     "option_d": "Sorting strings in memory",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "B-trees are optimized for systems that read/write large blocks of data."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "Modeling the movement of material through a network to find the maximum possible flow from a source to a sink",
     "option_c": "A way to join tables",
     "option_d": "A styling method for charts",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Max-flow problems are vital in logistics, capacity planning, and job assignment."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "A dynamic programming technique where integers are used as bitmasks to represent sets, allowing efficient subproblem representation",
     "option_c": "A bug in the processor",
     "option_d": "A way to speed up the internet",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Bitmask DP is commonly used for problems involving subsets or the Traveling Salesman problem for small 'n'."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "A closed-form solution for finding the asymptotic time complexity of many divide-and-conquer recurrence relations",
     "option_c": "The size of a database",
     "option_d": "A way to name variables",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It helps solve recurrences like T(n) = aT(n/b) + f(n)."
   },
   {
@@ -94,7 +106,11 @@
     "option_b": "Knapsack Problem (non-approximated)",
     "option_c": "Graph Coloring",
     "option_d": "Binary Search",
-    "correct_options": ["A", "B", "C"],
+    "correct_options": [
+      "A",
+      "B",
+      "C"
+    ],
     "explanation": "TSP, Knapsack, and Graph Coloring are classic NP-hard/complete problems. Binary Search is in P."
   },
   {
@@ -108,7 +124,9 @@
     "option_b": "A type of self-balancing binary search tree that uses node colors to ensure the tree remains approximately balanced during operations",
     "option_c": "A list of strings",
     "option_d": "A database synchronization error",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Red-Black trees are widely used in libraries (e.g., C++ std::map, Java TreeMap) due to their efficient performance."
   },
   {
@@ -122,7 +140,9 @@
     "option_b": "Given a list of cities and the distances between each pair, what is the shortest possible route that visits each city exactly once and returns to the origin?",
     "option_c": "Searching for a person's name",
     "option_d": "A way to speed up shipping",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "TSP is an optimization problem that is computationally expensive for large numbers of cities."
   },
   {
@@ -136,7 +156,9 @@
     "option_b": "A probabilistic data structure that allows O(log n) search, similar to a balanced tree, but implemented using layers of linked lists",
     "option_c": "A list of strings in an Excel sheet",
     "option_d": "A way to optimize memory",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Skip lists are easier to implement than balanced trees and are used in databases like Redis."
   },
   {
@@ -150,7 +172,9 @@
     "option_b": "O(VE^2)",
     "option_c": "O(V^3)",
     "option_d": "O(E log V)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Edmonds-Karp uses BFS to find augmenting paths, ensuring it runs in polynomial time."
   },
   {
@@ -164,7 +188,9 @@
     "option_b": "A node whose removal results in no component having more than n/2 nodes",
     "option_c": "The node with the most children",
     "option_d": "A leaf node with the maximum depth",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Centroid decomposition is used in tree-based problems to achieve O(n log n) total complexity."
   },
   {
@@ -178,7 +204,9 @@
     "option_b": "Finding occurrences of multiple patterns simultaneously in a text",
     "option_c": "Sorting strings alphabetically",
     "option_d": "Compressing text files",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It combines a Trie with failure links to achieve linear time complexity relative to text length."
   },
   {
@@ -192,7 +220,9 @@
     "option_b": "A randomized data structure that maintains both the BST property and the Heap property simultaneously",
     "option_c": "A list of strings",
     "option_d": "A way to join tables",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Treaps use random priorities to stay balanced with high probability."
   },
   {
@@ -206,7 +236,9 @@
     "option_b": "It is in both NP and NP-Hard",
     "option_c": "It cannot be verified",
     "option_d": "It has no solution",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "A solution to an NP-complete problem can be used to solve any NP problem in polynomial time."
   },
   {
@@ -220,7 +252,9 @@
     "option_b": "The value of the maximum flow in a network is equal to the capacity of the minimum cut",
     "option_c": "The minimum flow is equal to 0",
     "option_d": "The max flow is always even",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This fundamental duality theorem bridges network flow and combinatorial optimization."
   },
   {
@@ -234,7 +268,9 @@
     "option_b": "Path queries and updates in a tree by decomposing it into linear paths",
     "option_c": "Searching in a hash map",
     "option_d": "Minimal spanning forest",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "HLD allows operations like path sums or path max to be computed in O(log^2 n)."
   },
   {
@@ -248,7 +284,9 @@
     "option_b": "O(n^2 * 2^n)",
     "option_c": "O(2^n)",
     "option_d": "O(n^3)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It reduces the factorial complexity to exponential, making it feasible for n up to ~20."
   },
   {
@@ -262,7 +300,9 @@
     "option_b": "Solving systems of simultaneous congruences with different moduli",
     "option_c": "Finding the shortest path",
     "option_d": "String hashing",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It's a staple in number theory based algorithmic problems."
   },
   {
@@ -276,7 +316,9 @@
     "option_b": "Searching for points in k-dimensional space (Nearest Neighbor search)",
     "option_c": "Maximum flow",
     "option_d": "Linear regression",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Kd-trees partition space to quickly narrow down the search in multi-dimensional datasets."
   },
   {
@@ -290,7 +332,9 @@
     "option_b": "It will always find the optimal (shortest) path",
     "option_c": "It will use minimal memory",
     "option_d": "It will be faster than BFS",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Admissibility means h(n) never overestimates the true cost to reach the goal."
   },
   {
@@ -304,7 +348,9 @@
     "option_b": "A segment tree that allows access to all its previous versions after updates",
     "option_c": "A segment tree that cannot be modified",
     "option_d": "A ways to compress segment trees",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "By creating new nodes only for changed branches, it achieves O(log n) versioning."
   },
   {
@@ -318,7 +364,9 @@
     "option_b": "A vertex whose removal increases the number of connected components",
     "option_c": "A vertex with the highest degree",
     "option_d": "A vertex connected to all other vertices",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Articulation points (or cut vertices) are critical for graph connectivity."
   },
   {
@@ -332,7 +380,9 @@
     "option_b": "Manacher's Algorithm",
     "option_c": "Rabin-Karp",
     "option_d": "Suffix Array",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Manacher's exploits symmetry to avoid redundant palindrome checks."
   },
   {
@@ -346,7 +396,9 @@
     "option_b": "Finding shortest paths in the residual network toward the sink to find multiple augmenting paths efficiently",
     "option_c": "Storing vertex degrees",
     "option_d": "Balancing the tree",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Dinic's uses level graphs to reach the sink through the shortest available routes in each phase."
   },
   {
@@ -360,7 +412,9 @@
     "option_b": "Winning strategy (XOR sum of pile sizes)",
     "option_c": "The number of players",
     "option_d": "The time limit",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The Sprague-Grundy theorem generalizes this to many impartial games."
   },
   {
@@ -374,7 +428,9 @@
     "option_b": "Boolean Satisfiability Problem (SAT) is NP-Complete",
     "option_c": "P != NP",
     "option_d": "Binary search is the fastest search",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It was the first problem proven to be NP-complete."
   },
   {
@@ -388,7 +444,9 @@
     "option_b": "Probabilistic: No false negatives, but potentially false positives",
     "option_c": "Probabilistic: No false positives, but potentially false negatives",
     "option_d": "Random guess",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Bloom filters are space-efficient but allow for some errors in set membership tests."
   },
   {
@@ -402,7 +460,9 @@
     "option_b": "O(n^2.807)",
     "option_c": "O(n^2)",
     "option_d": "O(n log n)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It's theoretically faster than the standard O(n^3) algorithm by reducing the number of multiplications needed."
   },
   {
@@ -416,7 +476,9 @@
     "option_b": "Reduce the search space from O(2^n) to O(2^(n/2))",
     "option_c": "Find the middle of a linked list",
     "option_d": "Connect two servers",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It's used in problems like Subset Sum or finding paths in a large state space."
   },
   {
@@ -430,7 +492,9 @@
     "option_b": "Range Minimum/Maximum Queries (RMQ)",
     "option_c": "Sorting",
     "option_d": "Deleting any element",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Sparse tables are ideal for static range queries on idempotent functions."
   },
   {
@@ -444,7 +508,9 @@
     "option_b": "The longest path between any two nodes in the tree",
     "option_c": "The height of the tree",
     "option_d": "The total number of edges",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It can be found in two DFS/BFS passes."
   },
   {
@@ -458,7 +524,9 @@
     "option_b": "Rabin-Karp string matching algorithm",
     "option_c": "Encryption",
     "option_d": "Memory management",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It allows computing the hash of a window in O(1) time by sliding it across the text."
   },
   {
@@ -472,7 +540,9 @@
     "option_b": "Every problem in NP can be reduced to it in polynomial time",
     "option_c": "It is solvable in polynomial time",
     "option_d": "It has no solution at all",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "NP-hard problems include all of NP but might not be in NP themselves (e.g., they might take even longer)."
   },
   {
@@ -486,7 +556,9 @@
     "option_b": "O(1) with O(n log n) preprocessing using sparse tables/Euler tour",
     "option_c": "O(log n) with no preprocessing",
     "option_d": "O(n^2)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "LCA can be reduced to the Range Minimum Query problem."
   },
   {
@@ -500,7 +572,9 @@
     "option_b": "Condition for the existence of a perfect matching in a bipartite graph",
     "option_c": "Complexity of sorting",
     "option_d": "How to traverse a graph",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It states that for every subset S of one partition, the size of its neighborhood N(S) must be >= |S|."
   },
   {
@@ -514,7 +588,9 @@
     "option_b": "Knuth Optimization",
     "option_c": "Divide and Conquer Optimization",
     "option_d": "Memoization",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Knuth optimization applies when the optimal split position satisfies monotonicity."
   },
   {
@@ -528,7 +604,9 @@
     "option_b": "A variation of A* that uses iterative deepening to save memory",
     "option_c": "A ways to search strings",
     "option_d": "Only for trees",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It uses the f-cost (g+h) as the limit for depth-first search in each iteration."
   },
   {
@@ -539,10 +617,12 @@
     "timer_seconds": 40,
     "question_text": "What is 'Burnside's Lemma' (or Cauchy-Frobenius Lemma) used for?",
     "option_a": "Maximum flow",
-    "option_b": "Counting distinct objects under symmetry (Pólya Enumeration Theorem foundation)",
+    "option_b": "Counting distinct objects under symmetry (P\u00f3lya Enumeration Theorem foundation)",
     "option_c": "Number theory proofs",
     "option_d": "Finding primes",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It counts the number of orbits of a group action, useful for problems involving rotations/reflections."
   },
   {
@@ -556,7 +636,9 @@
     "option_b": "O(n log n)",
     "option_c": "O(n^2)",
     "option_d": "O(log n)",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Two DFS searches are sufficient (start from any node, find farthest node X, then find farthest node from X)."
   },
   {
@@ -570,7 +652,9 @@
     "option_b": "A dynamic data structure for maintaining a forest of trees and performing path operations (link, cut, path sum)",
     "option_c": "A forest that cannot be changed",
     "option_d": "A database schema",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It achieves O(log n) amortized time for dynamic tree operations."
   },
   {
@@ -584,7 +668,9 @@
     "option_b": "Cooley-Tukey Algorithm",
     "option_c": "Gauss-Jordan Elimination",
     "option_d": "Binary Search",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It's the most common algorithm for computing the discrete Fourier transform."
   },
   {
@@ -598,7 +684,9 @@
     "option_b": "O(n log n) or O(n)",
     "option_c": "O(n^3)",
     "option_d": "O(log n)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It maintains the lower/upper hull of lines to quickly find the minimum/maximum value for a given x."
   },
   {
@@ -612,7 +700,9 @@
     "option_b": "Every vertex of the graph exactly once",
     "option_c": "Only the leaves",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It means every vertex is endpoints of exactly one edge in the matching."
   },
   {
@@ -626,7 +716,9 @@
     "option_b": "Efficient prefix sum updates and queries",
     "option_c": "Maximum flow",
     "option_d": "Hash map visualization",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It is easier to implement and uses less memory than a Segment Tree."
   },
   {
@@ -640,7 +732,9 @@
     "option_b": "$1,000,000 from Clay Mathematics Institute",
     "option_c": "A free laptop",
     "option_d": "$0 (prestige only)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It is one of the seven Millennium Prize Problems."
   },
   {
@@ -654,7 +748,9 @@
     "option_b": "Dividing an array into blocks of size approximately sqrt(n) to handle range queries in O(sqrt(n))",
     "option_c": "A way to sort using squares",
     "option_d": "Calculating square root in constant time",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It is a simpler alternative to segment trees for certain range query problems."
   },
   {
@@ -668,7 +764,9 @@
     "option_b": "Binomial Heap",
     "option_c": "Leftist Heap or Skew Heap (amortized)",
     "option_d": "B-Tree",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Leftist/Skew heaps are mergeable heaps."
   },
   {
@@ -682,7 +780,9 @@
     "option_b": "O(E * V)",
     "option_c": "O(V^3)",
     "option_d": "O(E^2)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Without Union-Find, cycle checking makes the algorithm much slower."
   },
   {
@@ -696,7 +796,9 @@
     "option_b": "Finding the maximum or minimum of a unimodal function",
     "option_c": "Sorting letters",
     "option_d": "Replacing binary search in all cases",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It works similarly to binary search but divides the search space into three parts."
   }
 ]

@@ -10,7 +10,9 @@
     "option_b": "Continuous Deployment",
     "option_c": "Code Delivery",
     "option_d": "Centralized Database",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "CD stands for Continuous Delivery or Continuous Deployment, focusing on automated software release processes."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "Git",
     "option_c": "Mercurial",
     "option_d": "CVS",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Git is the industry standard for distributed version control."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "To integrate code changes into a shared repository frequently and automatically test them",
     "option_c": "To delete old code",
     "option_d": "To manage servers",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "CI aims to find bugs early by merging and testing small changes frequently."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "Photoshop",
     "option_c": "Excel",
     "option_d": "Slack",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Jenkins is a widely used tool for automating various stages of software development."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "git push",
     "option_c": "git fetch",
     "option_d": "git commit",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Git push 'pushes' your committed changes to the upstream remote repository."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "Artifact",
     "option_c": "Snippet",
     "option_d": "Log",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "An artifact is a deployable package (like a .jar, .war, or Docker image) produced during the build stage."
   },
   {
@@ -94,7 +106,9 @@
     "option_b": "Unit Test",
     "option_c": "Stress Test",
     "option_d": "User Acceptance Test",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Unit tests focus on the smallest testable parts of an application in isolation."
   },
   {
@@ -108,7 +122,9 @@
     "option_b": "A YAML file in .github/workflows directory",
     "option_c": "pom.xml",
     "option_d": "package.json",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "GitHub Actions uses YAML files located in a specific directory to define workflow automation."
   },
   {
@@ -122,7 +138,9 @@
     "option_b": "A pre-production environment that mimics production for final testing",
     "option_c": "The developer's laptop",
     "option_d": "The trash can",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Staging allows teams to verify that everything works correctly in a realistic environment before going live."
   },
   {
@@ -136,7 +154,9 @@
     "option_b": "The pipeline stops (breaks) and notifies the developers",
     "option_c": "The code is automatically deleted",
     "option_d": "Nothing",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "A primary role of CI is to act as a gatekeeper, preventing faulty code from progressing."
   },
   {
@@ -150,7 +170,9 @@
     "option_b": "git merge [name]",
     "option_c": "git status",
     "option_d": "git remote",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Git branch is used to list, create, or delete branches."
   },
   {
@@ -164,7 +186,9 @@
     "option_b": "Infrastructure as Code",
     "option_c": "Interface as Code",
     "option_d": "Information and Communication",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Infrastructure as Code allows managing servers and networks using configuration files (like Terraform)."
   },
   {
@@ -178,7 +202,9 @@
     "option_b": "A snapshot of changes saved to the repository history",
     "option_c": "Sending an email",
     "option_d": "A ways to name a file",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Committing saves your staged changes with a descriptive message and a unique ID."
   },
   {
@@ -192,7 +218,9 @@
     "option_b": "Docker (Containers)",
     "option_c": "Zip files",
     "option_d": "PDF",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Containers ensure that the application runs the same way in dev, test, and production."
   },
   {
@@ -206,7 +234,9 @@
     "option_b": "git merge",
     "option_c": "git add",
     "option_d": "git init",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Git merge integrates histories from two branches together."
   },
   {
@@ -220,7 +250,9 @@
     "option_b": "git record",
     "option_c": "git save",
     "option_d": "git update",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "The 'git commit' command captures a snapshot of the project's currently staged changes."
   },
   {
@@ -234,7 +266,9 @@
     "option_b": "git init",
     "option_c": "git create",
     "option_d": "git new",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "'git init' creates a new .git subdirectory in your current directory."
   },
   {
@@ -248,7 +282,9 @@
     "option_b": "git show",
     "option_c": "git info",
     "option_d": "git list",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "'git status' shows which changes have been staged, which haven't, and which files aren't being tracked by Git."
   },
   {
@@ -262,7 +298,9 @@
     "option_b": "git copy",
     "option_c": "git clone",
     "option_d": "git get",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "'git clone' creates a local copy of a remote repository."
   },
   {
@@ -276,7 +314,9 @@
     "option_b": "Continuous Integration",
     "option_c": "Code Backup",
     "option_d": "File Sharing",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "CI ensures that the software is always in a buildable and testable state."
   },
   {
@@ -290,7 +330,9 @@
     "option_b": "Automatically checking code for stylistic or programmatic errors",
     "option_c": "Deleting unused files",
     "option_d": "Sending emails",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Linters help maintain code quality and consistency across a team."
   },
   {
@@ -304,7 +346,9 @@
     "option_b": "A way to propose changes to a repository and ask for a code review before merging",
     "option_c": "Asking for more RAM",
     "option_d": "Requesting to leave work early",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "PRs are the standard way for teams to collaborate and review code in Git-based platforms."
   },
   {
@@ -318,7 +362,9 @@
     "option_b": "Sensitive information that should be encrypted and protected, not stored in plain text code",
     "option_c": "A surprise feature",
     "option_d": "A way to hide files from the boss",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Secrets must be managed securely (e.g., in GitHub Secrets or vault) to prevent leaks."
   },
   {
@@ -332,7 +378,9 @@
     "option_b": "The Git repository",
     "option_c": "The cloud console",
     "option_d": "The Slack channel",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "In GitOps, the desired state of the system is entirely defined in Git."
   },
   {
@@ -346,7 +394,9 @@
     "option_b": "Production",
     "option_c": "Staging",
     "option_d": "QA",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Production is the live environment where the app is 'served' to customers."
   },
   {
@@ -360,7 +410,9 @@
     "option_b": "A specific task or set of steps (like build, test, deploy) defined in a pipeline",
     "option_c": "The name of the server",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Jobs are the building blocks of a full automation workflow."
   },
   {
@@ -374,7 +426,9 @@
     "option_b": ".gitignore",
     "option_c": ".gitattributes",
     "option_d": "gitignore.txt",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": ".gitignore prevents temporary files, logs, and sensitive data from being committed accidentally."
   },
   {
@@ -388,7 +442,9 @@
     "option_b": "The machine or container that actually executes the steps defined in a job",
     "option_c": "A way to speed up the internet",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Runners provide the environment where your scripts and tests run."
   },
   {
@@ -402,7 +458,9 @@
     "option_b": "Major.Minor.Patch (e.g., 1.2.3)",
     "option_c": "Draft, Final, Finalv2",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "SemVer helps developers communicate the scope of changes in a release."
   },
   {
@@ -416,7 +474,9 @@
     "option_b": "A metric that shows what percentage of your source code is executed when running your tests",
     "option_c": "Writing code for the whole company",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Higher code coverage generally indicates that more of the logic has been verified by tests."
   },
   {
@@ -430,7 +490,9 @@
     "option_b": "A system that manages the execution and flow of multiple jobs or services (e.g., Kubernetes or Jenkins)",
     "option_c": "A tool to write code",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Orchestrators coordinate complex workflows across many machines."
   },
   {
@@ -444,7 +506,9 @@
     "option_b": "A permanent label used to mark specific points in the repository history, usually for releases (e.g., v1.0)",
     "option_c": "A way to name a file",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Tags are like 'bookmarks' that don't change as more commits are added."
   },
   {
@@ -458,7 +522,9 @@
     "option_b": "git history",
     "option_c": "git show",
     "option_d": "git list",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "'git log' shows the author, date, and message for all commits in the current branch."
   },
   {
@@ -472,7 +538,9 @@
     "option_b": "A value that can be passed to the build/test environment to configure behavior without changing code",
     "option_c": "A folder in the cloud",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Environment variables are used for configuring database URLs, feature flags, and secrets."
   },
   {
@@ -486,7 +554,9 @@
     "option_b": "When two sets of changes are made to the same part of a file and Git cannot merge them automatically",
     "option_c": "A bug in the compiler",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Conflicts must be resolved manually by the developer to decide which changes to keep."
   },
   {
@@ -500,7 +570,9 @@
     "option_b": "Writing the code inside a pipe",
     "option_c": "Deleting the pipeline",
     "option_d": "none of the above",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Pipeline as code allows the automation steps to be versioned and reviewed just like application code."
   },
   {
@@ -514,7 +586,9 @@
     "option_b": "Testing how different parts of an application work together",
     "option_c": "Testing the user's internet",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Integration tests verify that components (like the API and Database) interact correctly."
   },
   {
@@ -528,7 +602,9 @@
     "option_b": "A deployment strategy that replaces old versions of an app with new ones gradually to maintain availability",
     "option_c": "Deleting everything and starting over",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Rolling updates ensure that some instances of the app are always online during the update process."
   },
   {
@@ -542,7 +618,9 @@
     "option_b": "git pull",
     "option_c": "git update",
     "option_d": "git get",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "'git pull' fetches changes from the remote and merges them into your current branch."
   },
   {
@@ -556,7 +634,9 @@
     "option_b": "The default branch in a repository, usually representing the stable version of the code",
     "option_c": "A branch for only the boss",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Most CI/CD pipelines trigger production deployments when changes are merged into this branch."
   },
   {
@@ -570,7 +650,9 @@
     "option_b": "A centralized server for storing and sharing container images",
     "option_c": "A tool to edit photos",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Registries allow pipelines to 'push' images after building and 'pull' them during deployment."
   },
   {
@@ -584,7 +666,9 @@
     "option_b": "Microsoft Word",
     "option_c": "Adobe Reader",
     "option_d": "none of the above",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "GitHub Actions, GitLab CI, and CircleCI are popular hosted automation platforms."
   },
   {
@@ -598,7 +682,9 @@
     "option_b": "Approving a new employee",
     "option_c": "Writing a letter to the boss",
     "option_d": "none of the above",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Manual gates are common for production deployments to ensure final human verification."
   },
   {
@@ -612,7 +698,9 @@
     "option_b": "Re-running previous tests to ensure that new changes didn't break existing functionality",
     "option_c": "Deleting the tests",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Regression tests prevent 'bugs from coming back' after updates."
   },
   {
@@ -626,7 +714,9 @@
     "option_b": "A document that lists the changes made in each version of the software",
     "option_c": "A tool to delete logs",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Changelogs help users and developers understand what's new or fixed in a release."
   },
   {
@@ -640,7 +730,9 @@
     "option_b": "git remove [name]",
     "option_c": "git delete [name]",
     "option_d": "git kill [name]",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "'git branch -d' safely deletes a branch if it has been merged."
   },
   {
@@ -654,7 +746,9 @@
     "option_b": "Integrating security practices earlier in the software development lifecycle (further to the 'left' on the timeline)",
     "option_c": "Only hiring security experts from the left",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Shift-left reduces the cost and risk of security issues by catching them during development."
   },
   {
@@ -668,7 +762,9 @@
     "option_b": "git stage [file]",
     "option_c": "git commit [file]",
     "option_d": "git include [file]",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "'git add' marks changes in a file to be included in the next commit."
   },
   {
@@ -682,7 +778,9 @@
     "option_b": "A series of automated steps code must pass through to be built, tested, and deployed",
     "option_c": "A list of programmer names",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Pipelines define the 'factory line' for software creation."
   },
   {
@@ -696,7 +794,9 @@
     "option_b": "A period when a service is unavailable to users",
     "option_c": "The time spent writing code",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "CI/CD aims to minimize downtime through automated and safe deployment techniques."
   }
 ]

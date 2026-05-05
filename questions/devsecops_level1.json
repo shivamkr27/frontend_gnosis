@@ -10,7 +10,9 @@
     "option_b": "To integrate security practices early and throughout the DevOps lifecycle",
     "option_c": "To stop all releases until they are perfect",
     "option_d": "To delete old servers",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "DevSecOps emphasizes that security is a shared responsibility integrated into the entire development pipeline."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "Moving security testing earlier into the development stage",
     "option_c": "Buying more security software",
     "option_d": "Deleting the code",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Shifting left means addressing security issues as soon as possible, often during coding or design."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "Confidentiality",
     "option_c": "Completeness",
     "option_d": "Cost",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Confidentiality ensures that information is accessible only to those authorized to have access."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "Availability",
     "option_c": "Automation",
     "option_d": "Audit",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Availability ensures that systems and data are available when needed by authorized users."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "A vulnerability that is known only to the attacker, with zero days of protection available for the user",
     "option_c": "A vulnerability that is zero bytes in size",
     "option_d": "A ways to name a user",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "A Zero-Day is a security flaw that is exploited before the vendor has a patch available."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "Multi-Factor Authentication",
     "option_c": "Master File Archive",
     "option_d": "Main Frame Account",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "MFA requires more than one piece of evidence (like a password and a code) to verify identity."
   },
   {
@@ -94,7 +106,9 @@
     "option_b": "Encryption",
     "option_c": "Encoding",
     "option_d": "Compression",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Encryption protects data by making it unreadable without the correct decryption key."
   },
   {
@@ -108,7 +122,9 @@
     "option_b": "Documentation",
     "option_c": "Source Code",
     "option_d": "Icons",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Secrets must be managed securely using tools like Vault or environment variables, never hardcoded in Git."
   },
   {
@@ -122,7 +138,9 @@
     "option_b": "A fraudulent attempt to obtain sensitive information by masquerading as a trustworthy entity in electronic communication",
     "option_c": "Deleting the database",
     "option_d": "Naming the files",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Phishing often uses emails or websites to trick users into giving away credentials."
   },
   {
@@ -136,7 +154,9 @@
     "option_b": "An authorized simulated cyberattack on a computer system to evaluate its security",
     "option_c": "Deleting the code",
     "option_d": "Writing the code",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Penetration tests (Ethical Hacking) identify weaknesses that real attackers could exploit."
   },
   {
@@ -150,7 +170,9 @@
     "option_b": "Human psychology",
     "option_c": "Firewalls",
     "option_d": "Databases",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Social engineering uses manipulation to trick people into revealing secrets or granting access."
   },
   {
@@ -164,7 +186,9 @@
     "option_b": "Malware that encrypts files and demands payment for the decryption key",
     "option_c": "A ways to delete files",
     "option_d": "Naming the pods",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Ransomware is a major threat that can lock organizations out of their critical data."
   },
   {
@@ -178,7 +202,9 @@
     "option_b": "A network security system that monitors and controls incoming and outgoing network traffic based on predetermined security rules",
     "option_c": "A ways to delete servers",
     "option_d": "A tool to name users",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Firewalls act as a barrier between trusted internal networks and untrusted external ones (like the internet)."
   },
   {
@@ -192,7 +218,9 @@
     "option_b": "To fix known vulnerabilities that attackers could use",
     "option_c": "To delete old data",
     "option_d": "To change the colors",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Unpatched systems are one of the most common ways for attackers to gain entry."
   },
   {
@@ -206,7 +234,9 @@
     "option_b": "Authentication is proving WHO you are; Authorization is determining WHAT you are allowed to do",
     "option_c": "Authentication is for robots, Authorization is for humans",
     "option_d": "Authorization is for robots, Authentication is for humans",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "You first authenticate (login) and then the system authorizes your requests based on your roles."
   },
   {
@@ -220,7 +250,9 @@
     "option_b": "Proving identity",
     "option_c": "Keeping secrets",
     "option_d": "Deleting the database",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Integrity ensures that data is not modified by unauthorized parties."
   },
   {
@@ -234,7 +266,9 @@
     "option_b": "Giving users only the minimum access necessary to perform their job functions",
     "option_c": "Deleting all users",
     "option_d": "Giving everyone admin access for speed",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Least privilege reduces the 'blast radius' if an account is compromised."
   },
   {
@@ -248,7 +282,9 @@
     "option_b": "Using multiple layers of security controls to protect data and systems",
     "option_c": "Deleting the code",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "If one layer fails (e.g. firewall), other layers (e.g. encryption) still protect the data."
   },
   {
@@ -262,7 +298,9 @@
     "option_b": "It is a one-way function - you cannot easily recreate the input from the output",
     "option_c": "It makes the file larger",
     "option_d": "It deletes the data",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Hashes are used for verifying data integrity and storing passwords securely."
   },
   {
@@ -276,7 +314,9 @@
     "option_b": "Adding a unique, random string of characters to a password before hashing it",
     "option_c": "Deleting old passwords",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Salting prevents attackers from using 'Rainbow Tables' to crack many passwords at once."
   },
   {
@@ -290,7 +330,9 @@
     "option_b": "Online World Application Security Protocol",
     "option_c": "Official Web App Safety Plan",
     "option_d": "none of the above",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "OWASP is a non-profit foundation that works to improve software security."
   },
   {
@@ -304,7 +346,9 @@
     "option_b": "An attack where malicious SQL statements are inserted into an entry field for execution",
     "option_c": "Deleting the database",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "SQLi can allow attackers to view, modify, or delete sensitive data in a database."
   },
   {
@@ -318,7 +362,9 @@
     "option_b": "An attack where malicious scripts are injected into otherwise benign and trusted websites",
     "option_c": "Deleting the website",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "XSS allows attackers to execute scripts in a victim's browser, potentially stealing cookies or session tokens."
   },
   {
@@ -332,7 +378,9 @@
     "option_b": "Secure",
     "option_c": "Simple",
     "option_d": "Speed",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "HTTPS provides encrypted communication and secure identification of a network web server."
   },
   {
@@ -346,7 +394,9 @@
     "option_b": "HIPAA",
     "option_c": "PCI-DSS",
     "option_d": "SOX",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "HIPAA (Health Insurance Portability and Accountability Act) is a US law providing data privacy and security provisions for safeguarding medical information."
   },
   {
@@ -360,7 +410,9 @@
     "option_b": "GDPR",
     "option_c": "COPPA",
     "option_d": "PCI-DSS",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "GDPR (General Data Protection Regulation) is a legal framework that sets guidelines for the collection and processing of personal information."
   },
   {
@@ -374,7 +426,9 @@
     "option_b": "To provide a trail of activities that can be audited after an incident occurs",
     "option_c": "To speed up the computer",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Logs are the 'black box' for security forensics, showing what happened during an attack."
   },
   {
@@ -388,7 +442,9 @@
     "option_b": "A trial-and-error method used to decode encrypted data such as passwords through exhaustive effort",
     "option_c": "Deleting the database",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Brute force attacks try every possible password combination until one works."
   },
   {
@@ -402,7 +458,9 @@
     "option_b": "Very Public Network",
     "option_c": "A ways to name a user",
     "option_d": "none of the above",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "VPNs allow users to securely access private network resources from remote locations."
   },
   {
@@ -416,7 +474,9 @@
     "option_b": "A security risk that originates from within the organization (e.g. an employee or contractor)",
     "option_c": "A bug in the code",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Insider threats can be malicious or simply accidental, such as a user clicking a bad link."
   },
   {
@@ -430,7 +490,9 @@
     "option_b": "A deal offered by many websites and software developers by which individuals can receive recognition and compensation for reporting bugs",
     "option_c": "Deleting the code",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Bug bounties encourage 'ethical hackers' to find and report vulnerabilities responsibly."
   },
   {
@@ -444,7 +506,9 @@
     "option_b": "Making the code very complex; it is recommended",
     "option_c": "Deleting the logs; it is recommended",
     "option_d": "none of the above",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Hiding something doesn't make it secure once it's found. Real security relies on robust controls like encryption."
   },
   {
@@ -458,7 +522,9 @@
     "option_b": "A standalone malware computer program that replicates itself in order to spread to other computers",
     "option_c": "A tool to delete files",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Unlike a virus, a worm doesn't need to attach itself to an existing program to spread."
   },
   {
@@ -472,7 +538,9 @@
     "option_b": "Malware that misleads users of its true intent by appearing as useful software",
     "option_c": "A ways to name a file",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The term comes from the Greek story of the wooden horse used to invade Troy."
   },
   {
@@ -486,7 +554,9 @@
     "option_b": "Encrypting data while the computer is off",
     "option_c": "Deleting old data",
     "option_d": "none of the above",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Encryption at rest protects data if the physical hardware is stolen or accessed improperly."
   },
   {
@@ -500,7 +570,9 @@
     "option_b": "Role-Based Access Control: granting permissions based on a user's role in the organization",
     "option_c": "Robot Based Archive Center",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "RBAC simplifies user management by grouping permissions by job function."
   },
   {
@@ -514,7 +586,9 @@
     "option_b": "Psychological manipulation of people into performing actions or divulging confidential information",
     "option_c": "Deleting the database",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Social engineering targets the 'human' element, often considered the weakest link in security."
   },
   {
@@ -528,7 +602,9 @@
     "option_b": "GDPR",
     "option_c": "PCI-DSS",
     "option_d": "SOX",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "PCI-DSS (Payment Card Industry Data Security Standard) is required for any company that handles credit card information."
   },
   {
@@ -542,7 +618,9 @@
     "option_b": "Tracing data from its 'source' (user input) to its 'sink' (where it is used, like a database query or web page)",
     "option_c": "Deleting the code",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Tracing source-to-sink is how SAST tools find vulnerabilities like SQLi or XSS."
   },
   {
@@ -556,7 +634,9 @@
     "option_b": "A decoy system intended to attract and distract attackers, allowing security teams to study their methods",
     "option_c": "A ways to name a user",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Honeypots provide valuable threat intelligence by observing real-world attack patterns."
   },
   {
@@ -570,7 +650,9 @@
     "option_b": "Using unique biological characteristics like fingerprints, iris scans, or facial recognition to verify identity",
     "option_c": "Using a physical key",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Biometrics identify users based on 'something they are'."
   },
   {
@@ -584,7 +666,9 @@
     "option_b": "An ethical security specialist who uses their skills to find and fix vulnerabilities, often working with organizations",
     "option_c": "A hacker who steals money",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "White hats help defend systems; Black hats attack them."
   },
   {
@@ -598,7 +682,9 @@
     "option_b": "Software that enables a user to obtain covert information about another's computer activities by transmitting data covertly from their hard drive",
     "option_c": "A ways to name a user",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Spyware is often used for identity theft or corporate espionage."
   },
   {
@@ -612,7 +698,9 @@
     "option_b": "A device or software application that monitors a network or systems for malicious activity or policy violations",
     "option_c": "A tool to name servers",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Unlike a firewall, an IDS primary job is to alert you to suspicious activity rather than just blocking it."
   },
   {
@@ -626,7 +714,9 @@
     "option_b": "To allow for data recovery in case of a ransomware attack or accidental loss",
     "option_c": "To delete old data",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Offline, immutable backups are the best defense against data-destroying malware."
   },
   {
@@ -640,7 +730,9 @@
     "option_b": "A set of rules applied by the owner, creator or administrator of a network, website, or service, that restrict the ways in which the network, website or system may be used",
     "option_c": "A software for writing code",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "AUPs define what behaviors are allowed on an organization's systems."
   },
   {
@@ -654,7 +746,9 @@
     "option_b": "Service Software Only",
     "option_c": "System Security Officer",
     "option_d": "none of the above",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "SSO improves user experience and centralizes identity management."
   },
   {
@@ -668,7 +762,9 @@
     "option_b": "A vulnerability that redirects users to a malicious website without their knowledge",
     "option_c": "Deleting the URL",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Attackers use 'open redirects' to trick users into trusting a link that actually goes to a phishing site."
   },
   {
@@ -682,7 +778,9 @@
     "option_b": "The practice of identifying, classifying, prioritizing, remediating, and mitigating software vulnerabilities",
     "option_c": "Deleting the code",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It is a continuous process of staying ahead of potential threats."
   },
   {
@@ -696,7 +794,9 @@
     "option_b": "If one account is compromised, the attacker can use that password to access all other accounts",
     "option_c": "It's illegal",
     "option_d": "It slow down the computer",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Password managers are recommended to generate and store unique passwords for every site."
   }
 ]

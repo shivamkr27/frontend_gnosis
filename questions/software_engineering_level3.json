@@ -10,7 +10,9 @@
     "option_b": "Observer",
     "option_c": "Singleton",
     "option_d": "Strategy",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Singleton is a creational pattern that limits object instantiation to a single object."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "To define a one-to-many dependency so that when one object changes state, all its dependents are notified automatically",
     "option_c": "To convert one interface to another",
     "option_d": "To optimize database queries",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Observer is used for implementing distributed event-handling systems."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "Handling user input and business logic",
     "option_c": "Managing data and business rules",
     "option_d": "Connecting to the internet",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The Model represents the data and logic. The View is the UI. The Controller handles the input and interaction."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "Increased operational complexity (deployment, monitoring, inter-service communication overhead)",
     "option_c": "Single point of failure for the whole system",
     "option_d": "Code is harder to read",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "While microservices offer scalability and independence, they introduce significant networking and infrastructure overhead."
   },
   {
@@ -66,7 +74,11 @@
     "option_b": "Adapter",
     "option_c": "Prototype",
     "option_d": "Singleton",
-    "correct_options": ["A", "C", "D"],
+    "correct_options": [
+      "A",
+      "C",
+      "D"
+    ],
     "explanation": "Builder, Prototype, and Singleton are creational. Adapter is structural."
   },
   {
@@ -80,7 +92,9 @@
     "option_b": "Managing data and business logic",
     "option_c": "Handling user input and updating the Model/View accordingly",
     "option_d": "Storing information in a database",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The Controller acts as an interface between the View and the Model."
   },
   {
@@ -94,7 +108,9 @@
     "option_b": "View",
     "option_c": "Controller",
     "option_d": "Router",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The View is where the output is presented to the user."
   },
   {
@@ -108,7 +124,9 @@
     "option_b": "Single Responsibility Principle",
     "option_c": "Secure Coding",
     "option_d": "Scalable Infrastructure",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "SRP states that a class should have one, and only one, reason to change."
   },
   {
@@ -122,7 +140,9 @@
     "option_b": "Open-Closed Principle",
     "option_c": "Operational Efficiency",
     "option_d": "Optimal Performance",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Objects should be open for extension but closed for modification."
   },
   {
@@ -136,7 +156,9 @@
     "option_b": "Liskov Substitution Principle",
     "option_c": "Logical Consistency",
     "option_d": "Low Coupling",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Objects in a program should be replaceable with instances of their subtypes without altering correctness."
   },
   {
@@ -150,7 +172,9 @@
     "option_b": "Interface Segregation Principle",
     "option_c": "Internal Consistency",
     "option_d": "Implicit Logic",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Many client-specific interfaces are better than one general-purpose interface."
   },
   {
@@ -164,7 +188,9 @@
     "option_b": "Dependency Inversion Principle",
     "option_c": "Deployment Automation",
     "option_d": "Detailed Analysis",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Depend upon abstractions, not concretions."
   },
   {
@@ -178,7 +204,9 @@
     "option_b": "Continuous Delivery requires manual approval to go to production; Continuous Deployment is fully automated",
     "option_c": "Delivery is for software; Deployment is for hardware",
     "option_d": "Deployment happens before Testing",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Continuous Delivery ensures code is always *releasable*, while Deployment automatically pushes it."
   },
   {
@@ -192,7 +220,9 @@
     "option_b": "An approach to software development for complex needs by connecting the implementation to an evolving model of core business concepts",
     "option_c": "A testing strategy for databases",
     "option_d": "A way to automate code comments",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "DDD focuses on the 'Ubiquitous Language' and 'Bounded Contexts' within a business domain."
   },
   {
@@ -206,7 +236,9 @@
     "option_b": "Command Query Responsibility Segregation (separating read and write operations)",
     "option_c": "Centralized Query Reporting Service",
     "option_d": "Complex Queue Routing Strategy",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "CQRS uses different data models for reading and writing data."
   },
   {
@@ -220,7 +252,9 @@
     "option_b": "To act as a single entry point for client requests, handling routing, composition, and policy enforcement",
     "option_c": "To store the database",
     "option_d": "To write front-end code",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "API Gateways centralize cross-cutting concerns like authentication and rate limiting."
   },
   {
@@ -234,7 +268,9 @@
     "option_b": "Decorator",
     "option_c": "Bridge",
     "option_d": "Composite",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Decorator provides a flexible alternative to sub-classing for extending functionality."
   },
   {
@@ -248,7 +284,9 @@
     "option_b": "Facade",
     "option_c": "Flyweight",
     "option_d": "Chain of Responsibility",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Facade provides a simplified high-level interface to a set of interfaces in a subsystem."
   },
   {
@@ -262,7 +300,9 @@
     "option_b": "Strategy",
     "option_c": "Template Method",
     "option_d": "Visitor",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Strategy allows the algorithm to vary independently from clients that use it."
   },
   {
@@ -276,7 +316,9 @@
     "option_b": "To prevent a failure in one service from cascading to others by failing fast when a service is known to be down",
     "option_c": "To speed up database connections",
     "option_d": "To encrypt inter-service traffic",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It helps systems remain resilient by avoiding calls to failing downstream services."
   },
   {
@@ -290,7 +332,9 @@
     "option_b": "Modifying the program's source code in small ways and checking if existing tests fail (to measure test suite quality)",
     "option_c": "Testing software on different operating systems",
     "option_d": "A type of performance testing",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "If a mutation doesn't cause a test to fail, it indicates a gap in the test suite."
   },
   {
@@ -304,7 +348,9 @@
     "option_b": "A process where you write a failing test first, then write the code to make it pass, and finally refactor",
     "option_c": "Testing only the UI",
     "option_d": "Developing tests for third-party libraries",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "TDD leads to better design and high test coverage by forcing developers to think about requirements first."
   },
   {
@@ -318,7 +364,9 @@
     "option_b": "A design principle where a custom-written portion of a computer program receives the flow of control from a generic framework",
     "option_c": "Turning the monitor upside down",
     "option_d": "Removing the main function",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Dependency Injection is a common implementation of IoC."
   },
   {
@@ -332,7 +380,9 @@
     "option_b": "The use of mathematical notation to describe software requirements and behavior with high precision",
     "option_c": "A meeting with the CEO",
     "option_d": "A list of bug reports",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Formal methods (like Z notation) are used in safety-critical systems to mathematically prove properties."
   },
   {
@@ -346,7 +396,9 @@
     "option_b": "The implied cost of additional rework caused by choosing an easy (but limited) solution now instead of a better approach that would take longer",
     "option_c": "The cost of buying new laptops for developers",
     "option_d": "A type of bank loan",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "If not 'repaid' via refactoring, technical debt makes future changes progressively harder."
   },
   {
@@ -360,7 +412,9 @@
     "option_b": "Treating logs as event streams",
     "option_c": "Manual deployment",
     "option_d": "Sharing state in memory",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Twelve-factor apps are designed for portability and resilience on modern cloud platforms."
   },
   {
@@ -374,7 +428,9 @@
     "option_b": "A design heuristic where a given object should have limited knowledge about other objects: 'only talk to your immediate friends'",
     "option_c": "Complexity doubles every two years",
     "option_d": "Tests must be done before coding",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This principle helps in maintaining low coupling in object-oriented systems."
   },
   {
@@ -388,7 +444,9 @@
     "option_b": "Entities (Enterprise Business Rules)",
     "option_c": "Web Framework",
     "option_d": "External UI",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The core should be independent of frameworks, UI, and external agencies."
   },
   {
@@ -402,7 +460,9 @@
     "option_b": "Writing business logic without worrying about the underlying server infrastructure",
     "option_c": "Removing all databases",
     "option_d": "Using peer-to-peer networks",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Cloud providers automatically manage the allocation of machine resources."
   },
   {
@@ -416,7 +476,9 @@
     "option_b": "Defining properties that should hold true for any valid input and letting a tool generate many random inputs to verify them",
     "option_c": "Testing private properties of a class",
     "option_d": "Testing CSS properties",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Example tools include Hypothesis for Python or QuickCheck for Haskell."
   },
   {
@@ -430,7 +492,9 @@
     "option_b": "Rolling out a new version to a small subset of users before rolling it out to everyone",
     "option_c": "Deploying code at high altitudes",
     "option_d": "Using yellow icons",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Canary releases provide a safety net by testing the new code on real traffic at a small scale."
   },
   {
@@ -444,7 +508,9 @@
     "option_b": "An architecture pattern that aims at creating loosely coupled application components that can be easily connected to their software environment by means of ports and adapters",
     "option_c": "A system with 6 core modules",
     "option_d": "A way to draw flowcharts",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It emphasizes independence from the UI and Database, similar to Clean Architecture."
   },
   {
@@ -458,7 +524,9 @@
     "option_b": "Parts are grouped to perform one single function",
     "option_c": "Parts are grouped because they run at the same time",
     "option_d": "Parts are grouped alphabetically",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Logical cohesion is generally frowned upon as it makes the module harder to understand and test."
   },
   {
@@ -472,7 +540,9 @@
     "option_b": "What percentage of the source code is executed when a particular test suite runs",
     "option_c": "The amount of comments in code",
     "option_d": "The speed of testing",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "While useful, 100% coverage doesn't guarantee a bug-free system."
   },
   {
@@ -486,7 +556,9 @@
     "option_b": "Size of the software in KLOC (Kilo Lines of Code)",
     "option_c": "The budget of the client",
     "option_d": "The level of experience of developers",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Basic COCOMO uses a simple formula based primarily on code size."
   },
   {
@@ -500,7 +572,9 @@
     "option_b": "3.4 defects per million opportunities",
     "option_c": "6 developers per team",
     "option_d": "Completing projects in 6 weeks",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Six Sigma is a disciplined, data-driven approach for eliminating defects."
   },
   {
@@ -514,7 +588,9 @@
     "option_b": "The discipline of experimenting on a system in order to build confidence in the system's capability to withstand turbulent conditions in production",
     "option_c": "Deleting the database to see what happens",
     "option_d": "Hiring inexperienced developers on purpose",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Netflix's 'Chaos Monkey' is a famous tool that kills server instances to test resilience."
   },
   {
@@ -528,7 +604,9 @@
     "option_b": "Testing that multiple services work together correctly, often focusing on network calls and data contracts",
     "option_c": "Compiling the code",
     "option_d": "Testing the UI layout",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It's more complex than monolithic integration due to networking and service dependencies."
   },
   {
@@ -542,7 +620,9 @@
     "option_b": "An urgent software patch to fix a critical bug in a production environment",
     "option_c": "A fast computer",
     "option_d": "A training session",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Hotfixes are usually pushed outside the regular release cycle."
   },
   {
@@ -556,7 +636,9 @@
     "option_b": "Memento",
     "option_c": "Factory",
     "option_d": "Proxy",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Memento captures and externalizes an object's internal state so the object can be restored to this state later."
   },
   {
@@ -570,7 +652,9 @@
     "option_b": "Proxy",
     "option_c": "Flyweight",
     "option_d": "Composite",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Proxies can handle lazy loading, security, or remote object interaction."
   },
   {
@@ -584,7 +668,9 @@
     "option_b": "Garbage In, Garbage Out",
     "option_c": "Generic Integration Graphical Object",
     "option_d": "Git Input Group Output",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "If the input to a system is flawed, the output will also be flawed regardless of process quality."
   },
   {
@@ -598,7 +684,9 @@
     "option_b": "Code written with clear naming conventions and structure that is easy to understand without external docs",
     "option_c": "Code with many comments",
     "option_d": "Code that generates a PDF",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "While useful, it rarely replaces the need for high-level architectural documentation."
   },
   {
@@ -612,7 +700,9 @@
     "option_b": "An Agile framework that focuses on high technical quality through practices like pair programming and CI",
     "option_c": "A framework for supercomputers",
     "option_d": "Programming for gamers",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "XP values include Communication, Simplicity, Feedback, and Courage."
   },
   {
@@ -626,7 +716,9 @@
     "option_b": "Static Testing",
     "option_c": "Stress Testing",
     "option_d": "Load Testing",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Static testing includes code reviews, walkthroughs, and static analysis tools."
   },
   {
@@ -640,7 +732,9 @@
     "option_b": "A method where all modules are integrated simultaneously to create the entire system",
     "option_c": "A fast compiler",
     "option_d": "A very loud bug",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It is generally discouraged because it makes it extremely hard to isolate faults when everything fails at once."
   },
   {
@@ -654,7 +748,9 @@
     "option_b": "Software should act in a way that is consistent with the expectations of its users",
     "option_c": "Code should be written as fast as possible",
     "option_d": "Never use advanced features",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This principle applies to both UI/UX and API design."
   },
   {
@@ -668,7 +764,9 @@
     "option_b": "An iterative and incremental software development process framework, often associated with UML",
     "option_c": "A type of database indexing",
     "option_d": "A way to compile code for multiple OS",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The Rational Unified Process (RUP) is the most popular refinement of UP."
   },
   {
@@ -682,7 +780,9 @@
     "option_b": "The ability to understand a system's internal state purely from its external outputs (trance, logs, metrics)",
     "option_c": "Using a webcam",
     "option_d": "Writing documentation for users",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Observability is critical for managing complex, distributed cloud systems."
   },
   {
@@ -696,49 +796,9 @@
     "option_b": "A process of identifying, enumerating, and prioritizing potential vulnerabilities and mitigations",
     "option_c": "Using AI to generate bugs",
     "option_d": "A type of performance test",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Techniques like STRIDE help in building secure software from the ground up."
-  },
-  {
-    "subject_name": "Software Engineering",
-    "level_number": 3,
-    "level_topic": "Maintenance",
-    "question_type": "hard",
-    "timer_seconds": 35,
-    "question_text": "What is 'Preventive Maintenance'?",
-    "option_a": "Fixing reported bugs",
-    "option_b": "Modifying software to detect and correct latent faults before they become actual failures",
-    "option_c": "Moving to a new operating system",
-    "option_d": "Deleting old user accounts",
-    "correct_options": ["B"],
-    "explanation": "Preventive maintenance reduces software complexity and improves maintainability through tasks like refactoring."
-  },
-  {
-    "subject_name": "Software Engineering",
-    "level_number": 3,
-    "level_topic": "Infrastructure as Code",
-    "question_type": "medium",
-    "timer_seconds": 30,
-    "question_text": "What is 'Infrastructure as Code' (IaC)?",
-    "option_a": "Writing documentation for hardware",
-    "option_b": "Managing and provisioning infrastructure through machine-readable definition files, rather than physical hardware configuration",
-    "option_c": "Coding a database",
-    "option_d": "Building your own laptop",
-    "correct_options": ["B"],
-    "explanation": "IaC allows infrastructure to be versioned and automated like application code (e.g., using Terraform)."
-  },
-  {
-    "subject_name": "Software Engineering",
-    "level_number": 3,
-    "level_topic": "Terms",
-    "question_type": "medium",
-    "timer_seconds": 25,
-    "question_text": "What does DRY stand for in software development?",
-    "option_a": "Don't Repeat Yourself",
-    "option_b": "Data Recovery Yield",
-    "option_c": "Digital Routing Yard",
-    "option_d": "Deploy Regularly Yearly",
-    "correct_options": ["A"],
-    "explanation": "DRY aims to reduce repetition of software patterns, replacing it with abstractions or data normalization."
   }
 ]

@@ -10,7 +10,9 @@
     "option_b": "O(n^3)",
     "option_c": "O(2^n)",
     "option_d": "O(n log n)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Solving matrix chain multiplication involves computing values for all sub-chains of length 2 to n, taking O(n^3) time."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "Shortest path from i to j using only nodes {1, 2, ..., k} as intermediate points",
     "option_c": "Shortest path from i to j with exactly k edges",
     "option_d": "Max flow from i to j",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Floyd-Warshall is a DP algorithm that progressively includes nodes in the set of allowed intermediates."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "Kruskal's Algorithm",
     "option_c": "Dijkstra's Algorithm",
     "option_d": "Prim's Algorithm",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Graham Scan is a classic O(n log n) algorithm for finding the convex hull."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "To find a solution that is guaranteed to be within a certain factor of the optimal for NP-hard problems",
     "option_c": "To guess the answer",
     "option_d": "To speed up sorting",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "For NP-hard problems, we often settle for solutions that are 'close' to optimal but can be found in polynomial time."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "Reduced number of disk reads due to high branching factor (broad and shallow tree)",
     "option_c": "Less memory usage",
     "option_d": "Simpler implementation",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "B-Trees keep the tree height low, minimizing expensive disk I/O operations."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "An algorithm that always returns the correct answer but whose running time is a random variable",
     "option_c": "An algorithm used for gambling",
     "option_d": "An algorithm that is always fast but may fail",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Las Vegas algorithms (like Quick Sort with random pivot) are guaranteed to be correct; Monte Carlo algorithms might be wrong."
   },
   {
@@ -94,7 +106,9 @@
     "option_b": "Knuth-Morris-Pratt (KMP)",
     "option_c": "Rabin-Karp",
     "option_d": "Boyer-Moore",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "KMP's prefix function allows the search to skip ahead based on what has already been matched."
   },
   {
@@ -108,7 +122,9 @@
     "option_b": "O(log n)",
     "option_c": "O(sqrt(n))",
     "option_d": "O(n log n)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "AVL trees are self-balancing BSTs that maintain a height of approximately 1.44 log n."
   },
   {
@@ -122,7 +138,9 @@
     "option_b": "NP-Hard is a subset of NP-Complete",
     "option_c": "They are exactly the same",
     "option_d": "They have nothing in common",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "A problem is NP-Complete if it is both NP-Hard and in NP."
   },
   {
@@ -136,7 +154,9 @@
     "option_b": "It clears the lowest set bit of n",
     "option_c": "If n is prime",
     "option_d": "If n is negative",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This bitwise operation is commonly used to clear the lowest set bit or check if n is a power of 2 (if the result is 0)."
   },
   {
@@ -150,7 +170,9 @@
     "option_b": "O(VE)",
     "option_c": "O(V^2)",
     "option_d": "O(E log V)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Bellman-Ford relaxes all edges V-1 times, resulting in O(VE) complexity."
   },
   {
@@ -164,7 +186,9 @@
     "option_b": "The maximum flow in a network is equal to the capacity of the minimum cut",
     "option_c": "The minimum cut is always 0",
     "option_d": "Flow cannot be calculated",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This fundamental theorem relates the capacity of the bottlenecks (cuts) to the total throughput (flow)."
   },
   {
@@ -178,7 +202,9 @@
     "option_b": "Closest Pair of Points",
     "option_c": "3-SAT",
     "option_d": "Graph Coloring",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Closest pair of points uses a clever recursive approach with a strip-check to achieve O(n log n)."
   },
   {
@@ -187,13 +213,15 @@
     "level_topic": "Complexity Analysis",
     "question_type": "hard",
     "timer_seconds": 45,
-    "question_text": "What is 'Theta notation' (Θ-notation) used for?",
+    "question_text": "What is 'Theta notation' (\u0398-notation) used for?",
     "option_a": "Upper bound of a function",
     "option_b": "Lower bound of a function",
     "option_c": "Tight bound of a function (both upper and lower)",
     "option_d": "Average case only",
-    "correct_options": ["C"],
-    "explanation": "Θ-notation provides a tight asymptotic bound on the growth rate of an algorithm."
+    "correct_options": [
+      "C"
+    ],
+    "explanation": "\u0398-notation provides a tight asymptotic bound on the growth rate of an algorithm."
   },
   {
     "subject_name": "Algorithms (DAA)",
@@ -203,10 +231,12 @@
     "timer_seconds": 40,
     "question_text": "What is the amortized complexity of 'union' and 'find' operations in a Disjoint Set with path compression and union by rank?",
     "option_a": "O(log n)",
-    "option_b": "O(α(n)), where α is the inverse Ackermann function",
+    "option_b": "O(\u03b1(n)), where \u03b1 is the inverse Ackermann function",
     "option_c": "O(1)",
     "option_d": "O(n)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The inverse Ackermann function grows extremely slowly, making it nearly constant (O(1)) for all practical purposes."
   },
   {
@@ -220,7 +250,9 @@
     "option_b": "Minimizing the total search cost given access frequencies of keys",
     "option_c": "Keeping all nodes as leaf nodes",
     "option_d": "Maximizing the number of nodes",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "DP is used to construct a tree such that frequently accessed nodes move closer to the root."
   },
   {
@@ -234,7 +266,9 @@
     "option_b": "O(VE^2)",
     "option_c": "O(V^3)",
     "option_d": "O(E log V)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Edmonds-Karp always uses BFS to find the shortest augmenting path, ensuring O(VE^2) performance."
   },
   {
@@ -248,7 +282,9 @@
     "option_b": "The graph must be connected and every node must have an even degree",
     "option_c": "The graph must be a tree",
     "option_d": "No node can have more than two neighbors",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "An Eulerian circuit visits every edge exactly once and returns to the start; even degrees ensure an entry and exit for every visit."
   },
   {
@@ -262,7 +298,9 @@
     "option_b": "Rolling Hash",
     "option_c": "Prefix mapping",
     "option_d": "Suffix arrays",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Rabin-Karp compares the hash of the pattern with hashes of overlapping substrings of the text in O(1) time after precomputation."
   },
   {
@@ -276,7 +314,9 @@
     "option_b": "Boolean Satisfiability Problem (SAT)",
     "option_c": "Tower of Hanoi",
     "option_d": "Binary Search",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This was the first problem proven to be NP-complete, forming the basis for later reductions."
   },
   {
@@ -290,7 +330,9 @@
     "option_b": "2",
     "option_c": "log n",
     "option_d": "n",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The simple edge-selection greedy algorithm guarantees a solution no worse than twice the optimal size."
   },
   {
@@ -304,7 +346,9 @@
     "option_b": "Johnson's Algorithm",
     "option_c": "Dijkstra's (repeated)",
     "option_d": "Kruskal's",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Johnson's algorithm uses Bellman-Ford for reweighting and then repeated Dijkstra's, performing better than O(V^3) on sparse graphs."
   },
   {
@@ -318,7 +362,9 @@
     "option_b": "Optimizing linear objective functions subject to linear constraints",
     "option_c": "Finding cycles in a graph",
     "option_d": "Searching hashed values",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Simplex is an efficient (in practice) algorithm for solving Linear Programming problems."
   },
   {
@@ -332,7 +378,9 @@
     "option_b": "It is moved to the root via a series of rotations",
     "option_c": "The tree is rebuilt from scratch",
     "option_d": "Its subtree is balanced only",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Splaying provides amortized O(log n) efficiency by keeping recently accessed items near the top."
   },
   {
@@ -346,7 +394,9 @@
     "option_b": "Jarvis March (Gift Wrapping)",
     "option_c": "QuickHull",
     "option_d": "Monotone Chain",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Jarvis March is an 'output-sensitive' algorithm; it is fast if the final hull has few points."
   },
   {
@@ -360,7 +410,9 @@
     "option_b": "Frequent range queries (e.g., sum, min) and range updates in fixed data",
     "option_c": "Storing user records",
     "option_d": "Hashing passwords",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Segment trees allow for O(log n) performance for both query and modification operations over an interval."
   },
   {
@@ -374,7 +426,9 @@
     "option_b": "Assigning artificial costs to operations to 'save' credit for future expensive operations",
     "option_c": "Summing all actual times and dividing",
     "option_d": "Using potential energy functions",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It helps in proving that overall performance is efficient even if individual steps are slow."
   },
   {
@@ -388,7 +442,9 @@
     "option_b": "The serial (non-parallelizable) portion of the algorithm",
     "option_c": "The speed of the network",
     "option_d": "The type of programming language",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Even with infinite processors, the total speedup is limited by the sequential code that cannot be parallelized."
   },
   {
@@ -402,7 +458,9 @@
     "option_b": "O(VE)",
     "option_c": "O(V log V)",
     "option_d": "O(V^2)",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Tarjan's algorithm uses a single DFS pass with extra metadata (discovery time, low-link values) for linear efficiency."
   },
   {
@@ -416,7 +474,9 @@
     "option_b": "The presence of a negative cycle reachable from node i",
     "option_c": "A terminal state",
     "option_d": "The graph is not connected",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "A negative diagonal means a path starting and ending at the same node now has a total weight less than zero."
   },
   {
@@ -430,7 +490,9 @@
     "option_b": "The first deterministic, unconditional, and polynomial-time sorting of primes",
     "option_c": "A probabilistic check like Miller-Rabin",
     "option_d": "An extension of the Sieve of Eratosthenes",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The AKS test proved that 'Primes is in P' (deterministic polynomial time)."
   },
   {
@@ -444,7 +506,9 @@
     "option_b": "Boyer-Moore",
     "option_c": "Brute Force",
     "option_d": "Aho-Corasick",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Boyer-Moore uses 'Good Suffix' and 'Bad Character' rules to skip large blocks of text."
   },
   {
@@ -458,7 +522,9 @@
     "option_b": "ceil(m/2) - 1",
     "option_c": "m - 1",
     "option_d": "m/2",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "B-Tree properties ensure the tree remains dense and height is minimized."
   },
   {
@@ -472,7 +538,9 @@
     "option_b": "O(n!)",
     "option_c": "O(2^n)",
     "option_d": "O(n^n)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Trying all possible permutations of n vertices takes O(n!) time."
   },
   {
@@ -486,7 +554,9 @@
     "option_b": "Using dynamic programming and bitmasking with complexity O(n^2 2^n)",
     "option_c": "Using a simple DFS",
     "option_d": "Using sorting",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Held-Karp is significantly faster than n! but still exponential, solving TSP via memoized sub-structures."
   },
   {
@@ -500,7 +570,9 @@
     "option_b": "A version of TSP where edge weights satisfy the triangle inequality",
     "option_c": "A TSP with no cycles",
     "option_d": "A TSP where all weights are 1",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "If distance(a,c) <= distance(a,b) + distance(b,c), it is Metric TSP, which allows for better approximation bounds."
   },
   {
@@ -514,7 +586,9 @@
     "option_b": "O(n)",
     "option_c": "O(n log n)",
     "option_d": "O(log n)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Ukkonen's is a complex but linear-time algorithm for constructing suffix trees online."
   },
   {
@@ -528,7 +602,9 @@
     "option_b": "Prefix sums and point updates on an array",
     "option_c": "Sorting strings",
     "option_d": "Balanced search operations",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It provides O(log n) for both updates and prefix sum queries with very low constant overhead."
   },
   {
@@ -542,7 +618,9 @@
     "option_b": "The class of problems whose complement is in NP",
     "option_c": "Polynomial time solvable problems",
     "option_d": "Concurrent NP",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "If a problem 'Is this true?' is in NP, its 'Is this false?' version is in co-NP."
   },
   {
@@ -556,7 +634,9 @@
     "option_b": "Extremely space-efficient probabilistic set membership checks (No false negatives, possible false positives)",
     "option_c": "Deleting unwanted data",
     "option_d": "Encrypting data",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Bloom filters tell you if an element is 'definitely not' in a set or 'possibly' in it."
   },
   {
@@ -570,7 +650,9 @@
     "option_b": "Sorting all edges",
     "option_c": "Calculating degrees",
     "option_d": "None of the above",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Boruvka's algorithm is inherently parallelizable and efficient for dense graphs."
   },
   {
@@ -584,7 +666,9 @@
     "option_b": "Assuming the input is chosen by an 'adversary' to produce the worst possible performance",
     "option_c": "Deleting the database",
     "option_d": "Comparing two algorithms",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It helps determine lower bounds for problems by showing that an adversary can always force a certain number of operations."
   },
   {
@@ -598,7 +682,9 @@
     "option_b": "Finding the smallest set of edges that disconnects the source from the sink",
     "option_c": "Sorting numbers",
     "option_d": "Finding cycles",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The weight of this cut is exactly equal to the maximum flow."
   },
   {
@@ -612,7 +698,9 @@
     "option_b": "Currying",
     "option_c": "Backtracking",
     "option_d": "Divide and conquer",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Currying is common in functional programming for partial application of functions."
   },
   {
@@ -626,7 +714,9 @@
     "option_b": "O(n^3)",
     "option_c": "O(n log n)",
     "option_d": "O(2^n)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "log2(8) = 3 and since 3 > 2, Case 1 applies, giving O(n^3)."
   },
   {
@@ -640,7 +730,9 @@
     "option_b": "O(log log n)",
     "option_c": "O(1)",
     "option_d": "O(n)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Interpolation search estimates the position based on values, achieving O(log log n) for uniform distributions."
   },
   {
@@ -654,7 +746,9 @@
     "option_b": "m - 1",
     "option_c": "2m",
     "option_d": "log m",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Each node has at most m children and m-1 keys."
   },
   {
@@ -668,7 +762,9 @@
     "option_b": "O(E sqrt(V))",
     "option_c": "O(V^3)",
     "option_d": "O(log E)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The Hopcroft-Karp algorithm solves this in O(E sqrt(V)) time."
   },
   {
@@ -682,7 +778,9 @@
     "option_b": "O(log(min(a,b)))",
     "option_c": "O(1)",
     "option_d": "O(sqrt(a))",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The number of steps in the Euclidean algorithm is proportional to the number of digits."
   },
   {
@@ -696,7 +794,9 @@
     "option_b": "A theoretical model defining the class NP",
     "option_c": "Encrypted searches",
     "option_d": "Sorting in parallel",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "NP is the set of problems solvable in polynomial time on an NTM."
   }
 ]

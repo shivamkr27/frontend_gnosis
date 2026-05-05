@@ -10,7 +10,9 @@
     "option_b": "To achieve consensus among a group of unreliable servers in a distributed system",
     "option_c": "To encrypt user passwords",
     "option_d": "To optimize CSS rendering",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "These algorithms ensure that a cluster of nodes agrees on a single value even if some nodes fail."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "To detect and resolve causality and version conflicts between data updates in an eventually consistent system",
     "option_c": "To sync the time on the servers' BIOS",
     "option_d": "To schedule cron jobs",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Vector clocks help systems like DynamoDB identify when two updates happened concurrently (conflicts)."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "Data is served and accepted for writes in multiple geographic regions simultaneously",
     "option_c": "Servers taking turns to process data weekly",
     "option_d": "A way to delete data in two countries at once",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Active-active setups provide lowest latency and highest availability but are extremely complex to sync."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "A data structure optimized for write-heavy workloads by buffering writes in memory and flushing them to disk sequentially",
     "option_c": "A way to sort SQL tables",
     "option_d": "A physical storage rack",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "LSM trees are used by Cassandra, LevelDB, and RocksDB to handle massive write volumes."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "The system allows a limited number of requests to pass through to test if the failing service has recovered",
     "option_c": "The system is working perfectly",
     "option_d": "The database is being backed up",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Half-open allows the system to gracefully transition back to a normal state if the downstream service is healthy."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "Consistent hashing minimizes data reshuffle (rehashing) when nodes are added or removed",
     "option_c": "Modulo hashing only works for integers",
     "option_d": "Consistent hashing uses less memory",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "With modulo hashing, adding one node moves almost all keys; with consistent hashing, only 1/n keys move."
   },
   {
@@ -94,7 +106,9 @@
     "option_b": "When two or more sets of nodes lose connectivity but continue to operate as if they are the sole master, leading to data corruption",
     "option_c": "When a developer forgets to save code",
     "option_d": "When the system has too many users",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Consensus protocols like Raft prevent split-brain by requiring a majority quorum for any updates."
   },
   {
@@ -108,7 +122,9 @@
     "option_b": "R + W > N ensures strong consistency in a distributed system",
     "option_c": "R and W must always be 1",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "By ensuring R+W > N, you guarantee that the read set and write set always overlap by at least one node."
   },
   {
@@ -122,7 +138,9 @@
     "option_b": "A dedicated infrastructure layer for handling service-to-service communication, including security, traffic control, and observability",
     "option_c": "A database for microservices",
     "option_d": "A type of UI component",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Service meshes use sidecar proxies to manage network complexity transparently from the application code."
   },
   {
@@ -136,7 +154,9 @@
     "option_b": "The property where making the same request multiple times has the same effect as making it once",
     "option_c": "The speed of the API",
     "option_d": "Reducing the API payload size",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Idempotency is crucial for safe retries in case of network failures."
   },
   {
@@ -150,7 +170,9 @@
     "option_b": "Highly efficient probabilistic check if an element is in a set (it can have false positives, but never false negatives)",
     "option_c": "Sorting massive datasets on disk",
     "option_d": "Encryption of database keys",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Bloom filters save expensive disk lookups by proving an element is NOT present."
   },
   {
@@ -164,7 +186,9 @@
     "option_b": "The phenomenon where the amount of data physically written to the storage media is a multiple of the data logical written by the application",
     "option_c": "Higher volumes during writes",
     "option_d": "Database crashes during writes",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Write amplification reduces drive lifespan and decreases performance."
   },
   {
@@ -178,7 +202,9 @@
     "option_b": "The practice of intentionally injecting failures into a production system to test and improve its resilience",
     "option_c": "A random hacking attack",
     "option_d": "Deleting files randomly by mistake",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Chaos engineering helps find hidden weaknesses in complex distributed systems."
   },
   {
@@ -192,7 +218,9 @@
     "option_b": "Maliciously changing the routing table of the internet to redirect traffic to the wrong destination",
     "option_c": "A way to speed up DNS",
     "option_d": "Bypassing a firewall",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "BGP is the protocol that manages how packets are routed across the global internet."
   },
   {
@@ -206,7 +234,9 @@
     "option_b": "When a popular cache key expires and massive numbers of concurrent requests hit the backend DB at once",
     "option_c": "Adding too many keys to the cache",
     "option_d": "Using two caches together",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This can crash the database; it's solved by locking or probabilistic early re-computation."
   },
   {
@@ -220,7 +250,9 @@
     "option_b": "B+ trees store actual data/pointers only in leaf nodes, which are linked together for faster range scans",
     "option_c": "B-trees are for NoSQL, B+ are for SQL",
     "option_d": "They are identical structures",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "B+ trees are standard for database indexes because they optimize disk I/O and range queries."
   },
   {
@@ -234,7 +266,9 @@
     "option_b": "Improving read performance by eliminating complex JOINS through data duplication",
     "option_c": "Making the database schema harder to read",
     "option_d": "Ensuring data is only in one place",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "At scale, joins (especially across distributed nodes) are prohibitively expensive."
   },
   {
@@ -248,7 +282,9 @@
     "option_b": "A standard allowing servers to push real-time data updates to web pages over HTTP",
     "option_c": "A type of database trigger",
     "option_d": "A crash report",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "SSE is simpler than WebSockets for one-way (Server to Client) real-time updates."
   },
   {
@@ -262,7 +298,9 @@
     "option_b": "A static IP address designed for dynamic cloud computing that can be quickly remapped to another instance during failure",
     "option_c": "An IP for a VPN only",
     "option_d": "A temporary IP that lasts 5 minutes",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Elastic IPs allow you to maintain a consistent DNS endpoint while hardware underneath changes."
   },
   {
@@ -276,7 +314,9 @@
     "option_b": "A method of data protection in which data is broken into fragments, expanded and encoded with redundant data pieces for high durability",
     "option_c": "Deleting data after 30 days",
     "option_d": "A way to hide files",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Erasure coding (used in S3) provides higher durability than simple RAID replication with less storage overhead."
   },
   {
@@ -290,7 +330,9 @@
     "option_b": "Managing a transaction across multiple services by using a sequence of local transactions and compensation actions if one fails",
     "option_c": "Using a single massive SQL transaction for all services",
     "option_d": "A way to merge all databases into one",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Sagas avoid long-lived distributed locks and improve system scalability."
   },
   {
@@ -304,7 +346,9 @@
     "option_b": "An IT security model that requires strict identity verification for every person and device trying to access resources, regardless of location",
     "option_c": "Don't trust the code you wrote",
     "option_d": "Trusting only users in the physical office",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Zero Trust ensures that being 'inside the network' does not automatically grant access to assets."
   },
   {
@@ -318,7 +362,9 @@
     "option_b": "ACID properties",
     "option_c": "Moore's law",
     "option_d": "BASE properties",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "PACELC clarifies the tradeoff between Latency (L) and Consistency (C) when the system is running normally (E - else)."
   },
   {
@@ -332,7 +378,9 @@
     "option_b": "A centralized cache used by all application nodes (e.g., Redis cluster) to ensure data consistency",
     "option_c": "A cache that stores the entire internet",
     "option_d": "Caching only global variables",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Global cache avoids duplicate cache entries in local node caches."
   },
   {
@@ -346,7 +394,9 @@
     "option_b": "Managing and provisioning infrastructure through machine-readable definition files (e.g., Terraform) rather than manual processes",
     "option_c": "Drawing server diagrams in code",
     "option_d": "Using Python to restart a server",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "IaC ensures consistent, repeatable, and version-controlled infrastructure deployment."
   },
   {
@@ -360,7 +410,9 @@
     "option_b": "A network addressing and routing method where a single IP address is shared by multiple geographic locations, routing traffic to the nearest one",
     "option_c": "Sending packets in a random direction",
     "option_d": "A way to broadcast TV on the internet",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Anycast is commonly used by CDNs and DNS providers to minimize global latency."
   },
   {
@@ -374,7 +426,9 @@
     "option_b": "Efficiently verifying that data has not been tampered with and syncing differences across nodes",
     "option_c": "Sorting code files",
     "option_d": "A way to draw the system diagram",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Merkle trees use hashes to efficiently detect changes in large datasets."
   },
   {
@@ -388,7 +442,9 @@
     "option_b": "The process of collecting, centralizing, and indexing logs from various servers in a distributed system (e.g., Fluentd, Splunk)",
     "option_c": "Deleting logs every 5 minutes",
     "option_d": "Sharing logs on social media",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Log aggregation is vital for debugging and monitoring distributed microservices."
   },
   {
@@ -402,7 +458,9 @@
     "option_b": "Using different data storage technologies for different parts of an application (e.g., SQL for profiles, Redis for cache, Neo4j for social)",
     "option_c": "A database written in many languages",
     "option_d": "Storing files in multiple languages",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Not all data is fit for a single model; polyglot persistence uses the best tool for each specific job."
   },
   {
@@ -416,7 +474,9 @@
     "option_b": "Splitting a database into multiple physical servers by functional area (e.g., users table on one DB, products on another)",
     "option_c": "Encrypting the database name",
     "option_d": "A way to count database rows",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Federation is an early step in database scaling before moving to more complex sharding."
   },
   {
@@ -430,7 +490,9 @@
     "option_b": "A distinct location within a cloud region designed to be isolated from failures in other AZs (separate power, cooling, network)",
     "option_c": "One server room",
     "option_d": "A time zone for the database",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Deploying across multiple AZs protects your system from data center-level disasters."
   },
   {
@@ -444,7 +506,9 @@
     "option_b": "A new transport layer protocol built on top of UDP to reduce latency and improve connection migration over traditional TCP",
     "option_c": "A way to compress images",
     "option_d": "A database query language",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "QUIC reduces the number of round trips needed for establishing secure connections."
   },
   {
@@ -458,7 +522,9 @@
     "option_b": "Continuously to prevent followers from starting a new election",
     "option_c": "Only when data changes",
     "option_d": "Every hour",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Heartbeats maintain the Leader's authority; if they stop, the followers assume the Leader died and elect a new one."
   },
   {
@@ -472,7 +538,9 @@
     "option_b": "An authentication scheme that allows a user to log in with a single ID to any of several related, independent software systems",
     "option_c": "A password that expires after one use",
     "option_d": "A very long password",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "SSO improves user experience and security by centralizing session management."
   },
   {
@@ -486,7 +554,9 @@
     "option_b": "A rollout strategy where a new version of software is first released to a small, specific subset of users before rolling it out to everyone",
     "option_c": "Deleting old code before new code arrives",
     "option_d": "Testing code on a fake server",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Canary deployments act as an early warning system for bugs in new releases."
   },
   {
@@ -500,7 +570,9 @@
     "option_b": "Caching the 'absence' of an item (e.g., 404 Not Found) to prevent repeated expensive lookups for data that doesn't exist",
     "option_c": "Deleting items from the cache",
     "option_d": "A cache for large files only",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Negative caching prevents 'Cache Holes' that could allow a user to flood the backend with invalid requests."
   },
   {
@@ -514,7 +586,9 @@
     "option_b": "Assigning data to different storage media (e.g., RAM vs SSD vs HDD) based on cost, performance, and access frequency",
     "option_c": "Backup on paper",
     "option_d": "Using only one type of drive",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Tiered storage helps balance cost and performance by moving 'cold' data to cheaper, slower media."
   },
   {
@@ -528,7 +602,9 @@
     "option_b": "When a large number of processes/threads are awakened by an event but only one can handle it, wasting CPU resources",
     "option_c": "A stampede of users on a website",
     "option_d": "Deleting many files at once",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Thundering herd can lead to severe system slowdowns and contention."
   },
   {
@@ -542,7 +618,9 @@
     "option_b": "A performance limitation where a single lost or delayed packet stops all subsequent packets from being processed by the application",
     "option_c": "Blocking the first person in line",
     "option_d": "A security firewall feature",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "HOL blocking is a major reason why HTTP/3 moved to a UDP-based transport (QUIC)."
   },
   {
@@ -556,7 +634,9 @@
     "option_b": "Running two identical production environments (Blue and Green). Traffic is switched to the new version (Green) after it passes tests.",
     "option_c": "Using a blue background for the website",
     "option_d": "A way to categorize bugs",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Blue-Green deployment allows near-zero downtime and instant rollback capabilities."
   },
   {
@@ -570,7 +650,9 @@
     "option_b": "Picking a key that ensures even distribution of data (avoiding hot spots) and minimizes cross-shard queries",
     "option_c": "Using the auto-incrementing ID for everything",
     "option_d": "The shortest column name",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Shard key selection is the most critical decision when implementing database sharding."
   },
   {
@@ -584,7 +666,9 @@
     "option_b": "A language-neutral, platform-neutral, extensible mechanism for serializing structured data (developed by Google)",
     "option_c": "An internet speed booster",
     "option_d": "A type of firewall",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Protobuf is smaller, faster, and simpler than XML or JSON for service communication."
   },
   {
@@ -598,7 +682,9 @@
     "option_b": "A distributed algorithm that coordinates all processes in a distributed transaction on whether to commit or rollback",
     "option_c": "A way to update Two databases at once without a coordinator",
     "option_d": "A type of code update",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "2PC provides strong consistency but can become a bottleneck because it requires locking."
   },
   {
@@ -612,7 +698,9 @@
     "option_b": "A guarantee that messages will be delivered one or more times, ensuring no data loss but allowing duplicates",
     "option_c": "Messages are delivered exactly one time",
     "option_d": "Messages are delivered to everyone",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "At-least-once is a common tradeoff for performance and reliability in systems like Kafka."
   },
   {
@@ -626,7 +714,9 @@
     "option_b": "A set of independent computers that work together to increase the availability of services and applications",
     "option_c": "A very large data center",
     "option_d": "A type of load balancer",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Clusters provide a safety net; if one node fails, the service is picked up by another node in the cluster."
   },
   {
@@ -640,7 +730,9 @@
     "option_b": "The latency experienced when a function is triggered after being idle, as the cloud provider must spin up a new container",
     "option_c": "A computer that won't turn on",
     "option_d": "Buying a new computer",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Cold starts are a significant performance consideration for serverless architectures."
   },
   {
@@ -654,7 +746,9 @@
     "option_b": "A firewall that monitors, filters, and blocks HTTP traffic to and from a web application, protecting against attacks like SQL injection and XSS",
     "option_c": "A tool to compress web pages",
     "option_d": "A way to speed up user logins",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "WAFs operate at Layer 7 and provide deep packet inspection for web requests."
   },
   {
@@ -668,7 +762,9 @@
     "option_b": "The consumer notifying the queue that a message has been successfully handled, so the queue can safely delete it",
     "option_c": "Writing a log entry",
     "option_d": "Deleting the message immediately after sending",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Acknowledgments (ACKs) ensure reliable delivery in message-oriented middleware."
   },
   {
@@ -682,7 +778,9 @@
     "option_b": "A marker used to signal that a piece of data has been deleted, ensuring the deletion propagates to all replicas",
     "option_c": "A physical server name",
     "option_d": "An old version of the software",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Tombstones prevent deleted data from 'reappearing' if a node goes down and comes back up with an old copy."
   },
   {
@@ -696,7 +794,9 @@
     "option_b": "The time delay between a write to the primary (Master) and when it becomes available on the replicas (Slaves)",
     "option_c": "A connection error to the database",
     "option_d": "The time it takes to delete data",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Replication lag is a critical metric for systems that rely on read replicas for scaling."
   }
 ]

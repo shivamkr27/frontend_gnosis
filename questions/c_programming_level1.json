@@ -10,7 +10,9 @@
     "option_b": "Stack",
     "option_c": "Data Segment",
     "option_d": "Code Segment",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Local variables are stored in the stack frame of the function."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "register",
     "option_c": "extern",
     "option_d": "static",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Global variables have external linkage and are conceptually 'extern' by default."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "11",
     "option_c": "13",
     "option_d": "10",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Multiplication has higher precedence than addition."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "Stack",
     "option_c": "Heap",
     "option_d": "Text",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "BSS (Block Started by Symbol) stores uninitialized global and static variables."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "Preserves its value between function calls",
     "option_c": "Moves it to the heap",
     "option_d": "Makes it accessible globally",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Static local variables retain their values across multiple calls to the same function."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "++",
     "option_c": "=",
     "option_d": "==",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Increment/Decrement (++) has higher precedence than arithmetic or assignment operators."
   },
   {
@@ -94,7 +106,9 @@
     "option_b": "Heap",
     "option_c": "Code Segment",
     "option_d": "Register",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Memory requested at runtime via malloc/calloc comes from the heap."
   },
   {
@@ -108,7 +122,9 @@
     "option_b": "File scope",
     "option_c": "Block scope",
     "option_d": "Heap scope",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Automatic variables are restricted to the block they are defined in."
   },
   {
@@ -122,7 +138,9 @@
     "option_b": "extern",
     "option_c": "register",
     "option_d": "auto",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The register storage class informs the compiler to store the variable in a CPU register."
   },
   {
@@ -136,7 +154,9 @@
     "option_b": "They are initialized to zero",
     "option_c": "They are unallocated until first use",
     "option_d": "They are moved to heap",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The C runtime environment initializes BSS segment data to zero."
   },
   {
@@ -150,7 +170,9 @@
     "option_b": "35",
     "option_c": "25",
     "option_d": "15",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Multiplication and division are evaluated first from left to right: (10*15)/5 = 30, then 5+30=35."
   },
   {
@@ -164,7 +186,9 @@
     "option_b": "register",
     "option_c": "static",
     "option_d": "extern",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Function parameters cannot be declared as static or extern."
   },
   {
@@ -178,7 +202,9 @@
     "option_b": "Stack overflow",
     "option_c": "Segmentation fault",
     "option_d": "Infinite loop",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Each recursive call adds a frame to the stack; excessive calls exceed stack limits."
   },
   {
@@ -192,7 +218,9 @@
     "option_b": "Garbage",
     "option_c": "NULL",
     "option_d": "Depends on compiler",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Static and global variables are automatically initialized to zero by the system."
   },
   {
@@ -206,7 +234,9 @@
     "option_b": "Only once, when the program starts",
     "option_c": "Once per block scope entry",
     "option_d": "Every time the loop restarts",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Static local variables are initialized only once during the program's lifetime."
   },
   {
@@ -220,7 +250,9 @@
     "option_b": "Assignment operator",
     "option_c": "Conditional operator",
     "option_d": "Bitwise OR",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "The comma operator (,) has the lowest precedence in C."
   },
   {
@@ -234,7 +266,9 @@
     "option_b": "Below the BSS segment",
     "option_c": "Inside the heap",
     "option_d": "In the registers",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Text segment is usually at the bottom of memory, followed by Data and BSS."
   },
   {
@@ -248,7 +282,9 @@
     "option_b": "No, it's not allowed",
     "option_c": "Only if it's declared in main",
     "option_d": "Only if compiled with optimization",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It is illegal to use the unary '&' operator on a variable with 'register' storage class."
   },
   {
@@ -262,7 +298,9 @@
     "option_b": "Right-to-Left",
     "option_c": "Depends on the data type",
     "option_d": "No associativity",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Assignment operators are right-to-left associative (e.g., a = b = c)."
   },
   {
@@ -276,7 +314,9 @@
     "option_b": "Nowhere yet; it's a declaration only",
     "option_c": "In the stack of the main function",
     "option_d": "In the read-only section of the text segment",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 'extern' keyword indicates a declaration, not a definition; memory is allocated elsewhere."
   },
   {
@@ -290,7 +330,9 @@
     "option_b": "Stack",
     "option_c": "Code Segment",
     "option_d": "Data Segment",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "On many architectures, the stack grows downwards toward heap or text segments."
   },
   {
@@ -304,7 +346,9 @@
     "option_b": "8",
     "option_c": "7",
     "option_d": "12",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "3*4 = 12; 12/2 = 6; 2+6 = 8. Multiplicative operators are left-associative."
   },
   {
@@ -318,7 +362,9 @@
     "option_b": "External",
     "option_c": "None",
     "option_d": "Block",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Static global variables have internal linkage, meaning they are only visible in the defining file."
   },
   {
@@ -332,7 +378,9 @@
     "option_b": "Initialized Data Segment",
     "option_c": "Raw register",
     "option_d": "BSS",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "String literals are typically stored in the read-only portion of the Initialized Data Segment."
   },
   {
@@ -346,7 +394,9 @@
     "option_b": "0",
     "option_c": "True",
     "option_d": "Compilation Error",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "1 && 0 is 0; 0 || 1 is 1; !1 is 0."
   },
   {
@@ -360,7 +410,9 @@
     "option_b": "Runtime Error",
     "option_c": "Linker Error",
     "option_d": "Processor Exception",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The linker fails if it cannot find the actual definition of an declared 'extern' variable."
   },
   {
@@ -374,7 +426,9 @@
     "option_b": "Heap memory",
     "option_c": "Register values",
     "option_d": "Local auto variables",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Heap memory persists until the program ends or it is explicitly freed using 'free'."
   },
   {
@@ -388,7 +442,9 @@
     "option_b": "23",
     "option_c": "Undefined behavior",
     "option_d": "21",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Modifying a variable multiple times within the same sequence point leads to undefined behavior."
   },
   {
@@ -402,7 +458,9 @@
     "option_b": "Int x;",
     "option_c": "Malloc(10);",
     "option_d": "Register int z;",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Initialized static or global variables are placed in the 'Initialized Data Segment'."
   },
   {
@@ -416,7 +474,9 @@
     "option_b": "0",
     "option_c": "5",
     "option_d": "True",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "10>5 is 1 (True). Then 1>2 is 0 (False)."
   },
   {
@@ -430,7 +490,9 @@
     "option_b": "Always 4 bytes",
     "option_c": "Depends on the data type",
     "option_d": "8 bytes",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Storage class defines location, not size; size depends on the data type (int, char, etc.)."
   },
   {
@@ -444,7 +506,9 @@
     "option_b": "No, static implies internal linkage",
     "option_c": "Only in the main function",
     "option_d": "Only for arrays",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 'static' keyword at file scope explicitly sets internal linkage."
   },
   {
@@ -458,7 +522,9 @@
     "option_b": "Out of memory",
     "option_c": "Array out of bounds",
     "option_d": "CPU cooling failure",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "When stack and heap grow to meet, the process has exhausted virtual memory space."
   },
   {
@@ -472,7 +538,9 @@
     "option_b": "Data segment address",
     "option_c": "Heap address",
     "option_d": "Code address",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Static local variables reside in the data segment, so their addresses point there."
   },
   {
@@ -486,7 +554,9 @@
     "option_b": "Only the function where it is defined",
     "option_c": "Only the file where it is defined",
     "option_d": "The current block",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "File scope static variables are restricted to that translation unit (file)."
   },
   {
@@ -500,7 +570,9 @@
     "option_b": "a = b",
     "option_c": "c || d",
     "option_d": "b == c || d",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Equality (==) has higher precedence than Logical OR (||) and Assignment (=)."
   },
   {
@@ -514,7 +586,9 @@
     "option_b": "Heap",
     "option_c": "Text",
     "option_d": "BSS",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The Text segment contains executable instructions and is protected from modification."
   },
   {
@@ -528,7 +602,9 @@
     "option_b": "Storage Classes",
     "option_c": "Pointers",
     "option_d": "Precedence Rules",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Storage classes determine visibility, linkage, location, and lifetime."
   },
   {
@@ -542,7 +618,9 @@
     "option_b": "Till the function returns",
     "option_c": "Till the block exits",
     "option_d": "Infinity",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Automatic variables exist only while the block they are defined in is active."
   },
   {
@@ -556,7 +634,9 @@
     "option_b": "Heap",
     "option_c": "Initialized Data Segment",
     "option_d": "Register",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Global/static constants are stored in the Initialized Data Segment (often read-only)."
   },
   {
@@ -570,7 +650,9 @@
     "option_b": "Side effects of previous evaluations are complete",
     "option_c": "Memory is freed automatically",
     "option_d": "Multiplication happens before addition",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Sequence points guarantee all previous side effects have occurred before the next step."
   },
   {
@@ -584,7 +666,9 @@
     "option_b": "static",
     "option_c": "auto",
     "option_d": "register",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Extern is used to declare a global variable that is defined in another source file."
   },
   {
@@ -598,7 +682,9 @@
     "option_b": "Number and size of local variables and parameters",
     "option_c": "The size of the heap",
     "option_d": "Compiler speed",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Stack frames store parameters, return addresses, and local variables."
   },
   {
@@ -612,7 +698,9 @@
     "option_b": "Programmer-controlled allocation/deallocation",
     "option_c": "LIFO policy",
     "option_d": "The OS scheduler",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Heap memory is dynamic and must be managed by the programmer (malloc/free)."
   },
   {
@@ -626,7 +714,11 @@
     "option_b": "static",
     "option_c": "mutable",
     "option_d": "register",
-    "correct_options": ["A", "B", "D"],
+    "correct_options": [
+      "A",
+      "B",
+      "D"
+    ],
     "explanation": "auto, static, and register are C storage classes. 'mutable' is from C++."
   },
   {
@@ -640,7 +732,11 @@
     "option_b": "Initialized static variables",
     "option_c": "Uninitialized local variables",
     "option_d": "String literals",
-    "correct_options": ["A", "B", "D"],
+    "correct_options": [
+      "A",
+      "B",
+      "D"
+    ],
     "explanation": "Global and static initialized data, plus literals, go here. Local variables go on the stack."
   },
   {
@@ -654,7 +750,10 @@
     "option_b": "Unary Increment (++)",
     "option_c": "Conditional (?:)",
     "option_d": "Arithmetic Addition (+)",
-    "correct_options": ["A", "C"],
+    "correct_options": [
+      "A",
+      "C"
+    ],
     "explanation": "Assignment and Conditional operators process operands from right to left."
   },
   {
@@ -668,7 +767,11 @@
     "option_b": "Dynamic arrays (via malloc)",
     "option_c": "Function arguments",
     "option_d": "Local block-scoped variables",
-    "correct_options": ["A", "C", "D"],
+    "correct_options": [
+      "A",
+      "C",
+      "D"
+    ],
     "explanation": "The stack tracks function state, return pointers, and local data."
   },
   {
@@ -682,7 +785,11 @@
     "option_b": "Lifetime is the whole program",
     "option_c": "Visibility is the whole program",
     "option_d": "Initialized only once",
-    "correct_options": ["A", "B", "D"],
+    "correct_options": [
+      "A",
+      "B",
+      "D"
+    ],
     "explanation": "They have function scope but program-wide lifetime and single initialization."
   },
   {
@@ -696,7 +803,11 @@
     "option_b": "BSS Segment",
     "option_c": "Instruction Register",
     "option_d": "Heap Segment",
-    "correct_options": ["A", "B", "D"],
+    "correct_options": [
+      "A",
+      "B",
+      "D"
+    ],
     "explanation": "Data, BSS, Stack, and Heap are standard segments. IR is a hardware component."
   }
 ]

@@ -10,7 +10,9 @@
     "option_b": "Geometric progression",
     "option_c": "Fibonacci sequence",
     "option_d": "Factorial sequence",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The Fibonacci sequence is the classic example of a second-order linear homogeneous recurrence relation."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "1/12",
     "option_c": "1/36",
     "option_d": "6/7",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "There are 6 ways to get a 7 (1+6, 2+5, 3+4, 4+3, 5+2, 6+1) out of 36 total outcomes. 6/36 = 1/6."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "Update the probability of a hypothesis as more evidence or information becomes available",
     "option_c": "Predict the exact future",
     "option_d": "Count the number of subsets",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Bayes' Theorem relates conditional and marginal probabilities of random variables."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "Encoding a sequence of numbers as the coefficients of a formal power series to solve counting problems",
     "option_c": "Calculating integrals",
     "option_d": "Managing database logins",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Generating functions turn combinatorial problems into algebraic problems."
   },
   {
@@ -66,7 +74,11 @@
     "option_b": "Symmetry",
     "option_c": "Transitivity",
     "option_d": "Antisymmetry",
-    "correct_options": ["A", "B", "C"],
+    "correct_options": [
+      "A",
+      "B",
+      "C"
+    ],
     "explanation": "A relation is an equivalence relation if it is reflexive, symmetric, and transitive."
   },
   {
@@ -80,7 +92,9 @@
     "option_b": "The number of ways to partition a set of n elements into k non-empty subsets",
     "option_c": "The number of ways to select k items from n with replacement",
     "option_d": "The number of derangements of n elements",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Stirling numbers of the second kind are fundamental in set partitioning theory."
   },
   {
@@ -89,12 +103,14 @@
     "level_topic": "Graph Theory",
     "question_type": "expert",
     "timer_seconds": 60,
-    "question_text": "Hall’s Marriage Theorem provides a necessary and sufficient condition for the existence of a perfect matching in a:",
+    "question_text": "Hall\u2019s Marriage Theorem provides a necessary and sufficient condition for the existence of a perfect matching in a:",
     "option_a": "Complete graph",
     "option_b": "Bipartite graph",
     "option_c": "Directed graph",
     "option_d": "Planar graph",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It relates the existence of matchings to the sizes of neighborhoods of vertex subsets."
   },
   {
@@ -108,7 +124,9 @@
     "option_b": "C(2n, n)",
     "option_c": "n!",
     "option_d": "2^n",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Catalan numbers appear in many counting problems, such as valid parentheses strings or binary tree structures."
   },
   {
@@ -122,7 +140,9 @@
     "option_b": "a_n = 2^n - 1",
     "option_c": "a_n = n^2",
     "option_d": "a_n = 2n",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The terms are 0, 1, 3, 7, 15... which matches 2^n - 1."
   },
   {
@@ -136,7 +156,9 @@
     "option_b": "{1, 2, 3, 4, ...}",
     "option_c": "{1, 4, 9, 16, ...}",
     "option_d": "{0, 1, 2, 3, ...}",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Differentiating 1/(1-x) = 1 + x + x^2 + ... gives 1/(1-x)^2 = 1 + 2x + 3x^2 + ..."
   },
   {
@@ -150,7 +172,9 @@
     "option_b": "6",
     "option_c": "9",
     "option_d": "Infinite",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "R(3,3) = 6 means in any group of 6 people, at least 3 know each other or at least 3 are strangers."
   },
   {
@@ -164,7 +188,9 @@
     "option_b": "The coefficients x and y such that ax + by = GCD(a, b)",
     "option_c": "The square root of a",
     "option_d": "The total number of divisors",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "These coefficients are used to find modular inverses."
   },
   {
@@ -178,7 +204,9 @@
     "option_b": "16",
     "option_c": "8",
     "option_d": "12",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Total ways = 2^4 = 16. Two ways are invalid (all in room 1, or all in room 2). 16 - 2 = 14."
   },
   {
@@ -192,7 +220,9 @@
     "option_b": "Least Upper Bound (Join) and Greatest Lower Bound (Meet)",
     "option_c": "Inverse and Identity",
     "option_d": "Prime divisor",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This structure is fundamental in order theory and logic."
   },
   {
@@ -206,7 +236,9 @@
     "option_b": "Capacity of the minimum cut",
     "option_c": "Sum of all vertex degrees",
     "option_d": "Longest path",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This is a classic result in optimization and graph theory."
   },
   {
@@ -220,7 +252,9 @@
     "option_b": "2",
     "option_c": "3",
     "option_d": "6",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "For {1,2,3}, derangements are {2,3,1} and {3,1,2}. !3 = 2."
   },
   {
@@ -234,7 +268,9 @@
     "option_b": "The length of the shortest cycle",
     "option_c": "The number of bridges",
     "option_d": "The total weight of edges",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "If a graph is acyclic, its girth is defined as infinity."
   },
   {
@@ -248,7 +284,9 @@
     "option_b": "10",
     "option_c": "15",
     "option_d": "16",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Total terms = 2^n - 1. For n=4, 2^4 - 1 = 15 terms."
   },
   {
@@ -258,11 +296,13 @@
     "question_type": "expert",
     "timer_seconds": 60,
     "question_text": "What is Euler's Theorem for modular arithmetic?",
-    "option_a": "a^φ(n) ≡ 1 (mod n) for GCD(a,n)=1",
-    "option_b": "a^n ≡ a (mod n)",
-    "option_c": "e^{iπ} + 1 = 0",
-    "option_d": "n! ≡ -1 (mod p)",
-    "correct_options": ["A"],
+    "option_a": "a^\u03c6(n) \u2261 1 (mod n) for GCD(a,n)=1",
+    "option_b": "a^n \u2261 a (mod n)",
+    "option_c": "e^{i\u03c0} + 1 = 0",
+    "option_d": "n! \u2261 -1 (mod p)",
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Euler's theorem generalizes Fermat's Little Theorem to any integer n."
   },
   {
@@ -271,12 +311,14 @@
     "level_topic": "Group Theory",
     "question_type": "hard",
     "timer_seconds": 55,
-    "question_text": "Lagrange’s Theorem states that for a finite group G, the order of every subgroup H:",
+    "question_text": "Lagrange\u2019s Theorem states that for a finite group G, the order of every subgroup H:",
     "option_a": "Is equal to the order of G",
     "option_b": "Divides the order of G",
     "option_c": "Is a prime number",
     "option_d": "Is exactly half the order of G",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This is a fundamental theorem limits the possible sizes of subgroups."
   },
   {
@@ -290,7 +332,9 @@
     "option_b": "55",
     "option_c": "34",
     "option_d": "89",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This follows the Fibonacci sequence. The number for length n is F_{n+2}. For n=8, it's 55."
   },
   {
@@ -299,12 +343,14 @@
     "level_topic": "Graph Theory",
     "question_type": "expert",
     "timer_seconds": 60,
-    "question_text": "Vizing's Theorem states that the edge chromatic number (chromatic index) of a graph with maximum degree Δ is either:",
-    "option_a": "Δ or Δ+1",
-    "option_b": "Δ-1 or Δ",
-    "option_c": "2Δ",
-    "option_d": "Δ^2",
-    "correct_options": ["A"],
+    "question_text": "Vizing's Theorem states that the edge chromatic number (chromatic index) of a graph with maximum degree \u0394 is either:",
+    "option_a": "\u0394 or \u0394+1",
+    "option_b": "\u0394-1 or \u0394",
+    "option_c": "2\u0394",
+    "option_d": "\u0394^2",
+    "correct_options": [
+      "A"
+    ],
     "explanation": "This bounds the number of colors needed to color edges so no two incident edges share a color."
   },
   {
@@ -318,8 +364,10 @@
     "option_b": "1",
     "option_c": "p-1 (-1)",
     "option_d": "2",
-    "correct_options": ["C"],
-    "explanation": "(p-1)! ≡ -1 (mod p) for any prime p."
+    "correct_options": [
+      "C"
+    ],
+    "explanation": "(p-1)! \u2261 -1 (mod p) for any prime p."
   },
   {
     "subject_name": "Discrete Mathematics",
@@ -328,11 +376,13 @@
     "question_type": "hard",
     "timer_seconds": 50,
     "question_text": "A lattice is 'Distributive' if:",
-    "option_a": "a ∨ (b ∧ c) = (a ∨ b) ∧ (a ∨ c)",
+    "option_a": "a \u2228 (b \u2227 c) = (a \u2228 b) \u2227 (a \u2228 c)",
     "option_b": "a + b = b + a",
     "option_c": "Every element has an inverse",
     "option_d": "It is finite",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Not all lattices satisfy this property; for example, the diamond lattice M3 is not distributive."
   },
   {
@@ -346,7 +396,9 @@
     "option_b": "1 / (1-x)",
     "option_c": "sin(x)",
     "option_d": "ln(1-x)",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "EGF involves dividing each term by n!. Sum (x^n / n!) = e^x."
   },
   {
@@ -355,12 +407,14 @@
     "level_topic": "Graph Theory",
     "question_type": "hard",
     "timer_seconds": 45,
-    "question_text": "What is the 'Independence Number' α(G) of a graph?",
+    "question_text": "What is the 'Independence Number' \u03b1(G) of a graph?",
     "option_a": "The minimum number of vertices in a vertex cover",
     "option_b": "The maximum size of an independent set of vertices",
     "option_c": "The count of isolated vertices",
     "option_d": "The number of triangles",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "An independent set has no two vertices connected by an edge."
   },
   {
@@ -374,7 +428,9 @@
     "option_b": "Boolean Satisfiability (SAT)",
     "option_c": "Sorting",
     "option_d": "Finding Median",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Any problem in NP can be reduced to SAT in polynomial time."
   },
   {
@@ -383,12 +439,14 @@
     "level_topic": "Calculus of Finite Differences",
     "question_type": "expert",
     "timer_seconds": 70,
-    "question_text": "The forward difference operator Δf(x) is defined as:",
+    "question_text": "The forward difference operator \u0394f(x) is defined as:",
     "option_a": "f(x+1) - f(x)",
     "option_b": "f'(x)",
     "option_c": "f(x) / x",
-    "option_d": "Σ f(i)",
-    "correct_options": ["A"],
+    "option_d": "\u03a3 f(i)",
+    "correct_options": [
+      "A"
+    ],
     "explanation": "This is the discrete analogue of the derivative."
   },
   {
@@ -402,7 +460,9 @@
     "option_b": "k",
     "option_c": "2",
     "option_d": "k-1",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It assesses the structural robustness of the graph."
   },
   {
@@ -416,7 +476,9 @@
     "option_b": "14",
     "option_c": "42",
     "option_d": "132",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Sequence: 1, 1, 2, 5, 14, 42..."
   },
   {
@@ -430,7 +492,9 @@
     "option_b": "Inverses for all elements",
     "option_c": "Commutativity",
     "option_d": "A prime number of elements",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Monoid = (Set, Associative Operation, Identity)."
   },
   {
@@ -439,12 +503,14 @@
     "level_topic": "Advanced Logic",
     "question_type": "expert",
     "timer_seconds": 65,
-    "question_text": "What does 'Gödel's Incompleteness Theorem' imply for formal systems like arithmetic?",
+    "question_text": "What does 'G\u00f6del's Incompleteness Theorem' imply for formal systems like arithmetic?",
     "option_a": "They can prove all truths",
     "option_b": "They are perfectly consistent and complete",
     "option_c": "There are true statements that cannot be proven within the system",
     "option_d": "Logic is irrelevant",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "It set fundamental limits on mathematical certainty and formal logic."
   },
   {
@@ -458,7 +524,9 @@
     "option_b": "50%",
     "option_c": "99%",
     "option_d": "1%",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This counter-intuitive result demonstrates how quickly 'collisions' occur even with larger domains (365 days)."
   },
   {
@@ -472,7 +540,9 @@
     "option_b": "4",
     "option_c": "5",
     "option_d": "2",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Primes: 2, 3, 5, 7."
   },
   {
@@ -486,7 +556,9 @@
     "option_b": "The sum of all edges",
     "option_c": "A list of path lengths",
     "option_d": "None of the above",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Havel-Hakimi algorithm uses this to check if a sequence is 'graphic'."
   },
   {
@@ -495,12 +567,14 @@
     "level_topic": "Advanced Combinatorics",
     "question_type": "expert",
     "timer_seconds": 65,
-    "question_text": "Pólya Enumeration Theorem is used for:",
+    "question_text": "P\u00f3lya Enumeration Theorem is used for:",
     "option_a": "Counting distinct configurations under a group of symmetries",
     "option_b": "Sorting large arrays",
     "option_c": "Solving linear systems",
     "option_d": "Finding the area of a circle",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "It's vital for counting chemical isomers or distinct colorings of a cube."
   },
   {
@@ -514,7 +588,9 @@
     "option_b": "2^{2^n}",
     "option_c": "n^2",
     "option_d": "2n",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Each of the 2^n input combinations can result in either 0 or 1."
   },
   {
@@ -524,11 +600,13 @@
     "question_type": "hard",
     "timer_seconds": 45,
     "question_text": "What is the 'Handshaking Lemma' result for Directed Graphs?",
-    "option_a": "Σ in-degree = Σ out-degree",
-    "option_b": "Σ degrees = 2E",
+    "option_a": "\u03a3 in-degree = \u03a3 out-degree",
+    "option_b": "\u03a3 degrees = 2E",
     "option_c": "Edges = Vertices",
     "option_d": "Cycles = Paths",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Every edge that goes into a vertex must have come out of some vertex."
   },
   {
@@ -542,7 +620,9 @@
     "option_b": "6",
     "option_c": "12",
     "option_d": "24",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Divisors of 6 are 1, 2, 3. 1+2+3 = 6."
   },
   {
@@ -556,7 +636,9 @@
     "option_b": "The number of positions at which corresponding bits in two bitstrings of equal length are different",
     "option_c": "The length of a message",
     "option_d": "The delay in the signal",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It measures how many bits must be flipped to transform one string into another."
   },
   {
@@ -570,7 +652,9 @@
     "option_b": "Semantic rules only",
     "option_c": "Random characters",
     "option_d": "Always evaluates to True",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Syntax ensures its structure is valid before evaluating its meaning."
   },
   {
@@ -584,7 +668,9 @@
     "option_b": "5!",
     "option_c": "5^5",
     "option_d": "2^5",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This is equivalent to finding the number of bijections from a set of 5 elements to itself (5! = 120)."
   },
   {
@@ -598,7 +684,9 @@
     "option_b": "1",
     "option_c": "-1",
     "option_d": "None",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "x * 1 = x for all x."
   },
   {
@@ -612,7 +700,9 @@
     "option_b": "m * n",
     "option_c": "m^n",
     "option_d": "n^m",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Every vertex in the first set (m) is connected to every vertex in the second set (n)."
   },
   {
@@ -626,7 +716,9 @@
     "option_b": "C(n+r-1, r)",
     "option_c": "P(n, r)",
     "option_d": "n^r",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Also known as multicombinations or choose with replacement."
   },
   {
@@ -636,11 +728,13 @@
     "question_type": "hard",
     "timer_seconds": 45,
     "question_text": "The 'Existential Generealization' rule states:",
-    "option_a": "If P(c) is true for a specific c, then ∃x P(x) is true",
-    "option_b": "If ∀x P(x) is true, then P(c) is true",
+    "option_a": "If P(c) is true for a specific c, then \u2203x P(x) is true",
+    "option_b": "If \u2200x P(x) is true, then P(c) is true",
     "option_c": "Everything exists",
     "option_d": "Nothing exists",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "If we find an example, we can conclude that 'at least one exists'."
   },
   {
@@ -654,7 +748,9 @@
     "option_b": "n/4",
     "option_c": "sqrt(n)",
     "option_d": "n",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "For a binomial distribution, Var = n*p*q. Since p=0.5 and q=0.5, Var = n * 0.25 = n/4."
   },
   {
@@ -668,7 +764,9 @@
     "option_b": "Minimal element",
     "option_c": "Least element (Bottom)",
     "option_d": "Greatest element (Top)",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "While a minimal element doesn't have anything below it, a least element is smaller than every other element."
   },
   {
@@ -679,10 +777,12 @@
     "timer_seconds": 35,
     "question_text": "Which algorithm finds the shortest path in a weighted graph with no negative edges?",
     "option_a": "DFS",
-    "option_b": "Dijkstra’s Algorithm",
+    "option_b": "Dijkstra\u2019s Algorithm",
     "option_c": "Bubble Sort",
     "option_d": "Binary Search",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Dijkstra's is a greedy algorithm used to solve the single-source shortest path problem."
   },
   {
@@ -696,7 +796,9 @@
     "option_b": "The derivative of the set",
     "option_c": "The sum of elements",
     "option_d": "The count of subsets",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "It provides a mapping from the universe to {0,1} indicating set membership."
   }
 ]

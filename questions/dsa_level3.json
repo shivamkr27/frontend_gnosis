@@ -10,7 +10,9 @@
     "option_b": "An optimization technique used primarily to speed up computer programs by storing the results of expensive function calls",
     "option_c": "A way to delete code",
     "option_d": "A styling method",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Memoization is a key component of top-down dynamic programming."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "Finding the shortest path in a weighted graph (with non-negative weights)",
     "option_c": "Finding the median of a list",
     "option_d": "Detecting cycles in a graph",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Dijkstra's uses a greedy approach to find paths from a source to all other vertices."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "BFS is always more memory efficient",
     "option_c": "There is no difference",
     "option_d": "DFS is for trees only",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "BFS can use significant memory if the graph is wide, as it stores nodes at the current depth."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "A method for solving complex problems by breaking them down into simpler subproblems and storing their results to avoid redundant work",
     "option_c": "A new programming language",
     "option_d": "An alternative to SQL",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "DP is effective when subproblems overlap."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "Storing a set of strings and performing efficient prefix-based lookups (e.g., auto-complete)",
     "option_c": "Finding the maximum value in a list",
     "option_d": "Managing database transactions",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Tries have a time complexity for lookups proportional to the string length, regardless of the number of strings stored."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "Choosing items with given weights and values to maximize total value in a knapsack with limited capacity, without picking items partially",
     "option_c": "Sorting items by weight",
     "option_d": "A problem in networking",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This is a classic DP problem that cannot be solved correctly with a simple greedy approach."
   },
   {
@@ -94,7 +106,10 @@
     "option_b": "Kruskal's Algorithm",
     "option_c": "Bellman-Ford",
     "option_d": "Floyd-Warshall",
-    "correct_options": ["A", "B"],
+    "correct_options": [
+      "A",
+      "B"
+    ],
     "explanation": "Bellman-Ford and Floyd-Warshall are shortest path algorithms."
   },
   {
@@ -108,7 +123,9 @@
     "option_b": "A refined brute-force approach that builds candidates for the solution and abandons a candidate ('backtracks') as soon as it determines the candidate cannot lead to a valid solution",
     "option_c": "Reversing an array",
     "option_d": "A tool to track users",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Backtracking is used for puzzles like Sudoku, N-Queens, and crosswords."
   },
   {
@@ -122,7 +139,9 @@
     "option_b": "A linear ordering of vertices such that for every directed edge 'uv', vertex 'u' comes before 'v' in the ordering",
     "option_c": "Sorting alphabetically",
     "option_d": "A way to sort files",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Topological sort is only possible in Directed Acyclic Graphs (DAGs), used for dependency resolution."
   },
   {
@@ -136,7 +155,9 @@
     "option_b": "A method for analyzing the average performance of an operation over a sequence of operations, even if a single operation might be expensive",
     "option_c": "A way to optimize database memory",
     "option_d": "A security auditing technique",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Example: Resizing a dynamic array (like std::vector) is O(n), but amortized over many pushes, it's O(1)."
   },
   {
@@ -150,7 +171,9 @@
     "option_b": "Bellman-Ford",
     "option_c": "Prim's",
     "option_d": "Kruskal's",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Bellman-Ford runs for V-1 iterations; a possible decrease in distance during the V-th iteration signifies a negative cycle."
   },
   {
@@ -164,7 +187,9 @@
     "option_b": "O(mn)",
     "option_c": "O(min(m,n))",
     "option_d": "O(m^n)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Filling the 2D table of size (m+1)x(n+1) requires quadratic time."
   },
   {
@@ -178,7 +203,9 @@
     "option_b": "To make all nodes in a set point directly to the root, speeding up subsequent 'Find' operations",
     "option_c": "To delete redundant nodes",
     "option_d": "To merge sets based on their size",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Path compression ensures that tree height remains very small, leading to near-constant amortized time complexity."
   },
   {
@@ -192,7 +219,9 @@
     "option_b": "O(1) update, O(n) query",
     "option_c": "O(n) update, O(log n) query",
     "option_d": "O(n log n) for both",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Segment trees represent the array in a tree structure allowing logarithmic access to ranges."
   },
   {
@@ -206,7 +235,9 @@
     "option_b": "O(E log E) or O(E log V)",
     "option_c": "O(V^2)",
     "option_d": "O(V log V)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The complexity is dominated by sorting the E edges."
   },
   {
@@ -220,7 +251,9 @@
     "option_b": "Its solution can be verified in polynomial time",
     "option_c": "It is Not Polynomial",
     "option_d": "It can be solved using nested loops only",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "NP (Nondeterministic Polynomial time) means a certificate (solution) can be checked quickly."
   },
   {
@@ -234,7 +267,9 @@
     "option_b": "O(n log n)",
     "option_c": "O(n^2)",
     "option_d": "O(log n)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This describes Merge Sort, where a=2, b=2, k=1; Since log_b(a) = k, the result is O(n^k log n)."
   },
   {
@@ -248,7 +283,10 @@
     "option_b": "Floyd-Warshall",
     "option_c": "Bellman-Ford",
     "option_d": "Johnsons Algorithm",
-    "correct_options": ["B", "D"],
+    "correct_options": [
+      "B",
+      "D"
+    ],
     "explanation": "Floyd-Warshall is O(V^3). Johnson's is better for sparse graphs."
   },
   {
@@ -262,7 +300,9 @@
     "option_b": "O(n + m)",
     "option_c": "O(n^2)",
     "option_d": "O(m^2)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "KMP avoids redundant comparisons by pre-processing the pattern to find proper prefixes that are also suffixes."
   },
   {
@@ -276,7 +316,9 @@
     "option_b": "The problem has only one subproblem",
     "option_c": "The problem depends on a pivot",
     "option_d": "The complexity is O(1)",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Optimal substructure and overlapping subproblems are the two requirements for applying DP."
   },
   {
@@ -290,7 +332,9 @@
     "option_b": "O(1) amortized time for 'Decrease Key' operations",
     "option_c": "Easier implementation",
     "option_d": "O(log n) search time",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This makes algorithms like Dijkstra and Prim faster for dense graphs."
   },
   {
@@ -304,7 +348,9 @@
     "option_b": "The cost from node n to the goal node",
     "option_c": "The total path cost",
     "option_d": "The memory usage",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "A* combines actual cost g(n) and heuristic estimate h(n) to prioritize nodes."
   },
   {
@@ -318,7 +364,9 @@
     "option_b": "File systems and databases to minimize disk reads for large blocks of data",
     "option_c": "Simple sorting",
     "option_d": "Expression trees",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "B-Trees are multi-way trees designed to handle large amounts of data efficiently on disk."
   },
   {
@@ -332,7 +380,9 @@
     "option_b": "Sets the rightmost set bit to 0",
     "option_c": "Inverts all bits",
     "option_d": "Checks if x is negative",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "If x & (x-1) == 0, it means x is a power of 2."
   },
   {
@@ -346,7 +396,9 @@
     "option_b": "Convex Hull of a set of points",
     "option_c": "Shortest path in a maze",
     "option_d": "Sorting large files",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It finds the smallest convex polygon that contains all given points in O(n log n) time."
   },
   {
@@ -360,7 +412,9 @@
     "option_b": "n",
     "option_c": "n * k",
     "option_d": "log n",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "We solve for each value from 1 to n once."
   },
   {
@@ -374,7 +428,9 @@
     "option_b": "The difference between heights of left and right subtrees of any node is at most 1",
     "option_c": "Nodes are colored",
     "option_d": "It can have 3 children",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "AVL trees are more strictly balanced than Red-Black trees, making lookups faster but insertions potentially slower."
   },
   {
@@ -388,7 +444,9 @@
     "option_b": "O(E * sqrt(V))",
     "option_c": "O(V^3)",
     "option_d": "O(V * E)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It's faster than the standard augmenting path approach (O(VE))."
   },
   {
@@ -402,7 +460,9 @@
     "option_b": "Kosaraju's Algorithm",
     "option_c": "Prim's Algorithm",
     "option_d": "Bellman-Ford",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Kosaraju's uses two DFS passes to find components where every vertex is reachable from every other vertex."
   },
   {
@@ -416,7 +476,9 @@
     "option_b": "Maximum Flow",
     "option_c": "Minimum spanning tree",
     "option_d": "Adjacency matrix",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It finds paths with available residual capacity until no more augmenting paths exist."
   },
   {
@@ -430,7 +492,9 @@
     "option_b": "O(n)",
     "option_c": "O(n^2)",
     "option_d": "O(log n)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "n calls are made (n, n-1, ..., 1)."
   },
   {
@@ -444,7 +508,9 @@
     "option_b": "An open-addressing scheme with two hash functions where keys can move between two locations to resolve collisions",
     "option_c": "A ways to compress hash tables",
     "option_d": "A hash map that deletes old items automatically",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It achieves O(1) worst-case lookup time."
   },
   {
@@ -458,7 +524,9 @@
     "option_b": "Are complexity classes equal?",
     "option_c": "Whether every problem whose solution can be quickly verified can also be quickly solved",
     "option_d": "Is sorting possible in O(n)?",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "It's one of the greatest unsolved problems in computer science."
   },
   {
@@ -472,7 +540,9 @@
     "option_b": "Insertion Sort",
     "option_c": "Selection Sort",
     "option_d": "Merge Sort",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Insertion sort is O(n) for sorted data and very fast for 'nearly sorted' data."
   },
   {
@@ -486,7 +556,9 @@
     "option_b": "It has no outgoing edges",
     "option_c": "It is the root",
     "option_d": "It has the highest degree",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Every DAG has at least one source (in-degree 0) and at least one sink (out-degree 0)."
   },
   {
@@ -500,7 +572,9 @@
     "option_b": "Recent accessed items are moved to the root, making repeated access O(1) in practice",
     "option_c": "It stores hash values instead of keys",
     "option_d": "It uses no pointers",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Splay trees use 'Splaying' to move a node to the root upon every access, and provide O(log n) amortized performance."
   },
   {
@@ -514,7 +588,9 @@
     "option_b": "In-order",
     "option_c": "Post-order",
     "option_d": "Level-order",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "In-order visits Left -> Root -> Right, which for a BST is strictly increasing values."
   },
   {
@@ -528,7 +604,9 @@
     "option_b": "O(n)",
     "option_c": "O(log n)",
     "option_d": "O(sqrt n)",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Skip lists use randomization to achieve O(log n) average case performance similar to balanced trees."
   },
   {
@@ -542,7 +620,9 @@
     "option_b": "Iterative Deepening",
     "option_c": "Tail Recursion",
     "option_d": "Static Allocation",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Iterative deepening combines DFS depth limits with BFS level exploration."
   },
   {
@@ -556,7 +636,9 @@
     "option_b": "O(V^2)",
     "option_c": "O(E log V)",
     "option_d": "O(V log V)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "With an adjacency matrix, we iterate through all V vertices to find the minimum cut edge."
   },
   {
@@ -570,7 +652,9 @@
     "option_b": "Path cost from the root",
     "option_c": "Path cost to the goal",
     "option_d": "Heuristic estimate",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It's essentially Dijkstra's algorithm for searching for a goal state."
   },
   {
@@ -584,7 +668,9 @@
     "option_b": "O(log n)",
     "option_c": "O(n)",
     "option_d": "O(n log n)",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Merge sort requires a temporary array of size n to store merged halves."
   },
   {
@@ -598,7 +684,9 @@
     "option_b": "Divide and Conquer",
     "option_c": "Dynamic Programming",
     "option_d": "Recurrence",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "It solves the shortest path subproblems for intermediate vertices."
   },
   {
@@ -612,7 +700,9 @@
     "option_b": "Finding another slot in the array itself if a collision occurs",
     "option_c": "Allowing keys to be public",
     "option_d": "Automatically resizing the table",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Open addressing probes the array (linear, quadratic, or double hashing)."
   },
   {
@@ -626,8 +716,10 @@
     "option_b": "O(n)",
     "option_c": "O(n log n)",
     "option_d": "O(2^n)",
-    "correct_options": ["B"],
-    "explanation": "Ukkonen’s algorithm builds it in linear time."
+    "correct_options": [
+      "B"
+    ],
+    "explanation": "Ukkonen\u2019s algorithm builds it in linear time."
   },
   {
     "subject_name": "Data Structures",
@@ -640,7 +732,9 @@
     "option_b": "A sort that maintains the relative order of records with equal keys",
     "option_c": "A sort that works for both floats and integers",
     "option_d": "A sort that always has O(n log n) time",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Merge sort is stable; Quick sort is usually not."
   },
   {
@@ -654,7 +748,9 @@
     "option_b": "N children",
     "option_c": "N - 1 children",
     "option_d": "Unlimited children",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Binary trees are 2-ary trees."
   },
   {
@@ -668,7 +764,9 @@
     "option_b": "O(log n)",
     "option_c": "O(sqrt n)",
     "option_d": "O(n log n)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Like binary search, it repeatedly halves the search space but uses Fibonacci numbers to divide the array."
   },
   {
@@ -682,7 +780,9 @@
     "option_b": "NP",
     "option_c": "EXPTIME",
     "option_d": "NP-HARD",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "P stands for Polynomial."
   },
   {
@@ -696,7 +796,9 @@
     "option_b": "O(V^3)",
     "option_c": "O(V * E)",
     "option_d": "O(E log V)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It iterates through all vertices as intermediate, starting, and ending points (V^3)."
   }
 ]

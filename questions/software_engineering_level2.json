@@ -10,7 +10,9 @@
     "option_b": "Unit Testing",
     "option_c": "Acceptance Testing",
     "option_d": "Integration Testing",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Unit testing verifies that each small part of the application works correctly on its own."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "Testing from the main control module downwards using stubs to simulate lower modules",
     "option_c": "Testing the hardest parts first",
     "option_d": "Letting managers test the software",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Top-down starts with high-level logic and uses 'stubs' (placeholders) for components not yet implemented."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "High Level Design",
     "option_c": "Requirements Analysis",
     "option_d": "System Analysis",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The V-model maps each development phase to a corresponding test phase. Requirements are verified by UAT."
   },
   {
@@ -52,7 +58,11 @@
     "option_b": "Focus on data flow and control flow",
     "option_c": "Testing based ONLY on functional requirements",
     "option_d": "Code coverage measurement",
-    "correct_options": ["A", "B", "D"],
+    "correct_options": [
+      "A",
+      "B",
+      "D"
+    ],
     "explanation": "White-box testing looks inside the 'box' (at the code). Black-box testing ignores internal structure."
   },
   {
@@ -66,7 +76,9 @@
     "option_b": "Verifying that recent changes have not broken existing functionality",
     "option_c": "Finding the root cause of a crash",
     "option_d": "Testing for performance regressions",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Regression testing ensures that software fixes or additions didn't introduce new bugs in old code."
   },
   {
@@ -80,7 +92,9 @@
     "option_b": "Boundary Value Analysis",
     "option_c": "Cause-Effect Graphing",
     "option_d": "Orthogonal Array Testing",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Equivalence Partitioning reduces the number of test cases by grouping inputs that should behave similarly."
   },
   {
@@ -94,7 +108,9 @@
     "option_b": "Boundary Value Analysis",
     "option_c": "Error Guessing",
     "option_d": "Path Testing",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "BVA is highly effective since errors most frequently occur at the boundaries of input domains."
   },
   {
@@ -108,7 +124,9 @@
     "option_b": "Lines of Code",
     "option_c": "Logic of Components",
     "option_d": "Library of Classes",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "LOC is a traditional but controversial metric for measuring the size of a software project."
   },
   {
@@ -122,7 +140,9 @@
     "option_b": "A 'part-of' relationship where the child can exist independently of the parent",
     "option_c": "A 'part-of' relationship where the child CANNOT exist without the parent",
     "option_d": "A data dependency",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Aggregation is a 'weak' whole-part relationship, unlike Composition (which is strong)."
   },
   {
@@ -136,7 +156,9 @@
     "option_b": "A whole-part relationship where the child is destroyed when the parent is destroyed",
     "option_c": "Independent modules",
     "option_d": "A list of strings",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "In composition, the lifetime of the 'part' is strictly managed by the 'whole'."
   },
   {
@@ -150,7 +172,9 @@
     "option_b": "Scrum Master",
     "option_c": "Development Team",
     "option_d": "CEO",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The Scrum Master is a servant-leader who helps the team stay focused by clearing 'roadblocks'."
   },
   {
@@ -164,7 +188,9 @@
     "option_b": "Measuring the functional size of software by looking at inputs, outputs, queries, and files",
     "option_c": "Testing math libraries",
     "option_d": "Measuring CPU usage",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Function points are language-independent and focus on the external user view."
   },
   {
@@ -178,7 +204,9 @@
     "option_b": "A formally reviewed and agreed-upon version of a software artifact",
     "option_c": "Minimum requirements",
     "option_d": "The first line of code",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Baselines serve as the starting point for further development and change control."
   },
   {
@@ -192,7 +220,9 @@
     "option_b": "An informal meeting where a designer leads team members through a software product to find defects",
     "option_c": "A tutorial for users",
     "option_d": "A type of unit test",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Walkthroughs are more informal than 'Inspections' but still help in finding logical errors."
   },
   {
@@ -206,7 +236,9 @@
     "option_b": "Inspection (Fagan inspection)",
     "option_c": "Peer Desk Check",
     "option_d": "Ad-hoc Review",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Inspection is the most structured form of technical review."
   },
   {
@@ -220,7 +252,9 @@
     "option_b": "Cyclomatic Complexity (McCabe metric)",
     "option_c": "Performance metric",
     "option_d": "Usage metric",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It's calculated as V(G) = E - N + 2P where E is edges and N is nodes."
   },
   {
@@ -234,7 +268,9 @@
     "option_b": "Repeatable",
     "option_c": "Defined",
     "option_d": "Managed",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Level 1 indicates that success depends solely on individual effort and heroics."
   },
   {
@@ -248,7 +284,9 @@
     "option_b": "Optimizing",
     "option_c": "Continuous Improvement",
     "option_d": "Managed",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "At Level 5 (Optimizing), focus is continually on improving process performance."
   },
   {
@@ -262,7 +300,9 @@
     "option_b": "Only End users",
     "option_c": "Only QA",
     "option_d": "Only Sales",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "It serves as the contract between the customer and the developers."
   },
   {
@@ -276,7 +316,9 @@
     "option_b": "Observer",
     "option_c": "Singleton",
     "option_d": "Strategy",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Singleton is useful for managing global state like a logging service or DB connection."
   },
   {
@@ -290,7 +332,9 @@
     "option_b": "The practice of gathering/discovering requirements from stakeholders",
     "option_c": "Writing requirements into code",
     "option_d": "Testing requirements",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Techniques include interviews, surveys, workshops, and observation."
   },
   {
@@ -304,7 +348,9 @@
     "option_b": "The ability to track a requirement from its origin to its implementation and testing",
     "option_c": "Measuring the size of a requirement",
     "option_d": "Hiding requirements from developers",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "A traceability matrix ensures that every requirement is covered by at least one test case."
   },
   {
@@ -318,7 +364,9 @@
     "option_b": "Perfective Maintenance",
     "option_c": "Corrective Maintenance",
     "option_d": "Preventive Maintenance",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Perfective maintenance aims to improve the software based on user feedback."
   },
   {
@@ -332,7 +380,9 @@
     "option_b": "Maximum Time To Finish",
     "option_c": "Median Time To Fix",
     "option_d": "Main Task Tracking Factor",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "MTTF is used for non-repairable systems, indicating average lifespan."
   },
   {
@@ -346,7 +396,9 @@
     "option_b": "Functional Cohesion",
     "option_c": "Sequential Cohesion",
     "option_d": "Temporal Cohesion",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Functional cohesion means every part of the module contributes to a single, well-defined task."
   },
   {
@@ -360,7 +412,9 @@
     "option_b": "Content Coupling",
     "option_c": "Control Coupling",
     "option_d": "Stamp Coupling",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Content coupling occurs when one module modifies the internal data of another."
   },
   {
@@ -374,7 +428,9 @@
     "option_b": "Product Operation",
     "option_c": "Product Transition",
     "option_d": "Quality Control",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Product Operation refers to qualities expected when the software is actually running."
   },
   {
@@ -388,7 +444,9 @@
     "option_b": "Testing the software beyond its operational limits to see how it fails (break point)",
     "option_c": "Testing the team's mental health",
     "option_d": "Testing only the UI",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Stress testing identifies the upper bound of the system's capacity."
   },
   {
@@ -402,7 +460,9 @@
     "option_b": "To determine if the project is technically and financially viable to pursue",
     "option_c": "To write code",
     "option_d": "To market the product",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The study should result in a GO/NO-GO decision relative to the project."
   },
   {
@@ -416,7 +476,9 @@
     "option_b": "A time-boxed task focused on research or prototyping to reduce uncertainty",
     "option_c": "A person who is late",
     "option_d": "A bug in the database",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Spikes are used to clarify requirements or explore technical solutions."
   },
   {
@@ -430,7 +492,9 @@
     "option_b": "A prototype developed quickly to explore requirements and then discarded",
     "option_c": "A prototype that becomes the final product",
     "option_d": "A bug in the SDLC",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This contrasts with 'Evolutionary Prototyping', where the code is progressively refined into the product."
   },
   {
@@ -444,7 +508,9 @@
     "option_b": "An old system that is still in use and critical but hard to maintain/upgrade",
     "option_c": "A system left in a will",
     "option_d": "A computer for gaming",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Legacy systems often use outdated technology but hold vital business data."
   },
   {
@@ -458,7 +524,9 @@
     "option_b": "A graphical representation of work left to do versus time",
     "option_c": "A thermal map of the server room",
     "option_d": "A chart of bugs found",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It helps the team visualize if they will complete the sprint backlog on time."
   },
   {
@@ -472,7 +540,9 @@
     "option_b": "Project Manager",
     "option_c": "Scrum Master",
     "option_d": "Developers",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Scrum intentionally avoids a traditional hierarchical Project Manager role."
   },
   {
@@ -486,7 +556,9 @@
     "option_b": "The number of operators and operands in the source code",
     "option_c": "The size of comments",
     "option_d": "Execution time",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Halstead metrics attempt to measure software's volume, difficulty, and effort."
   },
   {
@@ -500,7 +572,9 @@
     "option_b": "The number of modules called by a specific module",
     "option_c": "The size of a module",
     "option_d": "Fans in the computer",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "High fan-in is generally good as it indicates high reuse."
   },
   {
@@ -514,7 +588,9 @@
     "option_b": "The number of modules that a specific module calls",
     "option_c": "The amount of data moving out",
     "option_d": "A type of design pattern",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Very high fan-out might indicate that a module is too complex and should be split."
   },
   {
@@ -528,7 +604,9 @@
     "option_b": "Estimating a new project's cost/effort based on data from a similar previous project",
     "option_c": "Counting lines of code",
     "option_d": "Asking the client to estimate",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It relies on historical data and expert judgment."
   },
   {
@@ -542,7 +620,9 @@
     "option_b": "To document all defects and issues raised during the meeting",
     "option_c": "To write the code",
     "option_d": "To test the software",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The scribe ensures that all discovered flaws are tracked and addressed later."
   },
   {
@@ -556,7 +636,9 @@
     "option_b": "ISO 9126",
     "option_c": "ISO 27001",
     "option_d": "ISO 14001",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "ISO 9126 (and its successor ISO/IEC 25010) categorizes software qualities."
   },
   {
@@ -570,7 +652,9 @@
     "option_b": "The idea that there is no single tool or technique that can provide an order-of-magnitude improvement in productivity",
     "option_c": "A fast developer",
     "option_d": "The need for expensive hardware",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Brooks argued that the essential complexity of software is inherently difficult to solve."
   },
   {
@@ -584,7 +668,9 @@
     "option_b": "Scenario Testing",
     "option_c": "Alpha testing",
     "option_d": "Stress testing",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Scenario testing uses world-real stories to uncover defects with business processes."
   },
   {
@@ -598,7 +684,9 @@
     "option_b": "A technique that combines schedule, costs, and scope to measure project performance and progress",
     "option_c": "A way to calculate bonuses",
     "option_d": "A type of database indexing",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "EVM provides early warnings of project performance issues."
   },
   {
@@ -612,7 +700,9 @@
     "option_b": "A module being called (lower-level)",
     "option_c": "A module that calls (higher-level)",
     "option_d": "A database server",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Stubs are 'below' the module being tested."
   },
   {
@@ -626,7 +716,9 @@
     "option_b": "Data/Configuration",
     "option_c": "The box",
     "option_d": "Hardware",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 'Data' or configuration part is essential for the system to function correctly."
   },
   {
@@ -640,7 +732,9 @@
     "option_b": "Analyzing a system to create representations of it at a higher level of abstraction",
     "option_c": "Writing code backwards",
     "option_d": "Deleting the compiled file",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Often implies recovering design info or source code from binaries."
   },
   {
@@ -654,7 +748,9 @@
     "option_b": "Modification of a software product after it has been reverse engineered",
     "option_c": "Hiring new engineers",
     "option_d": "Restarting the project",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It's essentially 'Reverse Engineering' followed by 'Forward Engineering'."
   },
   {
@@ -668,7 +764,9 @@
     "option_b": "Maintenance",
     "option_c": "Requirements Gathering",
     "option_d": "Packaging",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Approximately 60-80% of total software costs go towards maintaining it after release."
   },
   {
@@ -682,7 +780,9 @@
     "option_b": "To transform requirements into a complete technical representation of the system",
     "option_c": "To find bugs",
     "option_d": "To train users",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Design bridges the 'what' (SRD) to the 'how' (Code)."
   },
   {
@@ -696,49 +796,9 @@
     "option_b": "Internal workings are hidden and only inputs/outputs are visible",
     "option_c": "It is broken",
     "option_d": "The code is written in Python",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Encapsulation and abstraction are key software engineering concepts that use black box reasoning."
-  },
-  {
-    "subject_name": "Software Engineering",
-    "level_number": 2,
-    "level_topic": "Testing",
-    "question_type": "medium",
-    "timer_seconds": 30,
-    "question_text": "What is 'Alpha Testing'?",
-    "option_a": "Testing by a selected group of end users at the vendor's site",
-    "option_b": "Testing by end users at their own site",
-    "option_c": "Testing by independent hackers",
-    "option_d": "Testing the first line of code",
-    "correct_options": ["A"],
-    "explanation": "Alpha testing is an internal acceptance testing phase performed by the development organization but from a user perspective."
-  },
-  {
-    "subject_name": "Software Engineering",
-    "level_number": 2,
-    "level_topic": "Testing",
-    "question_type": "medium",
-    "timer_seconds": 30,
-    "question_text": "What is 'Beta Testing'?",
-    "option_a": "Testing by the developers",
-    "option_b": "Testing by potential customers at their own locations",
-    "option_c": "Testing with machine learning",
-    "option_d": "Second stage of unit testing",
-    "correct_options": ["B"],
-    "explanation": "Beta testing is external acceptance testing by real users in their real environment before general release."
-  },
-  {
-    "subject_name": "Software Engineering",
-    "level_number": 2,
-    "level_topic": "Quality Assurance",
-    "question_type": "hard",
-    "timer_seconds": 35,
-    "question_text": "What is the primary difference between 'Quality Assurance' (QA) and 'Quality Control' (QC)?",
-    "option_a": "QA is process-oriented; QC is product-oriented",
-    "option_b": "QC is process-oriented; QA is product-oriented",
-    "option_c": "QA is only for managers",
-    "option_d": "There is no difference",
-    "correct_options": ["A"],
-    "explanation": "QA focuses on improving the development process to prevent defects, while QC focuses on identifying defects in the final software."
   }
 ]

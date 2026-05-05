@@ -10,7 +10,9 @@
     "option_b": "O(log n)",
     "option_c": "O(n^2)",
     "option_d": "O(1)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Binary Search divides the search space in half at each step, leading to logarithmic time complexity."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "O(n^2)",
     "option_c": "O(2^n)",
     "option_d": "O(log n)",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "Logarithmic growth is slower than linear, polynomial, or exponential growth."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "O(n log n)",
     "option_c": "O(n)",
     "option_d": "O(1)",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "If an optimized version of Bubble Sort is used, it can detect a sorted array in a single pass."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "Binary Search",
     "option_c": "Hash Search",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Binary Search relies on the order of elements to eliminate half of the search space."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "Stack overflow",
     "option_c": "Memory leak",
     "option_d": "Compilation error",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Each recursive call consumes stack space; without a base case, the stack eventually overflows."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "Merge Sort",
     "option_c": "Insertion Sort",
     "option_d": "Bubble Sort",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Merge sort divides the array into halves, sorts them, and then merges them back."
   },
   {
@@ -94,7 +106,9 @@
     "option_b": "O(log n)",
     "option_c": "O(n)",
     "option_d": "O(n^2)",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "If the space used scales linearly with the input size, the space complexity is O(n)."
   },
   {
@@ -108,7 +122,9 @@
     "option_b": "Makes the locally optimal choice at each step",
     "option_c": "Explore all possible paths",
     "option_d": "Uses backtracking",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Greedy algorithms make immediate choices that look best at the moment, hoping to reach a global optimum."
   },
   {
@@ -122,7 +138,9 @@
     "option_b": "Logarithmic time",
     "option_c": "Constant time",
     "option_d": "Quadratic time",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Constant time means the execution time does not depend on the input size."
   },
   {
@@ -136,7 +154,9 @@
     "option_b": "Heap Sort",
     "option_c": "Quick Sort",
     "option_d": "Counting Sort",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Quick sort's worst case is O(n^2) (e.g., when the pivot is the smallest or largest element), but its average case is O(n log n)."
   },
   {
@@ -150,7 +170,9 @@
     "option_b": "O(n)",
     "option_c": "O(n log n)",
     "option_d": "O(1)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Selection sort performs at most n-1 swaps, even if it does O(n^2) comparisons."
   },
   {
@@ -164,7 +186,9 @@
     "option_b": "O(log n)",
     "option_c": "O(n^2)",
     "option_d": "O(sqrt(n))",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "A loop index that multiplies/divides by a constant factor results in logarithmic complexity."
   },
   {
@@ -178,7 +202,9 @@
     "option_b": "Overlapping subproblems and optimal substructure",
     "option_c": "Large input and small output",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "DP requires dividing the problem into subproblems that repeat (overlapping) and can be combined to solve the larger problem (optimal substructure)."
   },
   {
@@ -192,7 +218,9 @@
     "option_b": "O(log n)",
     "option_c": "O(n)",
     "option_d": "O(n log n)",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "With a good hash function and minimal collisions, hash table lookups take constant time on average."
   },
   {
@@ -206,7 +234,9 @@
     "option_b": "O(log n)",
     "option_c": "O(n log n)",
     "option_d": "O(n^2)",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "O(n log n) is known as linearithmic time complexity."
   },
   {
@@ -220,7 +250,9 @@
     "option_b": "Merge Sort",
     "option_c": "Quick Sort",
     "option_d": "Selection Sort",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "A stable sorting algorithm like Merge Sort preserves the original order of items with identical keys."
   },
   {
@@ -234,7 +266,9 @@
     "option_b": "O(n)",
     "option_c": "O(log n)",
     "option_d": "O(n^2)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "While inserting one element is log n, building the entire heap from scratch using the bottom-up approach is O(n)."
   },
   {
@@ -248,7 +282,9 @@
     "option_b": "Minimum Spanning Tree (MST)",
     "option_c": "Maximum flow in a network",
     "option_d": "Biconnected components",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Both utilize greedy strategies to connect all vertices of a graph with the minimum total edge weight."
   },
   {
@@ -262,7 +298,9 @@
     "option_b": "Breadth First Search (BFS)",
     "option_c": "Dijkstra's Algorithm",
     "option_d": "Binary Search",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "BFS explores nodes layer by layer using a queue, making it perfect for finding the shortest path in an unweighted graph."
   },
   {
@@ -276,7 +314,9 @@
     "option_b": "O(n)",
     "option_c": "O(log n)",
     "option_d": "O(n^2)",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Arrays provide direct memory access to elements via indices, which takes constant time."
   },
   {
@@ -290,7 +330,9 @@
     "option_b": "O(1)",
     "option_c": "O(n)",
     "option_d": "O(n log n)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "You only need to update the new node's pointer and the head pointer, which takes constant time."
   },
   {
@@ -304,7 +346,9 @@
     "option_b": "O(n)",
     "option_c": "O(1)",
     "option_d": "O(n log n)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "If the BST is skewed (like a linked list), searching takes O(n) because you may have to traverse every node."
   },
   {
@@ -318,7 +362,9 @@
     "option_b": "O(n log n)",
     "option_c": "O(log n)",
     "option_d": "O(n^2)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This corresponds to Case 2 of the Master Theorem (a=2, b=2, f(n)=n^1), resulting in O(n log n), the same as Merge Sort."
   },
   {
@@ -332,7 +378,9 @@
     "option_b": "Factorial",
     "option_c": "Binary Search",
     "option_d": "Traveling Salesman Problem",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Tail recursion allows the compiler to optimize calls to avoid creating new stack frames."
   },
   {
@@ -346,7 +394,9 @@
     "option_b": "Negative edge weights",
     "option_c": "Disconnected components",
     "option_d": "Weighted edges",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Dijkstra's assumes that once a node is visited, its shortest distance is found; negative edges can invalidate this greedy approach."
   },
   {
@@ -360,7 +410,9 @@
     "option_b": "O(n)",
     "option_c": "O(n log n)",
     "option_d": "O(1)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "You must still check every element at least once, so it is O(n)."
   },
   {
@@ -369,13 +421,15 @@
     "level_topic": "Asymptotic Notation",
     "question_type": "hard",
     "timer_seconds": 35,
-    "question_text": "What does Omega (Ω) notation describe?",
+    "question_text": "What does Omega (\u03a9) notation describe?",
     "option_a": "Average case complexity",
     "option_b": "Lower bound performance",
     "option_c": "Upper bound performance",
     "option_d": "The fastest the code can possibly run on any input",
-    "correct_options": ["B"],
-    "explanation": "Ω(g(n)) provides a simplified lower bound for the growth rate of a function."
+    "correct_options": [
+      "B"
+    ],
+    "explanation": "\u03a9(g(n)) provides a simplified lower bound for the growth rate of a function."
   },
   {
     "subject_name": "Algorithms (DAA)",
@@ -383,13 +437,15 @@
     "level_topic": "Asymptotic Notation",
     "question_type": "hard",
     "timer_seconds": 35,
-    "question_text": "What does Theta (Θ) notation describe?",
+    "question_text": "What does Theta (\u0398) notation describe?",
     "option_a": "A tight bound (both upper and lower)",
     "option_b": "Only the worst case",
     "option_c": "The space complexity only",
     "option_d": "The number of loops",
-    "correct_options": ["A"],
-    "explanation": "Θ(g(n)) means the function is bounded both above and below by g(n) for large n."
+    "correct_options": [
+      "A"
+    ],
+    "explanation": "\u0398(g(n)) means the function is bounded both above and below by g(n) for large n."
   },
   {
     "subject_name": "Algorithms (DAA)",
@@ -402,7 +458,9 @@
     "option_b": "O(n^2.81)",
     "option_c": "O(n^2)",
     "option_d": "O(2^n)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Strassen's reduces the number of recursive multiplications from 8 to 7, improving complexity from O(n^3) to approx O(n^2.81)."
   },
   {
@@ -416,7 +474,9 @@
     "option_b": "Counting Sort",
     "option_c": "Quick Sort",
     "option_d": "Merge Sort",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Counting sort is a non-comparison based sort with O(n + k) complexity."
   },
   {
@@ -430,7 +490,9 @@
     "option_b": "O(n^2)",
     "option_c": "O(n log n)",
     "option_d": "O(log n)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Worst case happens when the array is sorted in reverse order."
   },
   {
@@ -444,7 +506,9 @@
     "option_b": "FIFO (First-In First-Out)",
     "option_c": "Random Access",
     "option_d": "Highest Priority First",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "In a queue, elements are added at the back and removed from the front."
   },
   {
@@ -458,7 +522,9 @@
     "option_b": "LIFO",
     "option_c": "Linear Access",
     "option_d": "Circular Access",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The last element pushed onto a stack is the first one to be popped off."
   },
   {
@@ -472,7 +538,9 @@
     "option_b": "N-Queens Problem",
     "option_c": "Finding the max in an array",
     "option_d": "Linear Search",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Backtracking is an algorithmic-technique for solving problems recursively by trying to build a solution incrementally while removing those that fail."
   },
   {
@@ -486,7 +554,9 @@
     "option_b": "O(1)",
     "option_c": "O(log n)",
     "option_d": "O(2^n)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Iteration only uses a constant amount of extra space for variables, unlike recursion which uses stack space."
   },
   {
@@ -500,7 +570,9 @@
     "option_b": "O(n)",
     "option_c": "O(n^2)",
     "option_d": "O(log n)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The recursion stack grows linearly with n."
   },
   {
@@ -514,7 +586,9 @@
     "option_b": "Stack",
     "option_c": "Array",
     "option_d": "Linked List",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The LIFO nature of a stack allows reversing the last action easily."
   },
   {
@@ -528,7 +602,9 @@
     "option_b": "When two different keys produce the same hash index",
     "option_c": "When the table is full",
     "option_d": "When keys are deleted",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Methods like Chaining or Open Addressing are used to resolve these collisions."
   },
   {
@@ -542,7 +618,9 @@
     "option_b": "BFS",
     "option_c": "Topological Sort",
     "option_d": "Binary Search",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "BFS uses a Queue to explore adjacent nodes before moving deeper."
   },
   {
@@ -556,7 +634,9 @@
     "option_b": "Stack",
     "option_c": "Hash Table",
     "option_d": "Heap",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "DFS can be implemented using an explicit stack or implicitly via the call stack (recursion)."
   },
   {
@@ -570,7 +650,9 @@
     "option_b": "O(n^2)",
     "option_c": "O(1)",
     "option_d": "O(n^3)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "In Big O, we ignore constant factors and focus on the highest-order term."
   },
   {
@@ -584,7 +666,9 @@
     "option_b": "No, it doesn't fit the standard cases",
     "option_c": "Yes, using the extended version",
     "option_d": "Only for n=2",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Standard Master Theorem doesn't cover f(n) = n log n, but an extension (Case 2 generalized) shows it is O(n log^2 n)."
   },
   {
@@ -598,7 +682,9 @@
     "option_b": "Sort items by high value only",
     "option_c": "Sort items by value/weight ratio",
     "option_d": "No greedy strategy works",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Taking the item with highest 'density' (value per unit weight) leads to the optimal result for the fractional version."
   },
   {
@@ -612,7 +698,9 @@
     "option_b": "Insertion Sort",
     "option_c": "Bubble Sort",
     "option_d": "Selection Sort",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Insertion sort is efficient for very small lists (n < 20) or nearly sorted lists."
   },
   {
@@ -626,7 +714,9 @@
     "option_b": "It requires only a small, constant amount of extra memory regardless of input size (O(1) extra space)",
     "option_c": "It runs very fast",
     "option_d": "It doesn't move elements",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Quick Sort and Heap Sort are in-place; Merge Sort is typically not."
   },
   {
@@ -640,7 +730,9 @@
     "option_b": "The worst possible data",
     "option_c": "A random or typical distribution of possible inputs",
     "option_d": "Small data sets only",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Average case analysis often involves complex probability but is more realistic for real-world use."
   },
   {
@@ -654,7 +746,9 @@
     "option_b": "Doubly Linked List",
     "option_c": "Sorted Array",
     "option_d": "Binary Search Tree",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "With pointers to both head and tail, doubly linked lists handle extremes instantly."
   },
   {
@@ -668,7 +762,9 @@
     "option_b": "O(2^n)",
     "option_c": "O(n^2)",
     "option_d": "O(log n)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The number of moves required is 2^n - 1, making it exponential."
   },
   {
@@ -682,7 +778,9 @@
     "option_b": "Slower",
     "option_c": "Same speed",
     "option_d": "Not comparable",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Factorial growth O(n!) is extremely fast and much worse than exponential growth O(2^n)."
   },
   {
@@ -696,7 +794,9 @@
     "option_b": "Vertices (or Nodes)",
     "option_c": "Stacks",
     "option_d": "Lists",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Vertices represent objects, and Edges represent relationships between them."
   }
 ]

@@ -10,7 +10,9 @@
     "option_b": "L1 Cache",
     "option_c": "Registers",
     "option_d": "L2 Cache",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Registers are located inside the CPU and provide almost instantaneous access compared to other memory types."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "To increase instruction throughput (instructions per second)",
     "option_c": "To simplify the control unit",
     "option_d": "To eliminate the need for a clock",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Pipelining doesn't speed up a single instruction (latency) but increases the number of instructions finished per second (throughput)."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "Random Access Memory; Volatile",
     "option_c": "Rapid Access Module; Volatile",
     "option_d": "Real-time Array Management; Persistent",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "RAM is Random Access Memory, meaning any byte can be accessed directly. It is volatile, losing data when power is removed."
   },
   {
@@ -52,7 +58,10 @@
     "option_b": "Spatial Locality",
     "option_c": "Logical Locality",
     "option_d": "Physical Locality",
-    "correct_options": ["A", "B"],
+    "correct_options": [
+      "A",
+      "B"
+    ],
     "explanation": "Temporal locality means recently accessed data is likely to be accessed again soon. Spatial locality means nearby data is likely to be accessed soon."
   },
   {
@@ -66,7 +75,9 @@
     "option_b": "Structural Hazard",
     "option_c": "Data Hazard",
     "option_d": "Memory Leak",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Data hazards occur when instructions that exhibit data dependence overlap in execution."
   },
   {
@@ -80,7 +91,9 @@
     "option_b": "Register-based architecture",
     "option_c": "Accumulator architecture",
     "option_d": "Memory-to-memory architecture",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Stack architectures use implicit operands from the top of the stack."
   },
   {
@@ -94,7 +107,9 @@
     "option_b": "Interrupt-initiated I/O",
     "option_c": "Direct Memory Access (DMA)",
     "option_d": "Polling",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "DMA controllers handle the data transfer, freeing the CPU for other tasks."
   },
   {
@@ -108,7 +123,9 @@
     "option_b": "After fetching the operand",
     "option_c": "During instruction fetch",
     "option_d": "Only on branch instructions",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The effective address is the register's current value, which is then incremented for the next use."
   },
   {
@@ -122,7 +139,9 @@
     "option_b": "Fully associative mapping",
     "option_c": "Set-associative mapping",
     "option_d": "Sector mapping",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Fully associative mapping provides the most flexibility but requires complex hardware for searching."
   },
   {
@@ -136,7 +155,9 @@
     "option_b": "Transfer time",
     "option_c": "Seek time",
     "option_d": "Access time",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Seek time is a major component of disk access time."
   },
   {
@@ -150,7 +171,9 @@
     "option_b": "Leak",
     "option_c": "Wait state",
     "option_d": "Jump",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "A bubble is an empty slot in the pipeline that performs no useful work."
   },
   {
@@ -164,7 +187,9 @@
     "option_b": "Memory Buffer Register",
     "option_c": "Instruction Register (IR)",
     "option_d": "Stack Pointer",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The IR stores the opcode and operands of the instruction currently being processed."
   },
   {
@@ -178,7 +203,9 @@
     "option_b": "Control Unit",
     "option_c": "Register File",
     "option_d": "Memory Bus",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The Control Unit generates the gating signals for registers and ALU functions."
   },
   {
@@ -192,7 +219,9 @@
     "option_b": "1's complement",
     "option_c": "2's complement",
     "option_d": "Excess-3",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "2's complement simplifies arithmetic hardware and avoids the problem of 'positive' and 'negative' zero."
   },
   {
@@ -206,7 +235,9 @@
     "option_b": "Speed decreases, Cost per bit decreases",
     "option_c": "Capacity decreases, Speed increases",
     "option_d": "Capacity increases, Speed increases",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Lower levels are larger, slower, and cheaper."
   },
   {
@@ -220,7 +251,9 @@
     "option_b": "Non-maskable interrupt (NMI)",
     "option_c": "Maskable interrupt",
     "option_d": "Software interrupt",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Maskable interrupts can be disabled using a flag in the status register."
   },
   {
@@ -234,7 +267,9 @@
     "option_b": "Polling",
     "option_c": "Independent requesting",
     "option_d": "Time-slice",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "In daisy chaining, the grant signal passes through devices in a serial chain."
   },
   {
@@ -248,7 +283,9 @@
     "option_b": "8",
     "option_c": "11",
     "option_d": "23",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "1 bit sign, 8 bits exponent, 23 bits fraction (mantissa)."
   },
   {
@@ -262,7 +299,9 @@
     "option_b": "Data path",
     "option_c": "Memory path",
     "option_d": "Execution path",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Data path includes ALU, registers, and interconnecting buses."
   },
   {
@@ -276,7 +315,9 @@
     "option_b": "Lower power consumption",
     "option_c": "Smaller program size (memory efficiency)",
     "option_d": "Faster clock speeds",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "CISC instructions are dense, requiring less memory to store complex programs."
   },
   {
@@ -290,7 +331,9 @@
     "option_b": "DRAM",
     "option_c": "ROM",
     "option_d": "EPROM",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Dynamic RAM (DRAM) uses capacitors that leak charge, necessitating a refresh cycle."
   },
   {
@@ -304,7 +347,9 @@
     "option_b": "Slower but more flexible",
     "option_c": "Easier to design",
     "option_d": "Cheaper for complex systems",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Hardwired units use combinational logic which is fast but difficult to modify."
   },
   {
@@ -318,7 +363,9 @@
     "option_b": "Program Counter (PC)",
     "option_c": "Base Register",
     "option_d": "Instruction Register",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "PC-relative addressing is common for branch instructions."
   },
   {
@@ -332,7 +379,9 @@
     "option_b": "Non-restoring division",
     "option_c": "Booth's Algorithm",
     "option_d": "Wallace Tree",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Booth's algorithm handles signed integers efficiently using bit-shifting and additions/subtractions."
   },
   {
@@ -346,7 +395,9 @@
     "option_b": "Multiprocessor (Symmetric)",
     "option_c": "Distributed system",
     "option_d": "Vector processor",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "SMP (Symmetric Multi-Processing) involves multiple CPUs sharing main RAM."
   },
   {
@@ -360,7 +411,9 @@
     "option_b": "Polling",
     "option_c": "Vectoring",
     "option_d": "Handshaking",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Polling is a simple but inefficient way to manage I/O as it wastes CPU cycles."
   },
   {
@@ -374,7 +427,9 @@
     "option_b": "Every time a write occurs in the cache",
     "option_c": "Periodically by a background task",
     "option_d": "When the CPU is idle",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Write-through ensures consistency but can be slower due to memory access on every write."
   },
   {
@@ -388,7 +443,9 @@
     "option_b": "Binary data storage (1 bit)",
     "option_c": "Decoding instructions",
     "option_d": "Voltage regulation",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Flip-flops are the basic units of sequential logic used for memory."
   },
   {
@@ -402,7 +459,9 @@
     "option_b": "Queue",
     "option_c": "Interrupt Vector Table",
     "option_d": "Cache line",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The vector table contains pointers to handlers for different interrupt levels."
   },
   {
@@ -416,7 +475,9 @@
     "option_b": "The width of the address bus",
     "option_c": "The size of the cache",
     "option_d": "The clock frequency",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "An 'n' bit address bus can access 2^n unique memory locations."
   },
   {
@@ -425,12 +486,14 @@
     "level_topic": "Pipeline Efficiency",
     "question_type": "tricky",
     "timer_seconds": 45,
-    "question_text": "Speedup in an ideal 'k' stage pipeline compared to non-pipelined execution is:") {
+    "question_text": "Speedup in an ideal 'k' stage pipeline compared to non-pipelined execution is:",
     "option_a": "k",
     "option_b": "1/k",
     "option_c": "k^2",
     "option_d": "log k",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Under ideal conditions (no hazards), the speedup is equal to the number of stages."
   },
   {
@@ -444,7 +507,9 @@
     "option_b": "Indirect",
     "option_c": "Index",
     "option_d": "Relocatable",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "In indirect mode, the first access gets the address of the operand, and the second gets the operand itself."
   },
   {
@@ -458,7 +523,9 @@
     "option_b": "Multiplexer",
     "option_c": "Encoder",
     "option_d": "Register",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Multiplexers are 'many-to-one' switches."
   },
   {
@@ -472,7 +539,9 @@
     "option_b": "Assembly language",
     "option_c": "High-level language",
     "option_d": "Natural language",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Assembly uses mnemonics like MOV, ADD, JMP to represent binary opcodes."
   },
   {
@@ -486,7 +555,9 @@
     "option_b": "Failed accesses / Total accesses",
     "option_c": "Total bits / Cache size",
     "option_d": "Data bus width / Address bus width",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Hit ratio measures the effectiveness of the cache in fulfilling requests."
   },
   {
@@ -500,7 +571,9 @@
     "option_b": "4",
     "option_c": "8",
     "option_d": "10",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "BCD encodes each digit 0-9 into a 4-bit binary nibble."
   },
   {
@@ -514,7 +587,9 @@
     "option_b": "Memory data",
     "option_c": "Condition code flags",
     "option_d": "User passwords",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Condition codes like Zero, Carry, Negative, and Overflow are stored here."
   },
   {
@@ -528,7 +603,9 @@
     "option_b": "Isolated I/O",
     "option_c": "Pipelined I/O",
     "option_d": "Direct Memory Access",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Pipelining is an internal CPU feature, not a standard external I/O communication method."
   },
   {
@@ -542,7 +619,9 @@
     "option_b": "2048",
     "option_c": "16384",
     "option_d": "8192",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "2048 words * 8 bits/word = 16,384 bits."
   },
   {
@@ -556,7 +635,9 @@
     "option_b": "The result is zero",
     "option_c": "Both inputs are positive",
     "option_d": "The sign bit is 1",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "This is a standard logical check for overflow in signed binary math."
   },
   {
@@ -570,7 +651,9 @@
     "option_b": "Next free memory slot",
     "option_c": "Top of the stack",
     "option_d": "Base of the memory",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The SP points to the most recently pushed item on the stack."
   },
   {
@@ -584,7 +667,9 @@
     "option_b": "SIMD",
     "option_c": "MIMD",
     "option_d": "MISD",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Multiple Instruction streams, Multiple Data streams (parallel processing)."
   },
   {
@@ -598,7 +683,9 @@
     "option_b": "T flip-flop",
     "option_c": "RS flip-flop",
     "option_d": "Latch",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "T stands for 'Toggle'."
   },
   {
@@ -612,7 +699,9 @@
     "option_b": "Pages and Frames",
     "option_c": "Sectors",
     "option_d": "Lines",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Logical memory uses pages; physical memory uses frames."
   },
   {
@@ -626,7 +715,9 @@
     "option_b": "3",
     "option_c": "4",
     "option_d": "1",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "De Morgan's law: A OR B = NOT( (NOT A) AND (NOT B) )."
   },
   {
@@ -640,7 +731,9 @@
     "option_b": "Register Indirect",
     "option_c": "Immediate",
     "option_d": "Relative",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Register indirect uses a register as a pointer to memory."
   },
   {
@@ -654,7 +747,9 @@
     "option_b": "Stack Pointer (SP)",
     "option_c": "Index Register",
     "option_d": "Program Counter",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The SP is automatically adjusted during PUSH and POP operations."
   },
   {
@@ -668,7 +763,9 @@
     "option_b": "Increased instruction throughput",
     "option_c": "Reduced clock frequency",
     "option_d": "Smaller CPU size",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Pipelining allows multiple instructions to be in different stages of execution simultaneously."
   },
   {
@@ -682,7 +779,9 @@
     "option_b": "Fully Associative Mapping",
     "option_c": "Set Associative Mapping",
     "option_d": "Linear Mapping",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Fully associative allows any memory block to be placed in any cache line."
   },
   {
@@ -696,679 +795,9 @@
     "option_b": "To allow programs larger than physical memory to run",
     "option_c": "To protect against viruses",
     "option_d": "To share files",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Virtual memory creates an illusion of a very large memory space by using disk storage."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Interrupts",
-    "question_type": "medium",
-    "timer_seconds": 30,
-    "question_text": "A 'Non-maskable' interrupt is one that:",
-    "option_a": "Can be ignored by the software",
-    "option_b": "Cannot be ignored and must be handled immediately",
-    "option_c": "Is only for printers",
-    "option_d": "Happens every second",
-    "correct_options": ["B"],
-    "explanation": "NMIs are reserved for critical events like power failure or hardware errors."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Data Formats",
-    "question_type": "medium",
-    "timer_seconds": 30,
-    "question_text": "In 'Big Endian' format, where is the most significant byte stored?",
-    "option_a": "At the highest address",
-    "option_b": "At the lowest address",
-    "option_c": "In the middle",
-    "option_d": "In the CPU",
-    "correct_options": ["B"],
-    "explanation": "Big Endian puts the 'big end' first in memory."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Instruction Formats",
-    "question_type": "medium",
-    "timer_seconds": 30,
-    "question_text": "A 'Three-address' instruction format typically looks like:",
-    "option_a": "ADD R1",
-    "option_b": "ADD R1, R2, R3",
-    "option_c": "ADD R1, R2",
-    "option_d": "ADD",
-    "correct_options": ["B"],
-    "explanation": "It specifies two source operands and one destination operand."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Micro-operations",
-    "question_type": "hard",
-    "timer_seconds": 35,
-    "question_text": "Symbolic notation like 'R1 <- [MAR]' represents a:",
-    "option_a": "C++ code",
-    "option_b": "Micro-operation",
-    "option_c": "Macro",
-    "option_d": "Bus signal",
-    "correct_options": ["B"],
-    "explanation": "It describes data transfer at the register level."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "CPU Arithmetic",
-    "question_type": "medium",
-    "timer_seconds": 30,
-    "question_text": "Overflow in integer addition can be detected by checking the ________.",
-    "option_a": "Carry flag",
-    "option_b": "Overflow flag (V)",
-    "option_c": "Zero flag",
-    "option_d": "Sign flag",
-    "correct_options": ["B"],
-    "explanation": "Overflow occurs when the result exceeds the range of the representation."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "I/O Interface",
-    "question_type": "medium",
-    "timer_seconds": 30,
-    "question_text": "What is the purpose of an I/O Interface?",
-    "option_a": "To connect the monitor",
-    "option_b": "To match the data format and speed differences between CPU and peripherals",
-    "option_c": "To increase RAM",
-    "option_d": "To provide power",
-    "correct_options": ["B"],
-    "explanation": "Interfaces act as buffers and translators for slow devices."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "DMA",
-    "question_type": "medium",
-    "timer_seconds": 30,
-    "question_text": "In DMA transfer, who is in charge of the system bus?",
-    "option_a": "CPU",
-    "option_b": "DMA Controller",
-    "option_c": "RAM",
-    "option_d": "BIOS",
-    "correct_options": ["B"],
-    "explanation": "The DMA controller becomes the bus master during the transfer."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Control Units",
-    "question_type": "hard",
-    "timer_seconds": 40,
-    "question_text": "Which control unit type uses a small memory called 'Control Store'?",
-    "option_a": "Hardwired",
-    "option_b": "Microprogrammed",
-    "option_c": "Software-defined",
-    "option_d": "Interrupt-driven",
-    "correct_options": ["B"],
-    "explanation": "Microprogrammed units store control signals as microcode."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Secondary Storage",
-    "question_type": "easy",
-    "timer_seconds": 25,
-    "question_text": "Which of these is a magnetic storage device?",
-    "option_a": "SSD",
-    "option_b": "HDD",
-    "option_c": "SD Card",
-    "option_d": "DVD",
-    "correct_options": ["B"],
-    "explanation": "Hard Disk Drives use magnetic platters for data storage."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Boolean Algebra",
-    "question_type": "medium",
-    "timer_seconds": 30,
-    "question_text": "Simplify A . (A + B):",
-    "option_a": "B",
-    "option_b": "A",
-    "option_c": "A+B",
-    "option_d": "AB",
-    "correct_options": ["B"],
-    "explanation": "Absorption Law: A(A+B) = A."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Sequential Circuits",
-    "question_type": "hard",
-    "timer_seconds": 35,
-    "question_text": "A 'Counter' is a sequential circuit that:",
-    "option_a": "Subtracts only",
-    "option_b": "Sequences through a predetermined set of states",
-    "option_c": "Stops after 10",
-    "option_d": "Checks if bits are equal",
-    "correct_options": ["B"],
-    "explanation": "Counters use flip-flops to track state transitions."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Logic Implementation",
-    "question_type": "hard",
-    "timer_seconds": 35,
-    "question_text": "What does a 'PLA' stand for in digital design?",
-    "option_a": "Programmable Logic Array",
-    "option_b": "Primary Logical Access",
-    "option_c": "Peripheral Logic Area",
-    "option_d": "none of the above",
-    "correct_options": ["A"],
-    "explanation": "PLAs are used to implement custom combinational logic."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Memory Mapping",
-    "question_type": "medium",
-    "timer_seconds": 35,
-    "question_text": "What is 'Memory Interleaving' used for?",
-    "option_a": "Encryption",
-    "option_b": "Increasing memory throughput by accessing multiple modules in parallel",
-    "option_c": "Reducing power",
-    "option_d": "Naming RAM blocks",
-    "correct_options": ["B"],
-    "explanation": "Interleaving allows overlapping memory access cycles."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "CPU Flags",
-    "question_type": "easy",
-    "timer_seconds": 20,
-    "question_text": "The 'Zero Flag' is set when:",
-    "option_a": "The result of an operation is zero",
-    "option_b": "The computer is off",
-    "option_c": "The CPU is idle",
-    "option_d": "All memory is empty",
-    "correct_options": ["A"],
-    "explanation": "The Z-flag is often used for conditional branches (e.g. JE - Jump if Equal/Zero)."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Pipelining",
-    "question_type": "hard",
-    "timer_seconds": 40,
-    "question_text": "A 'Branch Hazard' occurs in a pipeline when ________.",
-    "option_a": "A wire breaks",
-    "option_b": "A conditional jump instruction is encountered and the next instruction to fetch is unknown",
-    "option_c": "The CPU runs out of power",
-    "option_d": "naming variables",
-    "correct_options": ["B"],
-    "explanation": "Control hazards (branch hazards) cause stalls or flushes in the pipeline."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Hardware concepts",
-    "question_type": "medium",
-    "timer_seconds": 30,
-    "question_text": "What is 'Fetching'?",
-    "option_a": "Finding a variable",
-    "option_b": "Retrieving an instruction from memory",
-    "option_c": "A dog trick",
-    "option_d": "Deleting a file",
-    "correct_options": ["B"],
-    "explanation": "Fetching is the first part of the instruction cycle."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Memory hierarchy",
-    "question_type": "easy",
-    "timer_seconds": 25,
-    "question_text": "Which memory is faster: SRAM or DRAM?",
-    "option_a": "DRAM",
-    "option_b": "SRAM",
-    "option_c": "Both are equal",
-    "option_d": "Depends on the CPU",
-    "correct_options": ["B"],
-    "explanation": "Static RAM is much faster but more expensive than Dynamic RAM (used for main memory)."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Arithmetic",
-    "question_type": "hard",
-    "timer_seconds": 40,
-    "question_text": "Booth's algorithm is used for ________.",
-    "option_a": "Calculating the roof area",
-    "option_b": "Signed integer multiplication",
-    "option_c": "Floating point division",
-    "option_d": "Deleting old logs",
-    "correct_options": ["B"],
-    "explanation": "Booth's algorithm is more efficient than standard multiplication for signed numbers."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Stack",
-    "question_type": "medium",
-    "timer_seconds": 30,
-    "question_text": "Which data structure is used for handling subroutines?",
-    "option_a": "Queue",
-    "option_b": "Stack",
-    "option_c": "Tree",
-    "option_d": "Linked List",
-    "correct_options": ["B"],
-    "explanation": "The stack stores return addresses during function calls."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Arithmetic",
-    "question_type": "medium",
-    "timer_seconds": 30,
-    "question_text": "In floating point representation, the 'fraction' part is also called:",
-    "option_a": "Exponent",
-    "option_b": "Mantissa",
-    "option_c": "Base",
-    "option_d": "Bias",
-    "correct_options": ["B"],
-    "explanation": "The mantissa represents the significant digits of the number."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Buses",
-    "question_type": "medium",
-    "timer_seconds": 30,
-    "question_text": "The width of the address bus determines the maximum ________.",
-    "option_a": "Clock speed",
-    "option_b": "Addressable memory capacity",
-    "option_c": "Data transfer rate",
-    "option_d": "Monitor size",
-    "correct_options": ["B"],
-    "explanation": "If the address bus is N bits wide, the CPU can address 2^N locations."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "IO",
-    "question_type": "hard",
-    "timer_seconds": 35,
-    "question_text": "What is 'Daisy Chaining' in bus arbitration?",
-    "option_a": "A ways to connect peripheral monitors",
-    "option_b": "A priority-based method for allocating bus access to multiple devices",
-    "option_c": "A ways to delete old files",
-    "option_d": "A backup tool",
-    "correct_options": ["B"],
-    "explanation": "Devices are connected in a chain; the one closest to the arbiter has the highest priority."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Mapping",
-    "question_type": "hard",
-    "timer_seconds": 40,
-    "question_text": "What is 'Replacement Policy' in cache?",
-    "option_a": "Buying a new CPU",
-    "option_b": "The algorithm that decides which cache line to clear when a new block needs to be loaded",
-    "option_c": "Deleting the OS",
-    "option_d": "naming variables",
-    "correct_options": ["B"],
-    "explanation": "Common policies include LRU (Least Recently Used) and FIFO."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Logical Ops",
-    "question_type": "easy",
-    "timer_seconds": 20,
-    "question_text": "What is the result of shifting binary 1010 one bit to the right?",
-    "option_a": "0101",
-    "option_b": "1101",
-    "option_c": "1011",
-    "option_d": "0000",
-    "correct_options": ["A"],
-    "explanation": "Right shift is equivalent to dividing by 2 (dropping the last bit)."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Logical Ops",
-    "question_type": "medium",
-    "timer_seconds": 25,
-    "question_text": "Logical shift left of 0011 results in:",
-    "option_a": "0110",
-    "option_b": "0001",
-    "option_c": "1100",
-    "option_d": "1000",
-    "correct_options": ["A"],
-    "explanation": "Shifting left by one bit multiplies by 2."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "IO",
-    "question_type": "hard",
-    "timer_seconds": 35,
-    "question_text": "What is 'Cycle Stealing'?",
-    "option_a": "A virus",
-    "option_b": "When DMA takes over the bus from the CPU for one clock cycle",
-    "option_c": "Reducing clock speed",
-    "option_d": "naming variables",
-    "correct_options": ["B"],
-    "explanation": "The DMA controller 'steals' bus cycles to move data while the CPU continues internal work."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "IO",
-    "question_type": "medium",
-    "timer_seconds": 30,
-    "question_text": "In 'Memory-Mapped I/O', I/O devices are treated like:",
-    "option_a": "Printers",
-    "option_b": "Memory locations",
-    "option_c": "Interrupts",
-    "option_d": "Buses",
-    "correct_options": ["B"],
-    "explanation": "Both memory and I/O share the same address space."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Protocols",
-    "question_type": "hard",
-    "timer_seconds": 40,
-    "question_text": "What is 'Asynchronous Bus' transfer?",
-    "option_a": "Transfer without wires",
-    "option_b": "Transfer that uses handshaking signals instead of a common clock",
-    "option_c": "Very slow transfer",
-    "option_d": "A training system",
-    "correct_options": ["B"],
-    "explanation": "Asynchronous buses allow devices of different speeds to talk."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "CPU Design",
-    "question_type": "hard",
-    "timer_seconds": 40,
-    "question_text": "The 'Horizontal Microinstruction' type has:",
-    "option_a": "Only 1 bit",
-    "option_b": "A long word with one bit for each control signal (unencoded)",
-    "option_c": "Encoded fields for control signals",
-    "option_d": "management access",
-    "correct_options": ["B"],
-    "explanation": "Horizontal allows for simultaneous signals but uses more memory."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "CPU Design",
-    "question_type": "hard",
-    "timer_seconds": 40,
-    "question_text": "The 'Vertical Microinstruction' type has:",
-    "option_a": "One bit only",
-    "option_b": "Encoded fields for control signals to save memory",
-    "option_c": "No encoding",
-    "option_d": "none of the above",
-    "correct_options": ["B"],
-    "explanation": "Vertical is more compact but requires decoding logic."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Expert Concepts",
-    "question_type": "hard",
-    "timer_seconds": 45,
-    "question_text": "What is 'Locality of Reference'?",
-    "option_a": "Naming a file",
-    "option_b": "The tendency of a processor to access the same set of memory locations repetitively over a period of time",
-    "option_c": "A bug in RAM",
-    "option_d": "A training dashboard",
-    "correct_options": ["B"],
-    "explanation": "Temporal and Spatial locality are why caching is so effective."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Storage",
-    "question_type": "medium",
-    "timer_seconds": 30,
-    "question_text": "What does RAID stand for?",
-    "option_a": "Redundant Array of Independent Disks",
-    "option_b": "Rapid Access to Internal Data",
-    "option_c": "Real-time Access Identity Directory",
-    "option_d": "none of the above",
-    "correct_options": ["A"],
-    "explanation": "RAID is used for data redundancy and performance Improvement."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Number representation",
-    "question_type": "medium",
-    "timer_seconds": 30,
-    "question_text": "A 'nibble' is how many bits?",
-    "option_a": "2",
-    "option_b": "4",
-    "option_c": "8",
-    "option_d": "1",
-    "correct_options": ["B"],
-    "explanation": "A half-byte is called a nibble."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Logic Gates",
-    "question_type": "easy",
-    "timer_seconds": 20,
-    "question_text": "Which gate is called an 'Inverter'?",
-    "option_a": "AND",
-    "option_b": "NOT",
-    "option_c": "OR",
-    "option_d": "XOR",
-    "correct_options": ["B"],
-    "explanation": "A NOT gate inverts the input signal."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Memory Features",
-    "question_type": "hard",
-    "timer_seconds": 35,
-    "question_text": "What is 'Refreshing' in DRAM?",
-    "option_a": "Updating the screen",
-    "option_b": "Periodically recharging the capacitors in memory cells to maintain the data",
-    "option_c": "Deleting old variables",
-    "option_d": "A ways to rename RAM",
-    "correct_options": ["B"],
-    "explanation": "Because capacitors leak charge, DRAM must be refreshed regularly."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Expert Concepts",
-    "question_type": "hard",
-    "timer_seconds": 45,
-    "question_text": "What characterizes 'VLIW'?",
-    "option_a": "A small chip",
-    "option_b": "A CPU architecture that executes a large number of instructions simultaneously as specified by the compiler",
-    "option_c": "Very Low Internet Word",
-    "option_d": "A backup tool",
-    "correct_options": ["B"],
-    "explanation": "Very Long Instruction Word shifts complexity from hardware to the compiler."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Expert Concepts",
-    "question_type": "hard",
-    "timer_seconds": 45,
-    "question_text": "What is an 'Associative Memory'?",
-    "option_a": "Memory that remembers friends",
-    "option_b": "Memory that is searched by its content rather than an address",
-    "option_c": "A ways to delete files",
-    "option_d": "A training system",
-    "correct_options": ["B"],
-    "explanation": "CAM (Content Addressable Memory) is used for fast lookups in TLBs and routers."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "IO",
-    "question_type": "medium",
-    "timer_seconds": 30,
-    "question_text": "In 'Programmed I/O', the CPU spends time:",
-    "option_a": "Sleeping",
-    "option_b": "Polling the device",
-    "option_c": "Calculating numbers",
-    "option_d": "naming variables",
-    "correct_options": ["B"],
-    "explanation": "Polling is inefficient as it wastes CPU cycles."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Storage",
-    "question_type": "medium",
-    "timer_seconds": 30,
-    "question_text": "What is 'Seek Time' in a hard drive?",
-    "option_a": "Finding a variable",
-    "option_b": "The time it takes for the read/write head to move to the correct track",
-    "option_c": "The time for the platter to rotate",
-    "option_d": "managing memory",
-    "correct_options": ["B"],
-    "explanation": "Seek time is a major component of disk access latency."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Storage",
-    "question_type": "medium",
-    "timer_seconds": 30,
-    "question_text": "What is 'Rotational Latency' in a hard drive?",
-    "option_a": "Spinning the drive faster",
-    "option_b": "The time waiting for the desired sector to rotate under the head",
-    "option_c": "Deleting a disk",
-    "option_d": "A power usage metric",
-    "correct_options": ["B"],
-    "explanation": "Latency depends on the RPM of the drive."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Parallelism",
-    "question_type": "hard",
-    "timer_seconds": 40,
-    "question_text": "What is a 'Vector Processor'?",
-    "option_a": "A CPU with arrows on it",
-    "option_b": "A computer designed to perform the same operation on large sets of data (vectors) simultaneously",
-    "option_c": "A ways to delete files",
-    "option_d": "A training system",
-    "correct_options": ["B"],
-    "explanation": "Vector processors are efficient for scientific and graphics processing."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Logical Design",
-    "question_type": "hard",
-    "timer_seconds": 35,
-    "question_text": "A 'Multiplexer' can be used to implement:",
-    "option_a": "Logic gates",
-    "option_b": "Any combinational logic function",
-    "option_c": "Memory chips",
-    "option_d": "A ways to name a user",
-    "correct_options": ["B"],
-    "explanation": "A MUX is a universal logic component."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Logical Design",
-    "question_type": "medium",
-    "timer_seconds": 30,
-    "question_text": "A 'Half Adder' can add ________ bits.",
-    "option_a": "1",
-    "option_b": "2",
-    "option_c": "3",
-    "option_d": "8",
-    "correct_options": ["B"],
-    "explanation": "A half adder adds two bits and produces a sum and carry."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Logical Design",
-    "question_type": "medium",
-    "timer_seconds": 30,
-    "question_text": "A 'Full Adder' adds ________ bits.",
-    "option_a": "2",
-    "option_b": "3 (including carry-in)",
-    "option_c": "4",
-    "option_d": "8",
-    "correct_options": ["B"],
-    "explanation": "Full adders handle the carry bit from a previous stage."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Cache Management",
-    "question_type": "hard",
-    "timer_seconds": 40,
-    "question_text": "What is 'Write-Through' policy?",
-    "option_a": "Writing through RAM",
-    "option_b": "Changes are written to both the cache and the main memory simultaneously",
-    "option_c": "Writing only when the PC is off",
-    "option_d": "A ways to rename variables",
-    "correct_options": ["B"],
-    "explanation": "Write-through keeps memory consistent but is slower."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Cache Management",
-    "question_type": "hard",
-    "timer_seconds": 40,
-    "question_text": "What is 'Write-Back' policy?",
-    "option_a": "Writing backwards",
-    "option_b": "Changes are written only to the cache; memory is updated when the block is evicted",
-    "option_c": "A ways to delete files",
-    "option_d": "A training session",
-    "correct_options": ["B"],
-    "explanation": "Write-back is faster as it reduces memory traffic."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "Addressing",
-    "question_type": "medium",
-    "timer_seconds": 25,
-    "question_text": "The address field of an instruction in 'Direct Addressing' contains:",
-    "option_a": "The operand",
-    "option_b": "The effective address of the operand",
-    "option_c": "A ways to delete numbers",
-    "option_d": "naming variables",
-    "correct_options": ["B"],
-    "explanation": "Direct addressing points straight to the memory location."
-  },
-  {
-    "subject_name": "COA",
-    "level_number": 2,
-    "level_topic": "CPU architecture",
-    "question_type": "medium",
-    "timer_seconds": 30,
-    "question_text": "A 'Single Instruction, Multiple Data' architecture is:",
-    "option_a": "SISD",
-    "option_b": "SIMD",
-    "option_c": "MIMD",
-    "option_d": "MISD",
-    "correct_options": ["B"],
-    "explanation": "SIMD is used in parallel processing systems like GPUs."
   }
 ]

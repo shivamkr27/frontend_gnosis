@@ -10,7 +10,9 @@
     "option_b": "Staying alive after the Docker daemon exits to monitor the container and handle its standard I/O and signals",
     "option_c": "Deleting the image",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The containerd-shim allows daemon-less containers where the engine can restart without killing the running apps."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "UTS (Unix Timesharing System) namespace",
     "option_c": "NET namespace",
     "option_d": "MNT namespace",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "UTS namespace allows a container to have its own hostname, separate from the host and other containers."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "upperdir",
     "option_c": "merged",
     "option_d": "workdir",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The 'merged' directory is the mount point that combines lower (read-only) and upper (writable) layers via the overlay union filesystem."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "Using IPVS (IP Virtual Server), a kernel-level load balancer that maps a Service's Virtual IP to its task IPs",
     "option_c": "By editing /etc/hosts randomly",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "IPVS provides high-performance, low-latency load balancing directly in the Linux kernel."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "Running both the Docker daemon and the containers as an unprivileged user to mitigate potential host-takeover exploits",
     "option_c": "Docker for garden use",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Rootless mode uses user namespaces to fake root privileges for the container without needing real root on the host."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "A CLI plugin that extends the 'build' command with BuildKit features, most notably for multi-architecture (ARM/x86) builds",
     "option_c": "Speeding up the internet during build",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Buildx allows you to build and push images for multiple CPU architectures simultaneously using a single command."
   },
   {
@@ -94,7 +106,9 @@
     "option_b": "Raft",
     "option_c": "Gossip",
     "option_d": "Bulletproof",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Raft ensures that all manager nodes have an identical view of the cluster state."
   },
   {
@@ -108,7 +122,9 @@
     "option_b": "A redesigned kernel feature that simplifies resource management by using a single hierarchy for all resource types (CPU, Memory, I/O)",
     "option_c": "A way to hide containers",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Cgroups v2 provides better resource isolation and is easier for orchestrators to manage than the fragmented v1."
   },
   {
@@ -122,7 +138,9 @@
     "option_b": "To efficiently propagate node availability and health information across the cluster without a central manager",
     "option_c": "To encrypt data packets",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Gossip protocol (SWIM-based) ensures every node knows the status of every other node in the overlay network."
   },
   {
@@ -136,7 +154,9 @@
     "option_b": "To act as the low-level executor that interfaces with the Linux kernel (namespaces/cgroups) to actually spawn a container",
     "option_c": "To provide the user interface",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "runc is a lightweight implementation of the OCI Runtime Specification."
   },
   {
@@ -150,7 +170,9 @@
     "option_b": "An open-source script that checks your Docker deployment against dozens of industry-standard security best practices (CIS benchmarks)",
     "option_c": "To speed up the Docker daemon",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It provides a scorecard for how well-hardened your Docker configuration is."
   },
   {
@@ -164,7 +186,9 @@
     "option_b": "The latency penalty incurred the First time a process tries to modify a file from a read-only layer (must be copied to upper layer first)",
     "option_c": "The CPU cost of hashing",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "For heavy write workloads, using Volumes is better because it avoids the CoW penalty."
   },
   {
@@ -178,7 +202,9 @@
     "option_b": "--read-only",
     "option_c": "-ro",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This prevents ANY modifications to the container's standard filesystem, forcing data to reside only in specific mounts."
   },
   {
@@ -192,7 +218,9 @@
     "option_b": "The tunneling protocol used to wrap Layer 2 ethernet frames inside Layer 4 UDP packets to create the Swarm Overlay network",
     "option_c": "A ways to speed up the internet",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "VXLAN allows Docker to provide consistent networking for containers regardless of the underlying physical network topology."
   },
   {
@@ -206,7 +234,9 @@
     "option_b": "By creating a symlink from /proc/[pid]/ns/net to /var/run/netns/[name]",
     "option_c": "It is not possible",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Docker hides network namespaces by default, so manual symlinking is required to use standard Linux networking tools."
   },
   {
@@ -220,7 +250,9 @@
     "option_b": "A container for a secondary user",
     "option_c": "A backup container",
     "option_d": "none of the above",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Sidecars are the fundamental building block for 'Service Mesh' architectures."
   },
   {
@@ -234,7 +266,9 @@
     "option_b": "Open Container Initiative: A Linux Foundation project that defines industry standards for container formats and runtimes",
     "option_c": "Only Cloud Images",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The OCI ensures that images built with Docker can run in K8s, Podman, or any other compliant runtime."
   },
   {
@@ -248,7 +282,9 @@
     "option_b": "A kernel security setting that prevents a process from gaining new privileges (like SUID) even if it executes a privileged binary",
     "option_c": "A way to delete the logs",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This is a critical hardening step to prevent privilege escalation within a container."
   },
   {
@@ -262,7 +298,9 @@
     "option_b": "pivot_root",
     "option_c": "mount",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "pivot_root is more secure than chroot as it completely swaps the root device, making breakouts much harder."
   },
   {
@@ -276,7 +314,9 @@
     "option_b": "A high-security pattern where you run a dedicated container to proxy only SPECIFIC, safe Docker API calls to other containers",
     "option_c": "Hiding the socket from the users",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This allows tools to monitor Docker (like Traefik) without having full root-level control via the raw socket."
   },
   {
@@ -290,7 +330,9 @@
     "option_b": "A Linux kernel setting that controls whether traffic on a bridge is filtered by iptables/nftables rules",
     "option_c": "A networking cable config",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Docker requires this to be set to '1' for its networking and isolation rules to function correctly."
   },
   {
@@ -304,7 +346,9 @@
     "option_b": "A high-speed compression algorithm that allows images to be pushed/pulled much faster than the default Gzip",
     "option_c": "A type of database",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Zstd provides a better balance between compression ratio and speed."
   },
   {
@@ -318,7 +362,9 @@
     "option_b": "EXPOSE",
     "option_c": "CMD",
     "option_d": "ENTRYPOINT",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "While necessary, every 'RUN' that cleans up after itself in a DIFFERENT command (not combined) leaves behind a permanent layer of data."
   },
   {
@@ -332,7 +378,9 @@
     "option_b": "A high-performance, minimal RPC protocol used by containerd to talk to shims, offering much lower overhead than standard gRPC",
     "option_c": "The time to run a command",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "ttrpc is used to manage hundreds of shims efficiently without exhausting system resources."
   },
   {
@@ -346,7 +394,9 @@
     "option_b": "devices",
     "option_c": "memory",
     "option_d": "pids",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 'devices' cgroup allowlist/denylist controls which /dev entries a container can access."
   },
   {
@@ -360,7 +410,9 @@
     "option_b": "The security procedure of regenerating the Swarm join tokens to prevent unauthorized nodes from joining in the future",
     "option_c": "Changing the admin password",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Regenerating tokens won't affect nodes already in the cluster."
   },
   {
@@ -374,7 +426,9 @@
     "option_b": "devicemapper",
     "option_c": "Overlay",
     "option_d": "vfs",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Devicemapper was complex to configure but offered high performance on older Enterprise Linux versions."
   },
   {
@@ -388,7 +442,9 @@
     "option_b": "It must handle signals (like SIGTERM) itself, otherwise the container may never shut down gracefully",
     "option_c": "It is automatically given root rights",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Linux Kernel handles PID 1 specially; it doesn't apply default signal handlers like for other processes."
   },
   {
@@ -402,7 +458,9 @@
     "option_b": "A stream of JSON objects describing timestamps, actions, and actors",
     "option_c": "Encoded binary",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The JSON stream makes it easy to parse Docker events in custom monitoring scripts."
   },
   {
@@ -416,7 +474,9 @@
     "option_b": "A revolutionary kernel feature allowing high-performance observability and security filtering without touching the source code",
     "option_c": "A new version of Docker Compose",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "eBPF (Extended Berkeley Packet Filter) is the future of low-overhead container monitoring and security."
   },
   {
@@ -430,7 +490,9 @@
     "option_b": "A complete inventory of all software components, libraries, and dependencies included in the image layers",
     "option_c": "A list of developers",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "SBOMs are critical for supply-chain security and compliance."
   },
   {
@@ -444,7 +506,9 @@
     "option_b": "It downloads each layer blob (identified by its SHA256 hash) in parallel and then assembles them locally",
     "option_c": "It only downloads the last layer",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This allows Docker to reuse layers already present on the machine, saving bandwidth."
   },
   {
@@ -458,7 +522,9 @@
     "option_b": "IPC namespace",
     "option_c": "MNT namespace",
     "option_d": "NET namespace",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "IPC namespace prevents a container from accessing the message queues or semaphores of another container."
   },
   {
@@ -472,7 +538,9 @@
     "option_b": "Using the 'setns' system call to join an existing namespace (e.g. one container joining the NET namespace of another)",
     "option_c": "Moving a container to another host",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This is how 'Sidecar' containers share the same network stack as the 'Main' container."
   },
   {
@@ -486,7 +554,9 @@
     "option_b": "The container is given almost all host kernel capabilities and access to all devices (effectively removing the sandbox)",
     "option_c": "The container becomes more secure",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Privileged mode is EXTREMELY dangerous and should only be used for Docker-in-Docker or low-level system tools."
   },
   {
@@ -500,7 +570,9 @@
     "option_b": "Compiling the application statically and adding it to a 'SCRATCH' (empty) image base",
     "option_c": "Using Ubuntu as a base always",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Distroless/Scratch-based builds are the ultimate in size and security optimization."
   },
   {
@@ -514,7 +586,9 @@
     "option_b": "Providing a 'soft limit' that guarantees a container gets at least that much RAM, but allowing it to use more if the host is idle",
     "option_c": "A place for RAM to sit",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Reservations help the orchestrator make better scheduling decisions by knowing minimum requirements."
   },
   {
@@ -528,7 +602,9 @@
     "option_b": "By adding the address to 'insecure-registries' in the /etc/docker/daemon.json file",
     "option_c": "You cannot do it",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This is common in small private labs or during early development phases."
   },
   {
@@ -542,7 +618,9 @@
     "option_b": "When an orchestrator (like Swarm) forces a task to stop on one node (due to failure or maintenance) so it can be recreated elsewhere",
     "option_c": "Logging out a user",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Eviction ensures that service availability is maintained during hardware issues."
   },
   {
@@ -556,7 +634,9 @@
     "option_b": "Using cgroups to set hard limits on the number of bytes per second a container can read or write to a block device",
     "option_c": "A way to speed up the disk",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Throttling prevents a single container (like a backup tool) from saturating the disk bandwidth."
   },
   {
@@ -570,7 +650,9 @@
     "option_b": "Detailed statistics about the daemon, like the number of containers (running/stopped), storage driver, and security features enabled",
     "option_c": "The user's password",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "'docker info' provides a comprehensive health summary of the whole Docker subsystem."
   },
   {
@@ -584,7 +666,9 @@
     "option_b": "Removing all volumes that are not currently mounted by at least one container",
     "option_c": "Formatting the volume",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "'docker volume prune' is essential for clearing out 'ghost data' left by old test containers."
   },
   {
@@ -598,7 +682,9 @@
     "option_b": "A secure container runtime that runs containers inside lightweight Virtual Machines for better isolation",
     "option_c": "A tool to delete images",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Kata provides the security of VMs with the management ease of Docker."
   },
   {
@@ -612,7 +698,9 @@
     "option_b": "Odd number of managers and Majority Consensus (e.g. 2 out of 3)",
     "option_c": "Randomly picking one",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The Raft protocol requires a majority to approve any cluster-wide change."
   },
   {
@@ -626,7 +714,9 @@
     "option_b": "A community-standardized set of LABEL keys (like org.opencontainers.image.source) to ensure metadata consistency across all builders",
     "option_c": "An encryption key",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Standardized labels allow tools to show consistent information for any image."
   },
   {
@@ -640,7 +730,9 @@
     "option_b": "The internal network interface (127.0.0.1) that allows a container to talk to its own internal processes",
     "option_c": "A ways to delete IP",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Every container gets its own isolated loopback interface by the NET namespace."
   },
   {
@@ -654,7 +746,9 @@
     "option_b": "Setting 'update_config' to control how many replicas are updated at once and how long to wait between updates",
     "option_c": "A law for the internet",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Good update policies prevent total service downtime during a buggy code deployment."
   },
   {
@@ -668,7 +762,9 @@
     "option_b": "An exploit where a user inside a container managed to gain root-level permissions on the host operating system",
     "option_c": "Hiding the password",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Properly configured Namespaces and Seccomp are designed to prevent this."
   },
   {
@@ -682,7 +778,9 @@
     "option_b": "Allowing third-party vendors to extend Docker's networking, storage, and logging capabilities without modifying the core engine",
     "option_c": "A ways to speed up the internet",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Plugins allow Docker to adapt to diverse enterprise ecosystems."
   },
   {
@@ -696,7 +794,9 @@
     "option_b": "The ability to save build cache data to a remote registry so other team members or CI/CD pipelines can benefit from previous builds",
     "option_c": "Deleting the cache",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Remote cache sharing makes CI/CD extremely fast even on clean agents."
   }
 ]

@@ -10,7 +10,9 @@
     "option_b": "FCFS (First-Come, First-Served) is used to break the tie",
     "option_c": "The scheduler crashes",
     "option_d": "The process with the highest ID wins",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "FCFS is the standard tie-breaking rule for most scheduling algorithms."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "A way to speed up the system",
     "option_c": "Using multiple CPUs for one task",
     "option_d": "A bug in the scheduling logic",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Convoy effect leads to poor CPU and device utilization as small tasks wait for a massive one to finish."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "Mutual Exclusion, Progress, and Bounded Waiting",
     "option_c": "CPU, RAM, DISK",
     "option_d": "Lock, Unlock, Wait",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Mutual Exclusion (only one in CS), Progress (decisions can be made), and Bounded Waiting (no infinite waiting)."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "Mutex (Mutual Exclusion lock)",
     "option_c": "Queue",
     "option_d": "Database index",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Binary semaphores take values 0 or 1, primarily used for mutual exclusion."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "Every philosopher picks up the left fork simultaneously and waits forever for the right fork",
     "option_c": "They run out of food",
     "option_d": "The forks are broken",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This classic problem demonstrates resource contention and the risk of circular wait."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "Hold and Wait",
     "option_c": "No Preemption",
     "option_d": "Circular Progress",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "The four conditions (Coffman conditions) are Mutual Exclusion, Hold and Wait, No Preemption, and Circular Wait."
   },
   {
@@ -94,7 +106,9 @@
     "option_b": "Deadlock avoidance by checking if a resource allocation leads to an 'Unsafe' state",
     "option_c": "Sorting database records",
     "option_d": "Managing user bank accounts",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The Banker's algorithm ensures that there is at least one sequence (safe sequence) for all processes to finish."
   },
   {
@@ -108,7 +122,9 @@
     "option_b": "Wasted space inside a memory block that is larger than requested but allocated as a fixed-size partition",
     "option_c": "Memory that is physically broken",
     "option_d": "Deleting files incorrectly",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Fixed-size partitions often lead to internal fragmentation."
   },
   {
@@ -122,7 +138,9 @@
     "option_b": "When total free memory is enough for a request but it is divided into small non-contiguous pieces",
     "option_c": "Using all the RAM",
     "option_d": "Files stored on a USB drive",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Variable-size partitions generally lead to external fragmentation over time."
   },
   {
@@ -136,7 +154,9 @@
     "option_b": "To map logical page numbers to physical frame numbers",
     "option_c": "To store the contents of a file",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The page table is a data structure used by the virtual memory system to store the mapping."
   },
   {
@@ -150,7 +170,9 @@
     "option_b": "An interrupt that occurs when a program tries to access a page that is mapped in the virtual address space but not currently in physical memory",
     "option_c": "A broken hard drive",
     "option_d": "A user error",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The OS must handle the page fault by bringing the page in from disk."
   },
   {
@@ -164,7 +186,9 @@
     "option_b": "A phenomenon where increasing the number of page frames results in MORE page faults for certain access patterns using FIFO replacement",
     "option_c": "A type of database crash",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Belady's anomaly shows that FIFO is not always the best page replacement strategy."
   },
   {
@@ -178,7 +202,9 @@
     "option_b": "LRU",
     "option_c": "Optimal (MIN) Algorithm",
     "option_d": "LFU",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The Optimal algorithm yields the lowest possible page fault rate but is impossible to implement without knowing the future."
   },
   {
@@ -192,8 +218,10 @@
     "option_b": "A lock where the waiting process continuously loops (polls) checking if the lock is available",
     "option_c": "A lock used for mouse clicks",
     "option_d": "A very fast database index",
-    "correct_options": ["B"],
-  "explanation": "Spinlocks are useful for short wait times where the cost of a context switch is higher than spinning."
+    "correct_options": [
+      "B"
+    ],
+    "explanation": "Spinlocks are useful for short wait times where the cost of a context switch is higher than spinning."
   },
   {
     "subject_name": "Operating Systems (OS)",
@@ -206,7 +234,9 @@
     "option_b": "A set of processes {P0, P1, ..., Pn} exists such that P0 is waiting for a resource held by P1, P1 for P2, ..., and Pn for P0",
     "option_c": "Retrying the same code in a loop",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Circular wait completes the chain of dependencies that creates a deadlock."
   },
   {
@@ -220,7 +250,9 @@
     "option_b": "Producer-Consumer Problem",
     "option_c": "Readers-Writers Problem",
     "option_d": "Banker's Algorithm",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This problem describes a producer putting items into a buffer and a consumer taking them out."
   },
   {
@@ -234,7 +266,9 @@
     "option_b": "A memory management scheme that supports the user's view of memory as a collection of logical segments (e.g., Code, Stack, Data)",
     "option_c": "A fixed-size paging method",
     "option_d": "Sorting logs by size",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Segmentation uses variable-sized blocks corresponding to logical program components."
   },
   {
@@ -248,7 +282,9 @@
     "option_b": "A state where the OS spends more time swapping pages in and out of memory than executing actual instructions",
     "option_c": "A hardware error in the CPU",
     "option_d": "A very fast processing mode",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Thrashing usually occurs when the total working set of all processes exceeds physical RAM."
   },
   {
@@ -262,7 +298,9 @@
     "option_b": "When the OS can interrupt a running process and swap it out for another process (e.g., when a higher priority one arrives)",
     "option_c": "A scheduler that never stops a task",
     "option_d": "Scheduling without using code",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Preemption allows for more responsive systems but adds context switching overhead."
   },
   {
@@ -276,7 +314,9 @@
     "option_b": "Gradually increasing the priority of processes that wait in the system for a long time to prevent starvation",
     "option_c": "Deleting old processes",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Aging ensures that low-priority processes will eventually get to execute."
   },
   {
@@ -290,7 +330,9 @@
     "option_b": "A backup memory",
     "option_c": "A buffer for video data",
     "option_d": "A type of network switch",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "TLB misses significantly slow down memory access; the TLB caches current mappings for the CPU."
   },
   {
@@ -304,7 +346,9 @@
     "option_b": "The total time from process submission to process completion",
     "option_c": "The time it takes to switch a process",
     "option_d": "The time the CPU was idle",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Turnaround time = Waiting Time + CPU Execution Time + I/O Time."
   },
   {
@@ -318,7 +362,9 @@
     "option_b": "Allocating the first free hole that is big enough to hold the process",
     "option_c": "Allocating the largest free block",
     "option_d": "Assigning it at random",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "First-fit is generally faster than Best-fit or Worst-fit."
   },
   {
@@ -332,7 +378,9 @@
     "option_b": "Allocating the smallest free hole that is big enough, which might produce tiny leftover fragments",
     "option_c": "Allocating the largest hole",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Best-fit searches the entire list to find the most 'efficient' block size."
   },
   {
@@ -346,7 +394,9 @@
     "option_b": "A technique where parent and child processes share memory pages until one of them modifies a page",
     "option_c": "A security feature for files",
     "option_d": "Deleting the original after copying",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "COW makes process creation (fork) extremely efficient."
   },
   {
@@ -360,7 +410,9 @@
     "option_b": "An operation that completes in its entirety without interruption by any other process",
     "option_c": "A very small operation",
     "option_d": "Deleting a file by bits",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Atomic operations (like TestAndSet) are fundamental building blocks for locks."
   },
   {
@@ -374,7 +426,9 @@
     "option_b": "A high-level language construct that provides a convenient and effective mechanism for process synchronization by encapsulating data and procedures",
     "option_c": "A software that watches for bugs",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Monitors ensure that only one process at a time can be active within the monitor structure."
   },
   {
@@ -388,7 +442,9 @@
     "option_b": "Imposing a total ordering of all resource types and requiring processes to request resources in increasing order",
     "option_c": "Using more RAM",
     "option_d": "Deleting the processes",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Order-based resource requests effectively break the circular wait condition."
   },
   {
@@ -402,7 +458,9 @@
     "option_b": "10",
     "option_c": "12",
     "option_d": "20",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "4KB is 2^12 bytes, so 12 bits are needed for the offset."
   },
   {
@@ -416,7 +474,9 @@
     "option_b": "A table with reverse code",
     "option_c": "A page table inside another table",
     "option_d": "None of the above",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Inverted page tables are used to save memory by having only one entry per physical frame."
   },
   {
@@ -430,7 +490,9 @@
     "option_b": "Estimating and guaranteeing the minimum required memory (pages) a process needs for a specific time window to avoid thrashing",
     "option_c": "Managing a group of developers",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The working set is the set of pages a process is actively referencing."
   },
   {
@@ -444,7 +506,9 @@
     "option_b": "Each file occupies a set of contiguous blocks on the disk",
     "option_c": "The OS decides after deletion",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Contiguous allocation is fast for reads but leads to severe disk fragmentation."
   },
   {
@@ -458,7 +522,9 @@
     "option_b": "The device notifies the CPU via a signal when it is ready for data transfer, allowing the CPU to work on other tasks in between",
     "option_c": "The user interrupts the computer",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Interrupt-driven I/O is much more efficient than Polling (Busy-Waiting)."
   },
   {
@@ -472,7 +538,9 @@
     "option_b": "The total seek time (movement of the disk arm)",
     "option_c": "The number of users",
     "option_d": "The power usage",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Disk scheduling algorithms like SSTF or SCAN optimize the physical movement of the disk head."
   },
   {
@@ -486,7 +554,9 @@
     "option_b": "SSTF",
     "option_c": "SCAN (Elevator Algorithm)",
     "option_d": "C-LOOK",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The SCAN algorithm services requests as it sweeps from one end of the disk to the other."
   },
   {
@@ -500,7 +570,9 @@
     "option_b": "To enable/disable the execution of privileged instructions",
     "option_c": "To tell the user which OS is running",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The mode bit ensures strict separation between user and system privileges."
   },
   {
@@ -514,7 +586,9 @@
     "option_b": "A synchronization method where two processes must alternate their entry into the critical section (Process A, then B, then A...)",
     "option_c": "A bug in the multithreading logic",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Strict alternation violates the 'Progress' requirement of the Critical Section problem."
   },
   {
@@ -528,7 +602,9 @@
     "option_b": "Moving all occupied memory blocks to one side of memory to create a single large free area",
     "option_c": "Compressing RAM using a zip tool",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Compaction solves external fragmentation but is computationally expensive."
   },
   {
@@ -542,7 +618,9 @@
     "option_b": "The total time a process spends in the ready queue waiting for its turn on the CPU",
     "option_c": "The time to switch to another process",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Waiting time = Turnaround Time - Burst Time."
   },
   {
@@ -556,7 +634,9 @@
     "option_b": "Giving users and processes only the minimum permissions they need to perform their tasks",
     "option_c": "Allowing No access to the computer",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This principle minimizes the potential damage from compromised or buggy software."
   },
   {
@@ -570,7 +650,9 @@
     "option_b": "User threads are managed by a thread library and the OS is unaware of them; Kernel threads are managed directly by the OS",
     "option_c": "Kernel threads are for games only",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Kernel-level threads allow for true parallelism on multi-core systems even if one thread blocks."
   },
   {
@@ -584,7 +666,9 @@
     "option_b": "Medium-term Scheduler",
     "option_c": "Long-term Scheduler",
     "option_d": "IO Scheduler",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The medium-term scheduler swaps processes in and out of main memory to control degrees of multiprogramming."
   },
   {
@@ -598,7 +682,9 @@
     "option_b": "A data structure containing information about a file, such as attributes and disk block locations",
     "option_c": "A list of user names",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "I-nodes are the core structure representing files on most Linux/Unix file systems."
   },
   {
@@ -612,7 +698,9 @@
     "option_b": "Taking a resource away from a process and giving it to another to break the deadlock",
     "option_c": "Rebooting the server",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Preemption can be used for recovery but requires a safe way to 'roll back' the victim process."
   },
   {
@@ -626,7 +714,9 @@
     "option_b": "Indicates whether a specific page is currently in RAM (Valid) or on disk (Invalid)",
     "option_c": "A bit to fix corrupted data",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "An access to a page marked 'invalid' triggers a page fault."
   },
   {
@@ -640,7 +730,9 @@
     "option_b": "A mechanism that allows the output of one process to serve as input for another",
     "option_c": "A database connection",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Pipes are a foundational IPC method in the Unix command-line philosophy."
   },
   {
@@ -654,7 +746,9 @@
     "option_b": "LRU",
     "option_c": "LFU (Least Frequently Used)",
     "option_d": "Clock",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "LFU is based on the idea that highly active pages will have higher usage counts."
   },
   {
@@ -668,7 +762,9 @@
     "option_b": "A writer requires exclusive access, while multiple readers can coexist",
     "option_c": "There are too many readers",
     "option_d": "The file is too large",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Correct synchronization must ensure that no reader is active when a writer is modifying the data."
   },
   {
@@ -682,7 +778,9 @@
     "option_b": "Always higher priority",
     "option_c": "The same priority",
     "option_d": "It doesn't matter",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Convention varies, but in many kernels (like Unix), lower numbers represent higher scheduling priority."
   },
   {
@@ -696,7 +794,9 @@
     "option_b": "The time it takes for the desired sector to rotate under the read/write head",
     "option_c": "The speed of the network",
     "option_d": "The time to boot the computer",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Total disk access time = Seek Time + Rotational Latency + Transfer Time."
   }
 ]

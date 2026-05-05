@@ -10,7 +10,9 @@
     "option_b": "Every non-prime attribute is fully functionally dependent on the primary key (no partial dependency)",
     "option_c": "Has no transitive dependencies",
     "option_d": "Is sorted",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "2NF eliminates dependencies on part of a composite primary key."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "Has no transitive functional dependencies (non-prime attributes shouldn't depend on other non-prime attributes)",
     "option_c": "Is always sorted by primary key",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "3NF ensures that non-key attributes are dependent ONLY on the primary key."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "The database is always fast",
     "option_c": "Data is stored on atoms",
     "option_d": "Users cannot see each other's data",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Atomicity ensures 'all-or-nothing' execution for database transactions."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "Once a transaction is committed, its changes are permanent, even in the event of a system failure",
     "option_c": "The database never crashes",
     "option_d": "Encryption",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Durability is usually guaranteed by writing changes to non-volatile storage (disk)."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "When a non-prime attribute depends on only a part of a composite candidate key",
     "option_c": "Dependency on null values",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Partial dependency violates 2NF and causes anomalies."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "When it has no keys",
     "option_c": "When all attributes are prime",
     "option_d": "None of the above",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "BCNF is a stricter version of 3NF that handles overlapping candidate keys."
   },
   {
@@ -94,7 +106,9 @@
     "option_b": "When a transaction reads data that has been modified by another concurrent transaction that hasn't committed yet",
     "option_c": "Reading from a deleted table",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "If the modifying transaction rolls back, the first transaction's data becomes invalid (dirty)."
   },
   {
@@ -108,7 +122,9 @@
     "option_b": "When a transaction re-executes a query and finds new rows that were not there before because of a commit by another transaction",
     "option_c": "Reading deleted data",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Phantom reads affect collective results like COUNT or SUM."
   },
   {
@@ -122,7 +138,9 @@
     "option_b": "UNION is for only two tables",
     "option_c": "There is no difference",
     "option_d": "UNION ALL is more secure",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "UNION performs an additional step to filter out duplicates, which is more expensive."
   },
   {
@@ -131,12 +149,14 @@
     "level_topic": "Algebra",
     "question_type": "hard",
     "timer_seconds": 45,
-    "question_text": "What is a 'Natural Join' (⨝)?",
+    "question_text": "What is a 'Natural Join' (\u2a1d)?",
     "option_a": "Joining two tables with No common columns",
     "option_b": "A join that automatically matches columns with the same name and eliminates the redundant duplicate column from the result",
     "option_c": "A join defined by the user manually",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Natural join is a shorthand for an Inner Join on all identical field names."
   },
   {
@@ -150,7 +170,9 @@
     "option_b": "Undoes all changes made during the current transaction, returning the database to its previous stable state",
     "option_c": "Deletes the logs",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Rollback is used when an error occurs to maintain database consistency (Atomicity)."
   },
   {
@@ -164,7 +186,9 @@
     "option_b": "A set of rules (Reflexivity, Augmentation, Transitivity) used to derive all functional dependencies that hold in a relation",
     "option_c": "A way to encrypt passwords",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "These axioms form the foundation of logical inference for database design."
   },
   {
@@ -178,7 +202,9 @@
     "option_b": "The set of all attributes that can be functionally determined by a given attribute set X",
     "option_c": "Deleting an attribute",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Closure is used to find candidate keys and check if a dependency holds."
   },
   {
@@ -192,7 +218,9 @@
     "option_b": "A property of a schedule that means it can be transformed into a serial schedule by swapping non-conflicting concurrent operations",
     "option_c": "Sorting data after an error",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Serializable schedules ensure that concurrent execution is equivalent to some serial ordering."
   },
   {
@@ -206,7 +234,9 @@
     "option_b": "When a non-prime attribute depends on another non-prime attribute (X -> Y and Y -> Z where Z is non-prime)",
     "option_c": "Dependency on a foreign key",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Transitive dependencies must be removed to achieve 3NF."
   },
   {
@@ -220,7 +250,9 @@
     "option_b": "INTERSECT",
     "option_c": "AND",
     "option_d": "CROSS",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "INTERSECT returns only the rows that are present in both queries."
   },
   {
@@ -234,7 +266,9 @@
     "option_b": "EXCEPT / MINUS",
     "option_c": "DIFFERENCE",
     "option_d": "NOT EXIST",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "EXCEPT (Postgres/SQL Server) or MINUS (Oracle) performs set subtraction."
   },
   {
@@ -248,7 +282,9 @@
     "option_b": "To determine whether a schedule is conflict serializable by checking for cycles in the graph",
     "option_c": "To map user permissions",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "If a cycle exists in the precedence graph, the schedule is NOT conflict serializable."
   },
   {
@@ -262,7 +298,9 @@
     "option_b": "A state where all integrity constraints are satisfied",
     "option_c": "A state where the web server is online",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Consistency ensures the database transitions from one valid state to another."
   },
   {
@@ -276,7 +314,9 @@
     "option_b": "A constraint that defines the allowable values for a column (data type, range, format)",
     "option_c": "The security of the domain",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Domain integrity ensures that data values fall within defined valid boundaries."
   },
   {
@@ -290,7 +330,9 @@
     "option_b": "A dependency X -> Y where Y is a subset of X (e.g., {ID, Name} -> ID)",
     "option_c": "A dependency on a null value",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Trivial dependencies always hold by definition and don't provide useful design info."
   },
   {
@@ -304,7 +346,9 @@
     "option_b": "A join that includes unmatched rows from one or both tables, filling missing values with NULL",
     "option_c": "A faster join",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Outer joins (Left, Right, Full) ensure no data is lost even if there's no match."
   },
   {
@@ -318,7 +362,9 @@
     "option_b": "It is a subquery that depends on values from the outer query, executing once for each row of the outer query",
     "option_c": "It is encrypted",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Correlated subqueries are often powerful but can be slower than standard joins or non-correlated queries."
   },
   {
@@ -332,7 +378,9 @@
     "option_b": "Lossless and Dependency Preserving",
     "option_c": "Random",
     "option_d": "One table only",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Lossless ensures you can recreate the original table; preserve dependency ensures constraints still check locally."
   },
   {
@@ -346,7 +394,9 @@
     "option_b": "When two transactions override each other's changes because they read the same initial value, resulting in only one change being saved",
     "option_c": "A deleted update",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Lost updates are a major concurrency problem that requires locking or isolation levels."
   },
   {
@@ -360,7 +410,9 @@
     "option_b": "NOT NULL",
     "option_c": "CHECK",
     "option_d": "PRIMARY KEY",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "While PK implies NOT NULL, you can apply NOT NULL to regular columns too."
   },
   {
@@ -374,7 +426,9 @@
     "option_b": "Removal of ANY attribute from X causes the dependency to no longer hold",
     "option_c": "X is only one attribute",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This is a key requirement for 2NF."
   },
   {
@@ -388,7 +442,9 @@
     "option_b": "Database inconsistency and incorrect results",
     "option_c": "Deleted tables",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Non-serializable schedules allow data races and logical errors."
   },
   {
@@ -402,7 +458,9 @@
     "option_b": "Dependent",
     "option_c": "Product",
     "option_d": "Sum",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "X determines the value of Y, so X is the determinant."
   },
   {
@@ -411,13 +469,15 @@
     "level_topic": "SQL Advanced",
     "question_type": "hard",
     "timer_seconds": 40,
-    "question_text": "What is 'Theta Join' (θ-join)?",
+    "question_text": "What is 'Theta Join' (\u03b8-join)?",
     "option_a": "A join in a Greek database",
     "option_b": "A general join that uses various comparison operators (like <, >, <=, >=) instead of just equality",
     "option_c": "Joining 3 tables",
     "option_d": "None of the above",
-    "correct_options": ["B"],
-    "explanation": "Equijoin is a specific type of Theta Join where θ is '='."
+    "correct_options": [
+      "B"
+    ],
+    "explanation": "Equijoin is a specific type of Theta Join where \u03b8 is '='."
   },
   {
     "subject_name": "DBMS",
@@ -430,7 +490,9 @@
     "option_b": "Ready",
     "option_c": "Processing",
     "option_d": "Running",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "A transaction stays in 'Active' state while its operations are being performed."
   },
   {
@@ -444,7 +506,9 @@
     "option_b": "It often leads to too many small tables and excessive joins, which can hurt performance and query complexity",
     "option_c": "Normal forms are secrets",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Designers often balance normalization with performance (sometimes even denormalizing for speed)."
   },
   {
@@ -458,7 +522,9 @@
     "option_b": "A dependency X -> Y where Y is NOT a subset of X",
     "option_c": "Dependency on many tables",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Non-trivial dependencies are the 'meat' of the database design rules."
   },
   {
@@ -472,7 +538,9 @@
     "option_b": "Two",
     "option_c": "Three",
     "option_d": "Many",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "A table is joined with its own copy."
   },
   {
@@ -486,7 +554,9 @@
     "option_b": "The property that concurrent execution of transactions results in a system state that would be obtained if transactions were executed serially",
     "option_c": "Keeping the data in its own folder",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Isolation prevents transactions from interfering with each other's intermediate steps."
   },
   {
@@ -500,7 +570,9 @@
     "option_b": "All records from both tables, with NULLs in place of unmatched rows",
     "option_c": "The whole database",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Full joins provide a complete view of data from both sides."
   },
   {
@@ -514,7 +586,9 @@
     "option_b": "Augmentation",
     "option_c": "Transitivity",
     "option_d": "Union",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Transitivity allows inferring a relationship across a middle attribute."
   },
   {
@@ -528,7 +602,9 @@
     "option_b": "Transactions are executed execution one after another, with no overlap",
     "option_c": "The data is sorted",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Serial schedules are always consistent but offer poor performance for concurrent users."
   },
   {
@@ -542,7 +618,9 @@
     "option_b": "After the final statement in a transaction has been executed but before changes are made durable to disk",
     "option_c": "A failed transaction",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Final safety checks occur here before the permanent COMMIT."
   },
   {
@@ -556,7 +634,9 @@
     "option_b": "UNIQUE",
     "option_c": "CHECK",
     "option_d": "NOT NULL",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "UNIQUE constraint prevents multiple rows from having same value, but allows NULLs unless specified otherwise."
   },
   {
@@ -570,7 +650,9 @@
     "option_b": "Checking if a value matches any value in a list of specified values or results from a subquery",
     "option_c": "Logging in as a user",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "IN is a cleaner alternative to multiple OR conditions."
   },
   {
@@ -584,7 +666,9 @@
     "option_b": "False",
     "option_c": "Only for MySQL",
     "option_d": "None of the above",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "The relational model fundamentally requires atomic values (no sets in cells), which is 1NF."
   },
   {
@@ -598,7 +682,9 @@
     "option_b": "When a transaction has been rolled back and the database restored to its state before the transaction started",
     "option_c": "A committed transaction",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Abortion happens after a failure to ensure data integrity."
   },
   {
@@ -612,7 +698,9 @@
     "option_b": "INNER JOIN",
     "option_c": "OUTER JOIN",
     "option_d": "CROSS JOIN",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Inner joins filter out rows that don't have a match in the other table."
   },
   {
@@ -626,7 +714,9 @@
     "option_b": "No, it must have all attributes",
     "option_c": "Only if it is a primary key",
     "option_d": "none of the above",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Candidate keys must be MAS (Minimal Superkeys)."
   },
   {
@@ -640,7 +730,9 @@
     "option_b": "The capacity to change the conceptual schema without having to change external schemas or applications",
     "option_c": "A way to use multiple databases",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This allows changing the table structures without breaking the end-user queries (often using views)."
   },
   {
@@ -654,7 +746,9 @@
     "option_b": "If the subquery returns ANY result rows",
     "option_c": "If the user exists",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "EXISTS is typically more efficient for existence checks than COUNT(*) > 0."
   },
   {
@@ -668,7 +762,9 @@
     "option_b": "All matching foreign key values in related tables are automatically updated",
     "option_c": "The old data is deleted",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Cascading updates maintain synchronization across related records."
   },
   {
@@ -682,7 +778,9 @@
     "option_b": "A region of main memory used to cache data blocks from disk to speed up read/write operations",
     "option_c": "A list of logged-in users",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The buffer pool minimizes expensive disk I/O."
   },
   {
@@ -696,49 +794,9 @@
     "option_b": "A schedule where if transaction T1 reads data modified by T2, then T2 must commit before T1 commits",
     "option_c": "A schedule with no errors",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Recoverability prevents 'cascading rollbacks' and permanent data loss during failures."
-  },
-  {
-    "subject_name": "DBMS",
-    "level_number": 2,
-    "level_topic": "Concurrency",
-    "question_type": "hard",
-    "timer_seconds": 45,
-    "question_text": "What is 'Cascadeless Schedule'?",
-    "option_a": "A schedule with no waterfalls",
-    "option_b": "A schedule where a transaction can only read data written by a committed transaction",
-    "option_c": "A schedule that never fails",
-    "option_d": "None of the above",
-    "correct_options": ["B"],
-    "explanation": "Cascadelessness is a stronger property than recoverability, ensuring that rolling back one transaction doesn't force others to roll back."
-  },
-  {
-    "subject_name": "DBMS",
-    "level_number": 2,
-    "level_topic": "SQL Advanced",
-    "question_type": "medium",
-    "timer_seconds": 30,
-    "question_text": "What is the result of a 'Cross Join' between two tables with 5 and 10 rows respectively?",
-    "option_a": "15 rows",
-    "option_b": "50 rows",
-    "option_c": "5 rows",
-    "option_d": "10 rows",
-    "correct_options": ["B"],
-    "explanation": "Cross Join (Cartesian Product) results in every combination of rows, so 5 * 10 = 50."
-  },
-  {
-    "subject_name": "DBMS",
-    "level_number": 2,
-    "level_topic": "Transactions",
-    "question_type": "medium",
-    "timer_seconds": 30,
-    "question_text": "Which ACID property is primarily handled by the 'Concurrency Control' subsystem?",
-    "option_a": "Atomicity",
-    "option_b": "Consistency",
-    "option_c": "Isolation",
-    "option_d": "Durability",
-    "correct_options": ["C"],
-    "explanation": "Isolation ensures that concurrent transactions don't produce incorrect states, which is exactly the goal of concurrency control."
   }
 ]

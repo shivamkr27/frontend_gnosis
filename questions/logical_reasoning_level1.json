@@ -10,7 +10,9 @@
     "option_b": "42",
     "option_c": "44",
     "option_d": "46",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Pattern: +4, +6, +8, +10. The next gap is +12. 30 + 12 = 42."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "10",
     "option_c": "12",
     "option_d": "13",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This is a simple alternating addition and subtraction series. In the first pattern, 3 is added; in the second, 2 is subtracted."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "22",
     "option_c": "23",
     "option_d": "26",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This is an alternating subtraction series. First, 2 is subtracted, then 4, then 2, and so on."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "(1/8)",
     "option_c": "(2/8)",
     "option_d": "(1/16)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This is a simple division series; each number is one-half of the previous number."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "25",
     "option_c": "30",
     "option_d": "50",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "This is an alternating addition and subtraction series. In the first pattern, 10 is subtracted from each number to arrive at the next. In the second pattern, 5 is added to each number to arrive at the next."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "414",
     "option_c": "420",
     "option_d": "445",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "This is a simple subtraction series; each number is 35 less than the previous number."
   },
   {
@@ -94,7 +106,9 @@
     "option_b": "FOREST",
     "option_c": "BEAK",
     "option_d": "BUSH",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "You drink out of a cup with your lips. A bird picks up food with its beak."
   },
   {
@@ -108,7 +122,9 @@
     "option_b": "Stream",
     "option_c": "Pool",
     "option_d": "Canal",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Water of a river flows; water of a pool is stagnant."
   },
   {
@@ -122,7 +138,9 @@
     "option_b": "Horse",
     "option_c": "Elephant",
     "option_d": "Tiger",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Cat has paws and horse has hooves."
   },
   {
@@ -136,7 +154,9 @@
     "option_b": "Uncle",
     "option_c": "Cousin",
     "option_d": "Father",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "The boy in the photograph is the son of Suresh's mother's only son (who is Suresh himself). So, Suresh is the boy's father."
   },
   {
@@ -150,7 +170,9 @@
     "option_b": "Grandfather",
     "option_c": "Grandmother",
     "option_d": "Either B or C",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "C is the parent of B, and B is the parent of E. So C is the grandparent of E. Since the gender of C is not specified, C could be the Grandfather or Grandmother."
   },
   {
@@ -164,7 +186,9 @@
     "option_b": "CPNCBZ",
     "option_c": "CPOCBZ",
     "option_d": "CQOCBZ",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Each letter in the word is replaced by the next letter in the English alphabet."
   },
   {
@@ -178,7 +202,9 @@
     "option_b": "DWNTHB",
     "option_c": "DVOVHD",
     "option_d": "DVNTSH",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Each letter in the word is moved one step backward in the English alphabet."
   },
   {
@@ -192,7 +218,9 @@
     "option_b": "N18",
     "option_c": "M18",
     "option_d": "T24",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The letters follow J, L, N, P, R (skipping one). The numbers are 14, 16, 18, 20, 22."
   },
   {
@@ -206,7 +234,9 @@
     "option_b": "65",
     "option_c": "64",
     "option_d": "49",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The difference doubles each time: +2, +4, +8, +16. Next is +32. 33 + 32 = 65."
   },
   {
@@ -220,7 +250,9 @@
     "option_b": "B",
     "option_c": "E",
     "option_d": "C",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The order is C, E, B, A, D. E is second from the left."
   },
   {
@@ -234,7 +266,9 @@
     "option_b": "S",
     "option_c": "Q",
     "option_d": "U",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Placing them in the circle: P, S, U, T, Q, R. Between R and T is Q."
   },
   {
@@ -248,7 +282,9 @@
     "option_b": "South",
     "option_c": "South-West",
     "option_d": "North-East",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "He moves South, then West, then South again. He is South-West from the start."
   },
   {
@@ -262,7 +298,9 @@
     "option_b": "East",
     "option_c": "North",
     "option_d": "West",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "At 6 P.M., the hour hand points down (6). If down is North, then right (3) is West. At 9.15 P.M., the minute hand points to 3, so it points West."
   },
   {
@@ -276,7 +314,9 @@
     "option_b": "Only II follows",
     "option_c": "Neither I nor II follows",
     "option_d": "Both I and II follow",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "If all A are B and all B are C, then all A are C. But all C are not necessarily A."
   },
   {
@@ -290,7 +330,9 @@
     "option_b": "Only II follows",
     "option_c": "Neither I nor II follows",
     "option_d": "Both I and II follow",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Some actors are singers, and all singers are dancers. So the part of actors that are singers must also be dancers."
   },
   {
@@ -304,7 +346,9 @@
     "option_b": "One big circle containing two separate small circles",
     "option_c": "One circle partially overlapping two separate circles",
     "option_d": "Three separate circles",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Travelers can use train, bus, or neither (other means). Train and Bus are separate modes of transport."
   },
   {
@@ -318,7 +362,9 @@
     "option_b": "Three overlapping circles",
     "option_c": "One big circle containing two overlapping small circles",
     "option_d": "Three separate circles",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "All mothers are women. Some women and some mothers can be engineers."
   },
   {
@@ -332,7 +378,9 @@
     "option_b": "Q",
     "option_c": "P",
     "option_d": "R",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "10th from right is J. 7th to the left of J in the original alphabet is Q (17th letter)."
   },
   {
@@ -346,7 +394,9 @@
     "option_b": "2",
     "option_c": "3",
     "option_d": "4",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The 5s meeting the criteria are at positions 3, 6, and 20."
   },
   {
@@ -360,7 +410,9 @@
     "option_b": "64 degrees",
     "option_c": "67.5 degrees",
     "option_d": "72.5 degrees",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Angle = |30H - 5.5M|. Angle = |30*5 - 5.5*15| = |150 - 82.5| = 67.5."
   },
   {
@@ -374,7 +426,9 @@
     "option_b": "Wednesday",
     "option_c": "Thursday",
     "option_d": "Sunday",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "2008 is a leap year, so there are 2 odd days. Tuesday + 2 = Thursday."
   },
   {
@@ -388,7 +442,9 @@
     "option_b": "2nd, 9th, 16th, 23rd, 30th",
     "option_c": "3rd, 10th, 17th, 24th",
     "option_d": "4th, 11th, 18th, 25th",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "By calculation, April 1, 2001 is Sunday. So Wednesday is April 4."
   },
   {
@@ -402,7 +458,9 @@
     "option_b": "3, 4, 2, 5, 1",
     "option_c": "2, 4, 1, 5, 3",
     "option_d": "1, 2, 3, 4, 5",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Logical sequence: Increase in population lead to unemployment, unemployment leads to poverty, poverty leads to diseases, and diseases cause death."
   },
   {
@@ -416,7 +474,9 @@
     "option_b": "Statement II alone is sufficient",
     "option_c": "Both statements I and II together are sufficient",
     "option_d": "Statements I and II together are NOT sufficient",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "From I, J is male. From II, K is female and sister of L. Both together show J is brother of K."
   },
   {
@@ -430,7 +490,9 @@
     "option_b": "Statement II alone is sufficient",
     "option_c": "Both statements I and II together are sufficient",
     "option_d": "Statements I and II together are NOT sufficient",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Rank from top = (Total students - Rank from bottom) + 1. Both pieces are needed."
   },
   {
@@ -444,7 +506,9 @@
     "option_b": "Q",
     "option_c": "R",
     "option_d": "None",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "If Q is the truth-teller, then P is a liar and R is a liar (since Q is not a liar). This fits the condition."
   },
   {
@@ -458,7 +522,9 @@
     "option_b": "5",
     "option_c": "6",
     "option_d": "8",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Minimum 5: Grandfather, Grandmother, Father, Mother, and Son. Wait, that doesn't fit 3 sons. Try Grandfather, Grandmother, Father (son of GF), and 2 sons of Father. That makes 2 fathers, 1 mother, 3 sons. Add Mother of 2 sons. That's 5 people."
   },
   {
@@ -472,7 +538,9 @@
     "option_b": "9",
     "option_c": "17",
     "option_d": "Nil",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The phrase 'all but nine died' means nine survived."
   },
   {
@@ -486,7 +554,9 @@
     "option_b": "18",
     "option_c": "27",
     "option_d": "36",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Let Total = T. Sparrow = T-6, Pigeons = T-6, Ducks = T-6. T = (T-6) + (T-6) + (T-6) => T = 3T-18 => 2T=18 => T=9."
   },
   {
@@ -500,7 +570,9 @@
     "option_b": "Food",
     "option_c": "Sky",
     "option_d": "Tree",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Fruits grow on a 'tree', and 'tree' is called 'sky'."
   },
   {
@@ -514,7 +586,9 @@
     "option_b": "Homage",
     "option_c": "Compliment",
     "option_d": "Recommend",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "These are synonyms of praise or honor."
   },
   {
@@ -528,7 +602,9 @@
     "option_b": "Hiking",
     "option_c": "Needle",
     "option_d": "Direction",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "Odometer measures mileage; compass measures direction."
   },
   {
@@ -542,7 +618,9 @@
     "option_b": "Bear",
     "option_c": "Dream",
     "option_d": "Sleep",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "A marathon is a long race; hibernation is a long sleep."
   },
   {
@@ -556,7 +634,9 @@
     "option_b": "4.4",
     "option_c": "4.7",
     "option_d": "5.1",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Simple addition series: +0.8 to each number."
   },
   {
@@ -570,7 +650,9 @@
     "option_b": "56",
     "option_c": "96",
     "option_d": "128",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Alternating multiplication and subtraction: *2, -8, *2, -8."
   },
   {
@@ -584,7 +666,9 @@
     "option_b": "Butter",
     "option_c": "Oil",
     "option_d": "Cheese",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Oil is not a dairy product."
   },
   {
@@ -598,7 +682,9 @@
     "option_b": "Lotus",
     "option_c": "Marigold",
     "option_d": "Mango",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "Mango is a fruit; others are flowers."
   },
   {
@@ -612,7 +698,9 @@
     "option_b": "960",
     "option_c": "1440",
     "option_d": "2400",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Pattern: *2, *3, *4, *5. Next is *6. 240 * 6 = 1440."
   },
   {
@@ -626,7 +714,9 @@
     "option_b": "P",
     "option_c": "N",
     "option_d": "None",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Sequence: L, N, M, P, Q, O. Between L and O is nobody in one direction, but Q is on the other side? No, O is right of L, so Q must be between O and P."
   },
   {
@@ -640,7 +730,9 @@
     "option_b": "Niece",
     "option_c": "Nephew",
     "option_d": "Uncle",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "If C is not the son but A is the father, C must be the daughter."
   },
   {
@@ -654,7 +746,9 @@
     "option_b": "21",
     "option_c": "22",
     "option_d": "24",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The hands coincide 11 times every 12 hours."
   },
   {
@@ -668,7 +762,9 @@
     "option_b": "169",
     "option_c": "196",
     "option_d": "225",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "These are squares of prime numbers: 2^2, 3^2, 5^2, 7^2, 11^2. Next is 13^2 = 169."
   },
   {
@@ -682,7 +778,25 @@
     "option_b": "West",
     "option_c": "South",
     "option_d": "North",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "In the morning, the shadow is to the West. If West is to his right, he is facing South."
+  },
+  {
+    "subject_name": "Logical Reasoning",
+    "level_number": 1,
+    "level_topic": "Topic 50",
+    "question_type": "easy",
+    "timer_seconds": 45,
+    "question_text": "Sample question 50 for Logical Reasoning Level 1?",
+    "option_a": "Option A",
+    "option_b": "Option B",
+    "option_c": "Option C",
+    "option_d": "Option D",
+    "correct_options": [
+      "C"
+    ],
+    "explanation": "Explanation for question 50 of Logical Reasoning Level 1."
   }
 ]

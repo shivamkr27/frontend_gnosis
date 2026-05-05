@@ -10,7 +10,9 @@
     "option_b": "An infinite stack",
     "option_c": "A random number generator",
     "option_d": "A tape that can move left and right",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "A PDA uses a stack for memory, which allows it to recognize context-free languages (like nested parentheses) that a Finite Automaton cannot."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "There exists at least one string in its language that has more than one leftmost derivation (or parse tree)",
     "option_c": "It cannot generate any strings",
     "option_d": "It has too many non-terminal symbols",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Ambiguity in a grammar means a string can be interpreted in multiple ways, which is undesirable in programming language design."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "A -> BCD",
     "option_c": "A -> aB",
     "option_d": "Any length of terminals and non-terminals",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "CNF restricts production rules to either exactly two non-terminals or a single terminal."
   },
   {
@@ -52,7 +58,11 @@
     "option_b": "They are recognized by Pushdown Automata",
     "option_c": "The language {a^n b^n | n >= 0} is context-free",
     "option_d": "The language {a^n b^n c^n | n >= 0} is context-free",
-    "correct_options": ["A", "B", "C"],
+    "correct_options": [
+      "A",
+      "B",
+      "C"
+    ],
     "explanation": "Regular languages are CFGs. {a^n b^n} is CFG because of the stack, but {a^n b^n c^n} requires two stacks (or a Turing machine) and is not context-free."
   },
   {
@@ -66,7 +76,9 @@
     "option_b": "Prove that a language is NOT context-free",
     "option_c": "Optimize a compiler",
     "option_d": "Convert an NFA to a DFA",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Like the Pumping Lemma for regular languages, it's a tool for non-membership proofs (contradiction)."
   },
   {
@@ -80,7 +92,9 @@
     "option_b": "A string of terminal symbols",
     "option_c": "A new grammar",
     "option_d": "A regular expression",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Derivations start from the start symbol and replace non-terminals until only terminals remain."
   },
   {
@@ -94,7 +108,9 @@
     "option_b": "The leftmost non-terminal is replaced at each step",
     "option_c": "The rightmost terminal is replaced first",
     "option_d": "The machine moves left",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Leftmost and rightmost derivations help analyze the structure of strings in a language."
   },
   {
@@ -108,7 +124,9 @@
     "option_b": "The stack becomes empty",
     "option_c": "The machine crashes",
     "option_d": "The counter reaches zero",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "There are two standard definitions of PDA acceptance: by final state or by empty stack."
   },
   {
@@ -122,7 +140,9 @@
     "option_b": "No",
     "option_c": "Only for regular languages",
     "option_d": "Only if they are deterministic",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "CFLs are NOT closed under intersection. The intersection of {a^n b^n c^m} and {a^m b^n c^n} results in {a^n b^n c^n}, which is not context-free."
   },
   {
@@ -136,7 +156,9 @@
     "option_b": "No",
     "option_c": "Only if the language is finite",
     "option_d": "Only for NFAs",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "CFLs are NOT closed under complementation."
   },
   {
@@ -146,11 +168,13 @@
     "question_type": "hard",
     "timer_seconds": 40,
     "question_text": "In Greibach Normal Form (GNF), every production is of the form:",
-    "option_a": "A -> aα (where a is a terminal and α is a string of non-terminals)",
+    "option_a": "A -> a\u03b1 (where a is a terminal and \u03b1 is a string of non-terminals)",
     "option_b": "A -> BC",
     "option_c": "A -> a",
     "option_d": "A -> B",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "GNF is useful for certain types of parsing algorithms."
   },
   {
@@ -159,13 +183,15 @@
     "level_topic": "PDA",
     "question_type": "medium",
     "timer_seconds": 30,
-    "question_text": "Does an ε-move in a PDA consume an input symbol?",
+    "question_text": "Does an \u03b5-move in a PDA consume an input symbol?",
     "option_a": "Yes",
     "option_b": "No",
     "option_c": "Only if the stack is empty",
     "option_d": "Only if it is deterministic",
-    "correct_options": ["B"],
-    "explanation": "ε-moves allow the PDA to manipulate the stack or change state without reading from input."
+    "correct_options": [
+      "B"
+    ],
+    "explanation": "\u03b5-moves allow the PDA to manipulate the stack or change state without reading from input."
   },
   {
     "subject_name": "TOC",
@@ -176,9 +202,11 @@
     "question_text": "A 'Unit Production' in a CFG is of the form:",
     "option_a": "A -> a",
     "option_b": "A -> B (where A and B are non-terminals)",
-    "option_c": "A -> ε",
+    "option_c": "A -> \u03b5",
     "option_d": "A -> ab",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Unit productions are usually removed during grammar simplification."
   },
   {
@@ -189,10 +217,12 @@
     "timer_seconds": 25,
     "question_text": "What is a 'Nullable' variable in a CFG?",
     "option_a": "A variable that cannot derive any string",
-    "option_b": "A variable that can derive the empty string ε",
+    "option_b": "A variable that can derive the empty string \u03b5",
     "option_c": "A variable with no productions",
     "option_d": "The start symbol",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Identifying nullable variables is key to simplifying CFGs."
   },
   {
@@ -206,7 +236,9 @@
     "option_b": "Type-1",
     "option_c": "Type-2",
     "option_d": "Type-3",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Type-2 grammars generate Context-Free Languages."
   },
   {
@@ -220,7 +252,9 @@
     "option_b": "O(N log N)",
     "option_c": "O(N^2)",
     "option_d": "O(N^3)",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "The CYK (Cocke-Younger-Kasami) algorithm uses dynamic programming and has O(N^3) complexity."
   },
   {
@@ -234,7 +268,9 @@
     "option_b": "No, NPDAs are strictly more powerful",
     "option_c": "No, DPDAs are strictly more powerful",
     "option_d": "They recognize the same set of languages",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Unlike Finite Automata, non-determinism adds power to PDAs. NPDAs recognize all CFLs, while DPDAs recognize only deterministic CFLs."
   },
   {
@@ -248,7 +284,9 @@
     "option_b": "Removing the top element from the stack",
     "option_c": "Reading the input",
     "option_d": "Clearing the memory",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Standard stack operation."
   },
   {
@@ -262,7 +300,9 @@
     "option_b": "{ww | w is a string}",
     "option_c": "Balanced Parentheses (Dyck language)",
     "option_d": "Prime number of 'a's",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Balanced parentheses can be tracked using a stack."
   },
   {
@@ -276,7 +316,9 @@
     "option_b": "The basic symbols from which strings in the language are formed (cannot be replaced)",
     "option_c": "The states of the machine",
     "option_d": "The input tape",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Terminals are the 'final' symbols of the generated strings."
   },
   {
@@ -288,9 +330,11 @@
     "question_text": "What is the 'Start Symbol' in a grammar?",
     "option_a": "The first symbol of the input alphabet",
     "option_b": "The designated non-terminal from which all derivations begin",
-    "option_c": "ε",
+    "option_c": "\u03b5",
     "option_d": "The first terminal in the string",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Every derivation must start from the distinguished start symbol."
   },
   {
@@ -304,7 +348,9 @@
     "option_b": "A hierarchical tree representation of how a string is derived in a grammar",
     "option_c": "A list of all variables",
     "option_d": "A way to sort strings",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Parse trees visualize the structure of the string according to the grammar rules."
   },
   {
@@ -318,7 +364,9 @@
     "option_b": "No",
     "option_c": "Only for finite sets",
     "option_d": "Only for non-deterministic PDAs",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "CFLs are closed under union."
   },
   {
@@ -332,7 +380,9 @@
     "option_b": "Recursion (a variable can derive a string containing itself)",
     "option_c": "Having exactly 5 terminals",
     "option_d": "Using only Greek letters",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Recursive rules allow the grammar to expand into arbitrarily long strings."
   },
   {
@@ -346,7 +396,9 @@
     "option_b": "Is not reachable from the start symbol",
     "option_c": "Both A and B",
     "option_d": "Is the same as a terminal",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Useless variables do not contribute to the language and can be removed."
   },
   {
@@ -360,7 +412,9 @@
     "option_b": "Exactly one non-terminal symbol",
     "option_c": "At least one terminal",
     "option_d": "The empty string",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 'Context-Free' name comes from the fact that variables can be replaced regardless of their surrounding context."
   },
   {
@@ -374,7 +428,9 @@
     "option_b": "No",
     "option_c": "Only for regular languages",
     "option_d": "Depends on the stack size",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "CFLs are closed under the Kleene Star operation."
   },
   {
@@ -388,7 +444,9 @@
     "option_b": "Z0",
     "option_c": "X",
     "option_d": "0",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Z0 is a convention used to represent the bottom of the stack."
   },
   {
@@ -397,12 +455,14 @@
     "level_topic": "PDA Transitions",
     "question_type": "medium",
     "timer_seconds": 30,
-    "question_text": "A PDA transition δ(q, a, X) -> (p, γ) says:",
-    "option_a": "In state q, seeing 'a' on input and X on stack, go to state p and replace X with γ",
+    "question_text": "A PDA transition \u03b4(q, a, X) -> (p, \u03b3) says:",
+    "option_a": "In state q, seeing 'a' on input and X on stack, go to state p and replace X with \u03b3",
     "option_b": "Delete the stack",
     "option_c": "Move the head left",
     "option_d": "Change 'a' to 'p'",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "The transition function defines state change and stack manipulation."
   },
   {
@@ -416,7 +476,9 @@
     "option_b": "False",
     "option_c": "Only for finite strings",
     "option_d": "Only if they use the same alphabet",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Joining two CFLs results in another CFL."
   },
   {
@@ -430,7 +492,9 @@
     "option_b": "Every possible grammar for that language is ambiguous",
     "option_c": "The language is empty",
     "option_d": "No machine can recognize it",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Some languages simply cannot be represented by a non-ambiguous grammar."
   },
   {
@@ -444,7 +508,9 @@
     "option_b": "Infinite",
     "option_c": "Size of the input string",
     "option_d": "100 elements",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Theoretical automata models assume infinite memory resources (tape, stack, etc.) unless specified otherwise."
   },
   {
@@ -458,7 +524,9 @@
     "option_b": "Designing efficient compilers and parsers for programming languages",
     "option_c": "Sorting integers",
     "option_d": "Image processing",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Deterministic CFLs can be parsed efficiently in linear time, which is important for compilers."
   },
   {
@@ -468,11 +536,13 @@
     "question_type": "hard",
     "timer_seconds": 40,
     "question_text": "The process of converting a CFG to CNF involves removing:",
-    "option_a": "ε-productions",
+    "option_a": "\u03b5-productions",
     "option_b": "Unit productions",
     "option_c": "Useless symbols",
     "option_d": "All of the above",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "Successive simplification steps are needed to reach CNF."
   },
   {
@@ -486,7 +556,9 @@
     "option_b": "Bottom-up",
     "option_c": "Random-walk",
     "option_d": "Sideways",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Bottom-up parsers (like LR parsers) reduce string segments back to variables."
   },
   {
@@ -500,7 +572,9 @@
     "option_b": "Bottom-up",
     "option_c": "In-order",
     "option_d": "Post-order",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Top-down parsers (like LL parsers) expand the start symbol using production rules."
   },
   {
@@ -514,7 +588,9 @@
     "option_b": "Recursively Enumerable",
     "option_c": "Decidable in linear time",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "CFLs are a subset of Decidable (Recursive) languages, which are a subset of RE languages."
   },
   {
@@ -528,7 +604,9 @@
     "option_b": "One",
     "option_c": "Zero",
     "option_d": "Five",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Linear grammars are a slightly more restricted form of CFG."
   },
   {
@@ -542,7 +620,9 @@
     "option_b": "Always context-free",
     "option_c": "Sometimes context-sensitive",
     "option_d": "Undecidable",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Since regular languages are also CFLs, and CFLs are closed under concatenation, the result is CFL."
   },
   {
@@ -556,7 +636,9 @@
     "option_b": "No",
     "option_c": "Only finite regular languages",
     "option_d": "Only those with 1 state",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Finite automata are just PDAs that never use their stack."
   },
   {
@@ -570,7 +652,9 @@
     "option_b": "Uppercase letters",
     "option_c": "Numbers",
     "option_d": "Greek symbols",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Conventionally, A, B, S are variables; a, b, c are terminals."
   },
   {
@@ -584,7 +668,9 @@
     "option_b": "5 (uvxyz)",
     "option_c": "2 (uv)",
     "option_d": "4 (uvwx)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The CFL pumping lemma involves 'pumping' two parts of the string (v and x) simultaneously."
   },
   {
@@ -598,7 +684,9 @@
     "option_b": "The concatenation of the leaves from left to right",
     "option_c": "The height of the tree",
     "option_d": "The number of non-terminals",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The yield is the actual string generated by the proof tree."
   },
   {
@@ -612,7 +700,9 @@
     "option_b": "Context-Free",
     "option_c": "Both A and B",
     "option_d": "Neither",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "It's a right-linear grammar (Regular) and also follows CFG rules."
   },
   {
@@ -626,7 +716,9 @@
     "option_b": "{a^n b^2n}",
     "option_c": "{a^n b^n c^n}",
     "option_d": "{a^n b^m}",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "{a^n b^n c^n} cannot be tracked with a single stack. It is context-sensitive."
   },
   {
@@ -640,7 +732,9 @@
     "option_b": "Context-Free",
     "option_c": "Context-Sensitive",
     "option_d": "Isolated",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Direct replacement is context-independent."
   },
   {
@@ -654,7 +748,9 @@
     "option_b": "Context-Free",
     "option_c": "Unrestricted",
     "option_d": "Type-1",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "NPDAs specifically match the class of CFLs."
   },
   {
@@ -668,7 +764,9 @@
     "option_b": "Interior nodes",
     "option_c": "Leaf nodes",
     "option_d": "The second level",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Interior nodes must be variables which were expanded."
   },
   {
@@ -677,13 +775,15 @@
     "level_topic": "Empty String",
     "question_type": "medium",
     "timer_seconds": 20,
-    "question_text": "Can a CFG generate an empty string ε?",
-    "option_a": "Yes, using S -> ε",
+    "question_text": "Can a CFG generate an empty string \u03b5?",
+    "option_a": "Yes, using S -> \u03b5",
     "option_b": "No, never",
     "option_c": "Only if it is regular",
     "option_d": "Only if it has 10 rules",
-    "correct_options": ["A"],
-    "explanation": "The production S -> ε allows the language to contain the empty string."
+    "correct_options": [
+      "A"
+    ],
+    "explanation": "The production S -> \u03b5 allows the language to contain the empty string."
   },
   {
     "subject_name": "TOC",
@@ -696,7 +796,9 @@
     "option_b": "False",
     "option_c": "Only for finite replacements",
     "option_d": "Only for single letters",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Replacing terminals with strings from other CFLs maintains context-freedom."
   }
 ]

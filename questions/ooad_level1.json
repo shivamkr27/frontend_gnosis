@@ -10,7 +10,9 @@
     "option_b": "Single Responsibility Principle",
     "option_c": "Static Structure",
     "option_d": "System Security",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The Single Responsibility Principle states that a class should have only one reason to change."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "Liskov Substitution Principle",
     "option_c": "Interface Segregation Principle",
     "option_d": "Dependency Inversion Principle",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "LSP ensures that inheritance hierarchy is logically sound and doesn't break polymorphism."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "Open for extension, closed for modification",
     "option_c": "Open for all, closed for none",
     "option_d": "Open source and closed source",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Software entities should be open for extension (adding new behavior) but closed for modification (changing existing code)."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "The ability to take many forms",
     "option_c": "Breaking a problem into smaller functions",
     "option_d": "Copying code from one class to another",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Encapsulation protects data integrity and reduces coupling."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "Abstraction",
     "option_c": "Encapsulation",
     "option_d": "Inheritance",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "Inheritance promotes code reusability."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "Singleton Pattern",
     "option_c": "Observer Pattern",
     "option_d": "Strategy Pattern",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Singleton is a creational pattern used for shared resources like database connections."
   },
   {
@@ -94,7 +106,9 @@
     "option_b": "Observer Pattern",
     "option_c": "Decorator Pattern",
     "option_d": "Facade Pattern",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Observer pattern is key to event-driven programming and UI frameworks."
   },
   {
@@ -108,7 +122,9 @@
     "option_b": "Class Diagram",
     "option_c": "State Machine Diagram",
     "option_d": "Use Case Diagram",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Class diagrams are the backbone of object-oriented modeling."
   },
   {
@@ -122,7 +138,9 @@
     "option_b": "Parallel activities in a workflow",
     "option_c": "Physical deployment of hardware",
     "option_d": "Database schema",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Sequence diagrams visualize the call flow between objects."
   },
   {
@@ -136,7 +154,9 @@
     "option_b": "The relationship between actors and their interactions with the system",
     "option_c": "The internal state of an object",
     "option_d": "How to deploy the application",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Use case diagrams define the requirements from a user perspective."
   },
   {
@@ -150,7 +170,9 @@
     "option_b": "In Composition, the child cannot exist without the parent (strong ownership)",
     "option_c": "Composition uses interfaces while Aggregation uses classes",
     "option_d": "There is no difference",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Composition implies a life-cycle dependency (e.g., Room is part of House)."
   },
   {
@@ -164,7 +186,9 @@
     "option_b": "Facade Pattern",
     "option_c": "Bridge Pattern",
     "option_d": "Flyweight Pattern",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Facade masks the complexity of sub-systems."
   },
   {
@@ -178,7 +202,9 @@
     "option_b": "Concrete implementations",
     "option_c": "Abstractions (Interfaces)",
     "option_d": "Static methods",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "DIP decouples modules, making them easier to test and replace."
   },
   {
@@ -192,7 +218,9 @@
     "option_b": "Static Polymorphism (Method Overloading)",
     "option_c": "Type Casting",
     "option_d": "Interface Implementation",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Method overloading is determined by the compiler based on method signatures."
   },
   {
@@ -206,7 +234,9 @@
     "option_b": "Decorator Pattern",
     "option_c": "Adapter Pattern",
     "option_d": "Proxy Pattern",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Decorators provide a flexible alternative to subclassing for extending functionality."
   },
   {
@@ -220,7 +250,9 @@
     "option_b": "Information Expert",
     "option_c": "Controller",
     "option_d": "Low Coupling",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The Expert pattern is a basic rule of thumb for assigning responsibilities in OO design."
   },
   {
@@ -234,7 +266,9 @@
     "option_b": "Bridge Pattern",
     "option_c": "Composite Pattern",
     "option_d": "Chain of Responsibility",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Adapter allows incompatible classes to work together."
   },
   {
@@ -248,7 +282,9 @@
     "option_b": "Interface Segregation Principle",
     "option_c": "Liskov Substitution Principle",
     "option_d": "Dependency Inversion Principle",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "ISP suggests splitting large, 'fat' interfaces into smaller, more specific ones."
   },
   {
@@ -262,7 +298,9 @@
     "option_b": "Resolving a method call at execution time based on the actual type of the object",
     "option_c": "Allocating memory dynamically",
     "option_d": "Linking libraries",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Dynamic binding is the mechanism that enables method overriding and runtime polymorphism."
   },
   {
@@ -276,7 +314,9 @@
     "option_b": "Optimizing memory usage",
     "option_c": "Managing database transactions",
     "option_d": "Implementing complex algorithms",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Factory pattern encapsulates object creation logic."
   },
   {
@@ -290,7 +330,9 @@
     "option_b": "State Pattern",
     "option_c": "Template Pattern",
     "option_d": "Visitor Pattern",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "The Command pattern is often used to implement undo/redo functionality."
   },
   {
@@ -304,7 +346,9 @@
     "option_b": "Open-Closed Principle",
     "option_c": "Coupling and Cohesion problems",
     "option_d": "All of the above",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "Fragile code often stems from a lack of following SOLID principles."
   },
   {
@@ -318,7 +362,9 @@
     "option_b": "A line from a class back to itself",
     "option_c": "A dashed line",
     "option_d": "A rectangular box",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Example: An Employee object having a manager who is also an Employee."
   },
   {
@@ -332,7 +378,9 @@
     "option_b": "Private",
     "option_c": "Protected",
     "option_d": "Package",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "+ is Public, - is Private, # is Protected, ~ is Package."
   },
   {
@@ -346,7 +394,9 @@
     "option_b": "Has no methods",
     "option_c": "Is only used for database operations",
     "option_d": "Is a final class",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Abstract classes define a template or contract for specialized child classes."
   },
   {
@@ -360,7 +410,9 @@
     "option_b": "A participant in the interaction",
     "option_c": "A specific method call",
     "option_d": "A physical machine",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The vertical dashed line (lifeline) represents the existence of an object over time."
   },
   {
@@ -374,7 +426,9 @@
     "option_b": "Inversion of Control (IoC)",
     "option_c": "Inheritance",
     "option_d": "Method Overloading",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The framework or a higher-level module defines the flow and calls back to the custom code."
   },
   {
@@ -388,7 +442,9 @@
     "option_b": "Encapsulation",
     "option_c": "Composition",
     "option_d": "Inheritance",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Example: A 'Shape' variable can hold a 'Circle', 'Square', or 'Triangle' object."
   },
   {
@@ -402,7 +458,9 @@
     "option_b": "Composite Pattern",
     "option_c": "Facade Pattern",
     "option_d": "Adapter Pattern",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Composite pattern builds tree structures to represent part-whole hierarchies."
   },
   {
@@ -416,7 +474,9 @@
     "option_b": "Sort data",
     "option_c": "Connect to a printer",
     "option_d": "Inherit from multiple classes",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Proxies can handle lazy initialization, logging, security checks, etc."
   },
   {
@@ -430,7 +490,9 @@
     "option_b": "Modular, maintainable, and understandable code",
     "option_c": "Code that runs faster",
     "option_d": "Code that uses less memory",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Cohesion is how focused a module is; coupling is how much it depends on others."
   },
   {
@@ -444,7 +506,9 @@
     "option_b": "False",
     "option_c": "Only for C++",
     "option_d": "Only for web apps",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Abstract Factory is a factory of factories."
   },
   {
@@ -458,7 +522,9 @@
     "option_b": "No, DI is a technique to implement DIP",
     "option_c": "DIP is only about database connections",
     "option_d": "DI is for Java only",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "DIP is the goal/rule; DI is one of the methods to achieve that decoupling."
   },
   {
@@ -472,7 +538,9 @@
     "option_b": "Pie Chart",
     "option_c": "Bar Chart",
     "option_d": "ER Diagram",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Activity diagrams model the workflow and logic of a process."
   },
   {
@@ -486,7 +554,9 @@
     "option_b": "State Machine Diagram",
     "option_c": "Component Diagram",
     "option_d": "Package Diagram",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "State machines capture the various conditions an object can be in and how it transitions."
   },
   {
@@ -500,7 +570,9 @@
     "option_b": "Realization",
     "option_c": "Generalization (Inheritance)",
     "option_d": "Dependency",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Standard UML notation for 'is-a' relationship."
   },
   {
@@ -514,7 +586,9 @@
     "option_b": "Realization (Interface implementation)",
     "option_c": "Aggregation",
     "option_d": "Multiplicity",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Dashed lines in UML often represent weaker or implementation-level connections."
   },
   {
@@ -528,7 +602,9 @@
     "option_b": "Decouple an abstraction from its implementation so the two can vary independently",
     "option_c": "Sort objects in a list",
     "option_d": "Serialize data",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Bridge is structural pattern that prefers composition over inheritance."
   },
   {
@@ -542,7 +618,9 @@
     "option_b": "Template Method Pattern",
     "option_c": "Builder Pattern",
     "option_d": "Prototype Pattern",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Template pattern allows subclasses to redefine certain steps of an algorithm without changing the algorithm's structure."
   },
   {
@@ -556,7 +634,9 @@
     "option_b": "Factory Pattern",
     "option_c": "Singleton Pattern",
     "option_d": "Observer Pattern",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Builder pattern is great for creating objects that require many parameters."
   },
   {
@@ -570,7 +650,9 @@
     "option_b": "Multiple classes inheriting from one superclass",
     "option_c": "Inheriting properties from a grandparent",
     "option_d": "Inheriting from an interface",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Many languages (like Java) disallow this to avoid the Diamond Problem."
   },
   {
@@ -584,7 +666,9 @@
     "option_b": "High cohesion, low coupling, and reusability",
     "option_c": "More lines of code",
     "option_d": "Complexity",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Services like 'Logger' or 'DBConnector' are pure fabrications."
   },
   {
@@ -598,7 +682,9 @@
     "option_b": "Private",
     "option_c": "Protected",
     "option_d": "Default",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "This allows fine-grained control in inheritance hierarchies."
   },
   {
@@ -612,7 +698,9 @@
     "option_b": "The number of instances involved in the relationship",
     "option_c": "The speed of the system",
     "option_d": "The database index",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Examples include 1..1 (one to one), 0..* (zero to many)."
   },
   {
@@ -626,7 +714,9 @@
     "option_b": "Blueprint or Template",
     "option_c": "Method call",
     "option_d": "Data entry",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Classes define the structure; objects are the actual instances."
   },
   {
@@ -640,7 +730,9 @@
     "option_b": "Tightly-coupled",
     "option_c": "Monolithic",
     "option_d": "Web-only",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Loose coupling makes the system flexible and maintainable."
   },
   {
@@ -654,7 +746,9 @@
     "option_b": "Controller",
     "option_c": "Creator",
     "option_d": "Indirection",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "Indirection supports low coupling by adding an intermediate object between components."
   },
   {
@@ -668,7 +762,9 @@
     "option_b": "To ensure that non-related methods are not grouped together in one interface",
     "option_c": "To hide all methods",
     "option_d": "To use inheritance more often",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "ISP states that no client should be forced to depend on methods it does not use."
   },
   {
@@ -682,7 +778,9 @@
     "option_b": "Association",
     "option_c": "Aggregation/Composition",
     "option_d": "Dependency",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Hollow diamond is aggregation, solid diamond is composition."
   },
   {
@@ -696,7 +794,9 @@
     "option_b": "Inheritance",
     "option_c": "Encapsulation",
     "option_d": "Abstraction",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Encapsulation hides the data details and only exposes safe methods."
   }
 ]

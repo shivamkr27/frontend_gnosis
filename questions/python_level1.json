@@ -10,7 +10,9 @@
     "option_b": ".pl",
     "option_c": ".py",
     "option_d": ".p",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Python source files have the .py extension."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "list = (1, 2, 3)",
     "option_c": "list = [1, 2, 3]",
     "option_d": "list = <1, 2, 3>",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Lists are created using square brackets [] in Python."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "Indentation",
     "option_c": "Brackets",
     "option_d": "Colons",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Python uses indentation to define code blocks."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "void",
     "option_c": "def",
     "option_d": "fun",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The 'def' keyword is used to start a function definition."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "<class 'float'>",
     "option_c": "<class 'double'>",
     "option_d": "<class 'decimal'>",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "In Python 3, division (/) always returns a float."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "Set",
     "option_c": "Dictionary",
     "option_d": "Tuple",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "Tuples are immutable sequences, meaning their contents cannot be changed after creation."
   },
   {
@@ -94,7 +106,9 @@
     "option_b": "8",
     "option_c": "9",
     "option_d": "12",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The ** operator is for exponentiation; 2 raised to the power of 3 is 8."
   },
   {
@@ -108,7 +122,9 @@
     "option_b": "False",
     "option_c": "None",
     "option_d": "Error",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Empty collections (like lists, strings, sets) evaluate to False in a boolean context."
   },
   {
@@ -122,7 +138,9 @@
     "option_b": ".push()",
     "option_c": ".add()",
     "option_d": ".insert()",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The .add() method is used to add one element to a set."
   },
   {
@@ -136,7 +154,9 @@
     "option_b": "s = set()",
     "option_c": "s = []",
     "option_d": "s = set([])",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "{} creates an empty dictionary. set() must be used to create an empty set."
   },
   {
@@ -150,7 +170,9 @@
     "option_b": "return",
     "option_c": "break",
     "option_d": "stop",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The 'break' statement terminates the current loop and resumes at the next statement."
   },
   {
@@ -164,7 +186,9 @@
     "option_b": "[0, 1, 2, 3, 4]",
     "option_c": "[0, 1, 2, 3, 4, 5]",
     "option_d": "An iterator yielding 0, 1, 2, 3, 4",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "In Python 3, range() returns a range object (an iterator) that produces integers from 0 to n-1."
   },
   {
@@ -178,7 +202,10 @@
     "option_b": "while",
     "option_c": "do-while",
     "option_d": "foreach",
-    "correct_options": ["A", "B"],
+    "correct_options": [
+      "A",
+      "B"
+    ],
     "explanation": "Python only supports 'for' and 'while' loops natively."
   },
   {
@@ -192,7 +219,9 @@
     "option_b": "Interpreted",
     "option_c": "Both",
     "option_d": "Neither",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Python is both compiled (to bytecode) and interpreted (by the VM). However, it is usually categorized as an interpreted language."
   },
   {
@@ -206,7 +235,9 @@
     "option_b": "[1, 3]",
     "option_c": "[2, 4]",
     "option_d": "[0, 1, 2, 3, 4]",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "This is a list comprehension filtering for even numbers from 0 to 4."
   },
   {
@@ -220,7 +251,9 @@
     "option_b": "# this is a comment",
     "option_c": "/* this is a comment */",
     "option_d": "-- this is a comment",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Python uses the hash (#) symbol for single line comments."
   },
   {
@@ -234,7 +267,9 @@
     "option_b": "my_var1",
     "option_c": "2myvar",
     "option_d": "MyVar",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Variable names cannot start with a digit."
   },
   {
@@ -248,7 +283,9 @@
     "option_b": "HELLO",
     "option_c": "hello",
     "option_d": "Error",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The upper() method returns a string in all uppercase letters."
   },
   {
@@ -262,7 +299,9 @@
     "option_b": "<class 'float'>",
     "option_c": "<class 'double'>",
     "option_d": "<class 'str'>",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Real numbers in Python are of type 'float'."
   },
   {
@@ -276,7 +315,9 @@
     "option_b": "count('python')",
     "option_c": "'python'.length()",
     "option_d": "length('python')",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "The len() function returns the number of items in an object."
   },
   {
@@ -290,7 +331,9 @@
     "option_b": "False",
     "option_c": "None",
     "option_d": "Error",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "In boolean logic, 'and' requires both operands to be True for the result to be True."
   },
   {
@@ -304,7 +347,9 @@
     "option_b": "3",
     "option_c": "1",
     "option_d": "4",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "// is the floor division operator; it returns the largest integer less than or equal to the result."
   },
   {
@@ -318,7 +363,9 @@
     "option_b": "my_list.append('x')",
     "option_c": "my_list.insert('x')",
     "option_d": "my_list += 'x'",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The append() method adds an item to the end of a list."
   },
   {
@@ -332,7 +379,9 @@
     "option_b": "my_dict = [('a', 1), ('b', 2)]",
     "option_c": "my_dict = {'key': 'value'}",
     "option_d": "my_dict = (1, 2, 3)",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Dictionaries are defined with curly braces and contain key:value pairs."
   },
   {
@@ -346,7 +395,9 @@
     "option_b": "def",
     "option_c": "fun",
     "option_d": "define",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Functions are defined using the 'def' keyword."
   },
   {
@@ -360,7 +411,9 @@
     "option_b": "B",
     "option_c": "AB",
     "option_d": "Nothing",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "The code block associated with 'if True' will execute."
   },
   {
@@ -374,7 +427,9 @@
     "option_b": "continue",
     "option_c": "pass",
     "option_d": "skip",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 'continue' statement starts the next cycle of the nearest enclosing loop."
   },
   {
@@ -388,7 +443,9 @@
     "option_b": "except",
     "option_c": "finally",
     "option_d": "error",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "The 'try' block lets you test a block of code for errors."
   },
   {
@@ -402,7 +459,9 @@
     "option_b": "read()",
     "option_c": "scanf()",
     "option_d": "get()",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "The input() function reads a line of text from standard input as a string."
   },
   {
@@ -416,7 +475,9 @@
     "option_b": "abcabcabc",
     "option_c": "Error",
     "option_d": "3abc",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "When used with a string and an integer, the * operator repeats the string."
   },
   {
@@ -430,7 +491,9 @@
     "option_b": "require",
     "option_c": "import",
     "option_d": "include",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The import statement is used to bring in code from a module."
   },
   {
@@ -444,7 +507,9 @@
     "option_b": "A variable listed in the function definition that receives a value",
     "option_c": "The return value of the function",
     "option_d": "The name of the function",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Parameters are placeholders used to pass data to a function."
   },
   {
@@ -458,7 +523,9 @@
     "option_b": "11",
     "option_c": "Error",
     "option_d": "None",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "When used with strings, the + operator concatenates them."
   },
   {
@@ -472,7 +539,9 @@
     "option_b": "Tuples are immutable; lists are not",
     "option_c": "Lists can only hold integers",
     "option_d": "Tuples are faster for searching",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Tuples cannot be changed after creation (immutable), while lists can (mutable)."
   },
   {
@@ -486,7 +555,9 @@
     "option_b": "{1, 2, 3}",
     "option_c": "[1, 2, 3]",
     "option_d": "Error",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "A set automatically removes duplicate elements."
   },
   {
@@ -500,7 +571,9 @@
     "option_b": "False",
     "option_c": "None",
     "option_d": "Error",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "In Python, the integer 0 evaluates to False in a boolean context."
   },
   {
@@ -514,7 +587,9 @@
     "option_b": "Write",
     "option_c": "Warning",
     "option_d": "Web",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "'w' opens a file for writing, overwriting its existing content."
   },
   {
@@ -528,7 +603,9 @@
     "option_b": "As a placeholder for code that will be written later",
     "option_c": "To return a value",
     "option_d": "To skip an error",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "'pass' is a null operation; nothing happens when it executes."
   },
   {
@@ -542,7 +619,9 @@
     "option_b": "hel",
     "option_c": "ell",
     "option_d": "he",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Slicing uses indices from (including) the start to (excluding) the end. Indices 1 and 2 are 'e' and 'l'."
   },
   {
@@ -556,7 +635,9 @@
     "option_b": "A small anonymous function",
     "option_c": "A function with many arguments",
     "option_d": "A recursive function",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "A lambda function can take any number of arguments, but can only have one expression."
   },
   {
@@ -570,7 +651,9 @@
     "option_b": "list.pop()",
     "option_c": "list.delete(-1)",
     "option_d": "list.shift()",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "pop() removes and returns the item at the given index (default is the last item)."
   },
   {
@@ -584,7 +667,9 @@
     "option_b": "8",
     "option_c": "9",
     "option_d": "5",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "** is the exponentiation operator (2 raised to the power of 3)."
   },
   {
@@ -598,7 +683,9 @@
     "option_b": "False",
     "option_c": "None",
     "option_d": "Error",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Empty collections (lists, tuples, strings, etc.) evaluate to False."
   },
   {
@@ -612,7 +699,9 @@
     "option_b": "s[::-1]",
     "option_c": "reverse(s)",
     "option_d": "s.flip()",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Slice notation [::-1] creates a copy of the string in reverse order."
   },
   {
@@ -626,7 +715,9 @@
     "option_b": "No",
     "option_c": "Only for variables",
     "option_d": "Only for functions",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Yes, 'var' and 'Var' are different identifiers in Python."
   },
   {
@@ -640,7 +731,9 @@
     "option_b": "L.index('a')",
     "option_c": "L.search('a')",
     "option_d": "L.where('a')",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The index() method returns the index of the first matched element."
   },
   {
@@ -654,7 +747,9 @@
     "option_b": "math",
     "option_c": "calc",
     "option_d": "science",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 'math' module provides access to many mathematical functions."
   },
   {
@@ -668,7 +763,9 @@
     "option_b": "False",
     "option_c": "None",
     "option_d": "Error",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Applying 'not' twice returns the original boolean value."
   },
   {
@@ -682,7 +779,9 @@
     "option_b": "10",
     "option_c": "11",
     "option_d": "0, 9",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "range(10) produces 0 through 9, which is 10 iterations."
   },
   {
@@ -696,7 +795,9 @@
     "option_b": "None",
     "option_c": "False",
     "option_d": "Error",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "If no return is specified, a Python function returns the 'None' object."
   }
 ]

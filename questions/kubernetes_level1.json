@@ -10,7 +10,9 @@
     "option_b": "Pod",
     "option_c": "Service",
     "option_d": "Namespace",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "A Pod is the smallest and simplest unit in the Kubernetes object model that you create or deploy."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "kubectl show pods",
     "option_c": "kubectl list pods",
     "option_d": "kubectl status pods",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "'kubectl get pods' lists pods and shows their current state (Running, Pending, etc.)."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "etcd",
     "option_c": "Kube-scheduler",
     "option_d": "Kube-proxy",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "etcd is a consistent and highly-available key value store used as Kubernetes' backing store for all cluster data."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "etcd",
     "option_c": "Kube-scheduler",
     "option_d": "Controller Manager",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The scheduler considers resource requirements, hardware constraints, and other policies to select the optimal node."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "Kubelet",
     "option_c": "Docker Engine",
     "option_d": "Containerd",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Kubelet takes a set of PodSpecs and ensures that the containers described in those PodSpecs are running and healthy."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "Kube-proxy",
     "option_c": "CoreDNS",
     "option_d": "Ingress Controller",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Kube-proxy maintains network rules on nodes. These rules allow network communication to your Pods from inside or outside of your cluster."
   },
   {
@@ -94,7 +106,9 @@
     "option_b": "Namespaces",
     "option_c": "Tags",
     "option_d": "Labels",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Namespaces are intended for use in environments with many users spread across multiple teams or projects."
   },
   {
@@ -108,7 +122,9 @@
     "option_b": "apiVersion",
     "option_c": "kind",
     "option_d": "metadata",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "apiVersion defines which version of the k8s API to use to create the object."
   },
   {
@@ -122,7 +138,9 @@
     "option_b": "kind",
     "option_c": "object",
     "option_d": "apiVersion",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 'kind' field specifies the type of resource being defined."
   },
   {
@@ -136,7 +154,9 @@
     "option_b": "kubectl create -f filename.yaml",
     "option_c": "kubectl apply -f filename.yaml",
     "option_d": "Both B and C",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "'create' is imperative, while 'apply' is declarative (recommended)."
   },
   {
@@ -150,7 +170,9 @@
     "option_b": "Yes, they share the same network and storage",
     "option_c": "Yes, but they must use different IPs",
     "option_d": "Yes, but only in expert mode",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Multi-container pods (like sidecars) share the same network namespace (localhost) and can share volumes."
   },
   {
@@ -164,7 +186,9 @@
     "option_b": "To provide declarative updates for Pods and ReplicaSets (e.g. scaling, rollouts)",
     "option_c": "To manage the storage",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Deployments represent the desired state and the controller works to make the actual state match it."
   },
   {
@@ -178,7 +202,9 @@
     "option_b": "kubectl describe pod myapp",
     "option_c": "kubectl get pod myapp --detail",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "'describe' is the go-to tool for debugging why a pod failed to start."
   },
   {
@@ -192,7 +218,9 @@
     "option_b": "LoadBalancer",
     "option_c": "ClusterIP",
     "option_d": "ExternalName",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "ClusterIP exposes the service on a cluster-internal IP, making it reachable only from within the cluster."
   },
   {
@@ -206,7 +234,9 @@
     "option_b": "Labels",
     "option_c": "Metadata",
     "option_d": "Selectors",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Labels are used to organize and to select subsets of objects."
   },
   {
@@ -220,7 +250,9 @@
     "option_b": "kubectl delete namespace dev-env",
     "option_c": "kubectl destroy namespace dev-env",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Deleting a namespace deletes all resources inside it."
   },
   {
@@ -234,7 +266,9 @@
     "option_b": "The configuration requested by the user (e.g. run 3 replicas), which the cluster works to maintain continuously",
     "option_c": "The state when all pods are deleted",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Kubernetes controllers continuously compare actual state vs desired state and perform corrective actions."
   },
   {
@@ -248,7 +282,9 @@
     "option_b": "kubectl update deployment web-app --size=5",
     "option_c": "kubectl grow web-app 5",
     "option_d": "none of the above",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "This is an imperative command to change the number of running pods."
   },
   {
@@ -262,7 +298,9 @@
     "option_b": "kubectl logs backend",
     "option_c": "kubectl cat backend.log",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Logs are essential for investigating application failures."
   },
   {
@@ -276,7 +314,9 @@
     "option_b": "A way to identify which Pods the service should direct traffic to (based on their Labels)",
     "option_c": "The name of the service",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Services use selectors to match the labels of the target pods."
   },
   {
@@ -290,7 +330,9 @@
     "option_b": "Kube-controller-manager",
     "option_c": "Cloud-controller-manager",
     "option_d": "etcd",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It runs control loops that watch the state of the shared cluster state (via the apiserver)."
   },
   {
@@ -304,7 +346,9 @@
     "option_b": "A worker machine (physical or virtual) that runs containers",
     "option_c": "The central server",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "A cluster usually consists of multiple nodes to provide high availability."
   },
   {
@@ -318,7 +362,9 @@
     "option_b": "Sending REST requests to the Kube-apiserver (usually via kubectl)",
     "option_c": "Talking to the Kubelet",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The API server is the front end for the Kubernetes control plane."
   },
   {
@@ -332,7 +378,9 @@
     "option_b": "To ensure that a specified number of pod replicas are running at any given time",
     "option_c": "To monitor node health",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "ReplicaSets are often managed by Deployments rather than being used directly."
   },
   {
@@ -346,7 +394,9 @@
     "option_b": "kubectl exec -it podname -- /bin/bash",
     "option_c": "kubectl run podname bash",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This is very common for manual debugging within a container."
   },
   {
@@ -360,7 +410,9 @@
     "option_b": "To attach non-identifying metadata (e.g. build info, contact details) to objects",
     "option_c": "To define storage limits",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Annotations cannot be used to select objects with selectors."
   },
   {
@@ -374,7 +426,9 @@
     "option_b": "The control plane detects the failure and reschedules the affected pods to other healthy nodes",
     "option_c": "The user must manually move the pods",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Resilience is a core feature of Kubernetes."
   },
   {
@@ -388,7 +442,9 @@
     "option_b": "kubectl get all --all-namespaces",
     "option_c": "kubectl list all -A",
     "option_d": "Both A and B (depending on scope)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "'--all-namespaces' (or '-A') is used to see the global state."
   },
   {
@@ -402,7 +458,9 @@
     "option_b": "metadata",
     "option_c": "status",
     "option_d": "apiVersion",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Metadata identifies the object uniquely."
   },
   {
@@ -416,7 +474,9 @@
     "option_b": "The pod is successfully scheduled but some containers have not started yet (e.g. image pulling)",
     "option_c": "The pod is deleted",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Check Events in 'kubectl describe pod' to see why it remains pending."
   },
   {
@@ -430,7 +490,9 @@
     "option_b": "NodePort",
     "option_c": "ExternalName",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "NodePort makes services accessible from outside the cluster using [NodeIP]:[NodePort]."
   },
   {
@@ -444,7 +506,9 @@
     "option_b": "kubectl version",
     "option_c": "kubectl about",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It's important to keep the client and server versions compatible."
   },
   {
@@ -458,7 +522,9 @@
     "option_b": "A piece of storage in the cluster that has been provisioned by an administrator or dynamically provisioned using Storage Classes",
     "option_c": "RAM inside a pod",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "PVs allow data to persist even after the pod is deleted."
   },
   {
@@ -472,7 +538,9 @@
     "option_b": "A request for storage by a user (pod), similar to how a pod consumes node resources",
     "option_c": "The price of the storage",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "PVCs 'bind' to suitable PVs to provide storage to the pod."
   },
   {
@@ -486,7 +554,9 @@
     "option_b": "Kubelet restarts the container (based on restartPolicy)",
     "option_c": "The whole node reboots",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The default restartPolicy is 'Always'."
   },
   {
@@ -500,7 +570,9 @@
     "option_b": "An API object used to store non-confidential data in key-value pairs (e.g. settings, config files)",
     "option_c": "A secret password",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "ConfigMaps allow you to decouple environment-specific configuration from container images."
   },
   {
@@ -514,7 +586,9 @@
     "option_b": "Secret",
     "option_c": "Registry",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Secrets are encoded in base64 (by default) and intended for sensitive information."
   },
   {
@@ -528,7 +602,9 @@
     "option_b": "Gradually replacing old Pods with new ones, ensuring a minimum number of pods remain available during the process",
     "option_c": "Updating pods randomly",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Rolling updates prevent downtime for your application during deployment."
   },
   {
@@ -542,7 +618,9 @@
     "option_b": "The cluster administrator (or the Cloud provider in managed services like GKE/EKS)",
     "option_c": "The Kubelet",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "A production cluster should have multiple manager nodes."
   },
   {
@@ -556,7 +634,9 @@
     "option_b": "default",
     "option_c": "main",
     "option_d": "k8s-core",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Resources without a namespace are created in 'default'."
   },
   {
@@ -570,7 +650,9 @@
     "option_b": "kubectl get pods -n kube-system",
     "option_c": "kubectl search pods kube-system",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The '-n' flag is used to target a specific namespace."
   },
   {
@@ -584,7 +666,9 @@
     "option_b": "Yes, grouping them allows you to target them as a single group through services or selectors",
     "option_c": "Only if they are in different nodes",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Labels are the primary mechanism for grouping and selecting pods."
   },
   {
@@ -598,7 +682,9 @@
     "option_b": "A tool that runs a single-node Kubernetes cluster inside a VM on your local machine for learning and development",
     "option_c": "The smallest version of cloud",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Minikube is perfect for beginners and local testing."
   },
   {
@@ -612,7 +698,9 @@
     "option_b": "Kube-proxy",
     "option_c": "Ingress",
     "option_d": "none of the above",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "CoreDNS allows pods to resolve service names (e.g. 'db-service') to their ClusterIP."
   },
   {
@@ -626,7 +714,9 @@
     "option_b": "kubectl api-resources",
     "option_c": "kubectl get list",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This shows the Names, Short-names, and API groups for all resource types."
   },
   {
@@ -640,7 +730,9 @@
     "option_b": "kubectl get nodes",
     "option_c": "kubectl status nodes",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This shows node names, roles, and status (Ready/NotReady)."
   },
   {
@@ -654,7 +746,9 @@
     "option_b": "For applications that require stable network identifiers, persistent storage, and ordered deployment (like Databases)",
     "option_c": "For one-off jobs",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "StatefulSets provide unique IDs (e.g. mysql-0, mysql-1) that persist across restarts."
   },
   {
@@ -668,7 +762,9 @@
     "option_b": "The software (like Docker, Containerd, or CRI-O) responsible for actually running the containers",
     "option_c": "A script for the kubelet",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Kubernetes supports several container runtimes through the Container Runtime Interface (CRI)."
   },
   {
@@ -682,7 +778,9 @@
     "option_b": ",",
     "option_c": "+",
     "option_d": "&",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Example: kubectl get pods -l app=myapp,env=prod."
   },
   {
@@ -696,7 +794,9 @@
     "option_b": "K8s",
     "option_c": "Kuber",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "8 represents the characters between 'K' and 's'."
   }
 ]

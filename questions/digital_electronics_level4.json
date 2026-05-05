@@ -10,7 +10,9 @@
     "option_b": "16-bit data, 20-bit address",
     "option_c": "16-bit data, 16-bit address",
     "option_d": "32-bit data, 32-bit address",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "8086 is a 16-bit processor (16-bit data) but has a 20-bit address bus to address 1 MB of memory."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "(Segment * 10H) + Offset",
     "option_c": "Segment * Offset",
     "option_d": "(Segment + Offset) * 16",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The segment register is shifted left by 4 bits (multiplied by 16 or 10H) and then the offset is added to get the final address."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "BX",
     "option_c": "CX",
     "option_d": "DX",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "CX stands for 'Count register' and is the default counter for many complex instructions."
   },
   {
@@ -52,7 +58,10 @@
     "option_b": "Memory Segmentation",
     "option_c": "Multiplexed address/data bus",
     "option_d": "Floating point unit on same chip",
-    "correct_options": ["A", "B"],
+    "correct_options": [
+      "A",
+      "B"
+    ],
     "explanation": "8086 introduced a 6-byte instruction queue (pipelining) and segmentation. Both use multiplexing. Early 8086 did NOT have an on-chip FPU."
   },
   {
@@ -66,7 +75,9 @@
     "option_b": "Execution Unit (EU) and Bus Interface Unit (BIU)",
     "option_c": "Input Unit and Output Unit",
     "option_d": "Control Unit and Memory Unit",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The BIU fetches instructions and data, while the EU executes them, allowing for a form of parallelism."
   },
   {
@@ -80,7 +91,9 @@
     "option_b": "CS, DS, SS, ES",
     "option_c": "BP, SP, SI, DI",
     "option_d": "IP, FLAGS, AL, BL",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "CS (Code Segment), DS (Data Segment), SS (Stack Segment), and ES (Extra Segment) are 16-bit registers that point to the start of memory segments."
   },
   {
@@ -94,7 +107,9 @@
     "option_b": "Based Indexed Addressing",
     "option_c": "Register Indirect Addressing",
     "option_d": "Relative Addressing",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It combines a base register (BX) and an index register (SI) to calculate the effective address."
   },
   {
@@ -108,7 +123,9 @@
     "option_b": "9",
     "option_c": "12",
     "option_d": "16",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 8086 has 9 active flags: 6 conditional flags (S, Z, AC, P, CY, O) and 3 control flags (I, D, T)."
   },
   {
@@ -122,7 +139,9 @@
     "option_b": "Fetch the next instruction while the current one is being executed",
     "option_c": "Protect the processor from heat",
     "option_d": "Increase the memory size",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Pipelining overlaps fetch and execute cycles, significantly increasing performance."
   },
   {
@@ -136,7 +155,9 @@
     "option_b": "Minimum or Maximum operating mode (single vs multi-processor)",
     "option_c": "Frequency multiplier",
     "option_d": "Pin count",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "MN (Minimum) mode is for single-processor systems; MX (Maximum) mode is for multi-processor systems using a bus controller (8288)."
   },
   {
@@ -150,7 +171,9 @@
     "option_b": "Repeats the instruction CX number of times",
     "option_c": "Replaces a character",
     "option_d": "Restarts the program",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "REP (Repeat) is used with string operations like MOVS, STOS, etc., using CX as the counter."
   },
   {
@@ -164,7 +187,9 @@
     "option_b": "1024 bytes",
     "option_c": "512 bytes",
     "option_d": "1 MB",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The IVT has 256 entries, each 4 bytes long (2 for CS, 2 for IP) = 1024 bytes."
   },
   {
@@ -178,7 +203,9 @@
     "option_b": "8-bit external data bus",
     "option_c": "32-bit address bus",
     "option_d": "More registers",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "8088 was designed to be compatible with 8-bit support chips while having 16-bit internal architecture."
   },
   {
@@ -192,7 +219,9 @@
     "option_b": "SS (Stack Segment)",
     "option_c": "DS",
     "option_d": "ES",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "If BP is used as a base register, the default segment is the Stack Segment (SS)."
   },
   {
@@ -206,7 +235,9 @@
     "option_b": "To control the auto-increment/decrement of string pointers (SI, DI)",
     "option_c": "To point to the next instruction",
     "option_d": "To handle serial data shift",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "If DF=0, pointers increment; if DF=1, pointers decrement after a string operation."
   },
   {
@@ -220,7 +251,9 @@
     "option_b": "Enable the high byte (D8-D15) of the data bus",
     "option_c": "Enable the BIOS",
     "option_d": "Buffer the high energy",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Bus High Enable (BHE) is used coupled with A0 to access either high, low, or both bytes of 16-bit memory."
   },
   {
@@ -234,7 +267,9 @@
     "option_b": "NMI",
     "option_c": "INT 21H",
     "option_d": "Division by zero",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "NMI pin provides the 8086 with a non-maskable hardware interrupt Capability (Type 2)."
   },
   {
@@ -248,7 +283,9 @@
     "option_b": "AH and AL",
     "option_c": "AU and AD",
     "option_d": "AXH and AXL",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "AX is the 16-bit accumulator, split into 8-bit AH (High) and AL (Low) halves."
   },
   {
@@ -262,7 +299,9 @@
     "option_b": "Indexed Addressing",
     "option_c": "Immediate Addressing",
     "option_d": "Register Addressing",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "The effective address is given directly in the instruction."
   },
   {
@@ -276,7 +315,9 @@
     "option_b": "NEG",
     "option_c": "SUB",
     "option_d": "CMP",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "NEG (Negate) subtracts the operand from 0, resulting in its 2's complement."
   },
   {
@@ -290,7 +331,9 @@
     "option_b": "6",
     "option_c": "8",
     "option_d": "16",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 8086 has a 6-byte instruction queue in its BIU."
   },
   {
@@ -304,7 +347,9 @@
     "option_b": "1, 0",
     "option_c": "0, 1",
     "option_d": "1, 1",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Status S4S3: 00 (Extra), 01 (Stack), 10 (Code), 11 (Data). Note: Some documentation specifies 01 for Stack. Let's re-verify: S4S3 = 01 for SS access."
   },
   {
@@ -318,7 +363,9 @@
     "option_b": "Yes, for unsigned 8-bit and 16-bit multiplication",
     "option_c": "Only for 8-bit",
     "option_d": "Only via FPU",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Unlike 8085, 8086 introduced native hardware multiplication and division instructions."
   },
   {
@@ -332,7 +379,9 @@
     "option_b": "Address Bus lines",
     "option_c": "Direct memory offset",
     "option_d": "Instruction opcode",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Logical address is written as Segment:Offset (e.g., CS:IP)."
   },
   {
@@ -346,7 +395,9 @@
     "option_b": "DIV is for unsigned division; IDIV is for signed division",
     "option_c": "IDIV is for floating point",
     "option_d": "They are the same",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "IDIV handles the sign bit whereas DIV treats all bits as value bits."
   },
   {
@@ -360,7 +411,9 @@
     "option_b": "Single-step mode for debugging",
     "option_c": "Fast interrupt handling",
     "option_d": "DRAM refresh",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "When TF=1, the processor generates an internal interrupt after every instruction execution, allowing the CPU to step through code."
   },
   {
@@ -374,7 +427,9 @@
     "option_b": "1,048,576 (1 MB)",
     "option_c": "4,294,967,296 (4 GB)",
     "option_d": "10,000",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "2^20 bytes = 1 MB."
   },
   {
@@ -388,7 +443,9 @@
     "option_b": "The 16-bit effective address of a variable",
     "option_c": "The size of a variable",
     "option_d": "The line number",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "OFFSET keyword tells the assembler to use the address (offset) of the label rather than its value."
   },
   {
@@ -402,7 +459,9 @@
     "option_b": "DX",
     "option_c": "SI",
     "option_d": "DI",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Only BX and BP are base registers; DX is generally used for I/O port addressing."
   },
   {
@@ -416,7 +475,9 @@
     "option_b": "Clears the Direction Flag (sets DF=0)",
     "option_c": "Clears the screen",
     "option_d": "Clusters data",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "CLD ensures pointers auto-increment during string operations."
   },
   {
@@ -430,7 +491,9 @@
     "option_b": "8288",
     "option_c": "8259",
     "option_d": "8237",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "In Max mode, the 8086 encodes its status; the 8288 decodes it to generate memory and I/O control signals."
   },
   {
@@ -444,7 +507,9 @@
     "option_b": "To prevent other bus masters from taking over the bus during an instruction",
     "option_c": "To encrypt data",
     "option_d": "To stop the clock",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "LOCK prefix asserts a bus lock signal for atomic memory operations in multi-processor environments."
   },
   {
@@ -458,7 +523,9 @@
     "option_b": "DX",
     "option_c": "BP",
     "option_d": "SP",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "For ports > 255, the port address must be placed in DX."
   },
   {
@@ -472,7 +539,9 @@
     "option_b": "Big-Endian",
     "option_c": "Bi-Endian",
     "option_d": "Middle-Endian",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "The low byte of a word is stored at the lowest memory address."
   },
   {
@@ -486,7 +555,9 @@
     "option_b": "Limited Entry Area",
     "option_c": "Load Easy Address",
     "option_d": "Level Enable Access",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "It calculates the address [BX+5] and puts the numerical result in AX, rather than fetching data from that address."
   },
   {
@@ -500,7 +571,9 @@
     "option_b": "64 KB",
     "option_c": "4 KB",
     "option_d": "16 bytes",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Since offset registers are 16-bit, a single segment can be up to 2^16 bytes = 64 KB."
   },
   {
@@ -514,7 +587,9 @@
     "option_b": "CS",
     "option_c": "ES",
     "option_d": "SS",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "RET pops the IP (and CS for far returns) from the stack to resume execution in the Code Segment."
   },
   {
@@ -528,7 +603,9 @@
     "option_b": "Type 3",
     "option_c": "Type 0",
     "option_d": "Type 255",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Type 3 is the dedicated breakpoint interrupt for debuggers."
   },
   {
@@ -542,7 +619,9 @@
     "option_b": "AAS",
     "option_c": "AAM",
     "option_d": "AAD",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "AAS stands for ASCII Adjust for Subtraction."
   },
   {
@@ -556,7 +635,9 @@
     "option_b": "Both CS and IP",
     "option_c": "Only AX",
     "option_d": "CS and DS",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "A near jump only changes IP; a far jump changes segments."
   },
   {
@@ -570,7 +651,9 @@
     "option_b": "Fetching instructions and operand data",
     "option_c": "Arithmetic logic",
     "option_d": "Resetting flags",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Bus Interface Unit (BIU) communicates with memory and I/O."
   },
   {
@@ -584,7 +667,9 @@
     "option_b": "BX",
     "option_c": "CX",
     "option_d": "DX",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "BX is the base register, often used as a pointer to data in the data segment."
   },
   {
@@ -598,7 +683,9 @@
     "option_b": "Divide-by-zero (Type 0) interrupt is generated",
     "option_c": "Carry flag is set",
     "option_d": "Processor halts",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Division overflow in 8086 triggers an exception similar to dividing by zero."
   },
   {
@@ -612,7 +699,9 @@
     "option_b": "1 KB",
     "option_c": "4 KB",
     "option_d": "64 KB",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Each vector takes 4 bytes (2 for IP, 2 for CS). 256 * 4 = 1024 bytes = 1 KB."
   },
   {
@@ -626,7 +715,9 @@
     "option_b": "Mathematical calculations (Floating point)",
     "option_c": "Video rendering",
     "option_d": "Disk control",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 8087 is a Numeric Data Processor (NDP) that handles floating point and trigonometric math."
   },
   {
@@ -640,7 +731,9 @@
     "option_b": "BUSY'",
     "option_c": "TEST'",
     "option_d": "HOLD",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The WAIT instruction causes the CPU to pause until the TEST' pin is pulled low by an external device."
   },
   {
@@ -654,7 +747,9 @@
     "option_b": "16 MB",
     "option_c": "4 GB",
     "option_d": "64 KB",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "80286 has a 24-bit address bus in protected mode, allowing 2^24 = 16 MB."
   },
   {
@@ -668,7 +763,9 @@
     "option_b": "Table translation (using BX as base and AL as index)",
     "option_c": "Cross-linked addressing",
     "option_d": "XOR Latch",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "XLAT translates the byte in AL using a look-up table pointed to by BX."
   },
   {
@@ -682,7 +779,9 @@
     "option_b": "DS",
     "option_c": "ES (Extra Segment)",
     "option_d": "SS",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "For string operations, SI uses DS and DI uses ES (Destination Index -> Extra Segment)."
   },
   {
@@ -696,49 +795,9 @@
     "option_b": "It is cleared (flushed)",
     "option_c": "It is sorted",
     "option_d": "It is reversed",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "A jump changes the program flow, making pre-fetched instructions invalid, so the queue must be flushed."
-  },
-  {
-    "subject_name": "Microprocessors",
-    "level_number": 4,
-    "level_topic": "8086 Instruction Set",
-    "question_type": "medium",
-    "timer_seconds": 30,
-    "question_text": "What does the 'XCHG AX, BX' instruction do in the 8086?",
-    "option_a": "Moves AX to BX",
-    "option_b": "Exchanges the 16-bit contents of AX and BX",
-    "option_c": "Multiplies AX by BX",
-    "option_d": "Clears both registers",
-    "correct_options": ["B"],
-    "explanation": "XCHG is used to swap the contents of two registers or a register and memory."
-  },
-  {
-    "subject_name": "Microprocessors",
-    "level_number": 4,
-    "level_topic": "Architecture",
-    "question_type": "hard",
-    "timer_seconds": 35,
-    "question_text": "Which of these is NOT a status flag in the 8086 microprocessor?",
-    "option_a": "Overflow Flag (O)",
-    "option_b": "Zero Flag (Z)",
-    "option_c": "Interrupt Flag (I)",
-    "option_d": "Carry Flag (C)",
-    "correct_options": ["C"],
-    "explanation": "The Interrupt Flag (I) is a control flag, not a status flag. Status flags reflect the results of ALU operations, while control flags control processor operations."
-  },
-  {
-    "subject_name": "Microprocessors",
-    "level_number": 4,
-    "level_topic": "Bus Interface Unit",
-    "question_type": "medium",
-    "timer_seconds": 30,
-    "question_text": "What is the primary responsibility of the BIU in a 8086 system?",
-    "option_a": "Performing arithmetic calculations",
-    "option_b": "Interfacing the processor with external memory and I/O devices to fetch instructions and transfer data",
-    "option_c": "Decoding instructions",
-    "option_d": "Managing the FPU",
-    "correct_options": ["B"],
-    "explanation": "The BIU handles all data transfers on the external bus and fills the instruction queue for the EU."
   }
 ]

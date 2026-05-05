@@ -10,7 +10,9 @@
     "option_b": "malloc",
     "option_c": "realloc",
     "option_d": "alloc",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "malloc allocates a block of uninitialized memory on the heap."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "Sets all bits to zero",
     "option_c": "Checks for errors only",
     "option_d": "Encrypts the data",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "calloc initializes the allocated memory block to zeros."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "string.h",
     "option_c": "stdlib.h",
     "option_d": "conio.h",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Memory management functions are part of the C Standard Library (stdlib.h)."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "void*",
     "option_c": "char*",
     "option_d": "NULL",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "malloc returns a generic void pointer that can be cast to any type."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "a",
     "option_c": "w",
     "option_d": "x",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "'w' stands for write mode (overwrites if file already exists)."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "-1",
     "option_c": "0",
     "option_d": "NULL",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "fclose returns 0 for success and EOF on error."
   },
   {
@@ -94,7 +106,9 @@
     "option_b": "fgetc",
     "option_c": "gets",
     "option_d": "scanf",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "fgetc is used to read a character from the specified file stream."
   },
   {
@@ -108,7 +122,9 @@
     "option_b": "1",
     "option_c": "-1",
     "option_d": "100",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "EOF is usually defined as -1 in stdio.h."
   },
   {
@@ -122,7 +138,9 @@
     "option_b": "NULL",
     "option_c": "Garbage",
     "option_d": "Runtime Exception",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "NULL is returned when the heap cannot fulfill the memory request."
   },
   {
@@ -136,7 +154,9 @@
     "option_b": "Calloc initializes to zero",
     "option_c": "There is no difference",
     "option_d": "Malloc requires two arguments",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Both allocate the same amount of memory, but calloc initializes it to zero."
   },
   {
@@ -150,7 +170,9 @@
     "option_b": "Equivalent to free() in legacy C",
     "option_c": "Does nothing",
     "option_d": "Double frees memory",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Calling realloc(ptr, 0) behaves like free(ptr) in many C implementations."
   },
   {
@@ -164,7 +186,9 @@
     "option_b": "r+",
     "option_c": "w+",
     "option_d": "rw",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "'a+' opens for reading and appending to the end of the file."
   },
   {
@@ -178,7 +202,9 @@
     "option_b": "Moves cursor to the start of the file",
     "option_c": "Deletes file content",
     "option_d": "Reopens file in write mode",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "rewind() resets the file position indicator to the beginning of the file."
   },
   {
@@ -192,7 +218,9 @@
     "option_b": "fwrite",
     "option_c": "fputc",
     "option_d": "fputs",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "fwrite outputs block data (binary), ideal for structures."
   },
   {
@@ -206,7 +234,9 @@
     "option_b": "long",
     "option_c": "FILE*",
     "option_d": "void",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "ftell returns the current file position as a long integer."
   },
   {
@@ -220,7 +250,9 @@
     "option_b": "Free each row, then the outer pointer",
     "option_c": "Use free_2d(arr);",
     "option_d": "It frees itself when function ends",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Every malloc call needs its own corresponding free call."
   },
   {
@@ -234,7 +266,9 @@
     "option_b": "rb",
     "option_c": "rt",
     "option_d": "only_read",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "'rb' indicates read mode for binary files."
   },
   {
@@ -248,7 +282,9 @@
     "option_b": "No, it does nothing",
     "option_c": "Only on Linux",
     "option_d": "Depends on the data type",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The standard C specification states that free(NULL) has no effect."
   },
   {
@@ -262,7 +298,9 @@
     "option_b": "It allocates a new block, copies data, and frees old block",
     "option_c": "It waits until space is available",
     "option_d": "It overwrites adjacent memory",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "realloc finds a new location if the current one cannot be resized, handles copy and free."
   },
   {
@@ -276,7 +314,9 @@
     "option_b": "Total file size in bytes",
     "option_c": "Pointer to the end",
     "option_d": "EOF",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "fseek to the end makes the cursor point at the very last position, which is the file size."
   },
   {
@@ -290,7 +330,9 @@
     "option_b": "To prevent memory leak if NULL is returned",
     "option_c": "Syntax requirements",
     "option_d": "To avoid compiler warnings",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "If realloc fails and you assign NULL directly to the original pointer, you lose reference to old memory."
   },
   {
@@ -304,7 +346,9 @@
     "option_b": "fflush",
     "option_c": "fclear",
     "option_d": "fclean",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "fflush forces the writing of buffered output data to the disk."
   },
   {
@@ -318,7 +362,9 @@
     "option_b": "Memory leak",
     "option_c": "Automatic garbage collection",
     "option_d": "CPU usage spike",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Memory stays allocated until the process dies, reducing available system memory."
   },
   {
@@ -332,7 +378,9 @@
     "option_b": "After a read attempt failed",
     "option_c": "Immediately when opening file",
     "option_d": "Only for binary files",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "feof is only set after a read operation tries to read past the end of file."
   },
   {
@@ -346,7 +394,9 @@
     "option_b": "Size of each element to read",
     "option_c": "Number of elements",
     "option_d": "Buffer address",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "fread(buffer, size, count, file_ptr); the 2nd param is size of one record."
   },
   {
@@ -360,7 +410,9 @@
     "option_b": "Implementation defined (NULL or unique pointer)",
     "option_c": "Infinite loop",
     "option_d": "Always returns address 0x1",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The behavior of malloc(0) depends on the implementation, but it shouldn't crash."
   },
   {
@@ -374,7 +426,9 @@
     "option_b": "clearerr()",
     "option_c": "clreof()",
     "option_d": "resetf()",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "clearerr() resets the EOF and error indicators for a stream."
   },
   {
@@ -388,7 +442,9 @@
     "option_b": "Undefined behavior (often crash)",
     "option_c": "Ignore second time",
     "option_d": "Compiles but doesn't run",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Double freeing leads to memory corruption and undefined behavior."
   },
   {
@@ -402,7 +458,9 @@
     "option_b": "Undefined behavior/Runtime crash",
     "option_c": "Memory leak of 1 byte",
     "option_d": "Correct code",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "You must pass the exact address returned by malloc to free; modifying p before free is an error."
   },
   {
@@ -416,7 +474,9 @@
     "option_b": "Should check for NULL",
     "option_c": "Both A and B",
     "option_d": "Nothing",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "fopen returns NULL on failure; EOF is an integer constant for char reading."
   },
   {
@@ -430,7 +490,9 @@
     "option_b": "End of file",
     "option_c": "Undefined behavior / error",
     "option_d": "Wrap around to end",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "You cannot seek to a negative position relative to the start of the file."
   },
   {
@@ -444,7 +506,9 @@
     "option_b": "Data is truncated to the new size",
     "option_c": "Expansion error",
     "option_d": "Memory leak",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Data within the smaller size is preserved; excess data is discarded."
   },
   {
@@ -458,7 +522,9 @@
     "option_b": "fprintf allows output to any file stream",
     "option_c": "printf only works for strings",
     "option_d": "fprintf is for binary only",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "printf is a wrapper around fprintf(stdout, ...)."
   },
   {
@@ -472,7 +538,9 @@
     "option_b": "fgets",
     "option_c": "gets",
     "option_d": "fread",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "fgets() is safe as it limits the number of characters read and handles spaces."
   },
   {
@@ -486,7 +554,9 @@
     "option_b": "Offset from current cursor position",
     "option_c": "Clears the cursor",
     "option_d": "Pointer to the cursor",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "SEEK_CUR is used in fseek to move relative to the current file pointer."
   },
   {
@@ -500,7 +570,9 @@
     "option_b": "Stack",
     "option_c": "Heap",
     "option_d": "Text",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The 'heap' is the memory pool for dynamic memory requests."
   },
   {
@@ -514,7 +586,9 @@
     "option_b": "It gives fine control over performance",
     "option_c": "Both A and B",
     "option_d": "It prevents syntax errors",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "C relies on the programmer to free heap memory, offering maximum efficiency at the cost of safety."
   },
   {
@@ -528,7 +602,9 @@
     "option_b": "So it can be cast to any pointer type",
     "option_c": "Because void is larger than int",
     "option_d": "To indicate it belongs to the CPU",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "malloc is generic and doesn't know what kind of data you will store."
   },
   {
@@ -542,7 +618,9 @@
     "option_b": "Buffer overflow",
     "option_c": "Linker failure",
     "option_d": "Memory fragmentation",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "gets() doesn't check buffer limits, making it highly insecure."
   },
   {
@@ -556,7 +634,9 @@
     "option_b": "Text is faster",
     "option_c": "Binary files are read-only",
     "option_d": "Text files cannot be dynamic",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Binary files store raw data bits, while text files are processed into readable chars (like handling newlines)."
   },
   {
@@ -570,7 +650,9 @@
     "option_b": "A specific identifier for external disk space",
     "option_c": "A structure holding stream info",
     "option_d": "A primitive numeric type",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "FILE is an opaque structure containing buffers, error flags, and current positions for a stream."
   },
   {
@@ -584,7 +666,9 @@
     "option_b": "Repeated inconsistent malloc/free calls leaving 'holes'",
     "option_c": "Fast CPU speeds",
     "option_d": "Using long instead of int",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Allocating and freeing different sizes can leave small unusable gaps in the heap."
   },
   {
@@ -598,7 +682,9 @@
     "option_b": "Reducing expensive physical disk operations",
     "option_c": "Formatting the string",
     "option_d": "Encrypting the file",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Reading/writing in chunks (buffering) is much faster than byte-by-byte disk access."
   },
   {
@@ -612,7 +698,9 @@
     "option_b": "ptr != NULL",
     "option_c": "ptr == 0",
     "option_d": "*ptr == 0",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Checking that the returned pointer is not NULL confirms allocation success."
   },
   {
@@ -626,7 +714,11 @@
     "option_b": "calloc",
     "option_c": "realloc",
     "option_d": "memset",
-    "correct_options": ["A", "B", "C"],
+    "correct_options": [
+      "A",
+      "B",
+      "C"
+    ],
     "explanation": "malloc, calloc, and realloc all request blocks from the heap; memset just modifies existing memory."
   },
   {
@@ -640,7 +732,11 @@
     "option_b": "stdout",
     "option_c": "stderr",
     "option_d": "stdlog",
-    "correct_options": ["A", "B", "C"],
+    "correct_options": [
+      "A",
+      "B",
+      "C"
+    ],
     "explanation": "There are three predefined standard streams: input, output, and error."
   },
   {
@@ -654,7 +750,11 @@
     "option_b": "a",
     "option_c": "r",
     "option_d": "w+",
-    "correct_options": ["A", "B", "D"],
+    "correct_options": [
+      "A",
+      "B",
+      "D"
+    ],
     "explanation": "Write and Append modes create files. Read mode fails if file is missing."
   },
   {
@@ -668,7 +768,11 @@
     "option_b": "Performance Degradation",
     "option_c": "Process termination by OS due to memory pressure",
     "option_d": "Hard drive disk failure",
-    "correct_options": ["A", "B", "C"],
+    "correct_options": [
+      "A",
+      "B",
+      "C"
+    ],
     "explanation": "Inadequate freeing consumes RAM, slows systems, and leads to crashes, but doesn't break hardware."
   },
   {
@@ -682,7 +786,10 @@
     "option_b": "rewind",
     "option_c": "ftell",
     "option_d": "setsession",
-    "correct_options": ["A", "B"],
+    "correct_options": [
+      "A",
+      "B"
+    ],
     "explanation": "fseek and rewind change the position; ftell only reports it."
   },
   {
@@ -696,7 +803,11 @@
     "option_b": "fputs(\"...\", f)",
     "option_c": "fgetc(f)",
     "option_d": "fwrite(&data, size, count, f)",
-    "correct_options": ["A", "B", "D"],
+    "correct_options": [
+      "A",
+      "B",
+      "D"
+    ],
     "explanation": "fprintf, fputs, and fwrite are output functions; fgetc is for input."
   }
 ]

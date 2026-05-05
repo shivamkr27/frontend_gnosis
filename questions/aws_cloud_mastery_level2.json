@@ -10,7 +10,9 @@
     "option_b": "Effect, Action, Resource, Condition",
     "option_c": "Name, Date, Size, Type",
     "option_d": "Principal, Target, Method, Logic",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "These elements define 'who' can do 'what' on 'which' resource under 'what' conditions."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "C (Compute Optimized)",
     "option_c": "R (Memory Optimized)",
     "option_d": "I (Storage Optimized)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "C-series instances are designed for applications that benefit from high-performance processors."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "Provisioned IOPS is for mission-critical applications that require sustained IOPS performance beyond what General Purpose can provide",
     "option_c": "gp2 is only for small files",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "IOPS-intensive workloads like large databases need provisioned IOPS for reliability."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "To automatically transition objects between different storage classes (e.g. from Standard to Glacier) based on age to optimize costs",
     "option_c": "To rename buckets",
     "option_d": "To encrypt files",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Lifecycle rules automate cost-saving transitions as data ages."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "Security Groups are stateful (returning traffic is allowed) and at the instance level; NACLs are stateless and at the subnet level",
     "option_c": "NACLs are faster",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Security groups provide fine-grained control for specific instances, while NACLs provide a broader security layer for the entire subnet."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "To increase read performance",
     "option_c": "To decrease costs",
     "option_d": "To move the database to a new region",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Multi-AZ is for fault tolerance; Read Replicas are for performance scaling."
   },
   {
@@ -94,7 +106,9 @@
     "option_b": "To offload read-intensive workloads from the primary database instance and improve scaling",
     "option_c": "To backup the database",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Read replicas allow you to scale out read performance by distributing traffic among multiple copies."
   },
   {
@@ -108,7 +122,9 @@
     "option_b": "Routing traffic to the AWS region that provides the lowest latency for the end user",
     "option_c": "Routing to a server with the most RAM",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Latency routing improves user experience by selecting the fastest responding endpoint."
   },
   {
@@ -122,7 +138,9 @@
     "option_b": "A special CloudFront user that allows you to restrict access to an S3 bucket content so it can only be accessed via CloudFront and not directly",
     "option_c": "An encryption key",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "OAI enhances security by forcing traffic through your CDN, where you can enforce WAF rules or signed URLs."
   },
   {
@@ -136,7 +154,9 @@
     "option_b": "A policy that adjusts the number of instances to maintain a specific metric (e.g. average CPU utilization at 50%)",
     "option_c": "Scaling based on the time of day",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Target tracking is the easiest and most responsive way to manage auto-scaling based on load."
   },
   {
@@ -150,7 +170,9 @@
     "option_b": "To allow private subnet instances to access the internet (e.g. for updates) while preventing the internet from initiating a connection to those instances",
     "option_c": "To translate IPv6 to IPv4",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "NAT Gateways are essential for maintaining the security of private workloads while still allowing them outbound access."
   },
   {
@@ -164,7 +186,9 @@
     "option_b": "IAM Group",
     "option_c": "IAM Role",
     "option_d": "Access Key",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Roles eliminate the need for hardcoded credentials on instances by providing temporary tokens."
   },
   {
@@ -178,7 +202,9 @@
     "option_b": "A fully managed, highly available, in-memory cache for DynamoDB that delivers up to 10x performance improvement",
     "option_c": "A ways to name tables",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "DAX (DynamoDB Accelerator) provides microsecond latency for read-intensive data."
   },
   {
@@ -192,7 +218,9 @@
     "option_b": "The ability to keep multiple variants of an object in the same bucket, allowing for recovery from accidental deletion or overwrite",
     "option_c": "A ways to name files",
     "option_d": "Lower storage costs",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Versioning is a critical feature for data protection and compliance."
   },
   {
@@ -206,7 +234,9 @@
     "option_b": "To enable you to input custom values to your template each time you create or update a stack",
     "option_c": "To output the results",
     "option_d": "To define the license",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Parameters make templates reusable across different environments and configurations."
   },
   {
@@ -220,7 +250,9 @@
     "option_b": "Object ACL (Access Control List)",
     "option_c": "Naming the file differently",
     "option_d": "Changing the bucket name",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "ACLs can be used at the object level for individual permission management, though bucket policies are generally preferred for bulk management."
   },
   {
@@ -234,7 +266,9 @@
     "option_b": "The latency experienced when a function is triggered after being idle, as AWS must spin up a new execution environment",
     "option_c": "The code won't compile",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Cold starts can impact user-facing application performance for infrequently called functions."
   },
   {
@@ -248,7 +282,11 @@
     "option_b": "FIFO queues provide 'exactly-once' processing",
     "option_c": "It is synchronous",
     "option_d": "It is highly scalable",
-    "correct_options": ["A", "B", "D"],
+    "correct_options": [
+      "A",
+      "B",
+      "D"
+    ],
     "explanation": "SQS is an asynchronous messaging service with scalable standard and specialized FIFO options."
   },
   {
@@ -262,7 +300,9 @@
     "option_b": "An AWS-specific routing record that points to internal AWS resources (like ELB, S3 websites) without incurring additional DNS query costs",
     "option_c": "A nickname for a server",
     "option_d": "A CNAME record",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Alias records are more efficient and flexible than standard CNAME records for AWS-integrated DNS."
   },
   {
@@ -276,7 +316,9 @@
     "option_b": "It is cloud-native, uses a purpose-built distributed storage system, and can scale up to 15 read replicas with very low lag",
     "option_c": "It is slower",
     "option_d": "It doesn't support SQL",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Aurora is AWS's proprietary relational engine built for performance and scale in the cloud."
   },
   {
@@ -290,7 +332,9 @@
     "option_b": "The logical representation of a master key which includes the metadata and the key material used to encrypt/decrypt data-encryption keys",
     "option_c": "A ways to name a project",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "CMKs are the foundational component for data encryption on AWS."
   },
   {
@@ -304,7 +348,9 @@
     "option_b": "A policy that defines the maximum permissions available for members of an organization, allowing for central governance and prevention of unauthorized service use",
     "option_c": "A ways to backup data",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "SCPs allow administrators to restrict whole accounts from using specific sensitive services (like preventing any use of RDS)."
   },
   {
@@ -318,7 +364,9 @@
     "option_b": "A networking connection between two VPCs that enables you to route traffic between them using private IPv4 or IPv6 addresses",
     "option_c": "A ways to delete a VPC",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Peering allows private communication between resources in different VPCs within the same or different AWS accounts."
   },
   {
@@ -332,7 +380,9 @@
     "option_b": "AWS Edge Locations around the world which route your data through an optimized network path to the S3 bucket",
     "option_c": "Deleting old files",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Transfer acceleration significantly speeds up long-distance uploads by using the AWS global backbone."
   },
   {
@@ -346,7 +396,9 @@
     "option_b": "A rule that continuously monitors your resource configurations for compliance with your desired settings and best practices",
     "option_c": "A laws for using AWS",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Config Rules allow for automated auditing and remediation of non-compliant resource states."
   },
   {
@@ -360,7 +412,9 @@
     "option_b": "A fully managed continuous integration service that compiles source code, runs tests, and produces software packages that are ready to deploy",
     "option_c": "To rename files",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "CodeBuild is the 'build' stage of the AWS developer toolset, allowing for pay-as-you-go compilation."
   },
   {
@@ -374,7 +428,9 @@
     "option_b": "A strategy where you maintain two identical production environments and use routing to switch traffic from one (Blue) to the other (Green) for a risk-free release",
     "option_c": "Updating the OS",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Blue/green deployments are easily implemented using Route 53 or ELB weighting."
   },
   {
@@ -388,7 +444,9 @@
     "option_b": "A fully managed, highly reliable, and scalable file storage that is accessible over the industry-standard Service Message Block (SMB) protocol",
     "option_c": "A backup tool for Windows",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "FSx is designed specifically for workloads that require native Windows file compatibility and features."
   },
   {
@@ -402,7 +460,9 @@
     "option_b": "A customizable home page for your metrics that allows you to see graph-based data for various resources in a single view",
     "option_c": "A tool to delete logs",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Dashboards provide a central visualization hub for system health and performance."
   },
   {
@@ -416,7 +476,9 @@
     "option_b": "The ability to run and monitor systems to deliver business value and to continually improve supporting processes and procedures",
     "option_c": "Designing faster chips",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Operational Excellence includes automation, testing, and responding to events."
   },
   {
@@ -430,7 +492,9 @@
     "option_b": "To deliver systems that achieve business outcomes at the lowest price point",
     "option_c": "To delete old code",
     "option_d": "To avoid paying for AWS",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Cost optimization is about right-sizing and leveraging lower-cost architectures."
   },
   {
@@ -444,7 +508,9 @@
     "option_b": "Standard-IA (Infrequent Access) has a lower storage cost but charges a fee for data retrieval",
     "option_c": "one is for small files",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "IA is designed for data that is needed immediately but accessed less frequently (e.g. monthly backups)."
   },
   {
@@ -458,7 +524,9 @@
     "option_b": "The amount of read and write units (RCU/WCU) you specify for the table, which governs its performance limit",
     "option_c": "The number of users",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Provisioning ensures your table can handle the expected traffic, though on-demand mode is also available."
   },
   {
@@ -472,7 +540,9 @@
     "option_b": "A flexible pricing model that offers low prices on EC2, Lambda, and Fargate in exchange for a commitment to a consistent amount of usage (e.g. $10/hour)",
     "option_c": "A ways to name a user",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Savings plans are more flexible than traditional Reserved Instances, covering multiple compute services."
   },
   {
@@ -486,7 +556,9 @@
     "option_b": "The primary service for lift-and-shift migrations to AWS, using block-level data replication from source to target",
     "option_c": "A ways to delete apps",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "MGN automates the migration of on-premises servers to EC2."
   },
   {
@@ -500,7 +572,9 @@
     "option_b": "A global network of data centers (different from Regions/AZs) used by services like CloudFront and Route 53 to deliver content with lower latency",
     "option_c": "A data center at the edge of town",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Edge locations are the points-of-presence for Content Delivery Networks."
   },
   {
@@ -514,7 +588,9 @@
     "option_b": "AWS Secrets Manager",
     "option_c": "Inspector",
     "option_d": "CloudTrail",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Secrets Manager is specialized for secrets that change frequently or need rotation, like DB passwords."
   },
   {
@@ -528,7 +604,9 @@
     "option_b": "The technical representation of the on-premises VPN device in your AWS network configuration",
     "option_c": "A ways to name a user",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "A Customer Gateway provides the endpoint information for the AWS side of the VPN tunnel."
   },
   {
@@ -542,7 +620,9 @@
     "option_b": "A ways to name a router",
     "option_c": "A backup service",
     "option_d": "none of the above",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Transit Gateway simplifies networking by removing the need for complex VPC peering meshes at scale."
   },
   {
@@ -556,7 +636,9 @@
     "option_b": "A feature that allows you to run SQL queries against data stored directly in S3 without first loading it into Redshift tables",
     "option_c": "A tool to delete data",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Spectrum bridges the gap between structured data warehouses and unstructured data lakes."
   },
   {
@@ -570,7 +652,9 @@
     "option_b": "Based on the number of requests and the duration (amount of time the code runs for) combined with the memory allocated to the function",
     "option_c": "By the month",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Lambda's pay-per-execution model makes it extremely cost-effective for bursty workloads."
   },
   {
@@ -584,7 +668,9 @@
     "option_b": "They provide information about the severity, the resources involved, and the type of potential security issue detected using machine learning",
     "option_c": "They are only for S3",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "GuardDuty results are ranked from 'Low' to 'High' to help security teams prioritize response."
   },
   {
@@ -598,7 +684,9 @@
     "option_b": "A fully managed continuous delivery service that helps you automate your release pipelines for fast and reliable application and infrastructure updates",
     "option_c": "A tool to delete old builds",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "CodePipeline orchestrates the flow from source to build to deploy."
   },
   {
@@ -612,7 +700,9 @@
     "option_b": "A fully managed service that makes it easy for developers to quickly deploy containerized web applications and APIs, at scale and with no prior infrastructure experience required",
     "option_c": "A ways to name containers",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "App Runner is an even higher-level serverless abstraction than Fargate for web apps."
   },
   {
@@ -626,7 +716,9 @@
     "option_b": "Cross-Region Replication (CRR)",
     "option_c": "Object Lock",
     "option_d": "Versioning",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "CRR helps meet compliance requirements and minimizes latency for users in different continents."
   },
   {
@@ -640,7 +732,9 @@
     "option_b": "A service that makes it easy to set up and govern a secure, multi-account AWS environment based on best practices (Landing Zones)",
     "option_c": "A ways to name a user",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Control Tower automates the creation of a 'Landing Zone' environment for large organizations."
   },
   {
@@ -654,7 +748,9 @@
     "option_b": "It prevents objects from being deleted or overwritten for a fixed amount of time or indefinitely (WORM model)",
     "option_c": "A ways to name a file",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Object Lock is essential for regulatory compliance (e.g. SEC Rule 17a-4) that requires data immutability."
   },
   {
@@ -668,7 +764,9 @@
     "option_b": "Cloud Development Kit: an open-source software development framework to define cloud infrastructure in code (e.g. TypeScript, Python) and provision it through CloudFormation",
     "option_c": "A ways to name a stack",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "CDK allows developers to use familiar programming languages instead of YAML/JSON for IaC."
   },
   {
@@ -682,7 +780,9 @@
     "option_b": "A template that contains the software configuration (operating system, application server, and applications) required to launch an EC2 instance",
     "option_c": "An encryption key",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "AMIs are the 'blueprints' for creating repeatable virtual machines."
   },
   {
@@ -696,693 +796,9 @@
     "option_b": "A fast, reliable, fully managed graph database service that makes it easy to build and run applications that work with highly connected datasets",
     "option_c": "A backup tool",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Neptune is optimized for graph use cases like social networks or fraud detection."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Compute",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "What is the primary difference between a 'Public Subnet' and a 'Private Subnet'?",
-    "option_a": "Private subnets have no internet access",
-    "option_b": "Public subnets have a route to an Internet Gateway",
-    "option_c": "Private subnets are cheaper",
-    "option_d": "Public subnets only support Windows",
-    "correct_options": ["B"],
-    "explanation": "A subnet is considered public if its route table has a route to an Internet Gateway."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Security",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "In the Shared Responsibility Model, what is AWS responsible for?",
-    "option_a": "Encrypting data at rest",
-    "option_b": "Physical security of the data centers",
-    "option_c": "Configuring security groups",
-    "option_d": "Managing guest OS updates",
-    "correct_options": ["B"],
-    "explanation": "AWS is responsible for 'Security OF the Cloud' (hardware, global infrastructure, etc.)."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Storage",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "Which S3 storage class is best for data that is rarely accessed but requires millisecond retrieval?",
-    "option_a": "S3 Standard",
-    "option_b": "S3 Standard-IA (Infrequent Access)",
-    "option_c": "S3 Glacier Instant Retrieval",
-    "option_d": "S3 Glacier Deep Archive",
-    "correct_options": ["C"],
-    "explanation": "Glacier Instant Retrieval is designed for long-lived data that is rarely accessed but requires immediate access."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Database",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "What is the benefit of a Multi-AZ deployment in Amazon RDS?",
-    "option_a": "Improved performance",
-    "option_b": "High Availability and Automatic Failover",
-    "option_c": "Lower latency for worldwide users",
-    "option_d": "Reduced storage costs",
-    "correct_options": ["B"],
-    "explanation": "Multi-AZ creates a synchronous standby replica in a different Availability Zone."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Monitoring",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "Which AWS service records API calls made within your account?",
-    "option_a": "CloudWatch",
-    "option_b": "CloudTrail",
-    "option_c": "Config",
-    "option_d": "GuardDuty",
-    "correct_options": ["B"],
-    "explanation": "CloudTrail provides a history of AWS API calls for your account, including calls made via the Management Console, SDKs, and command line tools."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Compute",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "What happens to the data on an Instance Store volume if the instance is stopped?",
-    "option_a": "It is persisted",
-    "option_b": "It is lost",
-    "option_c": "It is moved to S3",
-    "option_d": "It is encrypted automatically",
-    "correct_options": ["B"],
-    "explanation": "Instance store data does not persist when the instance is stopped or terminated (it's ephemeral)."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "IAAS/PAAS",
-    "question_type": "medium",
-    "timer_seconds": 25,
-    "question_text": "AWS Elastic Beanstalk is an example of which type of service?",
-    "option_a": "Infrastructure as a Service (IaaS)",
-    "option_b": "Platform as a Service (PaaS)",
-    "option_c": "Software as a Service (SaaS)",
-    "option_d": "Function as a Service (FaaS)",
-    "correct_options": ["B"],
-    "explanation": "Beanstalk handles deployment, from capacity provisioning to load balancing and auto-scaling, while you focus on the code."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Networking",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "Which service acts as a global Content Delivery Network (CDN)?",
-    "option_a": "Route 53",
-    "option_b": "CloudFront",
-    "option_c": "Direct Connect",
-    "option_d": "Global Accelerator",
-    "correct_options": ["B"],
-    "explanation": "CloudFront speeds up distribution of your static and dynamic web content to users via edge locations."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Identity",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "What is a 'Policy' in IAM?",
-    "option_a": "A user's password",
-    "option_b": "A document that defines permissions and is written in JSON",
-    "option_c": "A ways to group users",
-    "option_d": "A login restriction",
-    "correct_options": ["B"],
-    "explanation": "IAM policies define what actions are allowed or denied on which AWS resources."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Storage",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "Amazon EFS is designed for which type of data access?",
-    "option_a": "Block storage",
-    "option_b": "File storage (NFS) accessible by multiple instances",
-    "option_c": "Object storage",
-    "option_d": "Cold storage for archives",
-    "correct_options": ["B"],
-    "explanation": "Elastic File System (EFS) provides scalable, managed file storage for use with EC2."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Database",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "Which Amazon RDS feature allows you to offload read traffic from the primary database?",
-    "option_a": "Multi-AZ",
-    "option_b": "Read Replicas",
-    "option_c": "Provisioned IOPS",
-    "option_d": "Enhanced Monitoring",
-    "correct_options": ["B"],
-    "explanation": "Read Replicas are used to scale read-heavy database workloads."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Security",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "Which AWS service is used to centralize and manage encryption keys?",
-    "option_a": "CloudHSM",
-    "option_b": "KMS",
-    "option_c": "Secrets Manager",
-    "option_d": "Security Hub",
-    "correct_options": ["B"],
-    "explanation": "Key Management Service (KMS) makes it easy to create and control the keys used to encrypt your data."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Load Balancing",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "Which Load Balancer type is best for routing HTTP and HTTPS traffic based on path rules?",
-    "option_a": "Network Load Balancer (NLB)",
-    "option_b": "Application Load Balancer (ALB)",
-    "option_c": "Gateway Load Balancer (GWLB)",
-    "option_d": "Classic Load Balancer",
-    "correct_options": ["B"],
-    "explanation": "ALB operates at Layer 7 and supports advanced routing features like path-based or host-based routing."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Auto Scaling",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "In an Auto Scaling Group, what does the 'Desired Capacity' define?",
-    "option_a": "The maximum number of instances ever allowed",
-    "option_b": "The number of instances the group should maintain at any given time",
-    "option_c": "The minimum number of instances for cost saving",
-    "option_d": "The speed of the instances",
-    "correct_options": ["B"],
-    "explanation": "Auto Scaling will launch or terminate instances to match the desired capacity."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Analytics",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "Which service is a petabyte-scale data warehouse?",
-    "option_a": "DynamoDB",
-    "option_b": "Redshift",
-    "option_c": "RDS",
-    "option_d": "Athena",
-    "correct_options": ["B"],
-    "explanation": "Redshift is designed for large-scale data analysis and business intelligence."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "IAAS",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "Infrastructure as Code (IaC) is primarily implemented in AWS using which service?",
-    "option_a": "CloudTrail",
-    "option_b": "CloudFormation",
-    "option_c": "OpsWorks",
-    "option_d": "Systems Manager",
-    "correct_options": ["B"],
-    "explanation": "CloudFormation allows you to model and set up your AWS resources with a template file (JSON or YAML)."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Identity",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "What is 'Federated Access'?",
-    "option_a": "Using a single IAM user for everything",
-    "option_b": "Allowing users to login to AWS using their existing corporate credentials (e.g., Active Directory)",
-    "option_c": "Linking two AWS regions",
-    "option_d": "Granting root access to developers",
-    "correct_options": ["B"],
-    "explanation": "Federation enables Single Sign-On (SSO) by trusting an external identity provider."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Security",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "Which AWS service uses machine learning to automatically discover, classify, and protect sensitive data in S3?",
-    "option_a": "GuardDuty",
-    "option_b": "Macie",
-    "option_c": "Shield",
-    "option_d": "Inspector",
-    "correct_options": ["B"],
-    "explanation": "Macie is specifically designed for data privacy and security in S3."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Cost Management",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "What is an AWS 'Savings Plan'?",
-    "option_a": "A ways to get free credits",
-    "option_b": "A flexible pricing model that offers low prices in exchange for a commitment to a consistent amount of usage",
-    "option_c": "A ways to skip paying taxes",
-    "option_d": "A storage discount for S3 only",
-    "correct_options": ["B"],
-    "explanation": "Savings Plans offer lower prices for compute (EC2, Fargate, Lambda) when you commit to a usage amount."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Architecture",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "In a well-architected framework, which pillar focuses on avoiding unnecessary costs?",
-    "option_a": "Operational Excellence",
-    "option_b": "Cost Optimization",
-    "option_c": "Performance Efficiency",
-    "option_d": "Reliability",
-    "correct_options": ["B"],
-    "explanation": "The Cost Optimization pillar includes practices like matching supply with demand and using managed services."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Messaging",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "What is the primary difference between SQS and SNS?",
-    "option_a": "SQS is for email, SNS is for text",
-    "option_b": "SQS is a pull-based queuing service, SNS is a push-based notification service",
-    "option_c": "SNS is faster than SQS",
-    "option_d": "There is no difference",
-    "correct_options": ["B"],
-    "explanation": "SQS uses a 'polling' model, while SNS 'pushes' messages to subscribers."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Compute",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "What is 'AWS Fargate'?",
-    "option_a": "A type of EC2 instance",
-    "option_b": "A serverless compute engine for containers",
-    "option_c": "A storage service",
-    "option_d": "A database engine",
-    "correct_options": ["B"],
-    "explanation": "Fargate allows you to run containers (via ECS or EKS) without managing the underlying EC2 instances."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Governance",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "Which service helps you assess, audit, and evaluate the configurations of your AWS resources?",
-    "option_a": "CloudTrail",
-    "option_b": "AWS Config",
-    "option_c": "CloudWatch",
-    "option_d": "Trusted Advisor",
-    "correct_options": ["B"],
-    "explanation": "AWS Config tracks configuration changes and helps ensure compliance with rules you define."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Storage",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "What is the 'lifecycle policy' in S3 used for?",
-    "option_a": "Automatic migration of data between storage classes to save costs",
-    "option_b": "Encrypting data",
-    "option_c": "Granting user access",
-    "option_d": "Backing up data to Glacier daily",
-    "correct_options": ["A"],
-    "explanation": "Lifecycle policies automate tasks like moving old data to cheaper storage or deleting expires objects."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Networking",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "What is the purpose of a 'NAT Gateway'?",
-    "option_a": "Routing traffic to the public internet",
-    "option_b": "Allowing instances in a private subnet to connect to the internet while preventing initiated inbound traffic",
-    "option_c": "Connecting two VPCs together",
-    "option_d": "Managing DNS records",
-    "correct_options": ["B"],
-    "explanation": "NAT Gateways provide outbound-only internet connectivity for private resources."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Application Integration",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "Which service provides a managed message broker service for Apache ActiveMQ and RabbitMQ?",
-    "option_a": "SQS",
-    "option_b": "Amazon MQ",
-    "option_c": "SNS",
-    "option_d": "AppSync",
-    "correct_options": ["B"],
-    "explanation": "Amazon MQ makes it easy to migrate existing messaging applications that use standard protocols."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Security",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "Which AWS well-architected pillar focuses on protecting information, systems, and assets?",
-    "option_a": "Reliability",
-    "option_b": "Security",
-    "option_c": "Efficiency",
-    "option_d": "Excellence",
-    "correct_options": ["B"],
-    "explanation": "The Security pillar covers confidentiality, integrity, and availability."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Machine Learning",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "Which service provides an integrated development environment (IDE) for building, training, and deploying ML models?",
-    "option_a": "Rekognition",
-    "option_b": "SageMaker",
-    "option_c": "Comprehend",
-    "option_d": "Lex",
-    "correct_options": ["B"],
-    "explanation": "SageMaker is the flagship platform for end-to-end machine learning on AWS."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Developer Tools",
-    "question_type": "medium",
-    "timer_seconds": 25,
-    "question_text": "What is AWS 'Cloud9'?",
-    "option_a": "A cloud storage drive",
-    "option_b": "A cloud-based integrated development environment (IDE)",
-    "option_c": "A ways to deploy Lambda functions only",
-    "option_d": "A monitoring dashboard",
-    "correct_options": ["B"],
-    "explanation": "Cloud9 provides a code editor, debugger, and terminal in a browser."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Global Infrastructure",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "What is an AWS 'Local Zone'?",
-    "option_a": "A region in your city",
-    "option_b": "An extension of an AWS Region that places compute and storage closer to end-users",
-    "option_c": "A private data center",
-    "option_d": "Another name for an Availability Zone",
-    "correct_options": ["B"],
-    "explanation": "Local Zones provide single-digit millisecond latency for applications requiring very fast responses."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Cost",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "Who provides advice on reserved instance purchases and identifies idle resources?",
-    "option_a": "AWS Support",
-    "option_b": "Trusted Advisor",
-    "option_c": "Artifact",
-    "option_d": "Control Tower",
-    "correct_options": ["B"],
-    "explanation": "The Cost Optimization category of Trusted Advisor provides these specific insights."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Storage",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "What is the durability of data in Amazon S3 Standard?",
-    "option_a": "99.9%",
-    "option_b": "99.999999999% (11 nines)",
-    "option_c": "100%",
-    "option_d": "95%",
-    "correct_options": ["B"],
-    "explanation": "S3 is designed to provide ultra-high durability for data storage."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Database",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "Which database service is 'Serverless' and scales automatically with demand?",
-    "option_a": "RDS MySQL",
-    "option_b": "DynamoDB",
-    "option_c": "Aurora Serverless",
-    "option_d": "Both B and C",
-    "correct_options": ["D"],
-    "explanation": "Both DynamoDB and Aurora Serverless provide serverless database capabilities."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Monitoring",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "What is 'CloudWatch Logs' primarily used for?",
-    "option_a": "Storing database data",
-    "option_b": "Centralizing and monitoring logs from EC2, Lambda, and more",
-    "option_c": "Backing up S3 buckets",
-    "option_d": "Recording API calls",
-    "correct_options": ["B"],
-    "explanation": "CloudWatch Logs helps in searching and identifying error patterns in log files."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Compute",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "What is an Amazon Machine Image (AMI)?",
-    "option_a": "A photo of the server",
-    "option_b": "A template that contains a software configuration (OS, application server, etc.)",
-    "option_c": "The CPU of the instance",
-    "option_d": "A security group setting",
-    "correct_options": ["B"],
-    "explanation": "AMIs are used to launch EC2 instances with a pre-configured environment."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Networking",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "What is 'VPC Peering'?",
-    "option_a": "Connecting a VPC to the internet",
-    "option_b": "A networking connection between two VPCs that enables traffic routing using private IP addresses",
-    "option_c": "A ways to login to VPC",
-    "option_d": "Connecting VPC to Direct Connect",
-    "correct_options": ["B"],
-    "explanation": "Peering allows instances in different VPCs to communicate as if they were on the same network."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Identity",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "Which IAM entity should be used to provide temporary permissions to mobile apps or web users?",
-    "option_a": "IAM User",
-    "option_b": "IAM Role",
-    "option_c": "IAM Group",
-    "option_d": "Root User",
-    "correct_options": ["B"],
-    "explanation": "Roles provide temporary credentials and are preferred for applications and cross-account access."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Governance",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "AWS Organizations enables you to use Service Control Policies (SCPs) to:",
-    "option_a": "Increase the speed of the network",
-    "option_b": "Define the maximum available permissions for member accounts",
-    "option_c": "Lower the monthly bill",
-    "option_d": "Encrypt all storage",
-    "correct_options": ["B"],
-    "explanation": "SCPs provide centralized control over the available actions in all accounts of your organization."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Management",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "Which service acts as an automated security assessment service that helps improve security and compliance of applications?",
-    "option_a": "GuardDuty",
-    "option_b": "Inspector",
-    "option_c": "Shield",
-    "option_d": "Audit Manager",
-    "correct_options": ["B"],
-    "explanation": "AWS Inspector tests the network reachability of your EC2 instances and the security state of applications."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Compliance",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "What is the purpose of AWS 'Audit Manager'?",
-    "option_a": "Searching for bugs in code",
-    "option_b": "Continuously auditing AWS usage to simplify risk assessment and compliance",
-    "option_c": "Deleting illegal accounts",
-    "option_d": "Measuring network speed",
-    "correct_options": ["B"],
-    "explanation": "Audit Manager automates evidence collection for compliance audits."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Migration",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "Which service is a centralized hub to track and monitor your migrations to AWS?",
-    "option_a": "Migration Hub",
-    "option_b": "Application Discovery Service",
-    "option_c": "DataSync",
-    "option_d": "CloudEndure",
-    "correct_options": ["A"],
-    "explanation": "Migration Hub provides a single location to track the progress of migration across multiple AWS and partner tools."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Compute",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "What is 'Amazon EKS'?",
-    "option_a": "Elastic Key Store",
-    "option_b": "Elastic Kubernetes Service",
-    "option_c": "Encrypted Knowledge System",
-    "option_d": "Easy Kernel Shell",
-    "correct_options": ["B"],
-    "explanation": "EKS is a managed service that makes it easy for you to run Kubernetes on AWS."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Storage",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "Which storage type uses 'Buckets' and 'Objects'?",
-    "option_a": "EBS",
-    "option_b": "S3",
-    "option_c": "EFS",
-    "option_d": "Instance Store",
-    "correct_options": ["B"],
-    "explanation": "S3 is object storage organized into top-level containers called buckets."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Architecture",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "What does 'High Availability' mean for an application?",
-    "option_a": "The service is always running (minimal downtime)",
-    "option_b": "The service is very fast",
-    "option_c": "The service is free for 1 year",
-    "option_d": "The service only works in one region",
-    "correct_options": ["A"],
-    "explanation": "High availability ensures that a system is responsive and operational for a high percentage of the time."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Intro to AWS",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "What is the AWS 'Marketplace'?",
-    "option_a": "A shop to buy laptops",
-    "option_b": "A digital catalog where you can find, buy, and deploy software from third-parties that runs on AWS",
-    "option_c": "A ways to sell AWS accounts",
-    "option_d": "The AWS billing section",
-    "correct_options": ["B"],
-    "explanation": "Marketplace simplifies the process of finding and launching custom software solutions."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Security",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "Which service helps you identify potentially malicious activity within your AWS account and workloads?",
-    "option_a": "Macie",
-    "option_b": "GuardDuty",
-    "option_c": "Shield",
-    "option_d": "WAF",
-    "correct_options": ["B"],
-    "explanation": "GuardDuty is an intelligent threat detection service that monitors for unauthorized behavior."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Architecture",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "What is 'Scalability'?",
-    "option_a": "The ability of a system to handle increasing load",
-    "option_b": "How much electricity a server uses",
-    "option_c": "The length of the network cable",
-    "option_d": "The weight of the hardware",
-    "correct_options": ["A"],
-    "explanation": "Scalability is about handling more volume (users, data, etc.) efficiently."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Monitoring",
-    "question_type": "medium",
-    "timer_seconds": 25,
-    "question_text": "What is the purpose of 'CloudWatch Alarms'?",
-    "option_a": "Waking up developers in the morning",
-    "option_b": "Automating actions when a metric crosses a defined threshold",
-    "option_c": "Deleting logs based on size",
-    "option_d": "Encrypting buckets automatically",
-    "correct_options": ["B"],
-    "explanation": "Alarms can trigger notifications (via SNS) or auto-scaling actions when something goes wrong."
-  },
-  {
-    "subject_name": "AWS Cloud Mastery",
-    "level_number": 2,
-    "level_topic": "Resource Access",
-    "question_type": "medium",
-    "timer_seconds": 20,
-    "question_text": "What is an AWS 'Control Tower'?",
-    "option_a": "A building in Seattle",
-    "option_b": "A service to set up and govern a secure, multi-account AWS environment",
-    "option_c": "A ways to control EC2 with voice commands",
-    "option_d": "A large firewall",
-    "correct_options": ["B"],
-    "explanation": "Control Tower automates the setup of a landing zone based on best practices."
   }
 ]

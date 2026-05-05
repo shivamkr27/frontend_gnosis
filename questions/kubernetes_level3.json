@@ -10,7 +10,9 @@
     "option_b": "To limit the number of pods in a namespace",
     "option_c": "To name pods according to their location",
     "option_d": "none of the above",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "It allows you to control how Pods are spread across your cluster among failure-domains such as regions, zones, nodes, and other user-defined topology domains."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "A method of packaging, deploying, and managing a Kubernetes application using custom resources and controllers to automate complex operational tasks",
     "option_c": "A tool to install Kubernetes",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Operators follow the control loop pattern to manage the lifecycle of stateful applications like databases or message queues."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "Custom Resource Definition: An API resource that allows you to define your own custom objects and extend the Kubernetes API",
     "option_c": "Container Runtime Debugger",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "CRDs allow you to introduce new types of objects into the cluster that behave like native Kubernetes objects."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "A service that automatically adjusts the CPU and memory reservations (Requests) for your pods based on their actual usage over time",
     "option_c": "A ways to delete small pods",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "VPA frees you from having to guess the right CPU and memory requests for your containers."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "A dedicated infrastructure layer for facilitating service-to-service communication, providing security (mTLS), observability, and advanced traffic management",
     "option_c": "A ways to name services",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Service meshes typically use sidecar proxies (like Envoy) to intercept and manage all network traffic between services."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "The ability of the cluster to automatically create storage volumes (PVs) when a user requests it via a PVC, using a 'StorageClass'",
     "option_c": "A ways to delete volumes",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Without dynamic provisioning, cluster admins have to manually make calls to their cloud or storage provider to create new storage volumes."
   },
   {
@@ -94,7 +106,9 @@
     "option_b": "A resource that controls the traffic flow between pods (L3/L4), acting as a firewall inside the cluster",
     "option_c": "Speeding up the internet",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "By default, Kubernetes allows all pods to talk to each other. NetworkPolicies are used to implement isolation and zero-trust security."
   },
   {
@@ -108,7 +122,9 @@
     "option_b": "Raft consensus algorithm",
     "option_c": "Paxos algorithm",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Raft ensures that all etcd members agree on every change to the cluster state."
   },
   {
@@ -122,7 +138,9 @@
     "option_b": "Running two identical production environments (Blue and Green) and switching all traffic from the old one to the new one at once",
     "option_c": "Deploying only on Tuesdays",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Blue-Green allows for near-zero downtime and easy rollback by switching the router/load-balancer target."
   },
   {
@@ -136,7 +154,9 @@
     "option_b": "Rolling out a new version of an application to a small subset of users (or traffic) first to test its stability before a full rollout",
     "option_c": "Deploying only in the morning",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Canary deployments help catch bugs in production with minimal impact on the user base."
   },
   {
@@ -150,7 +170,9 @@
     "option_b": "An HTTP callback that can modify (mutate) the content of a Kubernetes object request before it is saved to etcd",
     "option_c": "A ways to name the cluster",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Commonly used to inject sidecar containers (like Istio's envoy) automatically into newly created pods."
   },
   {
@@ -164,7 +186,9 @@
     "option_b": "Evicts existing pods from the node if they do not have a matching toleration",
     "option_c": "Stops the node",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Unlike 'NoSchedule', 'NoExecute' also affects pods that are already running on the node."
   },
   {
@@ -178,7 +202,9 @@
     "option_b": "To extend the Kubernetes API with your own custom API servers that provide their own logic (e.g. Metrics Server)",
     "option_c": "To backup the API",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It allows you to add APIs that are not part of the core Kubernetes codebase."
   },
   {
@@ -192,7 +218,9 @@
     "option_b": "3",
     "option_c": "5",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "A quorum of (N/2 + 1) is needed. With 3 managers, a quorum of 2 is still possible if 1 fails."
   },
   {
@@ -206,7 +234,9 @@
     "option_b": "A configuration management tool (built into kubectl) that allows you to customize YAML manifests through overlays without changing the original files",
     "option_c": "A ways to delete config",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Kustomize is great for managing environment-specific variations (dev, staging, prod)."
   },
   {
@@ -220,7 +250,9 @@
     "option_b": "A package manager for Kubernetes that uses 'Charts' to define, install, and upgrade even the most complex applications",
     "option_c": "A security tool",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Helm simplifies the deployment of common applications like databases, ingress controllers, etc."
   },
   {
@@ -234,7 +266,9 @@
     "option_b": "The state where the total sum of pod Limits on a node exceeds the physical resources of that node",
     "option_c": "Deploying too many pods",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Overcommitting is common for CPU to increase density, but dangerous for memory if it triggers OOM kills."
   },
   {
@@ -248,7 +282,9 @@
     "option_b": "Role-Based Access Control: The standard way of regulating access to the Kubernetes API based on the roles of individual users or service accounts",
     "option_c": "Randomly Based Access Control",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "RBAC uses Roles, ClusterRoles, RoleBindings, and ClusterRoleBindings to manage permissions."
   },
   {
@@ -262,7 +298,9 @@
     "option_b": "kubectl logs [pod] --previous",
     "option_c": "kubectl logs [pod] -p",
     "option_d": "Both B and C",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "This is the primary way to see why a container crashed before it was restarted."
   },
   {
@@ -276,7 +314,9 @@
     "option_b": "Container Runtime Interface: A plugin interface which enables kubelet to use a wide variety of container runtimes",
     "option_c": "Cluster Runtime Info",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "CRI standardized how K8s talks to runtimes like containerd and CRI-O."
   },
   {
@@ -290,7 +330,9 @@
     "option_b": "A service that maps a Kubernetes service name to a DNS name (e.g. my-db.example.com) rather than to pods",
     "option_c": "A ways to delete services",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Useful for accessing external resources (like a cloud DB) natively via the cluster's DNS."
   },
   {
@@ -304,7 +346,9 @@
     "option_b": "To ensure that pods are NOT scheduled on the same node (or zone) as other specific pods (e.g. don't run 2 database replicas on 1 node)",
     "option_c": "To delete pods",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Anti-affinity is crucial for ensuring hardware-level high availability."
   },
   {
@@ -318,7 +362,9 @@
     "option_b": "The part of the API server that tells clients which resource types and versions are supported by the cluster",
     "option_c": "A ways to find users",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Tools like kubectl use this to know what commands are valid for your specific cluster version."
   },
   {
@@ -332,7 +378,9 @@
     "option_b": "A template that instructs Kubernetes to create a unique PVC for each replica in the StatefulSet",
     "option_c": "A ways to name volumes",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This ensures that each DB pod (mysql-0, mysql-1) gets its own dedicated persistent storage."
   },
   {
@@ -346,7 +394,9 @@
     "option_b": "A Go tool developed by Aqua Security that checks if Kubernetes is deployed securely as per the CIS Kubernetes Benchmark",
     "option_c": "A ways to speed up the cluster",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It's an industry-standard security auditing tool for K8s clusters."
   },
   {
@@ -360,7 +410,9 @@
     "option_b": "An optional component that evicts pods that no longer satisfy the scheduling constraints after they have been running (e.g. due to node changes)",
     "option_c": "A ways to stop the scheduler",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It helps re-balance the cluster if it becomes skewed over time."
   },
   {
@@ -374,7 +426,9 @@
     "option_b": "A standard for exposing arbitrary block and file storage systems to containerized workloads",
     "option_c": "A ways to speed up the disk",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "CSI allows storage vendors to write plugins for Kubernetes without modifying the core K8s code."
   },
   {
@@ -388,7 +442,9 @@
     "option_b": "Kube-proxy",
     "option_c": "CoreDNS",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Kube-proxy programs the iptables or IPVS rules on every node to handle service routing."
   },
   {
@@ -402,7 +458,9 @@
     "option_b": "The component that decouples Kubernetes from specific cloud provider logic, allowing users to run K8s on any cloud",
     "option_c": "A tool to delete nodes in the cloud",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "CPI handles things like node instance life-cycle, routing, and cloud-provider-based load balancing."
   },
   {
@@ -416,7 +474,9 @@
     "option_b": "An admission controller that enforces custom policies (written in Rego) on Kubernetes objects before they are created",
     "option_c": "A ways to speed up the API",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Gatekeeper helps you enforce complex organization-wide rules (e.g. 'all pods must have an owner tag')."
   },
   {
@@ -430,7 +490,9 @@
     "option_b": "The pod is waiting for a 'finalizer' to complete or is stuck due to a volume not unmounting properly",
     "option_c": "The node is deleted",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Check if there's an issue with the underlying storage or a custom controller."
   },
   {
@@ -444,7 +506,9 @@
     "option_b": "The maximum number of Pods that can be unavailable during the update process",
     "option_c": "The time to wait for a pod",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Setting this to 0 ensures your application capacity never drops below the desired replica count during update."
   },
   {
@@ -458,7 +522,9 @@
     "option_b": "To allow external users to talk to internal services (like the dashboard) without exposing them directly via a LoadBalancer",
     "option_c": "To backup the internet",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "You can use 'kubectl proxy' to securely access the K8s API and internal services."
   },
   {
@@ -472,7 +538,9 @@
     "option_b": "The modern replacement for Pod Security Policies (PSP) that provides three predefined isolation levels (Privileged, Baseline, Restricted) via namespace labels",
     "option_c": "A ways to name pods",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "PSA is built into the API server and is simpler to manage than its predecessor PSP."
   },
   {
@@ -486,7 +554,9 @@
     "option_b": "The policy (default) of creating/updating pods one-by-one in order, waiting for 'Ready' before starting the next one",
     "option_c": "A ways to delete pods",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This policy ensures that master nodes start before worker nodes in a stateful cluster."
   },
   {
@@ -500,7 +570,9 @@
     "option_b": "The amount of time Kubernetes waits for a container to exit gracefully (SIGTERM) after being notified to stop, before forcibly killing it (SIGKILL)",
     "option_c": "A ways to name the end",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Default is 30s. If your app shuts down slowly (e.g. flushing buffers), you should increase this value."
   },
   {
@@ -514,7 +586,9 @@
     "option_b": "A CNI plugin that gives each Pod an IP address directly from the cloud provider's Virtual Private Cloud (VPC) network range",
     "option_c": "A tool to delete IPs",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "VPC-CNIs provide high performance by avoiding extra layers of encapsulation (like VXLAN)."
   },
   {
@@ -528,7 +602,9 @@
     "option_b": "A setting that prevents a ConfigMap or Secret from being modified after creation for safety and improved cluster performance (kubelet doesn't need to watch it)",
     "option_c": "A ways to delete config",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Immutable objects are great for production where you want to ensure the configuration doesn't drift without a redeployment."
   },
   {
@@ -542,7 +618,9 @@
     "option_b": "A non-voting member used during cluster expansion to prevent instability while the new node catches up on the log",
     "option_c": "Aways to delete manager",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Learners help maintain quorum stability during heavy cluster scaling operations."
   },
   {
@@ -556,7 +634,9 @@
     "option_b": "A flag (--dry-run=client/server) that allows you to see how K8s WOULD create an object without actually committing it to the cluster",
     "option_c": "A ways to delete pods",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Dry-run is invaluable for testing YAML syntax and validation rules before applying."
   },
   {
@@ -570,7 +650,9 @@
     "option_b": "The maximum number of Pods that can be created above the desired number of Pods during the update process",
     "option_c": "A ways to delete pods",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "If desired replicas is 4 and maxSurge is 1, Deployment can briefly run 5 pods during deployment."
   },
   {
@@ -584,7 +666,9 @@
     "option_b": "A Kubernetes operator that synchronizes secrets from external providers (like AWS Secrets Manager, HashiCorp Vault) into Kubernetes Secret objects",
     "option_c": "A ways to name secrets",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It helps manage secrets at scale without including them in your Git repository."
   },
   {
@@ -598,7 +682,9 @@
     "option_b": "A setting that forces the cloud Load Balancer to only send traffic to nodes that are actually running the Pod, preserving the client IP address",
     "option_c": "A ways to delete services",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It avoids an extra network hop (SNAT) but can lead to uneven traffic distribution if pods aren't on every node."
   },
   {
@@ -612,7 +698,9 @@
     "option_b": "kubectl delete statefulset [name] --cascade=orphan",
     "option_c": "You cannot do it",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Orphaning allows you to perform maintenance on the controller without affecting active workloads."
   },
   {
@@ -626,7 +714,9 @@
     "option_b": "A modern, expressive, and extensible set of APIs (GatewayClass, Gateway, HTTPRoute) designed to evolve beyond Ingress",
     "option_c": "A ways to delete the cluster",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Gateway API provides better support for multi-tenant and complex traffic routing use cases."
   },
   {
@@ -640,7 +730,9 @@
     "option_b": "A ways to define weights (Priority) for pods so that more important pods can preempt (evict) less important pods if the cluster is full",
     "option_c": "A ways to delete pods",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Pod priority ensures that mission-critical services (like the API server or DNS) always get resources."
   },
   {
@@ -654,7 +746,9 @@
     "option_b": "To route API requests between the core API server and registered aggregated API servers",
     "option_c": "To backup the cluster",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It provides a unified API entry point for the user, regardless of how many API servers are running."
   },
   {
@@ -668,7 +762,9 @@
     "option_b": "It delays the volume allocation until a Pod using the volume is scheduled, allowing the cloud to pick a disk in the same zone as the Pod",
     "option_c": "A ways to delete the disk",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This is critical for multi-zone clusters where storage exists in specific zones."
   },
   {
@@ -682,7 +778,9 @@
     "option_b": "A component that automatically increases or decreases the number of nodes in your cluster based on whether Pods are failing to schedule due to resource exhaustion",
     "option_c": "A ways to delete the cluster",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Cluster Autoscaler works with cloud providers (AWS, GCP) to resize the actual hardware fleet."
   },
   {
@@ -696,7 +794,9 @@
     "option_b": "No, it must be alphanumeric with dashes, dots, or underscores",
     "option_c": "Only if quoted",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Label values have strict character requirements to ensure compatibility with all K8s components."
   }
 ]

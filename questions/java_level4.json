@@ -10,7 +10,9 @@
     "option_b": "Runnable",
     "option_c": "Process",
     "option_d": "Executive",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 'Runnable' interface with the run() method is the standard way to define a task for execution by a thread."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "Writing anonymous functions in a concise way",
     "option_c": "Speeding up network calls",
     "option_d": "Deleting objects manually",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Lambdas provide a clear and concise way to represent one method interface using an expression."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "Nullable",
     "option_c": "Optional",
     "option_d": "Maybe",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Optional is a container object used to contain not-null objects, helping to avoid NullPointerExceptions."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "execute()",
     "option_c": "start()",
     "option_d": "launch()",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Calling start() creates a new thread of execution and then calls the run() method in that new thread."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "java.nio",
     "option_c": "java.nio.file",
     "option_d": "java.file",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "java.nio.file introduced the Path and Files classes for more robust file handling."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "0",
     "option_c": "ArithmeticException",
     "option_d": "Compiler error",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Division by zero for integral types throws ArithmeticException at runtime."
   },
   {
@@ -94,7 +106,9 @@
     "option_b": "map()",
     "option_c": "reduce()",
     "option_d": "collect()",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 'map' operation applies a function to each element of the stream and returns a new stream of the results."
   },
   {
@@ -108,7 +122,9 @@
     "option_b": "atomic",
     "option_c": "synchronized",
     "option_d": "locked",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Synchronized creates a critical section that only one thread can enter at a time for a given object or class."
   },
   {
@@ -122,7 +138,9 @@
     "option_b": "Supplier",
     "option_c": "Predicate",
     "option_d": "Function",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Predicate<T> represents a boolean-valued function of one argument."
   },
   {
@@ -136,7 +154,9 @@
     "option_b": "output()",
     "option_c": "writeString()",
     "option_d": "save()",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Files.writeString() (introduced later in Java 11) or Files.write() are common for simple write operations."
   },
   {
@@ -150,7 +170,9 @@
     "option_b": "Block synchronization can target a specific object and is more granular",
     "option_c": "Method synchronization is always faster",
     "option_d": "Block synchronization cannot be used with static objects",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Synchronized blocks allow locking only the necessary lines of code using any object as a lock reference, improving concurrency."
   },
   {
@@ -164,7 +186,9 @@
     "option_b": "Atomicity of complex operations",
     "option_c": "Visibility of changes to other threads",
     "option_d": "Prevents deadlocks",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Volatile ensures that value changes made by one thread are immediately visible to others by reading/writing directly to main memory."
   },
   {
@@ -178,7 +202,9 @@
     "option_b": "An interface with exactly one abstract method",
     "option_c": "An interface with only default methods",
     "option_d": "A class that behaves like a function",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Functional interfaces (can have multiple default/static methods) are the target types for lambda expressions."
   },
   {
@@ -192,7 +218,9 @@
     "option_b": "distinct()",
     "option_c": "noDuplicates()",
     "option_d": "filter(Objects::nonNull)",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 'distinct()' operation uses equals() to filter out duplicate elements in a stream."
   },
   {
@@ -206,7 +234,9 @@
     "option_b": "File is older; Path is an enhanced representation of the file system location",
     "option_c": "Path can handle network drives; File cannot",
     "option_d": "There is no functional difference",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Path (Interface) is more versatile and works with the Files utility class. File (Class) is the legacy I/O representation."
   },
   {
@@ -220,7 +250,9 @@
     "option_b": "A situation where two or more threads are blocked forever, waiting for each other",
     "option_c": "An error when calling stop() on a thread",
     "option_d": "Memory leak caused by threads",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Deadlock occurs when Thread A holds Lock 1 and wants Lock 2, while Thread B holds Lock 2 and wants Lock 1."
   },
   {
@@ -234,7 +266,9 @@
     "option_b": "collect()",
     "option_c": "reduce()",
     "option_d": "map()",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The 'reduce' operation takes multiple elements and combines them into one result (like sum or concatenation)."
   },
   {
@@ -248,7 +282,9 @@
     "option_b": "Callable",
     "option_c": "Future",
     "option_d": "Thread",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Unlike Runnable.run() (void), Callable.call() returns a generic value of type T and can throw checked exceptions."
   },
   {
@@ -262,7 +298,11 @@
     "option_b": "map",
     "option_c": "count",
     "option_d": "sorted",
-    "correct_options": ["A", "B", "D"],
+    "correct_options": [
+      "A",
+      "B",
+      "D"
+    ],
     "explanation": "Intermediate operations are lazy and return a new stream. 'count' is a terminal operation that triggers processing."
   },
   {
@@ -276,7 +316,11 @@
     "option_b": "notify()",
     "option_c": "notifyAll()",
     "option_d": "sleep()",
-    "correct_options": ["A", "B", "C"],
+    "correct_options": [
+      "A",
+      "B",
+      "C"
+    ],
     "explanation": "wait, notify, and notifyAll must be called from a synchronized context to communicate state changes between threads. sleep just pauses the current thread."
   },
   {
@@ -290,7 +334,9 @@
     "option_b": "Parallel is for files; Sequential is for lists",
     "option_c": "Parallel always preserves order; Sequential does not",
     "option_d": "There is no difference in execution",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Parallel streams divide tasks between cores using the ForkJoinPool; however, they require thread-safe logic and have overhead."
   },
   {
@@ -304,7 +350,9 @@
     "option_b": "When two threads release locks at the same time",
     "option_c": "When a lock is deleted by the GC",
     "option_d": "When a thread holds too many locks",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Contention indicates that threads are waiting for resources, which can degrade application performance."
   },
   {
@@ -318,7 +366,9 @@
     "option_b": "flatMap is for collections; map is for objects",
     "option_c": "map is faster",
     "option_d": "flatMap is only available in Java 11+",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "If the mapping function already returns an Optional, map would produce Optional<Optional<T>>. flatMap returns Optional<T>."
   },
   {
@@ -332,7 +382,9 @@
     "option_b": "AtomicInteger",
     "option_c": "LockedInteger",
     "option_d": "ThreadSafeInt",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "AtomicInteger uses low-level 'Compare-and-Swap' (CAS) instructions to safely update values from multiple threads."
   },
   {
@@ -346,7 +398,9 @@
     "option_b": "Variables that are unique to each thread that accesses them",
     "option_c": "Variable stored in the local registry",
     "option_d": "A cache for thread performance",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "ThreadLocal class allows you to store data that is local to the current thread (useful for context like UserID or DB connection)."
   },
   {
@@ -360,7 +414,9 @@
     "option_b": "resolve()",
     "option_c": "append()",
     "option_d": "merge()",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "'path.resolve(other)' is the standard way to concatenate paths in a platform-independent manner."
   },
   {
@@ -374,7 +430,9 @@
     "option_b": "Asynchronous programming with a callback/continuation model",
     "option_c": "Faster file compression",
     "option_d": "Automatic retry for failed transactions",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "CompletableFuture (Java 8) allows for complex async pipelines with methods like thenApply, thenAccept, and handle."
   },
   {
@@ -388,7 +446,9 @@
     "option_b": "Wait-Notify protocol",
     "option_c": "Lock-Free design",
     "option_d": "Stack Trace consistency",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "The 'happen-before' rule in JMM (Java Memory Model) guarantees that memory writes by one specific statement are visible to another specific statement."
   },
   {
@@ -402,7 +462,10 @@
     "option_b": "Using CopyOnWriteArrayList",
     "option_c": "Using a standard ArrayList and for-each loop in multiple threads",
     "option_d": "Using ConcurrentLinkedQueue",
-    "correct_options": ["A", "B"],
+    "correct_options": [
+      "A",
+      "B"
+    ],
     "explanation": "Standard ArrayList iteration is NOT thread-safe. synchronizedList requires manual synchronization for iteration, while CopyOnWriteArrayList is safe by design (snapshot)."
   },
   {
@@ -416,7 +479,12 @@
     "option_b": "Calling notifyAll() on the same object",
     "option_c": "The thread is interrupted",
     "option_d": "The wait time expires (if specified)",
-    "correct_options": ["A", "B", "C", "D"],
+    "correct_options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
     "explanation": "Threads wake up when notified, interrupted, or when the timer exceeds. They must re-acquire the lock before continuing."
   },
   {
@@ -430,7 +498,9 @@
     "option_b": "No, variables must be final or 'effectively final'",
     "option_c": "Only if they are static",
     "option_d": "Only if they are primatives",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "To ensure thread safety and predictability, variables accessed in lambda must not be modified after assignment."
   },
   {
@@ -444,7 +514,9 @@
     "option_b": "Nothing (Processing is lazy)",
     "option_c": "Runtime error",
     "option_d": "Reference to the Stream object",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Intermediate operations are not executed until a terminal operation (like collect or forEach) is called."
   },
   {
@@ -458,7 +530,9 @@
     "option_b": "The run() method executes in the CURRENT thread",
     "option_c": "Compiler error",
     "option_d": "The JVM crashes",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Calling run() is just a normal method call. To initiate a true concurrent task, start() must be used."
   },
   {
@@ -472,7 +546,9 @@
     "option_b": "No, it throws NullPointerException",
     "option_c": "Only if stored in a variable",
     "option_d": "Yes, if cast to Optional<Void>",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Use 'Optional.empty()' for missing values or 'Optional.ofNullable()' if the value might be null. .of() forbids null."
   },
   {
@@ -486,7 +562,9 @@
     "option_b": "A background thread that does not prevent the JVM from exiting",
     "option_c": "A thread with high priority",
     "option_d": "A thread that runs on the OS kernel only",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Garbage collection is a classic example of a daemon thread. If all non-daemon threads finish, the JVM stops even if daemons are running."
   },
   {
@@ -500,7 +578,9 @@
     "option_b": "peek()",
     "option_c": "log()",
     "option_d": "inspect()",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "peek() allows you to perform an action (like printing) for each element as it flows past without altering the stream."
   },
   {
@@ -514,7 +594,9 @@
     "option_b": "The 'interrupted' status is cleared, and parent callers won't know the thread was stopped",
     "option_c": "The thread restarts automatically",
     "option_d": "Compiler warning",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Best practice is to re-interrupt the thread or throw a runtime exception so the cancellation signal propagates."
   },
   {
@@ -528,7 +610,9 @@
     "option_b": "Monitoring file system changes (Create/Modify/Delete events)",
     "option_c": "Timed execution of tasks",
     "option_d": "Debugging network I/O",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "WatchService allows you to subscribe to a directory and get notified of changes without polling."
   },
   {
@@ -542,7 +626,11 @@
     "option_b": "String::toUpperCase",
     "option_c": "Integer::new",
     "option_d": "ArrayList.add",
-    "correct_options": ["A", "B", "C"],
+    "correct_options": [
+      "A",
+      "B",
+      "C"
+    ],
     "explanation": "Method references use the '::' syntax for static methods, instance methods, or constructors. D is missing the syntax."
   },
   {
@@ -556,7 +644,10 @@
     "option_b": "Synchronized blocks that take too long to execute",
     "option_c": "Infinite loops in high-priority threads",
     "option_d": "Calling join() on a finished thread",
-    "correct_options": ["A", "C"],
+    "correct_options": [
+      "A",
+      "C"
+    ],
     "explanation": "Starvation occurs when a thread is constantly denied access to shared resources or CPU time."
   },
   {
@@ -570,7 +661,9 @@
     "option_b": "To use system resources better (CPU overlap with I/O)",
     "option_c": "To replace functional programming",
     "option_d": "To force the JVM to use more memory",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Concurrency allows a program to deal with multiple things at once, improving responsiveness and throughput."
   },
   {
@@ -584,7 +677,9 @@
     "option_b": "A sequence of elements supporting functional-style operations",
     "option_c": "A list of strings",
     "option_d": "A physical file on disk",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Streams provide a high-level abstraction for processing data without storing it."
   },
   {
@@ -598,7 +693,9 @@
     "option_b": "Objects that can only be shared",
     "option_c": "Objects that are stored in the stack only",
     "option_d": "It allows deleting objects instantly",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "If state cannot change, there can be no data races or consistency issues between threads."
   },
   {
@@ -612,7 +709,9 @@
     "option_b": "To manage a pool of threads and schedule tasks",
     "option_c": "To compile java files faster",
     "option_d": "To synchronize all methods in a class",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Executors decouple task submission from task execution, managing thread recycling and queuing."
   },
   {
@@ -626,7 +725,9 @@
     "option_b": "The sequence of zero or more intermediate operations followed by a terminal operation",
     "option_c": "The speed of the network",
     "option_d": "A way to read files in parts",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Pipeline allows for fluent, readable chain of operations on data."
   },
   {
@@ -640,7 +741,9 @@
     "option_b": "They improve readability when you are just calling an existing method",
     "option_c": "Lambdas are being deprecated",
     "option_d": "Method references avoid type erasure",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "If a lambda just passes its argument directly to an existing method (like 's -> System.out.println(s)'), the method reference ('System.out::println') is cleaner."
   },
   {
@@ -654,7 +757,9 @@
     "option_b": "To accumulate stream elements into a final structure (like a List or Map)",
     "option_c": "To find bugs in the stream",
     "option_d": "To sort the elements alphabetically",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 'collect' terminal operation uses objects that implement the Collector interface to gather results."
   },
   {
@@ -668,7 +773,9 @@
     "option_b": "Operations that allow a thread to do other work while waiting for completion",
     "option_c": "A way to write files that cannot be edited",
     "option_d": "I/O that uses double the bandwidth",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "NIO allows single threads to handle multiple connections by not 'blocking' (parking) the thread during wait states."
   },
   {
@@ -682,7 +789,9 @@
     "option_b": "When the final outcome of code depends on the timing/interleaving of thread execution",
     "option_c": "Speeding up a loop using threads",
     "option_d": "A bug in the network card",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Race conditions result in unpredictable and inconsistent data."
   },
   {
@@ -696,7 +805,9 @@
     "option_b": "Files",
     "option_c": "NioOperations",
     "option_d": "SystemIO",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 'java.nio.file.Files' utility class contains static methods for all common file system tasks."
   }
 ]

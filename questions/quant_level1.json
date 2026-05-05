@@ -10,7 +10,9 @@
     "option_b": "8",
     "option_c": "9",
     "option_d": "11",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "9 * 9 * 9 = 729."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "120",
     "option_c": "480",
     "option_d": "720",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "20% of X = 120 => X = 600. 120% of 600 = 720."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "20%",
     "option_c": "25%",
     "option_d": "50%",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Profit = 600 - 500 = 100. Profit% = (100/500)*100 = 20%."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "9",
     "option_c": "12",
     "option_d": "15",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Multiples: 3, 6, 9, 12, 15. Sum = 45. Average = 45/5 = 9."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "33",
     "option_c": "49",
     "option_d": "55",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Let numbers be 3x, 5x. (3x-9)/(5x-9) = 12/23. 69x - 207 = 60x - 108. 9x = 99. x = 11. Smaller number = 3*11 = 33."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "8",
     "option_c": "9",
     "option_d": "12",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Resultant = (10*15)/(10+15) = 150/25 = 6 days."
   },
   {
@@ -94,7 +106,9 @@
     "option_b": "89 seconds",
     "option_c": "100 seconds",
     "option_d": "150 seconds",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Speed = Distance / Time = 240 / 24 = 10 m/s. Time to cross platform = (240 + 650) / 10 = 890 / 10 = 89 seconds."
   },
   {
@@ -108,7 +122,9 @@
     "option_b": "1000",
     "option_c": "1500",
     "option_d": "2000",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "SI = (P * R * T) / 100 = (5000 * 10 * 3) / 100 = 1500."
   },
   {
@@ -122,7 +138,9 @@
     "option_b": "2100",
     "option_c": "2200",
     "option_d": "2500",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Amount = 10000 * (1 + 10/100)^2 = 10000 * 1.21 = 12100. CI = 12100 - 10000 = 2100."
   },
   {
@@ -136,7 +154,9 @@
     "option_b": "81",
     "option_c": "93",
     "option_d": "97",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "97 is a prime number as it has only two factors, 1 and itself."
   },
   {
@@ -150,7 +170,9 @@
     "option_b": "240",
     "option_c": "480",
     "option_d": "512",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Even numbers: 2, 4, ..., 30. This is an AP with n=15. Sum = (n/2)(first + last) = (15/2)(2+30) = 15*16 = 240."
   },
   {
@@ -164,7 +186,9 @@
     "option_b": "9",
     "option_c": "63",
     "option_d": "99",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "Product of numbers = HCF * LCM. 77 * X = 11 * 693 => X = (11 * 693)/77 = 693/7 = 99."
   },
   {
@@ -178,7 +202,9 @@
     "option_b": "5/6",
     "option_c": "7/8",
     "option_d": "9/10",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "If the difference between numerator and denominator is same, the fraction with larger numbers is greater."
   },
   {
@@ -192,7 +218,9 @@
     "option_b": "3/4",
     "option_c": "3/8",
     "option_d": "5/16",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Total 36. Product is odd only if both are odd (3*3 = 9 outcomes). Remaining 27 have even product. Prob = 27/36 = 3/4."
   },
   {
@@ -206,7 +234,9 @@
     "option_b": "60",
     "option_c": "80",
     "option_d": "90",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "F = 4S. F+20 = 2(S+20). 4S+20 = 2S+40 => 2S = 20 => S=10. F = 40."
   },
   {
@@ -220,7 +250,9 @@
     "option_b": "3:2",
     "option_c": "4:3",
     "option_d": "5:3",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Ratio = (72 - 64.5) / (64.5 - 62) = 7.5 / 2.5 = 3/1."
   },
   {
@@ -234,7 +266,9 @@
     "option_b": "10",
     "option_c": "15",
     "option_d": "16",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "Net rate = 1/8 - 1/16 = 1/16. So it takes 16 hours."
   },
   {
@@ -248,7 +282,9 @@
     "option_b": "750",
     "option_c": "1000",
     "option_d": "1250",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Difference in % = 5 - (-10) = 15%. 15% of CP = 75. CP = 75/0.15 = 500."
   },
   {
@@ -262,7 +298,9 @@
     "option_b": "120",
     "option_c": "125",
     "option_d": "150",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "For each place, we have 5 choices. 5 * 5 * 5 = 125."
   },
   {
@@ -276,7 +314,9 @@
     "option_b": "4% increase",
     "option_c": "4% decrease",
     "option_d": "2% decrease",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Net change = 20 - 20 - (20*20)/100 = -4%."
   },
   {
@@ -285,13 +325,15 @@
     "level_topic": "Geometric Ability",
     "question_type": "medium",
     "timer_seconds": 50,
-    "question_text": "Calculation of the area of a circle with a radius of 7 cm is (use π = 22/7):",
+    "question_text": "Calculation of the area of a circle with a radius of 7 cm is (use \u03c0 = 22/7):",
     "option_a": "44 sq cm",
     "option_b": "154 sq cm",
     "option_c": "308 sq cm",
     "option_d": "616 sq cm",
-    "correct_options": ["B"],
-    "explanation": "Area = πr^2 = (22/7) * 7 * 7 = 154."
+    "correct_options": [
+      "B"
+    ],
+    "explanation": "Area = \u03c0r^2 = (22/7) * 7 * 7 = 154."
   },
   {
     "subject_name": "Quantitative Ability",
@@ -304,7 +346,9 @@
     "option_b": "160",
     "option_c": "150",
     "option_d": "250",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Income = (Face Value * Income%) = (2500 * 8) / 100 = 200."
   },
   {
@@ -318,7 +362,9 @@
     "option_b": "10 km/h",
     "option_c": "12 km/h",
     "option_d": "20 km/h",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Speed in still water = (Downstream + Upstream) / 2 = (14+6)/2 = 10."
   },
   {
@@ -332,7 +378,9 @@
     "option_b": "100",
     "option_c": "125",
     "option_d": "150",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "X - 3X/5 = 50 => 2X/5 = 50 => X = 125."
   },
   {
@@ -346,7 +394,9 @@
     "option_b": "500",
     "option_c": "800",
     "option_d": "1000",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Pass marks = 125 + 40 = 165. 33% of X = 165 => X = 165/0.33 = 500."
   },
   {
@@ -360,7 +410,9 @@
     "option_b": "16",
     "option_c": "64",
     "option_d": "256.25",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Sum of indices = 0.16 + 0.09 = 0.25. (256)^0.25 = (256)^(1/4) = 4."
   },
   {
@@ -374,7 +426,9 @@
     "option_b": "x + y = 0",
     "option_c": "xy = 1",
     "option_d": "x = y",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "log( (x/y)*(y/x) ) = log(1) = log(x+y). So x+y=1."
   },
   {
@@ -388,8 +442,10 @@
     "option_b": "12.5%",
     "option_c": "17.6%",
     "option_d": "20%",
-    "correct_options": ["C"],
-    "explanation": "CP = 100 - 15 = 85. Gain% = (15/85)*100 ≈ 17.64%."
+    "correct_options": [
+      "C"
+    ],
+    "explanation": "CP = 100 - 15 = 85. Gain% = (15/85)*100 \u2248 17.64%."
   },
   {
     "subject_name": "Quantitative Ability",
@@ -402,7 +458,9 @@
     "option_b": "2:4:5",
     "option_c": "2:3:5",
     "option_d": "8:10:15",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Multiply first ratio by 4 and second by 3. A:B=8:12, B:C=12:15."
   },
   {
@@ -416,7 +474,9 @@
     "option_b": "25 liters",
     "option_c": "30 liters",
     "option_d": "5 liters",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Milk=5x, Water=x. (x+5) part of water is now 2 parts. Since milk remains 5x. x+5 = 2x => x=5. Milk = 5*5=25."
   },
   {
@@ -430,7 +490,9 @@
     "option_b": "10(2/3)",
     "option_c": "8",
     "option_d": "12",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "1 day's work together = 7/60. 4 days' work = 28/60 = 7/15. Remaining = 8/15. B takes (8/15) / (1/20) = 32/3 = 10(2/3) days."
   },
   {
@@ -444,7 +506,9 @@
     "option_b": "74 kg",
     "option_c": "76 kg",
     "option_d": "77 kg",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "Total increase = 8 * 1.5 = 12 kg. New weight = 65 + 12 = 77 kg."
   },
   {
@@ -458,7 +522,9 @@
     "option_b": "10 seconds",
     "option_c": "12 seconds",
     "option_d": "15 seconds",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Relative Speed = 90 km/h = 25 m/s. Total Distance = 200 m. Time = 200 / 25 = 8."
   },
   {
@@ -472,7 +538,9 @@
     "option_b": "2 years",
     "option_c": "3 years",
     "option_d": "4 years",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "64000 * (1 + 2.5/100)^n = 64000 + 4921 = 68921. (41/40)^n = 68921/64000 = (41/40)^3. n=3 half-years = 1.5 yrs."
   },
   {
@@ -486,7 +554,9 @@
     "option_b": "48",
     "option_c": "51",
     "option_d": "54",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "LCM of 8, 12, 16 is 48. Number = 48 + 3 = 51."
   },
   {
@@ -500,7 +570,9 @@
     "option_b": "Wednesday",
     "option_c": "Tuesday",
     "option_d": "Friday",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Last day of 100th, 200th, 300th, 400th century are Friday, Wednesday, Monday, Sunday. (5, 3, 1, 0). Tuesday is never a last day."
   },
   {
@@ -514,7 +586,9 @@
     "option_b": "2.5 km/h",
     "option_c": "3 km/h",
     "option_d": "1 km/h",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Down speed = 32/6, Up speed = 14/6. Current speed = (32/6 - 14/6)/2 = (18/6)/2 = 3/2 = 1.5."
   },
   {
@@ -528,7 +602,9 @@
     "option_b": "558",
     "option_c": "600",
     "option_d": "744",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Area = (25*12) + 2*(25*6 + 12*6) = 300 + 2*(150 + 72) = 300 + 444 = 744 sq m. Cost = 744 * 0.75 = 558."
   },
   {
@@ -542,7 +618,9 @@
     "option_b": "18000",
     "option_c": "20000",
     "option_d": "25000",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Income 3 -> investment 90. Income 600 -> investment (90/3)*600 = 18000."
   },
   {
@@ -556,7 +634,9 @@
     "option_b": "3.5%",
     "option_c": "35%",
     "option_d": "350%",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "3.5 * 100 = 350%."
   },
   {
@@ -570,7 +650,9 @@
     "option_b": "21",
     "option_c": "24",
     "option_d": "28",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "5/8 = 15/x => 5x = 120 => x = 24."
   },
   {
@@ -584,7 +666,9 @@
     "option_b": "$1160",
     "option_c": "$1190",
     "option_d": "$1202",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "SP = 85% of 1400 = 0.85 * 1400 = 1190."
   },
   {
@@ -598,7 +682,9 @@
     "option_b": "40%",
     "option_c": "60%",
     "option_d": "66.66%",
-    "correct_options": ["D"],
+    "correct_options": [
+      "D"
+    ],
     "explanation": "A = 0.6B. B = A/0.6 = 1.666...A. So B is 66.66% more than A."
   },
   {
@@ -612,7 +698,9 @@
     "option_b": "103",
     "option_c": "107",
     "option_d": "109",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "100 is even, 101 is prime."
   },
   {
@@ -626,7 +714,9 @@
     "option_b": "22",
     "option_c": "23",
     "option_d": "24",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "If average of 7 consecutive is 20, the middle (4th) number is 20. The sequence is 17, 18, 19, 20, 21, 22, 23."
   },
   {
@@ -640,7 +730,9 @@
     "option_b": "20",
     "option_c": "30",
     "option_d": "22",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "M1D1 = M2D2 => 15 * 35 = 21 * D2 => D2 = (15 * 35) / 21 = 5 * 5 = 25."
   },
   {
@@ -654,7 +746,9 @@
     "option_b": "30 cm",
     "option_c": "60 cm",
     "option_d": "45 cm",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Side = sqrt(225) = 15. Perimeter = 4 * 15 = 60."
   },
   {
@@ -668,7 +762,9 @@
     "option_b": "$690",
     "option_c": "$698",
     "option_d": "$700",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Interest for 1 year = 854 - 815 = 39. Interest for 3 years = 39 * 3 = 117. Principal = 815 - 117 = 698."
   },
   {
@@ -682,7 +778,9 @@
     "option_b": "32",
     "option_c": "40",
     "option_d": "64",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Let numbers be 2x, 3x. LCM(2x, 3x) = 6x = 48 => x = 8. Numbers are 16, 24. Sum = 40."
   },
   {
@@ -696,7 +794,9 @@
     "option_b": "1.2",
     "option_c": "1.25",
     "option_d": "1.30",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "0.75/x = 5/8 => 5x = 6.00 => x = 1.2."
   }
 ]

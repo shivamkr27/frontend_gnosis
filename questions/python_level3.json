@@ -10,7 +10,9 @@
     "option_b": "Class Child(Parent):",
     "option_c": "Class Child extends Parent:",
     "option_d": "Class Child implements Parent:",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Inheritance is specified by putting the parent class in parentheses after the child class name."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "To initialize the object's attributes",
     "option_c": "To define a private method",
     "option_d": "To make the class abstract",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "__init__ is the constructor method in Python, called when an object is created from a class."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "generate",
     "option_c": "yield",
     "option_d": "produce",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The 'yield' statement is used in a function to make it a generator, allowing it to produce values over time."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "Adds styling to strings",
     "option_c": "Wraps another function to modify its behavior without changing it",
     "option_d": "Reduces memory usage of classes",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Decorators are a tool for wrapping a function (or class) to extend or modify its behavior."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "To access the parent class's methods or constructor",
     "option_c": "To create a global variable",
     "option_d": "To accelerate execution speed",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "super() returns a temporary object of the superclass, allowing you to call its methods."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "List is mutable, generator is not",
     "option_c": "List evaluates immediately; generator evaluates lazily (one at a time)",
     "option_d": "There is no difference",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Generators save memory by yielding items only when requested (lazy evaluation)."
   },
   {
@@ -94,7 +106,11 @@
     "option_b": "__len__",
     "option_c": "__add__",
     "option_d": "__main__",
-    "correct_options": ["A", "B", "C"],
+    "correct_options": [
+      "A",
+      "B",
+      "C"
+    ],
     "explanation": "__str__, __len__, and __add__ are methods used to implement built-in behaviors. __main__ is a module name constant."
   },
   {
@@ -108,7 +124,9 @@
     "option_b": "A class inheriting from more than one base class",
     "option_c": "Multiple classes inheriting from one parent",
     "option_d": "Inheriting methods only, not attributes",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Python allows a single class to inherit from multiple parent classes."
   },
   {
@@ -122,7 +140,9 @@
     "option_b": "Using self.variable",
     "option_c": "Directly inside the class body but outside any method",
     "option_d": "In a separate config file",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "Variables defined directly in the class are shared by all instances of the class."
   },
   {
@@ -136,7 +156,9 @@
     "option_b": "To define a method that belongs to the class, not the instance, and doesn't take 'self' or 'cls'",
     "option_c": "To stop a method from being overridden",
     "option_d": "To ensure thread safety",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Static methods are utility methods that don't need access to instance or class-level state."
   },
   {
@@ -150,7 +172,9 @@
     "option_b": "Main Research Operation",
     "option_c": "Memory Recovery Object",
     "option_d": "Module Root Option",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "MRO is the order in which Python looks for a method in a hierarchy of classes."
   },
   {
@@ -164,7 +188,9 @@
     "option_b": "__enter__ and __exit__",
     "option_c": "__start__ and __stop__",
     "option_d": "__begin__ and __end__",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "These methods are part of the context management protocol used by the 'with' statement."
   },
   {
@@ -178,7 +204,9 @@
     "option_b": "A class that defines the behavior of other classes; a 'class of a class'",
     "option_c": "A ways to name files",
     "option_d": "A training system",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "In Python, classes themselves are objects, and they are instances of a metaclass (like 'type')."
   },
   {
@@ -192,7 +220,9 @@
     "option_b": "Global Interpreter Lock; a mechanism that ensures only one thread executes Python bytecode at a time",
     "option_c": "A ways to delete registers",
     "option_d": "A graphics library",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The GIL is a major bottleneck for CPU-bound multi-threaded Python programs."
   },
   {
@@ -206,7 +236,9 @@
     "option_b": "parallelio",
     "option_c": "netio",
     "option_d": "standardio",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "asyncio uses async/await syntax to write concurrent code using coroutines."
   },
   {
@@ -220,7 +252,9 @@
     "option_b": "A function object that remembers values in enclosing scopes even if they are no longer in memory",
     "option_c": "The end of a script",
     "option_d": "A ways to name variables",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Closures allow for data encapsulation and are often used in decorator implementation."
   },
   {
@@ -234,7 +268,9 @@
     "option_b": "Explicitly declares data members and prevents the creation of __dict__ and __weakref__, saving memory",
     "option_c": "A ways to name a user",
     "option_d": "A training session",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Using slots can significantly reduce memory usage for objects with many instances."
   },
   {
@@ -248,7 +284,9 @@
     "option_b": "collections",
     "option_c": "types",
     "option_d": "structures",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 'collections' module implements specialized container datatypes."
   },
   {
@@ -262,7 +300,9 @@
     "option_b": "Transforming a function that takes multiple arguments into a chain of functions that each take a single argument",
     "option_c": "A ways to delete files",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Currying allows for partial application of functions."
   },
   {
@@ -276,7 +316,9 @@
     "option_b": "Updating a wrapper function to look like the original function (preserving metadata)",
     "option_c": "Deleting the wrapper",
     "option_d": "A training session",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It copies __name__, __doc__, etc. from the original function to the decorator's inner function."
   },
   {
@@ -290,7 +332,9 @@
     "option_b": "inspect",
     "option_c": "look",
     "option_d": "debug",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 'inspect' module provides several useful functions to help get information about live objects."
   },
   {
@@ -304,7 +348,9 @@
     "option_b": "A bytes object",
     "option_c": "A binary file",
     "option_d": "Error",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 'b' prefix creates a sequence of bytes rather than a Unicode string."
   },
   {
@@ -318,7 +364,9 @@
     "option_b": "Reference counting and a cycle-detecting garbage collector",
     "option_c": "A ways to delete info",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Python automatically frees memory using counts of references to objects."
   },
   {
@@ -332,7 +380,9 @@
     "option_b": "Dynamic replacement of attributes or methods at runtime",
     "option_c": "A ways to delete files",
     "option_d": "A training system",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Monkey patching is a way to extend or modify existing code without changing the source."
   },
   {
@@ -346,7 +396,9 @@
     "option_b": "numpy",
     "option_c": "scipy",
     "option_d": "mathpro",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "NumPy adds support for large, multi-dimensional arrays and matrices."
   },
   {
@@ -360,7 +412,9 @@
     "option_b": "pandas",
     "option_c": "numpy",
     "option_d": "math",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Pandas is built for data manipulation and analysis."
   },
   {
@@ -374,7 +428,9 @@
     "option_b": "unittest",
     "option_c": "testcase",
     "option_d": "none",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "'unittest' (inspired by JUnit) is the standard library testing framework."
   },
   {
@@ -388,7 +444,9 @@
     "option_b": "datetime",
     "option_c": "timebox",
     "option_d": "calendar",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The datetime module provides classes for manipulating dates and times."
   },
   {
@@ -402,7 +460,9 @@
     "option_b": "Identity (memory address) of objects",
     "option_c": "Types of objects",
     "option_d": "Names of objects",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "'a is b' returns True if a and b point to the exact same object."
   },
   {
@@ -416,7 +476,9 @@
     "option_b": "No",
     "option_c": "Only for methods",
     "option_d": "Only for static functions",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "A class with a __call__ method can be used to decorate functions."
   },
   {
@@ -430,7 +492,9 @@
     "option_b": "A feature where the type of a variable is determined at runtime, not compile time",
     "option_c": "A ways to delete information",
     "option_d": "A training system",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Variables in Python don't have a fixed type; the objects they point to do."
   },
   {
@@ -444,7 +508,9 @@
     "option_b": "It raises a TypeError",
     "option_c": "It creates a new list",
     "option_d": "Error during compilation",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Tuples are immutable; any attempt to change them results in a runtime error."
   },
   {
@@ -458,7 +524,9 @@
     "option_b": "None of these; Descriptors are objects that define __get__, __set__, or __delete__",
     "option_c": "A ways to delete info",
     "option_d": "A backup tool",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Descriptors allow for custom attribute access logic (like @property)."
   },
   {
@@ -472,7 +540,9 @@
     "option_b": "os",
     "option_c": "kernel",
     "option_d": "win32",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 'os' module provides functions for interacting with the OS (file paths, env vars, etc.)."
   },
   {
@@ -486,7 +556,9 @@
     "option_b": "argparse",
     "option_c": "sys",
     "option_d": "cmd",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "argparse is the recommended way to parse command-line arguments in Python."
   },
   {
@@ -500,7 +572,9 @@
     "option_b": "A reference that does not prevent the referenced object from being garbage collected",
     "option_c": "A ways to name a user",
     "option_d": "A training session",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 'weakref' module allows for creating weak references to objects."
   },
   {
@@ -514,7 +588,9 @@
     "option_b": "If it walks like a duck and quacks like a duck, it's a duck (behavior over explicit type)",
     "option_c": "A ways to delete info",
     "option_d": "A training tool",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Python checks if an object has the required methods at runtime, regardless of its class."
   },
   {
@@ -528,7 +604,9 @@
     "option_b": "Takes an iterable and repeats it indefinitely",
     "option_c": "Deletes old loops",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "cycle('ABC') yields A B C A B C ... forever."
   },
   {
@@ -542,7 +620,9 @@
     "option_b": "A method that is called whenever a class is subclassed, allowing for class customization without metaclasses",
     "option_c": "To delete sub-classes",
     "option_d": "A training system",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It provides a simpler way to interact with subclass creation than full metaclasses."
   },
   {
@@ -556,7 +636,9 @@
     "option_b": "Interface to the cycle-detecting garbage collector",
     "option_c": "Google Cloud integration",
     "option_d": "A ways to rename files",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It allows you to enable/disable GC or manually trigger a collection."
   },
   {
@@ -570,7 +652,9 @@
     "option_b": "Generalizations of subroutines that can be paused and resumed (using await)",
     "option_c": "A ways to delete info",
     "option_d": "A training system",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Coroutines are the foundation of Python's async features."
   },
   {
@@ -584,7 +668,9 @@
     "option_b": "Advanced Script Tool",
     "option_c": "Asynchronous System Task",
     "option_d": "none of the above",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "AST is a tree representation of the abstract syntactic structure of source code."
   },
   {
@@ -598,7 +684,9 @@
     "option_b": "shutil",
     "option_c": "copy",
     "option_d": "os_utils",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "shutil (Shell Utilities) offers high-level file operations."
   },
   {
@@ -612,7 +700,9 @@
     "option_b": "A dictionary representing the current local symbol table",
     "option_c": "A list of global variables",
     "option_d": "management access",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It shows all variables currently defined in the local scope."
   },
   {
@@ -626,7 +716,9 @@
     "option_b": "A list of all users",
     "option_c": "Global time",
     "option_d": "none of the above",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "It provides a way to interact with variables defined at the module level."
   },
   {
@@ -640,7 +732,9 @@
     "option_b": "Defining a method as a 'getter' that can be accessed like an attribute",
     "option_c": "Hiding a class",
     "option_d": "A backup tool",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It's the Pythonic way to implement getters and setters."
   },
   {
@@ -654,7 +748,9 @@
     "option_b": "dis",
     "option_c": "code",
     "option_d": "byte",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 'dis' module supports the disassembly of Python bytecode into a human-readable format."
   },
   {
@@ -668,7 +764,9 @@
     "option_b": "Stack-based",
     "option_c": "Memory-based",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "CPython uses a stack-based virtual machine to execute its bytecode."
   },
   {
@@ -682,7 +780,9 @@
     "option_b": "C Foreign Function Interface; a way to call C code from Python",
     "option_c": "A ways to delete info",
     "option_d": "A training session",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "CFFI is often used to interface with external C libraries efficiently."
   },
   {
@@ -696,7 +796,9 @@
     "option_b": "Maliciously crafted pickle data that executes arbitrary code during de-serialization",
     "option_c": "Deleting a database",
     "option_d": "A backup error",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Never unpickle data from an untrusted source because is it insecure."
   }
 ]

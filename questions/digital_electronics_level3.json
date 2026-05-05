@@ -10,7 +10,9 @@
     "option_b": "TRAP",
     "option_c": "INTR",
     "option_d": "RST 5.5",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "TRAP is a non-maskable interrupt and has the highest priority in the 8085 system."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "Programmable Peripheral Interface (PPI)",
     "option_c": "Interrupt Controller",
     "option_d": "RAM expansion",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 8255 provides programmable I/O ports for connecting various peripherals to the processor."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "As if it were a memory location, using standard data transfer instructions (like MOV, LDA)",
     "option_c": "By using a special bus",
     "option_d": "It cannot be accessed directly",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Memory-mapped I/O treats device registers as memory addresses, which simplifies the instruction set but consumes address space."
   },
   {
@@ -52,7 +58,11 @@
     "option_b": "Port B",
     "option_c": "Port C",
     "option_d": "Port D",
-    "correct_options": ["A", "B", "C"],
+    "correct_options": [
+      "A",
+      "B",
+      "C"
+    ],
     "explanation": "Internal architecture of 8255 contains three 8-bit ports: A, B, and C (Port C can be split into two 4-bit nibbles)."
   },
   {
@@ -79,7 +89,9 @@
     "option_b": "Programmable Interrupt Controller (PIC)",
     "option_c": "Keyboard Controller",
     "option_d": "Timer/Counter",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 8259 manages multiple interrupt requests and provides them to the CPU in a prioritized manner."
   },
   {
@@ -93,7 +105,9 @@
     "option_b": "8237",
     "option_c": "8255",
     "option_d": "8253",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 8237 DMA controller allows peripherals to transfer data directly to/from memory without CPU intervention."
   },
   {
@@ -107,7 +121,9 @@
     "option_b": "USART (Universal Synchronous Asynchronous Receiver Transmitter)",
     "option_c": "Interrupt management",
     "option_d": "Video processing",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "8251 facilitates serial communication between the microprocessor and peripherals."
   },
   {
@@ -121,7 +137,9 @@
     "option_b": "Programmable Interval Timer/Counter",
     "option_c": "DMA Controller",
     "option_d": "Display Controller",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It contains three independent 16-bit counters for generating delays and measuring frequencies."
   },
   {
@@ -135,7 +153,9 @@
     "option_b": "Bit Set/Reset mode for Port C",
     "option_c": "Byte System Restore",
     "option_d": "Bus Service Request",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "BSR mode allows individual bits of Port C to be set or reset without affecting other bits."
   },
   {
@@ -149,7 +169,9 @@
     "option_b": "8279",
     "option_c": "8251",
     "option_d": "8237",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 8279 handles matrix keyboards and multiplexed 7-segment displays."
   },
   {
@@ -163,7 +185,9 @@
     "option_b": "0034H",
     "option_c": "002CH",
     "option_d": "003CH",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "RST 6.5 address = 6.5 * 8 = 52 (decimal) = 34H (hex)."
   },
   {
@@ -177,7 +201,9 @@
     "option_b": "XCHG",
     "option_c": "STAX D",
     "option_d": "SPHL",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "XCHG (Exchange) swaps H with D and L with E."
   },
   {
@@ -191,7 +217,9 @@
     "option_b": "Signed integer",
     "option_c": "BCD (Binary Coded Decimal)",
     "option_d": "Floating point",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The AC flag is used by the DAA instruction to adjust the result of BCD addition."
   },
   {
@@ -205,7 +233,9 @@
     "option_b": "To synchronize the CPU with slow memory or I/O devices",
     "option_c": "To start the processor",
     "option_d": "To reset the flags",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "If the READY pin is low, the CPU enters a WAIT state until it becomes high."
   },
   {
@@ -219,7 +249,9 @@
     "option_b": "10",
     "option_c": "13",
     "option_d": "7",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "It involves Opcode Fetch (4), Memory Read (3), Memory Read (3), and another Memory Read (3) to get the data = 13 T-states."
   },
   {
@@ -233,7 +265,9 @@
     "option_b": "RST 7.5",
     "option_c": "TRAP",
     "option_d": "RST 5.5",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "TRAP is edge-triggered to detect the signal and level-triggered to sustain the interrupt request."
   },
   {
@@ -247,7 +281,9 @@
     "option_b": "Mode 1",
     "option_c": "Mode 2",
     "option_d": "BSR Mode",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Mode 1 provides handshaking (strobed) signals for data transfer."
   },
   {
@@ -261,7 +297,9 @@
     "option_b": "Bit 4",
     "option_c": "Bit 7",
     "option_d": "Bit 6",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "The 7th bit of the result of a RIM instruction contains the logic level of the SID pin."
   },
   {
@@ -275,7 +313,9 @@
     "option_b": "Copies HL contents to Program Counter",
     "option_c": "Copies Accumulator to HL",
     "option_d": "Decrements Program Counter",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "PCHL performs a jump to the address stored in the HL register pair."
   },
   {
@@ -289,7 +329,9 @@
     "option_b": "Implied / Registered",
     "option_c": "Immediate",
     "option_d": "Indexed",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The target address is pre-defined and implied by the instruction opcode."
   },
   {
@@ -303,7 +345,9 @@
     "option_b": "To hold the opcode of the current instruction during decoding",
     "option_c": "To store memory addresses",
     "option_d": "To keep track of iterations",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The IR holds the fetched opcode for the instruction decoder."
   },
   {
@@ -317,7 +361,9 @@
     "option_b": "ADD or ADC operation",
     "option_c": "SUB or SBB operation",
     "option_d": "MOV operation",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Intel 8085's DAA is designed only for addition; subtraction adjustment requires a different software logic."
   },
   {
@@ -331,7 +377,9 @@
     "option_b": "T2",
     "option_c": "T3",
     "option_d": "T4",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The CPU samples the READY pin during T2 of each machine cycle."
   },
   {
@@ -345,7 +393,9 @@
     "option_b": "8",
     "option_c": "15",
     "option_d": "64",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "One 8259 chip has 8 priority levels (IR0-IR7)."
   },
   {
@@ -359,7 +409,9 @@
     "option_b": "32",
     "option_c": "64",
     "option_d": "128",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "There are 8 slaves, each handling 8 interrupts, total 8x8 = 64."
   },
   {
@@ -373,7 +425,9 @@
     "option_b": "Using separate address space and instructions (IN/OUT) for I/O devices",
     "option_c": "Mapping I/O to the stack",
     "option_d": "Using virtual memory for I/O",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Isolated I/O keeps memory and port addresses separate."
   },
   {
@@ -387,7 +441,9 @@
     "option_b": "Only Synchronous",
     "option_c": "Both Asynchronous and Synchronous",
     "option_d": "Parallel",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "USART stands for Universal Synchronous Asynchronous Receiver Transmitter."
   },
   {
@@ -401,7 +457,9 @@
     "option_b": "BSR (Bit Set/Reset) mode active",
     "option_c": "Port A is input",
     "option_d": "Group A is Mode 2",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Bit 7 = 1 for I/O mode, Bit 7 = 0 for BSR mode."
   },
   {
@@ -415,7 +473,11 @@
     "option_b": "Z",
     "option_c": "S",
     "option_d": "P",
-    "correct_options": ["B", "C", "D"],
+    "correct_options": [
+      "B",
+      "C",
+      "D"
+    ],
     "explanation": "The DAD instruction only affects the Carry (CY) flag."
   },
   {
@@ -429,7 +491,9 @@
     "option_b": "8253/8254",
     "option_c": "8259",
     "option_d": "8279",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Its counters can be used to generate the high-frequency clock needed for baud rate generators."
   },
   {
@@ -443,7 +507,9 @@
     "option_b": "Register Indirect",
     "option_c": "Direct",
     "option_d": "Immediate",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "It accesses memory via the address stored in the HL register pair."
   },
   {
@@ -457,7 +523,9 @@
     "option_b": "At [SP-2]",
     "option_c": "At [SP+1]",
     "option_d": "At [SP]",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Accumulator is stored at SP-1, and Flags at SP-2. The SP itself ends up at SP-2."
   },
   {
@@ -471,7 +539,9 @@
     "option_b": "9BH",
     "option_c": "00H",
     "option_d": "FFH",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "80H = 1000 0000 binary. Bit 7=1 (I/O), others 0 (Output/Mode 0)."
   },
   {
@@ -485,7 +555,9 @@
     "option_b": "Digital-to-Analog Converter",
     "option_c": "Voltage Regulation",
     "option_d": "Serial Communication",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "R-2R is a common simple architecture for DACs."
   },
   {
@@ -499,7 +571,9 @@
     "option_b": "Flash (Parallel) ADC",
     "option_c": "Dual Slope ADC",
     "option_d": "Counter type ADC",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Flash ADCs use a bank of comparators to convert in one step."
   },
   {
@@ -513,7 +587,9 @@
     "option_b": "INTR or EOC",
     "option_c": "READY",
     "option_d": "ALE",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "End of Conversion (EOC) signal tells the CPU the digital data is ready."
   },
   {
@@ -527,7 +603,9 @@
     "option_b": "10",
     "option_c": "12",
     "option_d": "16",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "2^10 = 1024, so 10 address lines are needed."
   },
   {
@@ -541,7 +619,9 @@
     "option_b": "The DMA Controller",
     "option_c": "The Memory",
     "option_d": "The User",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The DMA controller becomes the 'bus master' while the CPU is in a HOLD state."
   },
   {
@@ -555,7 +635,9 @@
     "option_b": "Accumulator contents are inverted (1's complement)",
     "option_c": "Accumulator is set to all 1s",
     "option_d": "No change",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "XORing with 1s flips every bit."
   },
   {
@@ -569,7 +651,9 @@
     "option_b": "To disconnect a device output from the bus (High-Impedance state)",
     "option_c": "Storage of 3 bits",
     "option_d": "Fast switching",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Tri-state (0, 1, and Hi-Z) allows multiple devices to share the same bus lines without conflict."
   },
   {
@@ -583,7 +667,9 @@
     "option_b": "INTR",
     "option_c": "RST 7.5",
     "option_d": "TRAP",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "INTR is the lowest priority hardware interrupt in 8085."
   },
   {
@@ -597,7 +683,9 @@
     "option_b": "2",
     "option_c": "3",
     "option_d": "variable",
-    "correct_options": ["C"],
+    "correct_options": [
+      "C"
+    ],
     "explanation": "A typical bus idle cycle in 8085 takes 3 T-states."
   },
   {
@@ -611,7 +699,9 @@
     "option_b": "LIFO (Last-In-First-Out) temporary storage for return addresses and register values",
     "option_c": "Storing the OS",
     "option_d": "Directly communicating with the screen",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The stack resides in RAM and is crucial for handling subroutines and interrupts."
   },
   {
@@ -625,7 +715,9 @@
     "option_b": "1, 0",
     "option_c": "1, 1",
     "option_d": "0, 0",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "For Memory Read: S1=1, S0=0."
   },
   {
@@ -639,7 +731,9 @@
     "option_b": "Automatic Rotation Mode",
     "option_c": "Specific Rotation Mode",
     "option_d": "Special Mask Mode",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Automatic rotation ensures that once a device is served, it gets the lowest priority, preventing starvation."
   },
   {
@@ -653,7 +747,9 @@
     "option_b": "8155",
     "option_c": "8279",
     "option_d": "8251",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 8155 is a commonly used multi-function support chip for 8085."
   },
   {
@@ -667,7 +763,9 @@
     "option_b": "Control/Data selection",
     "option_c": "Clock Divider",
     "option_d": "Carry Detection",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "C/D pin high selects the Control or Status register; low selects the Data buffer."
   },
   {
@@ -681,7 +779,9 @@
     "option_b": "8086",
     "option_c": "8088",
     "option_d": "80286",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 8086 was the first 16-bit x86 processor and used segments (CS, DS, SS, ES) to address 1 MB of memory."
   },
   {
@@ -695,49 +795,9 @@
     "option_b": "IBF",
     "option_c": "INTR",
     "option_d": "ACK'",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "STB' (Strobe Input) is used to load data into the port latch."
-  },
-  {
-    "subject_name": "Microprocessors",
-    "level_number": 3,
-    "level_topic": "Architecture",
-    "question_type": "medium",
-    "timer_seconds": 30,
-    "question_text": "What is the function of the 'Flag Register' in the 8085?",
-    "option_a": "To store the next instruction address",
-    "option_b": "To reflect the status of the current arithmetic or logical operation",
-    "option_c": "To store the user's name",
-    "option_d": "To control the power supply",
-    "correct_options": ["B"],
-    "explanation": "The flag register (or Status Register) contains various bits that are set or cleared based on the result of the last ALU operation."
-  },
-  {
-    "subject_name": "Microprocessors",
-    "level_number": 3,
-    "level_topic": "Bus System",
-    "question_type": "hard",
-    "timer_seconds": 40,
-    "question_text": "How many address lines are needed to address 1MB of memory (as in the 8086)?",
-    "option_a": "16",
-    "option_b": "20",
-    "option_c": "24",
-    "option_d": "32",
-    "correct_options": ["B"],
-    "explanation": "2^20 = 1,048,576 bytes, which is 1 megabyte (MB)."
-  },
-  {
-    "subject_name": "Microprocessors",
-    "level_number": 3,
-    "level_topic": "Interfacing Chips",
-    "question_type": "medium",
-    "timer_seconds": 30,
-    "question_text": "What is the primary function of the 8237 DMA controller?",
-    "option_a": "To provide extra RAM",
-    "option_b": "To automate high-speed data transfers between memory and I/O devices without involving the CPU",
-    "option_c": "To manage serial communication",
-    "option_d": "To generate clock pulses",
-    "correct_options": ["B"],
-    "explanation": "The 8237 offloads bulk data movement tasks from the CPU, significantly improving system performance for I/O heavy operations."
   }
 ]

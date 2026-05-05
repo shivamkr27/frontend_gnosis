@@ -10,7 +10,9 @@
     "option_b": "To maintain the cluster state, schedule services, and manage Swarm APIs",
     "option_c": "To backup the data",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Manager nodes use Raft consensus to synchronize the state of the swarm."
   },
   {
@@ -24,7 +26,9 @@
     "option_b": "The definition of the tasks to execute on the nodes (e.g., image, ports, replicas)",
     "option_c": "A network connection",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Services allow you to scale applications by defining the number of running replicas."
   },
   {
@@ -38,7 +42,9 @@
     "option_b": "Replicated runs a specific number of tasks; Global runs exactly one task on every node in the swarm",
     "option_c": "They are the same",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Global mode is useful for monitoring agents or antivirus software that must run everywhere."
   },
   {
@@ -52,7 +58,9 @@
     "option_b": "By encrypting secrets at rest and in transit, and mounting them into the container's memory (/run/secrets) only when needed",
     "option_c": "By hiding them from the logs",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Secrets are safer than environment variables as they are never written to disk or shown in 'docker inspect'."
   },
   {
@@ -66,7 +74,9 @@
     "option_b": "A Secure Computing mode profile that restricts the system calls a container can make to the Linux kernel",
     "option_c": "A way to speed up the container",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Seccomp is a powerful security feature that significantly reduces the kernel's attack surface for a container."
   },
   {
@@ -80,7 +90,9 @@
     "option_b": "A special overlay network that facilitates load balancing across all nodes in the swarm for any service port exposed publicly",
     "option_c": "A private network for admins",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The 'Routing Mesh' uses the ingress network to direct traffic to wherever a service task is running."
   },
   {
@@ -94,7 +106,9 @@
     "option_b": "A collection of services that share dependencies and can be orchestrated together (usually defined in a Compose file)",
     "option_c": "A way to backup the server",
     "option_d": "None of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "docker stack deploy allows you to manage multiple related services as a single unit."
   },
   {
@@ -108,7 +122,9 @@
     "option_b": "docker swarm init",
     "option_c": "docker swarm create",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This generates a join token for other manager and worker nodes."
   },
   {
@@ -122,7 +138,9 @@
     "option_b": "An advanced, high-performance build engine that supports parallelization, secret mounting during build, and better caching",
     "option_c": "The default logo",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "BuildKit is the modern replacement for the legacy Docker builder, offering massive speed improvements."
   },
   {
@@ -136,7 +154,9 @@
     "option_b": "Removes all default Linux kernel capabilities from the container, enforcing the most restrictive environment possible",
     "option_c": "Deletes the container after use",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "For high security, drop all and then selectively '--cap-add' only what's needed (e.g., NET_ADMIN)."
   },
   {
@@ -150,7 +170,9 @@
     "option_b": "To easily manage and switch between different Docker endpoints (e.g., local, remote SSH, cloud clusters) from one CLI",
     "option_c": "To rename containers",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Contexts consolidate your connection info into easy-to-use profiles."
   },
   {
@@ -164,7 +186,9 @@
     "option_b": "An industry-standard core container runtime used by Docker (and K8s) that manages the complete container lifecycle on a node",
     "option_c": "The Docker installer",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Docker is now built on top of the smaller, CNCF-maintained 'containerd' runtime."
   },
   {
@@ -178,7 +202,9 @@
     "option_b": "The majority of manager nodes needed to be online (N/2 + 1) to maintain cluster stability and allow new changes",
     "option_c": "The number of users",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Without a quorum, managers cannot make decisions (to prevent split-brain scenarios)."
   },
   {
@@ -192,7 +218,9 @@
     "option_b": "A feature that maps the container 'root' user to a non-privileged user on the host, preventing host-level root access if a breakout occurs",
     "option_c": "Hiding user names",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This effectively 'sandboxes' the root user within the container's own reality."
   },
   {
@@ -206,7 +234,9 @@
     "option_b": "The ability of any node in the swarm to accept traffic on a published service port and route it to a node running that service",
     "option_c": "A map of the internet",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The routing mesh ensures your app stays reachable even as tasks migrate between nodes."
   },
   {
@@ -220,7 +250,9 @@
     "option_b": "v2",
     "option_c": "v3",
     "option_d": "v4",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The Registry V2 API is the standard for pushing and pulling image layers."
   },
   {
@@ -234,7 +266,9 @@
     "option_b": "docker swarm join --token [token] [manager_ip]",
     "option_c": "docker node connect",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The token is obtained from the manager using 'docker swarm join-token worker'."
   },
   {
@@ -248,7 +282,9 @@
     "option_b": "Controlling the read/write speed (weight or IOPS) of a container to prevent disk bandwidth hogging",
     "option_c": "Stopping a user",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "blkio settings help enforce 'Noisy Neighbor' isolation for disk performance."
   },
   {
@@ -262,7 +298,9 @@
     "option_b": "docker service refresh",
     "option_c": "docker stack restart",
     "option_d": "none of the above",
-    "correct_options": ["A"],
+    "correct_options": [
+      "A"
+    ],
     "explanation": "Docker Swarm performs a 'Rolling Update' by default, updating one replica at a time."
   },
   {
@@ -276,7 +314,9 @@
     "option_b": "To add metadata to an image (e.g. author, version, description) for easier filtering and organization",
     "option_c": "To set an environment variable",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Labels are key-value pairs that can be read by 'docker inspect'."
   },
   {
@@ -290,7 +330,9 @@
     "option_b": "journalctl -u docker",
     "option_c": "cat /var/log/docker",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Because Docker runs as a system service, its internal errors are found in the system journal."
   },
   {
@@ -304,7 +346,9 @@
     "option_b": "The smallest unit of orchestration in Swarm; it represents one container instance belonging to a service",
     "option_c": "A script for the manager",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "A service might have 5 tasks, which means 5 containers running the same image."
   },
   {
@@ -318,7 +362,9 @@
     "option_b": "The mechanism that decides how IP addresses are assigned to containers (e.g. specifying a subnet and gateway)",
     "option_c": "A tool to delete IPs",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Custom IPAM configurations are essential for complex networking requirements."
   },
   {
@@ -332,7 +378,9 @@
     "option_b": "The process of removing blob layers (data) from storage that are no longer referenced by any image tags",
     "option_c": "Cleaning the registry UI",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Without garbage collection, registries will grow indefinitely as every 'docker push' of a new version adds data."
   },
   {
@@ -346,7 +394,9 @@
     "option_b": "docker node update --availability drain [node_name]",
     "option_c": "docker node remove",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Draining prevents new tasks from being scheduled on that node and moves existing ones elsewhere."
   },
   {
@@ -360,7 +410,9 @@
     "option_b": "export DOCKER_CONTENT_TRUST=1",
     "option_c": "docker config trust --on",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "After setting this env var, every pull/push must be cryptographically signed."
   },
   {
@@ -374,7 +426,9 @@
     "option_b": "Restricting the total number of process IDs a container can create (to prevent Fork Bomb attacks)",
     "option_c": "Limiting the number of users",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This prevents a single container from exhausting the host's process table."
   },
   {
@@ -388,7 +442,9 @@
     "option_b": "They contain only the application and its runtime dependencies, containing no shell or package managers (ultra-secure/minimal)",
     "option_c": "They are easier to use",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Distroless images are much harder to exploit because they lack common tools like 'sh' or 'apt'."
   },
   {
@@ -402,7 +458,9 @@
     "option_b": "/var/run/docker.sock",
     "option_c": "/etc/docker.sock",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Protecting this socket file is paramount; giving a container access to it is equivalent to giving it root on the host."
   },
   {
@@ -416,7 +474,9 @@
     "option_b": "none of the above",
     "option_c": "The OS fixing itself",
     "option_d": "A built-in feature of Swarm to scale based on CPU",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Docker Swarm does NOT have built-in autoscaling based on metrics (unlike Kubernetes); it requires external tools or scripts."
   },
   {
@@ -430,7 +490,9 @@
     "option_b": "A driver that allows Docker to use external storage systems (SAN/NAS/Cloud disks) for persistent volumes",
     "option_c": "A way to backup the server",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Plugins extend Docker's capability to integrate with enterprise hardware."
   },
   {
@@ -444,7 +506,9 @@
     "option_b": "The open-source library used by Docker to implement all container networking features (drivers, endpoints, sandboxes)",
     "option_c": "A network for books",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Libnetwork provides a platform-agnostic way to manage networking."
   },
   {
@@ -458,7 +522,9 @@
     "option_b": "Updating the Certificate Authority and all node certificates to maintain cluster security over time",
     "option_c": "Changing the admin password",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Periodic CA rotation is a standard security practice to mitigate long-term credential compromise."
   },
   {
@@ -472,7 +538,9 @@
     "option_b": "By using the '--mount=type=secret' flag in a RUN instruction",
     "option_c": "By adding them to the Dockerfile text",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This allows you to pull private dependencies without leaking the token into the image layers."
   },
   {
@@ -486,7 +554,9 @@
     "option_b": "The detailed network config (IP, MAC) for every container currently connected to that specific network",
     "option_c": "The Docker engine settings",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This is perfect for troubleshooting connectivity issues between containers."
   },
   {
@@ -500,7 +570,9 @@
     "option_b": "docker service rm",
     "option_c": "docker service delete",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This instantly stops and removes all tasks associated with that service."
   },
   {
@@ -514,7 +586,9 @@
     "option_b": "Desktop is the GUI + development tools wrapper (includes VM on Win/Mac); Engine is the core daemon/CLI",
     "option_c": "There is no difference",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Docker Desktop allows Windows/Mac users to run Linux containers via a lightweight VM."
   },
   {
@@ -528,7 +602,9 @@
     "option_b": "A way to store non-sensitive configuration data (like application files) outside of the image and share it with services",
     "option_c": "The backup for secrets",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Like secrets, configs allow you to decouple application settings from image build."
   },
   {
@@ -542,7 +618,9 @@
     "option_b": "Collapses all new image layers into a single layer at the end of the build to reduce metadata overhead and size",
     "option_c": "Deletes the logs",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Squashing helps keep final production images clean, though it breaks layer sharing between images."
   },
   {
@@ -556,7 +634,9 @@
     "option_b": "A plugin that directs container logs to different destinations (json-file, syslog, journald, splunk, etc.)",
     "option_c": "A screen for logs",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Choosing the right driver is vital for centralized log management in production."
   },
   {
@@ -570,7 +650,9 @@
     "option_b": "A rule that limits which nodes a service can be scheduled on (e.g. only on nodes with 'SSD=true' label)",
     "option_c": "A way to delete nodes",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Placement constraints allow you to match application requirements to specific hardware."
   },
   {
@@ -584,7 +666,9 @@
     "option_b": "docker node ls",
     "option_c": "docker show nodes",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This shows the status and health of every physical/virtual node in the cluster."
   },
   {
@@ -598,7 +682,9 @@
     "option_b": "A Linux kernel security module that allows the system administrator to restrict program's capabilities with per-program profiles",
     "option_c": "An antivirus program",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Docker loads a default AppArmor profile that provides a strong baseline security for containers."
   },
   {
@@ -612,7 +698,9 @@
     "option_b": "Using '--filter' to watch only specific events (e.g. only 'die' events for a specific image)",
     "option_c": "Hiding all events",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Filtering allows you to monitor only what's important for your automation logic."
   },
   {
@@ -626,7 +714,9 @@
     "option_b": "UDP 4789 (VXLAN)",
     "option_c": "TCP 2377",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "VXLAN encapsulated traffic uses UDP 4789 by default for the data plane."
   },
   {
@@ -640,7 +730,9 @@
     "option_b": "A low-level CLI tool for spawning and running containers according to the OCI (Open Container Initiative) specification",
     "option_c": "A way to backup the code",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "runC is the actual tool that 'touches' the Linux kernel to create the container."
   },
   {
@@ -654,7 +746,9 @@
     "option_b": "The state where a Docker engine participates in a cluster (either as manager or worker)",
     "option_c": "A virus mode",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Native Swarm orchestration is built directly into the Docker Engine and just needs to be 'initialized'."
   },
   {
@@ -668,7 +762,9 @@
     "option_b": "A volume that can be mounted by multiple containers across different physical hosts simultaneously",
     "option_c": "A backup tool",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "Shared storage is a requirement for horizontally scaled stateful applications."
   },
   {
@@ -682,7 +778,9 @@
     "option_b": "-s (or --size)",
     "option_c": "-f",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "This shows the writable layer size vs the virtual (image) size."
   },
   {
@@ -696,7 +794,9 @@
     "option_b": "The manager node automatically restarting or rescheduling tasks if a container or node fails, to maintain the 'Desired State'",
     "option_c": "The code fixing its own bugs",
     "option_d": "none of the above",
-    "correct_options": ["B"],
+    "correct_options": [
+      "B"
+    ],
     "explanation": "The orchestrator constantly monitors 'actual state' vs 'desired state' (e.g. 5 replicas)."
   }
 ]

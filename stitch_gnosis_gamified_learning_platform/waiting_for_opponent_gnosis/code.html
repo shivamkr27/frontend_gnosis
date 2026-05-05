@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gnosis | 1v1 Battle Waiting Room</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Serif:wght@600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-dim": "#0c1320",
+            "error-container": "#93000a",
+            "on-tertiary-container": "#594300",
+            "inverse-primary": "#8e4e14",
+            "surface-container-high": "#232a38",
+            "on-surface": "#dce2f5",
+            "surface-variant": "#2e3543",
+            "outline": "#a08d80",
+            "on-tertiary-fixed-variant": "#5a4400",
+            "on-error": "#690005",
+            "outline-variant": "#534439",
+            "on-primary": "#4e2600",
+            "secondary-container": "#30a193",
+            "on-tertiary": "#3e2e00",
+            "primary-container": "#f4a261",
+            "secondary": "#6fd8c8",
+            "on-secondary-fixed": "#00201c",
+            "surface-container-highest": "#2e3543",
+            "primary-fixed": "#ffdcc4",
+            "on-primary-fixed": "#2f1400",
+            "on-primary-container": "#6f3800",
+            "primary-fixed-dim": "#ffb780",
+            "surface": "#0c1320",
+            "on-secondary": "#003731",
+            "surface-tint": "#ffb780",
+            "surface-container": "#19202d",
+            "inverse-on-surface": "#2a303e",
+            "on-error-container": "#ffdad6",
+            "tertiary-container": "#d4b058",
+            "tertiary-fixed-dim": "#e7c268",
+            "on-background": "#dce2f5",
+            "surface-bright": "#323948",
+            "secondary-fixed-dim": "#6fd8c8",
+            "on-tertiary-fixed": "#251a00",
+            "background": "#0c1320",
+            "error": "#ffb4ab",
+            "surface-container-lowest": "#070e1b",
+            "secondary-fixed": "#8cf5e4",
+            "primary": "#ffc499",
+            "on-surface-variant": "#d8c2b5",
+            "on-primary-fixed-variant": "#6f3800",
+            "inverse-surface": "#dce2f5",
+            "tertiary-fixed": "#ffdf96",
+            "on-secondary-container": "#00302a",
+            "surface-container-low": "#151c29",
+            "tertiary": "#f1cc71",
+            "on-secondary-fixed-variant": "#005048"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "container-max": "1280px",
+            "unit": "8px",
+            "margin-mobile": "16px",
+            "margin-desktop": "40px",
+            "gutter": "24px"
+          },
+          "fontFamily": {
+            "body-md": ["Inter"],
+            "headline-lg": ["Noto Serif"],
+            "headline-xl": ["Noto Serif"],
+            "body-lg": ["Inter"],
+            "headline-md": ["Noto Serif"],
+            "label-md": ["Inter"],
+            "label-sm": ["Inter"]
+          },
+          "fontSize": {
+            "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "headline-xl": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+            "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+            "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "500"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .mandal-bg {
+      background-image: radial-gradient(circle at center, transparent 0%, transparent 100%), 
+                        repeating-conic-gradient(from 0deg, rgba(255, 196, 153, 0.03) 0deg 15deg, transparent 15deg 30deg);
+    }
+    .pulse-glow {
+      box-shadow: 0 0 15px rgba(255, 183, 128, 0.15);
+    }
+  </style>
+</head>
+<body class="bg-surface-dim text-on-surface font-body-md min-h-screen selection:bg-primary-container selection:text-on-primary-container mandal-bg">
+<!-- Top Navigation Shell -->
+<header class="bg-surface-container-low dark:bg-surface-container-low border-b border-outline-variant/20 dark:border-outline-variant/20 sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="font-headline-lg text-headline-lg font-bold text-primary dark:text-primary-fixed-dim tracking-tight">Gnosis</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Home</a>
+<a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1 font-bold transition-colors duration-300" href="#">Battle</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Leaderboard</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Profile</a>
+</nav>
+<div class="flex items-center gap-4">
+<span class="font-label-md text-label-md text-secondary">XP: 1,250</span>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer" data-icon="local_fire_department">local_fire_department</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-20 flex flex-col items-center">
+<!-- Match Info Header -->
+<div class="text-center mb-16 space-y-4">
+<h2 class="font-label-md text-label-md text-primary tracking-[0.2em] uppercase">Upcoming Encounter</h2>
+<h1 class="font-headline-xl text-headline-xl">1v1 Combat Initiative</h1>
+<p class="text-on-surface-variant max-w-xl mx-auto font-body-lg">A formal challenge has been issued. Awaiting the opponent's confirmation to begin the assessment.</p>
+</div>
+<!-- Battle Canvas -->
+<div class="w-full grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<!-- Current User (Left) -->
+<div class="md:col-span-5 flex flex-col items-center md:items-end text-center md:text-right space-y-6">
+<div class="relative">
+<div class="w-40 h-40 rounded-full border border-primary/30 p-2">
+<img alt="Your Avatar" class="w-full h-full rounded-full grayscale hover:grayscale-0 transition-all duration-500" data-alt="A professional digital avatar of a young male engineering student with glasses and a focused expression. The style is clean, modern, and minimalist with a navy and slate color palette. The lighting is soft and top-down, creating a scholarly and high-tech atmosphere consistent with a premium academic platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6xTRh_CfMfOudbWdDKRNduBcuWwYErv-US9bfj3NnWwUEbw3CwrLgMGua8Lmvkte3nM15eZXOQlyW9UasPK8WBxC_bP9cGsGb961hT0l6eInPlGj4kUHYo38rct2d6p3DVUzTI_V83M7ez2i8b2JLzWjQaMgdozgn39uiAWP2kI6_XncxOV7YK-vqKkAO0QY1HKZt4vm2ngTR_8DC8OSXU8WZa_gOzaCBQFnQGp5y5jX5jW9nPcptnkNLHr9DHt87SbCYQuFKLKk"/>
+</div>
+<div class="absolute -bottom-2 -right-2 bg-secondary text-on-secondary px-3 py-1 rounded-sm font-label-sm">YOU</div>
+</div>
+<div class="space-y-1">
+<h3 class="font-headline-md text-headline-md">Alex Chen</h3>
+<p class="text-on-surface-variant font-label-md">Rank: Senior Scholar</p>
+</div>
+</div>
+<!-- VS Indicator (Center) -->
+<div class="md:col-span-2 flex flex-col items-center justify-center space-y-4 py-8">
+<div class="w-px h-24 bg-gradient-to-b from-transparent via-outline-variant to-transparent"></div>
+<div class="text-primary font-headline-md italic tracking-widest px-4">VS</div>
+<div class="w-px h-24 bg-gradient-to-b from-outline-variant via-outline-variant to-transparent"></div>
+</div>
+<!-- Opponent (Right) -->
+<div class="md:col-span-5 flex flex-col items-center md:items-start text-center md:text-left space-y-6">
+<div class="relative">
+<div class="w-40 h-40 rounded-full border border-dashed border-outline-variant/50 p-2 animate-[pulse_3s_infinite]">
+<img alt="Opponent Avatar" class="w-full h-full rounded-full opacity-60 grayscale" data-alt="A sleek digital avatar of a female student with a sharp, intelligent look, wearing a blazer. The background is a dark slate typical of a high-end educational UI. The image has a subtle ghosted effect to indicate a pending or waiting status, maintaining the professional and mathematical aesthetic of the brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWbf96v7gcDN7mogV3I-8XBowBbH7kNv5MRazF7LLrtqrKXnWRs8DwBxFtOeQX92ENHmPwRXhDLcf01CbXT1wfkNuGaVbl2KXchCgqu18hMAWZc_Jo2bWPI3zOOJJlw3JB23hWA1OssXrk421nLVqK5Gf6d4xJeM9fIoeHluWujcSIDKK6trkXSdXk8c08WEezJ1wjgdSVtkyYHzqvxyMwO9eDYy9D16pKL5nfKR4YGrUoywkxi0I2c7S29i32x_yMr9bUs-qTdEs"/>
+</div>
+<div class="absolute -bottom-2 -left-2 bg-surface-container-highest border border-outline-variant/30 text-on-surface-variant px-3 py-1 rounded-sm font-label-sm">PENDING</div>
+</div>
+<div class="space-y-1">
+<h3 class="font-headline-md text-headline-md">Jordan V.</h3>
+<div class="flex items-center gap-2 text-primary font-label-md">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+            Waiting for response...
+          </div>
+</div>
+</div>
+</div>
+<!-- Battle Details Bento -->
+<div class="mt-20 w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Subject Card -->
+<div class="bg-surface-container-low border border-outline-variant/20 p-8 flex flex-col justify-between">
+<div class="space-y-4">
+<div class="flex items-center gap-3 text-secondary">
+<span class="material-symbols-outlined" data-icon="architecture">architecture</span>
+<span class="font-label-md">ACADEMIC SUBJECT</span>
+</div>
+<h4 class="font-headline-md text-headline-md">Advanced Quantum Mechanics</h4>
+<p class="text-on-surface-variant text-body-md">Module 4: Wave-Particle Duality and Uncertainty Principles.</p>
+</div>
+</div>
+<!-- Format Card -->
+<div class="bg-surface-container-low border border-outline-variant/20 p-8 flex flex-col justify-between">
+<div class="space-y-4">
+<div class="flex items-center gap-3 text-primary">
+<span class="material-symbols-outlined" data-icon="timer">timer</span>
+<span class="font-label-md">BATTLE FORMAT</span>
+</div>
+<h4 class="font-headline-md text-headline-md">Blitz Assessment</h4>
+<p class="text-on-surface-variant text-body-md">15 questions | 45 seconds per response | Precision bonus enabled.</p>
+</div>
+</div>
+</div>
+<!-- Action Bar -->
+<div class="mt-16 flex flex-col md:flex-row gap-6 w-full max-w-4xl justify-center">
+<button class="px-12 py-4 bg-primary text-on-primary font-label-md rounded-sm active:scale-95 transition-all duration-200 pulse-glow">
+        CANCEL CHALLENGE
+      </button>
+<button class="px-12 py-4 border border-outline-variant text-on-surface hover:bg-surface-variant/20 font-label-md rounded-sm active:scale-95 transition-all duration-200">
+        RETURN TO DASHBOARD
+      </button>
+</div>
+</main>
+<!-- Mobile Bottom Nav Shell -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-16 px-4 md:hidden bg-surface-container-high dark:bg-surface-container-highest border-t border-outline-variant/30 z-50">
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant transition-all duration-150 active:scale-90">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim font-bold transition-all duration-150 active:scale-90">
+<span class="material-symbols-outlined" data-icon="swords" data-weight="fill" style="font-variation-settings: 'FILL' 1;">swords</span>
+<span class="font-label-sm text-label-sm mt-1">Battle</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant transition-all duration-150 active:scale-90">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+<span class="font-label-sm text-label-sm mt-1">Rank</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant transition-all duration-150 active:scale-90">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</div>
+</nav>
+<!-- Mandala Watermark -->
+<div class="fixed inset-0 pointer-events-none z-[-1] opacity-[0.03]">
+<svg height="100%" viewbox="0 0 800 800" width="100%" xmlns="http://www.w3.org/2000/svg">
+<g fill="none" stroke="#ffc499" stroke-width="0.5">
+<circle cx="400" cy="400" r="300"></circle>
+<circle cx="400" cy="400" r="250"></circle>
+<circle cx="400" cy="400" r="200"></circle>
+<path d="M400 100 L400 700 M100 400 L700 400"></path>
+<rect height="400" transform="rotate(45 400 400)" width="400" x="200" y="200"></rect>
+<rect height="300" width="300" x="250" y="250"></rect>
+</g>
+</svg>
+</div>
+</body></html>

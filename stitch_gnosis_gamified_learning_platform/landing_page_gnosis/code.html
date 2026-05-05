@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gnosis | Master Tech. One Level at a Time.</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Serif:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#0c1320",
+                    "error-container": "#93000a",
+                    "on-tertiary-container": "#594300",
+                    "inverse-primary": "#8e4e14",
+                    "surface-container-high": "#232a38",
+                    "on-surface": "#dce2f5",
+                    "surface-variant": "#2e3543",
+                    "outline": "#a08d80",
+                    "on-tertiary-fixed-variant": "#5a4400",
+                    "on-error": "#690005",
+                    "outline-variant": "#534439",
+                    "on-primary": "#4e2600",
+                    "secondary-container": "#30a193",
+                    "on-tertiary": "#3e2e00",
+                    "primary-container": "#f4a261",
+                    "secondary": "#6fd8c8",
+                    "on-secondary-fixed": "#00201c",
+                    "surface-container-highest": "#2e3543",
+                    "primary-fixed": "#ffdcc4",
+                    "on-primary-fixed": "#2f1400",
+                    "on-primary-container": "#6f3800",
+                    "primary-fixed-dim": "#ffb780",
+                    "surface": "#0c1320",
+                    "on-secondary": "#003731",
+                    "surface-tint": "#ffb780",
+                    "surface-container": "#19202d",
+                    "inverse-on-surface": "#2a303e",
+                    "on-error-container": "#ffdad6",
+                    "tertiary-container": "#d4b058",
+                    "tertiary-fixed-dim": "#e7c268",
+                    "on-background": "#dce2f5",
+                    "surface-bright": "#323948",
+                    "secondary-fixed-dim": "#6fd8c8",
+                    "on-tertiary-fixed": "#251a00",
+                    "background": "#0c1320",
+                    "error": "#ffb4ab",
+                    "surface-container-lowest": "#070e1b",
+                    "secondary-fixed": "#8cf5e4",
+                    "primary": "#ffc499",
+                    "on-surface-variant": "#d8c2b5",
+                    "on-primary-fixed-variant": "#6f3800",
+                    "inverse-surface": "#dce2f5",
+                    "tertiary-fixed": "#ffdf96",
+                    "on-secondary-container": "#00302a",
+                    "surface-container-low": "#151c29",
+                    "tertiary": "#f1cc71",
+                    "on-secondary-fixed-variant": "#005048"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "unit": "8px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "40px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Noto Serif"],
+                    "headline-xl": ["Noto Serif"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Noto Serif"],
+                    "label-md": ["Inter"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "500"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .mandala-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='400' height='400' viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3Unique %3Cpath d='M200 0 L210 190 L400 200 L210 210 L200 400 L190 210 L0 200 L190 190 Z' fill='none' stroke='%23ffc499' stroke-width='0.5' opacity='0.03'/%3E%3C/svg%3E");
+        }
+        .notch-accent {
+            position: relative;
+        }
+        .notch-accent::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: #f4a261;
+        }
+    </style>
+</head>
+<body class="bg-surface-dim text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Header / TopAppBar -->
+<header class="bg-surface-container-low dark:bg-surface-container-low border-b border-outline-variant/20 dark:border-outline-variant/20 docked full-width top-0 z-50">
+<nav class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="font-headline-lg text-headline-lg font-bold text-primary dark:text-primary-fixed-dim tracking-tight">Gnosis</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1 font-bold font-label-md text-label-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Home</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium font-label-md text-label-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Battle</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium font-label-md text-label-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Leaderboard</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium font-label-md text-label-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Profile</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="hidden lg:inline-block font-label-md text-label-md text-secondary">XP: 1,250</span>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">local_fire_department</button>
+</div>
+</nav>
+</header>
+<main class="mandala-bg min-h-screen">
+<!-- Hero Section -->
+<section class="relative pt-32 pb-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-7 z-10">
+<span class="inline-block px-3 py-1 bg-secondary-container/10 text-secondary border border-secondary/20 font-label-sm text-label-sm mb-6 rounded-lg">GATEWAY TO TECHNICAL EXCELLENCE</span>
+<h1 class="font-headline-xl text-headline-xl text-on-surface mb-6 leading-tight">
+                        Master Tech. <br/>
+<span class="text-primary-container">One Level at a Time.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl">
+                        A rigorous, gamified curriculum designed specifically for BTech students. Transcend traditional learning through algorithmic challenges, architecture battles, and real-time skill tracking.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary-container text-on-primary-container px-8 py-4 font-label-md text-label-md rounded shadow-lg active:scale-95 transition-transform">
+                            Start Learning
+                        </button>
+<button class="border border-primary-container text-primary-container px-8 py-4 font-label-md text-label-md rounded hover:bg-primary-container/5 active:scale-95 transition-transform">
+                            Login
+                        </button>
+</div>
+</div>
+<div class="lg:col-span-5 relative mt-12 lg:mt-0">
+<div class="aspect-square bg-surface-container-high border border-outline-variant/30 relative overflow-hidden group">
+<img class="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="A futuristic and professional high-tech dashboard interface showing complex engineering diagrams and data visualizations. The aesthetic is clean and minimalist with a deep navy and slate color palette, illuminated by subtle saffron orange neon highlights. The lighting is low-key and dramatic, suggesting a focus-driven academic environment for advanced engineering students." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBp8dZJ1ev4_FUMoJrmunZs1RrD3FQbYwzumRwuV1jyYl49Ffafs_2yWuEO6mB8BkXsT8f_ghkV4NQQb0oFkKmT6j_gW4FQjlur7TiUgc7ncDkmEMIrIWkaiGaNtq98mRFp0PgvWDtrdHWk6PqnXBlPHYLe5y9Fz04qQrAQp5dKRFGts1V-nQ7cUMtVPdnDzaADpoI8CFEEso9X0Z977Irbnq3YOlrPFLL8Grgsc52EbHt4J5bdhHU4qsg226nQjg7B-SM07K5rVsI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim via-transparent to-transparent"></div>
+<!-- Floating Circuit Element -->
+<div class="absolute top-4 right-4 p-4 bg-surface-container-highest border border-primary/20 notch-accent">
+<div class="font-label-sm text-label-sm text-primary uppercase mb-1">Live Challenge</div>
+<div class="font-headline-md text-headline-md">System Design</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Bento Grid -->
+<section class="py-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="flex flex-col mb-12">
+<h2 class="font-headline-lg text-headline-lg mb-4">Core Mechanics</h2>
+<div class="h-1 w-20 bg-primary-container"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Feature: Streaks -->
+<div class="p-8 bg-surface-container border border-outline-variant/20 flex flex-col items-start notch-accent hover:border-primary/40 transition-colors">
+<div class="p-3 bg-primary/10 mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">bolt</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4">Streaks</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        Forge discipline through consistency. Our precision-engineered streak system tracks daily technical deep-dives, rewarding your focus with rare academic badges.
+                    </p>
+</div>
+<!-- Feature: XP -->
+<div class="p-8 bg-surface-container-high border border-outline-variant/20 flex flex-col items-start notch-accent hover:border-primary/40 transition-colors">
+<div class="p-3 bg-secondary/10 mb-6">
+<span class="material-symbols-outlined text-secondary text-3xl">military_tech</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4">XP &amp; Mastery</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        Every lecture watched, every line of code committed, and every quiz solved earns you Experience Points. Watch your rank climb as you master complex BTech domains.
+                    </p>
+</div>
+<!-- Feature: Live Battles -->
+<div class="p-8 bg-surface-container border border-outline-variant/20 flex flex-col items-start notch-accent hover:border-primary/40 transition-colors">
+<div class="p-3 bg-tertiary/10 mb-6">
+<span class="material-symbols-outlined text-tertiary text-3xl">swords</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4">Live Battles</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        Test your technical mettle against peers in high-stakes, timed coding and engineering problem-solving arenas. Real-time feedback, real-world rankings.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Stats / Trust Bar -->
+<section class="py-24 border-y border-outline-variant/10">
+<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-2 lg:grid-cols-4 gap-12">
+<div class="text-center lg:text-left">
+<div class="font-headline-xl text-headline-xl text-on-surface">50k+</div>
+<div class="font-label-md text-label-md text-secondary uppercase tracking-widest">Active Learners</div>
+</div>
+<div class="text-center lg:text-left">
+<div class="font-headline-xl text-headline-xl text-on-surface">2.4M</div>
+<div class="font-label-md text-label-md text-secondary uppercase tracking-widest">Battles Won</div>
+</div>
+<div class="text-center lg:text-left">
+<div class="font-headline-xl text-headline-xl text-on-surface">400+</div>
+<div class="font-label-md text-label-md text-secondary uppercase tracking-widest">Tech Courses</div>
+</div>
+<div class="text-center lg:text-left">
+<div class="font-headline-xl text-headline-xl text-on-surface">85%</div>
+<div class="font-label-md text-label-md text-secondary uppercase tracking-widest">Placement Rate</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest py-16 px-margin-mobile md:px-margin-desktop border-t border-outline-variant/20">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="md:col-span-2">
+<div class="font-headline-lg text-headline-lg font-bold text-primary mb-6">Gnosis</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm">
+                    Reimagining technical education for the next generation of engineers. Built for those who crave depth over surface-level knowledge.
+                </p>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface uppercase mb-6 tracking-wider">Navigation</h4>
+<ul class="space-y-4 text-on-surface-variant font-body-md text-body-md">
+<li><a class="hover:text-primary transition-colors" href="#">Courses</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Battles</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Leaderboards</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface uppercase mb-6 tracking-wider">Company</h4>
+<ul class="space-y-4 text-on-surface-variant font-body-md text-body-md">
+<li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-container-max mx-auto mt-16 pt-8 border-t border-outline-variant/10 flex flex-col md:row justify-between items-center gap-4">
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 Gnosis Education. All technical rights reserved.</p>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer">language</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer">terminal</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer">database</span>
+</div>
+</div>
+</footer>
+<!-- BottomNavBar for Mobile -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-16 px-4 md:hidden bg-surface-container-high border-t border-outline-variant/30 z-50">
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim font-bold active:scale-90 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant active:scale-90 transition-all duration-150" href="#">
+<span class="material-symbols-outlined">swords</span>
+<span class="font-label-sm text-label-sm">Battle</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant active:scale-90 transition-all duration-150" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-label-sm text-label-sm">Rank</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant active:scale-90 transition-all duration-150" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+</body></html>

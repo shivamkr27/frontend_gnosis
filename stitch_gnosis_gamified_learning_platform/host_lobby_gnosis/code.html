@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Serif:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#0c1320",
+                    "error-container": "#93000a",
+                    "on-tertiary-container": "#594300",
+                    "inverse-primary": "#8e4e14",
+                    "surface-container-high": "#232a38",
+                    "on-surface": "#dce2f5",
+                    "surface-variant": "#2e3543",
+                    "outline": "#a08d80",
+                    "on-tertiary-fixed-variant": "#5a4400",
+                    "on-error": "#690005",
+                    "outline-variant": "#534439",
+                    "on-primary": "#4e2600",
+                    "secondary-container": "#30a193",
+                    "on-tertiary": "#3e2e00",
+                    "primary-container": "#f4a261",
+                    "secondary": "#6fd8c8",
+                    "on-secondary-fixed": "#00201c",
+                    "surface-container-highest": "#2e3543",
+                    "primary-fixed": "#ffdcc4",
+                    "on-primary-fixed": "#2f1400",
+                    "on-primary-container": "#6f3800",
+                    "primary-fixed-dim": "#ffb780",
+                    "surface": "#0c1320",
+                    "on-secondary": "#003731",
+                    "surface-tint": "#ffb780",
+                    "surface-container": "#19202d",
+                    "inverse-on-surface": "#2a303e",
+                    "on-error-container": "#ffdad6",
+                    "tertiary-container": "#d4b058",
+                    "tertiary-fixed-dim": "#e7c268",
+                    "on-background": "#dce2f5",
+                    "surface-bright": "#323948",
+                    "secondary-fixed-dim": "#6fd8c8",
+                    "on-tertiary-fixed": "#251a00",
+                    "background": "#0c1320",
+                    "error": "#ffb4ab",
+                    "surface-container-lowest": "#070e1b",
+                    "secondary-fixed": "#8cf5e4",
+                    "primary": "#ffc499",
+                    "on-surface-variant": "#d8c2b5",
+                    "on-primary-fixed-variant": "#6f3800",
+                    "inverse-surface": "#dce2f5",
+                    "tertiary-fixed": "#ffdf96",
+                    "on-secondary-container": "#00302a",
+                    "surface-container-low": "#151c29",
+                    "tertiary": "#f1cc71",
+                    "on-secondary-fixed-variant": "#005048"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "unit": "8px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "40px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Noto Serif"],
+                    "headline-xl": ["Noto Serif"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Noto Serif"],
+                    "label-md": ["Inter"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .mandala-bg {
+            background-image: radial-gradient(circle at center, transparent 0%, rgba(160, 141, 128, 0.03) 100%),
+                              repeating-conic-gradient(from 0deg, transparent 0deg 30deg, rgba(160, 141, 128, 0.02) 30deg 31deg);
+        }
+        .notch-accent::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 24px;
+            background-color: #f4a261;
+        }
+    </style>
+</head>
+<body class="bg-surface-dim text-on-surface font-body-md min-h-screen mandala-bg">
+<!-- TopNavBar -->
+<header class="bg-surface-container-low dark:bg-surface-container-low border-b border-outline-variant/20 dark:border-outline-variant/20 docked full-width top-0 z-50">
+<div class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-container-max mx-auto">
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary dark:text-primary-fixed-dim tracking-tight">Gnosis</h1>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Home</a>
+<a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1 font-bold hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Battle</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Leaderboard</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Profile</a>
+</nav>
+<div class="flex items-center gap-4">
+<span class="font-label-md text-label-md text-secondary">XP: 1,250</span>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">local_fire_department</span>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-20 mb-20">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Room Identity Section -->
+<section class="md:col-span-12 lg:col-span-5 flex flex-col justify-center">
+<div class="mb-8">
+<span class="font-label-md text-label-md text-tertiary uppercase tracking-widest mb-4 block">Session Active</span>
+<h2 class="font-headline-xl text-headline-xl text-on-surface mb-4">Engineering Ethics &amp; Fluid Dynamics</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
+                        A collaborative environment designed for rigorous academic inquiry. Ensure all participants have entered the room code to proceed.
+                    </p>
+</div>
+<div class="bg-surface-container border border-outline-variant/30 p-8 rounded-lg relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-8xl" style="font-variation-settings: 'FILL' 0;">qr_code_2</span>
+</div>
+<p class="font-label-md text-label-md text-outline mb-2">ACCESS CODE</p>
+<div class="flex items-center gap-4">
+<span class="font-headline-xl text-headline-xl text-primary tracking-[0.2em] font-bold">GX-8802</span>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors active:scale-90">content_copy</button>
+</div>
+<div class="mt-6 flex items-center gap-2 text-secondary">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+<span class="font-label-sm text-label-sm uppercase">Encrypted Session Host</span>
+</div>
+</div>
+<div class="mt-12">
+<p class="font-headline-md text-headline-md text-on-surface italic mb-8 opacity-80">"Ready to Engage."</p>
+<button class="bg-primary text-on-primary px-12 py-4 font-label-md text-label-md rounded-lg hover:brightness-110 active:scale-95 transition-all shadow-lg flex items-center justify-center gap-3">
+                        START EVALUATION
+                        <span class="material-symbols-outlined">play_arrow</span>
+</button>
+</div>
+</section>
+<!-- Players Grid Section -->
+<section class="md:col-span-12 lg:col-span-7">
+<div class="flex justify-between items-end mb-6 border-b border-outline-variant/20 pb-4">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Joined Participants</h3>
+<p class="font-label-sm text-label-sm text-outline">LIVE SYNC ENABLED</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md text-secondary">14</span>
+<span class="font-label-md text-label-md text-on-surface-variant">/ 40</span>
+</div>
+</div>
+<!-- Bento Style Grid for Players -->
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+<!-- Player Card 1 -->
+<div class="bg-surface-container-low border border-outline-variant/30 p-4 relative notch-accent group hover:bg-surface-container-high transition-colors">
+<img alt="Avatar" class="w-12 h-12 rounded mb-4" data-alt="A clean, professional headshot avatar of a young engineering student with a focused expression, rendered in a minimalist flat design style using a palette of slate, navy, and soft ivory to match the academic UI theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJQ03GCBBd9Ky0bYDYk-eJkJkxvaHWeoYnLRfKiHPcNSn43C87Gjk4LQH2TgLEM-85kCudU1ko0rELEwoVhe3G89v6z6nQZJIjevfXHQzr7TZ2xJkGdLOyhWk1DkooEHpNdlo_hm_cUGxVeeOYIR18tJuYTQyf-njz94tBGgX8NgujNjpXcBhPV5AJJ6iKYgWJEC5iZzSfqXoNvVH70sTa2aqnHF17TpjKI9RTJTfgFCYG3Oa-6PXND6F6v9hCaBVQKvLsK25bLJo"/>
+<p class="font-label-md text-label-md text-on-surface truncate">Aryan Sharma</p>
+<p class="font-label-sm text-label-sm text-outline">LVL 42</p>
+<div class="absolute top-2 right-2 w-2 h-2 bg-secondary rounded-full animate-pulse"></div>
+</div>
+<!-- Player Card 2 -->
+<div class="bg-surface-container-low border border-outline-variant/30 p-4 relative notch-accent group hover:bg-surface-container-high transition-colors">
+<img alt="Avatar" class="w-12 h-12 rounded mb-4" data-alt="A stylized minimalist avatar representing a technical professional, featuring clean lines and a modern aesthetic, with a neutral background that complements a dark-mode engineering dashboard theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDanfFS2fiFMoDCwGZMjpJVIwqR2pthTagdVHit9Pv52KQUYaMtpi4GkAXf29vX3FYhDDWfGZyN9T4_esL74TZVfST9KI_rFzuT-QZ5scYaKocmut_w6HRWB9SnII9B1AEtlce-334hkJE5sDpD6OrjE1aqw1VXxYJA_0KH-2OYmNVy4q6J1ECe1bqPKZ6uFHy7ardjni-DwjVTzBfsY104m9_sJ-y9GgHapV0Tb6ItAxLtwLcm5kRLZhbSHDTgA_S4fDh9KWOTP18"/>
+<p class="font-label-md text-label-md text-on-surface truncate">Priya Verma</p>
+<p class="font-label-sm text-label-sm text-outline">LVL 38</p>
+</div>
+<!-- Player Card 3 -->
+<div class="bg-surface-container-low border border-outline-variant/30 p-4 relative notch-accent group hover:bg-surface-container-high transition-colors">
+<img alt="Avatar" class="w-12 h-12 rounded mb-4" data-alt="A profile picture of a young scholar in a minimalist vector art style, wearing glasses and a calm look, using a sophisticated color palette of teal and deep blue to align with an academic learning platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAG6d0yi_wVwrfJCsmXuI8Dvox_pKVweZ9yDXvpNwGWTWds_Z9IRZgms_C3w1jBlu34apNXQO3wZqejcI6hQj2TSdfBy1qa_GFKaWjS2ZLKOaoVoNBFOwD42Rhn25XkQcQIp8375aoepKKRAf_W_GGuV2W39tQSBDleNxIleKAlerTi-Stdd2jneSflF1DEMHYsEbdCGLWmymRR6V1kAsaKgq3aqRyPpa-IxZWmsOAv6yIK5b3hAndCXzKYdoAiR1ZJTV7jhdO6xGM"/>
+<p class="font-label-md text-label-md text-on-surface truncate">Ishan Kapur</p>
+<p class="font-label-sm text-label-sm text-outline">LVL 12</p>
+</div>
+<!-- Player Card 4 -->
+<div class="bg-surface-container-low border border-outline-variant/30 p-4 relative notch-accent group hover:bg-surface-container-high transition-colors">
+<img alt="Avatar" class="w-12 h-12 rounded mb-4" data-alt="Minimalist digital illustration of a student avatar, featuring a clean silhouette and geometric features, designed to fit into a high-end corporate modern educational user interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJKTql3ShnxxbYivZSKergDx-XNiVYsJitcn1aI_0O7a3teIHuCbPA2b1NjuhheCM0cnwUUfcLhHuezm8PtTW01P_JSHtFDH6BGH9WYEQyNgEgnG5tr63SQ1vgC-L7czJrq37SpS7dieCvCSrTIgLh3Qd5nGRapreRwnXlA6WQJCbNG86ERibiOG0MItsKbdJv8On5nUTfvKedNEBsEN9hUlpWTivz6zPdC-upuzqeBLFkOfEyqRmuq94J3rVIOLU88zct7CllDks"/>
+<p class="font-label-md text-label-md text-on-surface truncate">Rohan Mehra</p>
+<p class="font-label-sm text-label-sm text-outline">LVL 55</p>
+</div>
+<!-- Empty State / Waiting Card -->
+<div class="bg-surface-container-lowest border border-dashed border-outline-variant/40 p-4 flex flex-col items-center justify-center text-outline group hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-3xl mb-2 animate-bounce">hourglass_empty</span>
+<p class="font-label-sm text-label-sm">WAITING...</p>
+</div>
+<!-- Additional players represented simply for density -->
+<div class="bg-surface-container-low border border-outline-variant/30 p-4 relative notch-accent group hover:bg-surface-container-high transition-colors">
+<img alt="Avatar" class="w-12 h-12 rounded mb-4" data-alt="Professional avatar icon for an engineering student, featuring clean modern design elements and a high-trust aesthetic for an educational platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcIQBVzmesl8cU6_tSMA-KMvJEBYy5Z2FHv2LzxXdU5lymNYq4Q-sp9jEnhhXytGBkh-tdds6wj4_Yt6gRIjWUnV7tGWRS02p4AptFfgrN7rNiqFlzf3xXPrgZ2z-3kTqKxUrLLaj0dvHb16yG9wjUJh5tUHaRjspFtSypR6xuj4463xVNxHUOLkuUov8lgr6wXVu5aFArqEjioeMbtVBXY99Fl_616AeD82KK9kImtj3M1ThitJlq_Hytbe6xsox9NZ6c-Twi93U"/>
+<p class="font-label-md text-label-md text-on-surface truncate">Sneha Rao</p>
+<p class="font-label-sm text-label-sm text-outline">LVL 29</p>
+</div>
+<div class="bg-surface-container-low border border-outline-variant/30 p-4 relative notch-accent group hover:bg-surface-container-high transition-colors">
+<img alt="Avatar" class="w-12 h-12 rounded mb-4" data-alt="Vector art avatar of a female student with a sharp, academic look, integrating seamless geometric shapes and muted tones to match a premium learning app interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEK6fKnG0wsWOhqaSP5Cu9TBQJUI07PSxlio1b4taAF1_wmu95CKbYfB_SINoy590FIFo4ovLJskXjOqSrd_7vMfIQTgmjyW1TOnuAnRQwQd_mAWPiT4dsmTHrZmquEFoTPvSricgKgAzfs2nwJV8sHYIa7W8PQlr7AMrdgJYNK4BleSKa1fdez1O6Y470JW0ZMo7UBPtoBj7Cx6J4F_jvjI4i_T3lL_DpMZva4Fwm2S72xIF6tNr_bIyDmd4U1oWqjwdUae1o9fU"/>
+<p class="font-label-md text-label-md text-on-surface truncate">Tanvi Shah</p>
+<p class="font-label-sm text-label-sm text-outline">LVL 47</p>
+</div>
+<div class="bg-surface-container-low border border-outline-variant/30 p-4 relative notch-accent group hover:bg-surface-container-high transition-colors">
+<img alt="Avatar" class="w-12 h-12 rounded mb-4" data-alt="Clean-cut male avatar for a technical portal, showing a confident and ready attitude, rendered with sharp lines and academic-inspired color grading." src="https://lh3.googleusercontent.com/aida-public/AB6AXuADiJR6Pc5XeGjOgNqoykRjuyGFR0JfHWXzUzuE_EaMZcfQAbtbXVB7ThJ8Rf7EKwI_yQ81oz4DFTHK6NF9mxBDzyRurwEx-6BalW6nPksiiSx439zyWB-dREzfqeASaFIr-L-wOrteTM3k2zCvl8QTiI2vlDdAB2WFj3IspbQ7RqpPmtH4HrGuq_x98tNpjV0osUjkyVCkSwGM8bWk8F94tMRgq53wRx217vNvwUH9afcaLsESiuo5xykqx8XlZj7MGRcKsnQIeMQ"/>
+<p class="font-label-md text-label-md text-on-surface truncate">Arjun Nair</p>
+<p class="font-label-sm text-label-sm text-outline">LVL 61</p>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-16 px-4 md:hidden bg-surface-container-high dark:bg-surface-container-highest border-t border-outline-variant/30 z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-variant/20 transition-all duration-150 active:scale-90" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim font-bold active:scale-90 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">swords</span>
+<span class="font-label-sm text-label-sm">Battle</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-variant/20 transition-all duration-150 active:scale-90" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-label-sm text-label-sm">Rank</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-variant/20 transition-all duration-150 active:scale-90" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<!-- Background Decoration -->
+<div class="fixed top-1/4 right-0 pointer-events-none opacity-[0.03] transform translate-x-1/2 scale-150">
+<svg class="text-outline" fill="none" height="400" viewbox="0 0 400 400" width="400" xmlns="http://www.w3.org/2000/svg">
+<circle cx="200" cy="200" r="198" stroke="currentColor" stroke-width="0.5"></circle>
+<circle cx="200" cy="200" r="150" stroke="currentColor" stroke-width="0.5"></circle>
+<path d="M200 2L200 398M2 200L398 200" stroke="currentColor" stroke-width="0.5"></path>
+<rect height="200" stroke="currentColor" stroke-width="0.5" transform="rotate(45 200 200)" width="200" x="100" y="100"></rect>
+</svg>
+</div>
+</body></html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Profile Settings | Vedic Logic</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Serif:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#0c1320",
+                        "primary": "#ffc499",
+                        "tertiary": "#f1cc71",
+                        "tertiary-container": "#d4b058",
+                        "surface-container-lowest": "#070e1b",
+                        "surface-dim": "#0c1320",
+                        "tertiary-fixed-dim": "#e7c268",
+                        "on-tertiary": "#3e2e00",
+                        "secondary-container": "#30a193",
+                        "on-primary-fixed": "#2f1400",
+                        "on-tertiary-container": "#594300",
+                        "surface-container": "#19202d",
+                        "on-background": "#dce2f5",
+                        "primary-fixed": "#ffdcc4",
+                        "on-secondary-fixed": "#00201c",
+                        "on-error": "#690005",
+                        "error-container": "#93000a",
+                        "surface-bright": "#323948",
+                        "surface-container-low": "#151c29",
+                        "on-secondary-fixed-variant": "#005048",
+                        "error": "#ffb4ab",
+                        "background": "#0c1320",
+                        "inverse-primary": "#8e4e14",
+                        "on-tertiary-fixed-variant": "#5a4400",
+                        "surface-container-high": "#232a38",
+                        "secondary-fixed-dim": "#6fd8c8",
+                        "surface-container-highest": "#2e3543",
+                        "outline": "#a08d80",
+                        "inverse-on-surface": "#2a303e",
+                        "on-secondary-container": "#00302a",
+                        "outline-variant": "#534439",
+                        "inverse-surface": "#dce2f5",
+                        "on-surface": "#dce2f5",
+                        "secondary": "#6fd8c8",
+                        "primary-fixed-dim": "#ffb780",
+                        "tertiary-fixed": "#ffdf96",
+                        "on-tertiary-fixed": "#251a00",
+                        "surface-tint": "#ffb780",
+                        "secondary-fixed": "#8cf5e4",
+                        "on-secondary": "#003731",
+                        "surface-variant": "#2e3543",
+                        "primary-container": "#f4a261",
+                        "on-primary-container": "#6f3800",
+                        "on-error-container": "#ffdad6",
+                        "on-primary": "#4e2600",
+                        "on-surface-variant": "#d8c2b5",
+                        "on-primary-fixed-variant": "#6f3800"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "margin-desktop": "40px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Noto Serif"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Noto Serif"],
+                        "headline-xl": ["Noto Serif"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #0c1320;
+            color: #dce2f5;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md antialiased text-on-surface">
+<!-- Shared TopAppBar Context for Settings -->
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-[#221911] dark group/design-root overflow-x-hidden" style='font-family: "Noto Serif", "Noto Sans", sans-serif;'>
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-4 w-full md:px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-[960px] flex-1 bg-surface border border-outline-variant/30 rounded-xl overflow-hidden shadow-2xl">
+<!-- Header Section -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-outline-variant px-10 py-3 bg-surface-container">
+<div class="flex items-center gap-4 text-white">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-on-surface font-headline-md leading-tight tracking-tight">Settings</h2>
+</div>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-surface-container-highest text-on-surface gap-2 text-sm font-bold leading-normal tracking-wide min-w-0 px-2.5 transition-colors hover:bg-surface-bright">
+<div class="text-on-surface" data-icon="X" data-size="20px" data-weight="regular">
+<svg fill="currentColor" height="20px" viewbox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
+<path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path>
+</svg>
+</div>
+</button>
+</header>
+<!-- Profile Section -->
+<div class="flex p-8 @container bg-surface-container-low/50">
+<div class="flex w-full flex-col gap-6 items-center">
+<div class="flex gap-6 flex-col items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-32 w-32 border-2 border-primary/20 shadow-lg" data-alt="A professional portrait of a confident engineering student with a clean-cut appearance. The background is a soft-focus academic setting with warm wooden textures and scholarly depth. The lighting is natural and sophisticated, emphasizing clarity and intellectual focus in a modern Indian academic context." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAmZodiLBDT8qRXT3lamvMTE-9qgHGu43n297cFmGvs2YqMOWsDJCC0al3Zda31Q0zHOONZjAxh-1ZG7T077KzALq6C7sJNUhoKANX2nq1AwCOIo0nGiRE0bIxvUbzEPBYF1zL9E2i8Uo-6nkOvA9XAA73-4F-a2cZMq6fWgkynX2uvFCv1ZLUSQ_G3rkQtOGbxGDqs6P76lhP0b-Y-lBEnYBbnYNN8-T36lYjQy--VXJQmlx2zAASaUXm3wUYVecKc7p4p08ARzVQ");'></div>
+<div class="flex flex-col items-center justify-center">
+<p class="text-on-surface font-headline-md leading-tight tracking-tight text-center">Alex Johnson</p>
+<p class="text-primary/70 font-body-md leading-normal text-center mt-1">Senior Engineering Fellow</p>
+</div>
+</div>
+<button class="flex min-w-[140px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-surface-container-highest text-on-surface text-sm font-bold leading-normal tracking-wide w-full max-w-[480px] @[480px]:w-auto border border-outline-variant transition-all hover:border-primary">
+<span class="truncate">Edit Avatar</span>
+</button>
+</div>
+</div>
+<!-- Personal Information -->
+<div class="px-8 pb-8 space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<label class="flex flex-col flex-1">
+<p class="text-on-surface font-label-md pb-2 uppercase tracking-widest text-xs opacity-70">Full Name</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-on-surface focus:outline-0 focus:ring-1 focus:ring-primary border border-outline-variant bg-surface-container-low h-14 placeholder:text-on-surface-variant/50 p-[15px] font-body-md transition-all" placeholder="Enter your full name" value="Alex Johnson"/>
+</label>
+<label class="flex flex-col flex-1">
+<p class="text-on-surface font-label-md pb-2 uppercase tracking-widest text-xs opacity-70">Professional Title</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-on-surface focus:outline-0 focus:ring-1 focus:ring-primary border border-outline-variant bg-surface-container-low h-14 placeholder:text-on-surface-variant/50 p-[15px] font-body-md transition-all" placeholder="e.g. PhD Candidate" value="Senior Engineering Fellow"/>
+</label>
+</div>
+<label class="flex flex-col w-full">
+<p class="text-on-surface font-label-md pb-2 uppercase tracking-widest text-xs opacity-70">Academic Bio</p>
+<textarea class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-on-surface focus:outline-0 focus:ring-1 focus:ring-primary border border-outline-variant bg-surface-container-low min-h-36 placeholder:text-on-surface-variant/50 p-[15px] font-body-md transition-all">Specializing in Computational Fluid Dynamics with a minor in Vedic Mathematics. Passionate about bridging ancient logical frameworks with modern algorithmic efficiency.</textarea>
+</label>
+</div>
+<!-- Account Preferences Section -->
+<div class="px-8 py-6 border-t border-outline-variant/30">
+<h3 class="text-on-surface font-headline-md leading-tight tracking-tight pb-6">Account Preferences</h3>
+<div class="space-y-4">
+<!-- Notification Row -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg border border-outline-variant/20">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="notifications">notifications</span>
+<div>
+<p class="text-on-surface font-label-md">Notifications</p>
+<p class="text-on-surface-variant text-xs font-body-md">Enable alerts for academic deadlines</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+<!-- Theme Selection -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg border border-outline-variant/20">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-tertiary" data-icon="dark_mode">dark_mode</span>
+<div>
+<p class="text-on-surface font-label-md">Visual Theme</p>
+<p class="text-on-surface-variant text-xs font-body-md">Optimize for deep study focus</p>
+</div>
+</div>
+<select class="bg-surface-container-highest text-on-surface text-sm rounded-lg border-none focus:ring-2 focus:ring-primary py-1.5 px-3">
+<option selected="">Scholarly Dark</option>
+<option>Manuscript Light</option>
+<option>System Default</option>
+</select>
+</div>
+<!-- Language Selection -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg border border-outline-variant/20">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary" data-icon="language">language</span>
+<div>
+<p class="text-on-surface font-label-md">Language</p>
+<p class="text-on-surface-variant text-xs font-body-md">Set interface language preference</p>
+</div>
+</div>
+<select class="bg-surface-container-highest text-on-surface text-sm rounded-lg border-none focus:ring-2 focus:ring-primary py-1.5 px-3">
+<option selected="">English (UK)</option>
+<option>Hindi (Modern)</option>
+<option>Sanskrit (Academic)</option>
+<option>German (Technical)</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="px-8 py-8 flex justify-end gap-4 bg-surface-container-low/50 border-t border-outline-variant/30">
+<button class="px-6 py-3 rounded-lg border border-outline-variant text-on-surface font-label-md hover:bg-surface-container-highest transition-colors">
+                            Discard Changes
+                        </button>
+<button class="px-8 py-3 rounded-lg bg-primary text-on-primary font-label-md shadow-lg shadow-primary/10 hover:brightness-110 active:scale-95 transition-all">
+                            Save Changes
+                        </button>
+</div>
+</div>
+</div>
+<!-- Mathematical Mandala Watermark - Subtle Design Detail -->
+<div class="fixed bottom-0 right-0 w-96 h-96 opacity-[0.03] pointer-events-none select-none overflow-hidden">
+<svg class="w-full h-full text-primary" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="none" r="45" stroke="currentColor" stroke-width="0.2"></circle>
+<rect fill="none" height="50" stroke="currentColor" stroke-width="0.2" transform="rotate(45 50 50)" width="50" x="25" y="25"></rect>
+<rect fill="none" height="50" stroke="currentColor" stroke-width="0.2" width="50" x="25" y="25"></rect>
+<circle cx="50" cy="50" fill="none" r="15" stroke="currentColor" stroke-width="0.2"></circle>
+<path d="M50 5 L50 95 M5 50 L95 50" stroke="currentColor" stroke-width="0.1"></path>
+</svg>
+</div>
+</div>
+</div>
+</body></html>

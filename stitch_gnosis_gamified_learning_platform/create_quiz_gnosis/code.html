@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Serif:wght@600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .math-mandala-bg {
+            background-image: radial-gradient(circle at 2px 2px, rgba(160, 141, 128, 0.03) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#0c1320",
+                        "error-container": "#93000a",
+                        "on-tertiary-container": "#594300",
+                        "inverse-primary": "#8e4e14",
+                        "surface-container-high": "#232a38",
+                        "on-surface": "#dce2f5",
+                        "surface-variant": "#2e3543",
+                        "outline": "#a08d80",
+                        "on-tertiary-fixed-variant": "#5a4400",
+                        "on-error": "#690005",
+                        "outline-variant": "#534439",
+                        "on-primary": "#4e2600",
+                        "secondary-container": "#30a193",
+                        "on-tertiary": "#3e2e00",
+                        "primary-container": "#f4a261",
+                        "secondary": "#6fd8c8",
+                        "on-secondary-fixed": "#00201c",
+                        "surface-container-highest": "#2e3543",
+                        "primary-fixed": "#ffdcc4",
+                        "on-primary-fixed": "#2f1400",
+                        "on-primary-container": "#6f3800",
+                        "primary-fixed-dim": "#ffb780",
+                        "surface": "#0c1320",
+                        "on-secondary": "#003731",
+                        "surface-tint": "#ffb780",
+                        "surface-container": "#19202d",
+                        "inverse-on-surface": "#2a303e",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-container": "#d4b058",
+                        "tertiary-fixed-dim": "#e7c268",
+                        "on-background": "#dce2f5",
+                        "surface-bright": "#323948",
+                        "secondary-fixed-dim": "#6fd8c8",
+                        "on-tertiary-fixed": "#251a00",
+                        "background": "#0c1320",
+                        "error": "#ffb4ab",
+                        "surface-container-lowest": "#070e1b",
+                        "secondary-fixed": "#8cf5e4",
+                        "primary": "#ffc499",
+                        "on-surface-variant": "#d8c2b5",
+                        "on-primary-fixed-variant": "#6f3800",
+                        "inverse-surface": "#dce2f5",
+                        "tertiary-fixed": "#ffdf96",
+                        "on-secondary-container": "#00302a",
+                        "surface-container-low": "#151c29",
+                        "tertiary": "#f1cc71",
+                        "on-secondary-fixed-variant": "#005048"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "unit": "8px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "40px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Noto Serif"],
+                        "headline-xl": ["Noto Serif"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Noto Serif"],
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container math-mandala-bg min-h-screen">
+<!-- TopNavBar -->
+<header class="bg-surface-container-low dark:bg-surface-container-low border-b border-outline-variant/20 dark:border-outline-variant/20 docked full-width top-0 z-50">
+<div class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="font-headline-lg text-headline-lg font-bold text-primary dark:text-primary-fixed-dim tracking-tight">Gnosis</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Home</a>
+<a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1 font-bold" href="#">Battle</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Leaderboard</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Profile</a>
+</nav>
+<div class="flex items-center gap-4">
+<span class="font-label-md text-label-md text-secondary">XP: 1,250</span>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer active:scale-95 transition-transform" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer active:scale-95 transition-transform" data-icon="local_fire_department">local_fire_department</span>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-desktop py-12">
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Left Column: Settings Sidebar -->
+<aside class="col-span-12 lg:col-span-4 space-y-8">
+<div class="bg-surface-container p-8 border border-outline-variant/20">
+<h2 class="font-headline-md text-headline-md text-primary mb-6">Quiz Configuration</h2>
+<form class="space-y-6">
+<div class="group">
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2 group-focus-within:text-primary transition-colors">Subject Name</label>
+<input class="w-full bg-transparent border-b border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-2 px-0 font-body-md transition-all outline-none" placeholder="e.g. Advanced Fluid Dynamics" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="group">
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2 group-focus-within:text-primary transition-colors">Question Count</label>
+<input class="w-full bg-transparent border-b border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-2 px-0 font-body-md transition-all outline-none" min="1" type="number" value="10"/>
+</div>
+<div class="group">
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2 group-focus-within:text-primary transition-colors">Timer (Sec)</label>
+<input class="w-full bg-transparent border-b border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-2 px-0 font-body-md transition-all outline-none" min="5" step="5" type="number" value="45"/>
+</div>
+</div>
+<div class="pt-8">
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md py-4 px-6 hover:bg-primary-container transition-all flex justify-center items-center gap-2 group active:scale-[0.98]" type="button">
+<span class="material-symbols-outlined" data-icon="qr_code">qr_code</span>
+                                Generate Sync Code
+                            </button>
+<p class="mt-4 text-on-surface-variant font-label-sm text-label-sm text-center italic">Creates a unique room for real-time multiplayer engagement.</p>
+</div>
+</form>
+</div>
+<div class="hidden lg:block">
+<div class="p-6 border border-outline-variant/10 bg-surface-container-low">
+<h4 class="font-label-md text-label-md text-secondary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="lightbulb">lightbulb</span>
+                            HOST TIP
+                        </h4>
+<p class="text-on-surface-variant text-body-md leading-relaxed">
+                            A 45-second timer is optimal for calculation-based questions. For theoretical concepts, consider lowering it to 20 seconds to maintain high-intensity engagement.
+                        </p>
+</div>
+</div>
+</aside>
+<!-- Right Column: Question Editor -->
+<section class="col-span-12 lg:col-span-8 space-y-8">
+<!-- Editor Card -->
+<div class="bg-surface-container border-t-2 border-primary">
+<div class="p-8">
+<div class="flex justify-between items-end mb-8">
+<h3 class="font-headline-md text-headline-md text-on-surface">Question <span class="text-primary">01</span></h3>
+<div class="flex gap-2">
+<span class="px-3 py-1 border border-secondary text-secondary font-label-sm text-label-sm uppercase tracking-wider">Physics</span>
+<span class="px-3 py-1 border border-outline text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">Multiple Choice</span>
+</div>
+</div>
+<!-- Question Textarea -->
+<div class="mb-10 group">
+<label class="block font-label-md text-label-md text-on-surface-variant mb-4 group-focus-within:text-primary transition-colors uppercase tracking-widest">Question Statement</label>
+<textarea class="w-full bg-surface-variant/20 border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary text-on-surface p-4 font-body-lg resize-none transition-all outline-none" placeholder="Enter your academic challenge here..." rows="4"></textarea>
+</div>
+<!-- Options Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Option A -->
+<div class="relative group">
+<div class="absolute left-4 top-1/2 -translate-y-1/2 flex items-center gap-2">
+<input checked="" class="w-4 h-4 bg-transparent border-primary text-primary focus:ring-0 rounded-sm" type="checkbox"/>
+<span class="font-label-md text-label-md text-primary">A</span>
+</div>
+<input class="w-full bg-transparent border border-primary/40 focus:border-primary pl-16 pr-4 py-4 text-on-surface font-body-md outline-none transition-all" type="text" value="Bernoulli's Principle"/>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-primary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<!-- Option B -->
+<div class="relative group">
+<div class="absolute left-4 top-1/2 -translate-y-1/2 flex items-center gap-2">
+<input class="w-4 h-4 bg-transparent border-outline text-outline focus:ring-0 rounded-sm" type="checkbox"/>
+<span class="font-label-md text-label-md text-on-surface-variant">B</span>
+</div>
+<input class="w-full bg-transparent border border-outline-variant focus:border-primary pl-16 pr-4 py-4 text-on-surface font-body-md outline-none transition-all" placeholder="Option B" type="text"/>
+</div>
+<!-- Option C -->
+<div class="relative group">
+<div class="absolute left-4 top-1/2 -translate-y-1/2 flex items-center gap-2">
+<input class="w-4 h-4 bg-transparent border-outline text-outline focus:ring-0 rounded-sm" type="checkbox"/>
+<span class="font-label-md text-label-md text-on-surface-variant">C</span>
+</div>
+<input class="w-full bg-transparent border border-outline-variant focus:border-primary pl-16 pr-4 py-4 text-on-surface font-body-md outline-none transition-all" placeholder="Option C" type="text"/>
+</div>
+<!-- Option D -->
+<div class="relative group">
+<div class="absolute left-4 top-1/2 -translate-y-1/2 flex items-center gap-2">
+<input class="w-4 h-4 bg-transparent border-outline text-outline focus:ring-0 rounded-sm" type="checkbox"/>
+<span class="font-label-md text-label-md text-on-surface-variant">D</span>
+</div>
+<input class="w-full bg-transparent border border-outline-variant focus:border-primary pl-16 pr-4 py-4 text-on-surface font-body-md outline-none transition-all" placeholder="Option D" type="text"/>
+</div>
+</div>
+<div class="mt-12 flex justify-between items-center">
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-error transition-colors font-label-md text-label-md">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+                                Clear Question
+                            </button>
+<button class="border border-secondary text-secondary hover:bg-secondary/5 px-8 py-3 font-label-md text-label-md flex items-center gap-2 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                                Add Question
+                            </button>
+</div>
+</div>
+</div>
+<!-- Summary/Timeline View -->
+<div class="flex gap-4 overflow-x-auto pb-4">
+<div class="flex-none w-12 h-12 bg-primary flex items-center justify-center text-on-primary font-bold">1</div>
+<div class="flex-none w-12 h-12 border border-outline-variant flex items-center justify-center text-on-surface-variant font-medium cursor-pointer hover:border-secondary transition-colors">2</div>
+<div class="flex-none w-12 h-12 border border-outline-variant flex items-center justify-center text-on-surface-variant font-medium cursor-pointer hover:border-secondary transition-colors">3</div>
+<div class="flex-none w-12 h-12 border border-outline-variant flex items-center justify-center text-on-surface-variant font-medium cursor-pointer hover:border-secondary transition-colors">4</div>
+<div class="flex-none w-12 h-12 border border-outline-variant border-dashed flex items-center justify-center text-on-surface-variant cursor-pointer hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-16 px-4 md:hidden bg-surface-container-high dark:bg-surface-container-highest border-t border-outline-variant/30 z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant active:scale-90 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim font-bold active:scale-90 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="swords" style="font-variation-settings: 'FILL' 1;">swords</span>
+<span class="font-label-sm text-label-sm">Battle</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant active:scale-90 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+<span class="font-label-sm text-label-sm">Rank</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant active:scale-90 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+</body></html>

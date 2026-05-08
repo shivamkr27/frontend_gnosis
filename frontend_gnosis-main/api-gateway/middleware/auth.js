@@ -1,0 +1,38 @@
+const jwt = require('jsonwebtoken');
+
+const authenticateToken = (req, res, next) => {
+  // Skip exact routes
+  const skipRoutes = [
+    { path: '/auth/login', method: 'POST' },
+    { path: '/auth/register', method: 'POST' },
+    { path: '/health', method: 'GET' }
+  ];
+
+  const shouldSkip = skipRoutes.some(
+    r => req.path === r.path && req.method === r.method
+  );
+
+  if (shouldSkip) {
+    return next();
+  }
+
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1]; // Bearer <token>
+
+  if (!token) {
+    return res.status(401).json({ error: "unauthorized" });
+  }
+
+  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+    if (err) {
+      return res.status(401).json({ error: "unauthorized" });
+    }
+
+    // Add headers to forward request
+    req.headers['x-user-id'] = decoded.userId;
+    req.headers['x-username'] = decoded.username;
+    next();
+  });
+};
+
+module.exports = authenticateToken;

@@ -1,76 +1,72 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { BookOpen, Star, Lock, CheckCircle } from 'lucide-react';
+import { Check, Lock, Play } from 'lucide-react';
 
 export function Home() {
-  const subjects = [
-    { id: 1, name: "Data Structures", description: "Learn arrays, trees, and graphs.", progress: 80, icon: <BookOpen className="text-gnosis-purple-light" /> },
-    { id: 2, name: "Algorithms", description: "Sorting, searching, and dynamic programming.", progress: 30, icon: <BookOpen className="text-gnosis-gold" /> },
-    { id: 3, name: "System Design", description: "Build scalable architectures.", progress: 0, icon: <Lock className="text-gnosis-muted" />, locked: true },
-    { id: 4, name: "Databases", description: "SQL, NoSQL, and caching strategies.", progress: 0, icon: <Lock className="text-gnosis-muted" />, locked: true },
+  const pathNodes = [
+    { id: 1, name: "Data Structures", status: "completed", offset: -40 },
+    { id: 2, name: "Algorithms", status: "completed", offset: 40 },
+    { id: 3, name: "React Basics", status: "current", offset: 0 },
+    { id: 4, name: "System Design", status: "locked", offset: -30 },
+    { id: 5, name: "Databases", status: "locked", offset: 30 },
   ];
 
   return (
-    <div className="p-4 sm:p-8 max-w-5xl mx-auto pb-24 md:pb-8">
+    <div className="p-4 sm:p-8 max-w-lg mx-auto pb-32 md:pb-16 flex flex-col items-center">
 
-      <div className="mb-10">
-        <h1 className="text-3xl font-bold mb-2">Your Learning Path</h1>
-        <p className="text-gnosis-muted">Select a subject to continue your journey.</p>
+      <div className="mb-12 text-center">
+        <h1 className="text-3xl font-black mb-2 tracking-tight">Learning Path</h1>
+        <p className="text-gnosis-muted font-medium">Continue your journey.</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {subjects.map((subject, idx) => (
-          <motion.div
-            key={subject.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: idx * 0.1 }}
-          >
-            {subject.locked ? (
-              <div className="bg-gnosis-card/50 border border-gnosis-border/50 rounded-2xl p-6 flex items-start gap-4 opacity-75">
-                <div className="w-12 h-12 bg-gnosis-bg rounded-xl flex items-center justify-center shrink-0">
-                  {subject.icon}
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gnosis-muted mb-1 flex items-center gap-2">
-                    {subject.name}
-                  </h3>
-                  <p className="text-sm text-gnosis-muted/70">{subject.description}</p>
-                </div>
-              </div>
-            ) : (
+      <div className="relative w-full flex flex-col items-center py-8">
+
+        {/* Background dotted line */}
+        <div className="absolute top-0 bottom-0 w-2 border-l-4 border-dashed border-gnosis-border -ml-1 z-0"></div>
+
+        {/* Nodes */}
+        {pathNodes.map((node, idx) => {
+          const isCompleted = node.status === 'completed';
+          const isCurrent = node.status === 'current';
+          const isLocked = node.status === 'locked';
+
+          return (
+            <motion.div
+              key={node.id}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: idx * 0.15, type: "spring" }}
+              className="relative z-10 w-full flex flex-col items-center mb-16 last:mb-0"
+              style={{ transform: `translateX(${node.offset}px)` }}
+            >
               <Link
-                to={`/subject/${subject.id}`}
-                className="bg-gnosis-card border border-gnosis-border hover:border-gnosis-purple rounded-2xl p-6 flex flex-col h-full transition-all hover:-translate-y-1"
+                to={!isLocked ? `/subject/${node.id}` : '#'}
+                className="group relative flex flex-col items-center"
               >
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="w-12 h-12 bg-gnosis-bg rounded-xl flex items-center justify-center shrink-0">
-                    {subject.icon}
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold mb-1">{subject.name}</h3>
-                    <p className="text-sm text-gnosis-muted">{subject.description}</p>
-                  </div>
-                  {subject.progress === 100 && <CheckCircle className="text-gnosis-green w-6 h-6" />}
+                {/* Node Button */}
+                <div className={`
+                  w-20 h-20 rounded-full flex items-center justify-center border-b-[6px] transition-all
+                  ${isCompleted ? 'bg-gnosis-green border-gnosis-green/50 text-white hover:brightness-110' : ''}
+                  ${isCurrent ? 'bg-gnosis-purple border-gnosis-purple/50 text-white shadow-[0_0_30px_rgba(124,58,237,0.5)] animate-bounce-slow' : ''}
+                  ${isLocked ? 'bg-gnosis-card border-gnosis-border text-gnosis-muted cursor-not-allowed' : ''}
+                  active:border-b-0 active:translate-y-[6px]
+                `}>
+                  {isCompleted && <Check className="w-10 h-10" strokeWidth={3} />}
+                  {isCurrent && <Play className="w-10 h-10 ml-1 fill-white" strokeWidth={3} />}
+                  {isLocked && <Lock className="w-8 h-8" strokeWidth={2.5} />}
                 </div>
 
-                <div className="mt-auto">
-                  <div className="flex justify-between text-sm mb-2 font-medium">
-                    <span className="text-gnosis-muted">Progress</span>
-                    <span className="text-gnosis-purple-light">{subject.progress}%</span>
-                  </div>
-                  <div className="w-full bg-gnosis-bg rounded-full h-2.5">
-                    <div
-                      className="bg-gnosis-purple h-2.5 rounded-full"
-                      style={{ width: `${subject.progress}%` }}
-                    ></div>
-                  </div>
+                {/* Node Label Floating slightly below */}
+                <div className={`mt-4 px-4 py-2 rounded-xl font-bold text-sm text-center shadow-lg whitespace-nowrap
+                  ${isCurrent ? 'bg-gnosis-purple text-white' : 'bg-gnosis-card border border-gnosis-border text-gnosis-muted'}
+                `}>
+                  {node.name}
                 </div>
               </Link>
-            )}
-          </motion.div>
-        ))}
+            </motion.div>
+          );
+        })}
       </div>
     </div>
   );

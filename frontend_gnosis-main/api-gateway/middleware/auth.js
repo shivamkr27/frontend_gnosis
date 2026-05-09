@@ -1,15 +1,23 @@
 const jwt = require('jsonwebtoken');
 
 const authenticateToken = (req, res, next) => {
-  // Skip exact routes
   const skipRoutes = [
     { path: '/auth/login', method: 'POST' },
     { path: '/auth/register', method: 'POST' },
+    { path: '/notifications/online/batch', method: 'POST' },
     { path: '/health', method: 'GET' }
+  ];
+  const skipPatterns = [
+    { pattern: /^\/content\/subjects\/?$/, method: 'GET' },
+    { pattern: /^\/content\/subjects\/[^/]+\/?$/, method: 'GET' },
+    { pattern: /^\/content\/levels\/[^/]+\/questions\/?$/, method: 'GET' },
+    { pattern: /^\/progress\/initialize\/[^/]+\/?$/, method: 'POST' }
   ];
 
   const shouldSkip = skipRoutes.some(
     r => req.path === r.path && req.method === r.method
+  ) || skipPatterns.some(
+    r => r.pattern.test(req.path) && req.method === r.method
   );
 
   if (shouldSkip) {

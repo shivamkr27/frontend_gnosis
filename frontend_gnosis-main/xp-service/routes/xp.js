@@ -17,6 +17,12 @@ module.exports = (redisClient) => {
       if (scope === 'global') {
         const member = `${userId}:${username}`;
         await redisClient.zIncrBy('gnosis:leaderboard:global', amount, member);
+
+        // Also update users.total_xp
+        await pool.query(
+          `UPDATE users SET total_xp = total_xp + $1 WHERE id = $2`,
+          [amount, userId]
+        );
       }
 
       res.status(201).json({ message: 'XP awarded', amount });
@@ -31,7 +37,7 @@ module.exports = (redisClient) => {
     try {
       const { currentUserId } = req.query;
       
-      const results = await redisClient.zRevRangeWithScores('gnosis:leaderboard:global', 0, 19);
+      const results = await redisClient.zRangeWithScores('gnosis:leaderboard:global', 0, 19, { REV: true });
       
       const leaderboard = results.map((result, index) => {
         const [userId, username] = result.value.split(':');

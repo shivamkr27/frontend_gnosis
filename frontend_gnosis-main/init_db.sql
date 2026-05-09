@@ -1,3 +1,95 @@
+CREATE EXTENSION IF NOT EXISTS "pgcrypto";
+
+CREATE TABLE IF NOT EXISTS users (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  username VARCHAR(50) UNIQUE NOT NULL,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  password_hash TEXT NOT NULL,
+  total_xp INT DEFAULT 0,
+  streak_count INT DEFAULT 0,
+  last_active_date DATE,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS friendships (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  requester_id UUID REFERENCES users(id) ON DELETE CASCADE,
+  receiver_id UUID REFERENCES users(id) ON DELETE CASCADE,
+  status VARCHAR(20) DEFAULT 'pending' CHECK (status IN ('pending', 'accepted')),
+  created_at TIMESTAMP DEFAULT NOW(),
+  UNIQUE(requester_id, receiver_id)
+);
+
+CREATE TABLE IF NOT EXISTS subjects (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  name VARCHAR(100) NOT NULL,
+  description TEXT,
+  order_index INT UNIQUE NOT NULL,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS levels (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  subject_id UUID REFERENCES subjects(id) ON DELETE CASCADE,
+  level_number INT NOT NULL CHECK (level_number BETWEEN 1 AND 4),
+  topic VARCHAR(200) NOT NULL,
+  xp_reward INT DEFAULT 100,
+  created_at TIMESTAMP DEFAULT NOW(),
+  UNIQUE(subject_id, level_number)
+);
+
+CREATE TABLE IF NOT EXISTS questions (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  level_id UUID REFERENCES levels(id) ON DELETE CASCADE,
+  question_text TEXT NOT NULL,
+  option_a TEXT NOT NULL,
+  option_b TEXT NOT NULL,
+  option_c TEXT NOT NULL,
+  option_d TEXT NOT NULL,
+  correct_options JSONB NOT NULL,
+  question_type VARCHAR(20) CHECK (question_type IN (
+    'easy','medium','hard','tricky',
+    'core_concept','numerical','multi_correct'
+  )),
+  timer_seconds INT DEFAULT 20,
+  explanation TEXT,
+  source VARCHAR(20) DEFAULT 'pregenerated',
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS user_progress (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID NOT NULL,
+  level_id UUID NOT NULL,
+  subject_id UUID NOT NULL,
+  status VARCHAR(20) DEFAULT 'locked'
+    CHECK (status IN ('locked', 'unlocked', 'complete')),
+  xp_earned INT DEFAULT 0,
+  completed_at TIMESTAMP,
+  UNIQUE(user_id, level_id)
+);
+
+CREATE TABLE IF NOT EXISTS daily_activity (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID NOT NULL,
+  activity_date DATE NOT NULL,
+  levels_completed INT DEFAULT 0,
+  UNIQUE(user_id, activity_date)
+);
+
+CREATE TABLE IF NOT EXISTS xp_ledger (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID NOT NULL,
+  username VARCHAR(50) NOT NULL,
+  amount INT NOT NULL,
+  source VARCHAR(30) CHECK (source IN (
+    'lesson', 'streak_bonus', 'level_complete', 'battle'
+  )),
+  scope VARCHAR(10) CHECK (scope IN ('global', 'room')),
+  room_id VARCHAR(20),
+  awarded_at TIMESTAMP DEFAULT NOW()
+);
+
 -- SUBJECTS insert
 INSERT INTO subjects (name, description, order_index) VALUES
 ('AWS Cloud Mastery', 'Description for AWS Cloud Mastery', 1),

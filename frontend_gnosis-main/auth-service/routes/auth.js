@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { pool } = require('../db');
 const { authenticateToken } = require('../middleware/auth');
-
+const axios = require('axios');
 const router = express.Router();
 
 const validateEmail = (email) => /\S+@\S+\.\S+/.test(email);
@@ -39,6 +39,10 @@ router.post('/register', async (req, res) => {
 
     const result = await pool.query(insertQuery, [username, email, passwordHash]);
     const userId = result.rows[0].id;
+
+    // Auto-initialize user progress (fire and forget - don't block registration)
+    axios.post(`http://progress-service:3003/progress/initialize/${userId}`)
+      .catch(err => console.error('Failed to auto-initialize progress:', err.message));
 
     return res.status(201).json({ message: 'registered', userId });
   } catch (error) {

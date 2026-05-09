@@ -3,7 +3,8 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
-const { createProxyMiddleware } = require('http-proxy-middleware');
+const http = require('http');
+const https = require('https');
 
 const authenticateToken = require('./middleware/auth');
 const answerTimingMiddleware = require('./middleware/timing');
@@ -11,74 +12,19 @@ const answerTimingMiddleware = require('./middleware/timing');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Trust proxy required for rate limiter if behind a load balancer
 app.set('trust proxy', 1);
-
-// 1. helmet()
-app.use(helmet());
-
-// 2. cors()
-app.use(cors({
-  origin: 'http://localhost:5173'
-}));
-
-// 3. express.json()
+app.use(helmet({ contentSecurityPolicy: false }));
+app.use(cors({ origin: '*' }));
 app.use(express.json());
 
-// 4. General rate limiter (all routes)
 const generalLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 200,
+  windowMs: 15 * 60 * 1000,
+  max: 500,
   message: { error: "Too many requests" }
 });
 app.use(generalLimiter);
 
-// 5. authenticateToken (all routes)
-app.use(authenticateToken);
-
-// 6. answerTimingMiddleware (only answer route)
-app.use(answerTimingMiddleware);
-
-// 7. Quiz answer rate limiter (only answer route)
-const quizAnswerLimiter = rateLimit({
-  windowMs: 60 * 1000, // 1 minute
-  max: 60,
-  message: { error: "Too many answer requests" }
-});
-app.use('/content/levels/*/answer', quizAnswerLimiter);
-
-// 8. Proxy routes
-app.use('/auth', createProxyMiddleware({ 
-  target: process.env.AUTH_SERVICE,
-  changeOrigin: true 
-}));
-
-app.use('/content', createProxyMiddleware({ 
-  target: process.env.CONTENT_SERVICE,
-  changeOrigin: true 
-}));
-
-app.use('/progress', createProxyMiddleware({ 
-  target: process.env.PROGRESS_SERVICE,
-  changeOrigin: true 
-}));
-
-app.use('/xp', createProxyMiddleware({ 
-  target: process.env.XP_SERVICE,
-  changeOrigin: true 
-}));
-
-app.use('/battle', createProxyMiddleware({ 
-  target: process.env.BATTLE_SERVICE,
-  changeOrigin: true 
-}));
-
-app.use('/notifications', createProxyMiddleware({ 
-  target: process.env.NOTIFICATION_SERVICE,
-  changeOrigin: true 
-}));
-
-// Health route (authenticateToken skips this)
+// Health route - BEFORE auth middleware
 app.get('/health', (req, res) => {
   res.json({ 
     status: "ok", 
@@ -93,6 +39,75 @@ app.get('/health', (req, res) => {
     }
   });
 });
+
+// Auth middleware - AFTER health
+app.use(authenticateToken);
+app.use(answerTimingMiddleware);
+
+const quizAnswerLimiter = rateLimit({
+  windowMs: 60 * 1000,
+  max: 60,
+  message: { error: "Too many answer requests" }
+});
+app.use('/content/levels/:levelId/answer', quizAnswerLimiter);
+
+// Generic reverse proxy function
+// prefix: the route prefix to prepend to req.url when calling upstream (e.g. '/auth')
+function proxyRequest(targetBase, prefix, req, res) {
+  const url = new URL(targetBase);
+  const isHttps = url.protocol === 'https:';
+  const lib = isHttps ? https : http;
+  
+  // req.url has the prefix stripped by Express, so restore it
+  const targetPath = prefix + req.url;
+  const body = req.body && Object.keys(req.body).length > 0 ? JSON.stringify(req.body) : null;
+  
+  const headers = {
+    ...req.headers,
+    host: url.host,
+  };
+
+  if (body) {
+    headers['content-type'] = 'application/json';
+    headers['content-length'] = Buffer.byteLength(body);
+  } else {
+    delete headers['content-length'];
+  }
+
+  const options = {
+    hostname: url.hostname,
+    port: url.port || (isHttps ? 443 : 80),
+    path: targetPath,
+    method: req.method,
+    headers
+  };
+
+  const proxyReq = lib.request(options, (proxyRes) => {
+    res.status(proxyRes.statusCode);
+    Object.keys(proxyRes.headers).forEach(key => {
+      res.setHeader(key, proxyRes.headers[key]);
+    });
+    proxyRes.pipe(res);
+  });
+
+  proxyReq.on('error', (err) => {
+    console.error('Proxy error:', err.message);
+    if (!res.headersSent) {
+      res.status(502).json({ error: 'Bad Gateway', details: err.message });
+    }
+  });
+
+  if (body) proxyReq.write(body);
+  proxyReq.end();
+}
+
+// Proxy routes
+app.use('/auth', (req, res) => proxyRequest(process.env.AUTH_SERVICE, '/auth', req, res));
+app.use('/content', (req, res) => proxyRequest(process.env.CONTENT_SERVICE, '/content', req, res));
+app.use('/progress', (req, res) => proxyRequest(process.env.PROGRESS_SERVICE, '/progress', req, res));
+app.use('/xp', (req, res) => proxyRequest(process.env.XP_SERVICE, '/xp', req, res));
+app.use('/battle', (req, res) => proxyRequest(process.env.BATTLE_SERVICE, '/battle', req, res));
+app.use('/notifications', (req, res) => proxyRequest(process.env.NOTIFICATION_SERVICE, '/notifications', req, res));
 
 app.listen(PORT, () => {
   console.log(`API Gateway running on port ${PORT}`);

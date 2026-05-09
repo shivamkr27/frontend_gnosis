@@ -106,18 +106,17 @@ INSERT INTO subjects (name, description, order_index) VALUES
 ('Data Structures', 'Description for Data Structures', 12),
 ('Discrete Mathematics', 'Description for Discrete Mathematics', 13),
 ('Java Development', 'Description for Java Development', 14),
-('Java Programming', 'Description for Java Programming', 15),
-('Kubernetes (K8s)', 'Description for Kubernetes (K8s)', 16),
-('Linux', 'Description for Linux', 17),
-('Logical Reasoning', 'Description for Logical Reasoning', 18),
-('Object Oriented Design (OOAD)', 'Description for Object Oriented Design (OOAD)', 19),
-('Operating Systems (OS)', 'Description for Operating Systems (OS)', 20),
-('Python Programming', 'Description for Python Programming', 21),
-('Quantitative Ability', 'Description for Quantitative Ability', 22),
-('Software Engineering', 'Description for Software Engineering', 23),
-('System Design', 'Description for System Design', 24),
-('Terraform (IaC)', 'Description for Terraform (IaC)', 25),
-('TOC', 'Description for TOC', 26)
+('Kubernetes (K8s)', 'Description for Kubernetes (K8s)', 15),
+('Linux', 'Description for Linux', 16),
+('Logical Reasoning', 'Description for Logical Reasoning', 17),
+('Object Oriented Design (OOAD)', 'Description for Object Oriented Design (OOAD)', 18),
+('Operating Systems (OS)', 'Description for Operating Systems (OS)', 19),
+('Python Programming', 'Description for Python Programming', 20),
+('Quantitative Ability', 'Description for Quantitative Ability', 21),
+('Software Engineering', 'Description for Software Engineering', 22),
+('System Design', 'Description for System Design', 23),
+('Terraform (IaC)', 'Description for Terraform (IaC)', 24),
+('TOC', 'Description for TOC', 25)
 ON CONFLICT (order_index) DO NOTHING;
 
 -- LEVELS insert
@@ -228,11 +227,11 @@ SELECT id, 4, 'Recurrence Relations', 250 FROM subjects WHERE name = 'Discrete M
 UNION ALL
 SELECT id, 1, 'JVM Architecture, Bytecode, Wrapper Classes', 100 FROM subjects WHERE name = 'Java Development'
 UNION ALL
-SELECT id, 2, 'OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling', 150 FROM subjects WHERE name = 'Java Programming'
+SELECT id, 2, 'OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling', 150 FROM subjects WHERE name = 'Java Development'
 UNION ALL
-SELECT id, 3, 'Collections Framework (List, Set, Map, Queue), Generics', 200 FROM subjects WHERE name = 'Java Programming'
+SELECT id, 3, 'Collections Framework (List, Set, Map, Queue), Generics', 200 FROM subjects WHERE name = 'Java Development'
 UNION ALL
-SELECT id, 4, 'Multithreading, Java 8 Features (Lambda, Streams, Optional), File I/O (NIO.2)', 250 FROM subjects WHERE name = 'Java Programming'
+SELECT id, 4, 'Multithreading, Java 8 Features (Lambda, Streams, Optional), File I/O (NIO.2)', 250 FROM subjects WHERE name = 'Java Development'
 UNION ALL
 SELECT id, 1, 'K8s Architecture', 100 FROM subjects WHERE name = 'Kubernetes (K8s)'
 UNION ALL

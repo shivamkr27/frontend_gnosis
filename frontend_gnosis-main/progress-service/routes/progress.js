@@ -4,6 +4,9 @@ const pool = require('../db/index');
 
 const router = express.Router();
 
+const CONTENT_SERVICE_URL = process.env.CONTENT_SERVICE_URL || 'http://localhost:3002';
+const XP_SERVICE_URL = process.env.XP_SERVICE_URL || 'http://localhost:3004';
+
 // GET /health
 router.get('/health', (req, res) => {
   res.json({ status: "ok", service: "progress-service" });
@@ -14,12 +17,12 @@ router.post('/initialize/:userId', async (req, res) => {
   const { userId } = req.params;
   try {
     // Get all subjects
-    const subjectsResponse = await axios.get('http://content-service:3002/content/subjects');
+    const subjectsResponse = await axios.get(`${CONTENT_SERVICE_URL}/content/subjects`);
     const subjects = subjectsResponse.data; // content-service returns array directly
 
     // For each subject, get levels and create progress rows
     for (const subject of subjects) {
-      const levelsResponse = await axios.get(`http://content-service:3002/content/subjects/${subject.id}`);
+      const levelsResponse = await axios.get(`${CONTENT_SERVICE_URL}/content/subjects/${subject.id}`);
       const levels = levelsResponse.data.levels; // /subjects/:id returns { ...subject, levels: [] }
 
       for (const level of levels) {
@@ -61,7 +64,7 @@ router.get('/:userId', async (req, res) => {
         };
       }
       // Get level_number from content-service
-      const levelsResponse = await axios.get(`http://content-service:3002/content/subjects/${row.subject_id}`);
+      const levelsResponse = await axios.get(`${CONTENT_SERVICE_URL}/content/subjects/${row.subject_id}`);
       const level = levelsResponse.data.levels.find(l => l.id === row.level_id);
       subjectsMap[row.subject_id].levels.push({
         level_id: row.level_id,
@@ -91,7 +94,7 @@ router.get('/:userId/subject/:subjectId', async (req, res) => {
     `, [userId, subjectId]);
 
     // Get levels from content-service
-    const levelsResponse = await axios.get(`http://content-service:3002/content/subjects/${subjectId}`);
+    const levelsResponse = await axios.get(`${CONTENT_SERVICE_URL}/content/subjects/${subjectId}`);
     const levels = levelsResponse.data.levels;
 
     const progress = levels.map(level => {
@@ -189,7 +192,7 @@ router.post('/complete-level', async (req, res) => {
     `, [xpEarned, userId, levelId]);
 
     // Step 2: Find next to unlock
-    const levelsResponse = await axios.get(`http://content-service:3002/content/subjects/${subjectId}`);
+    const levelsResponse = await axios.get(`${CONTENT_SERVICE_URL}/content/subjects/${subjectId}`);
     const levels = levelsResponse.data.levels;
     const currentLevel = levels.find(l => l.id === levelId);
     let nextLevel = null;
@@ -199,12 +202,14 @@ router.post('/complete-level', async (req, res) => {
       nextLevel = levels.find(l => l.level_number === currentLevel.level_number + 1);
     } else {
       // Last level, find next subject
-      const subjectsResponse = await axios.get('http://content-service:3002/content/subjects');
-      const subjects = subjectsResponse.data.subjects;
+      const subjectsResponse = await axios.get(`${CONTENT_SERVICE_URL}/content/subjects`);
+      const subjects = Array.isArray(subjectsResponse.data)
+        ? subjectsResponse.data
+        : subjectsResponse.data.subjects;
       const currentSubject = subjects.find(s => s.id === subjectId);
       const nextSub = subjects.find(s => s.order_index === currentSubject.order_index + 1);
       if (nextSub) {
-        const nextLevelsResponse = await axios.get(`http://content-service:3002/content/subjects/${nextSub.id}`);
+        const nextLevelsResponse = await axios.get(`${CONTENT_SERVICE_URL}/content/subjects/${nextSub.id}`);
         nextLevel = nextLevelsResponse.data.levels.find(l => l.level_number === 1);
         nextSubject = nextSub;
       }
@@ -250,7 +255,7 @@ router.post('/complete-level', async (req, res) => {
     try {
       const userRes = await pool.query('SELECT username FROM users WHERE id = $1', [userId]);
       const username = userRes.rows[0]?.username || 'unknown';
-      await axios.post('http://xp-service:3004/xp/award', {
+      await axios.post(`${XP_SERVICE_URL}/xp/award`, {
         userId,
         username,
         amount: xpEarned,

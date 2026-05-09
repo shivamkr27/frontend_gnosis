@@ -61,6 +61,7 @@ services:
       - DB_NAME=gnosis
       - JWT_SECRET=your_32_char_random_string_here
       - REDIS_URL=redis://redis:6379
+      - PROGRESS_SERVICE_URL=http://progress-service:3003
     depends_on:
       postgres:
         condition: service_healthy
@@ -102,6 +103,8 @@ services:
       - DB_NAME=gnosis
       - JWT_SECRET=your_32_char_random_string_here
       - REDIS_URL=redis://redis:6379
+      - CONTENT_SERVICE_URL=http://content-service:3002
+      - XP_SERVICE_URL=http://xp-service:3004
     depends_on:
       postgres:
         condition: service_healthy

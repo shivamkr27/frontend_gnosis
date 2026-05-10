@@ -1,7 +1,5 @@
 import React from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Lock, CheckCircle, Play, BookOpen } from 'lucide-react';
-import { motion } from 'framer-motion';
 
 export function SubjectDetail() {
   const { id } = useParams();
@@ -9,98 +7,93 @@ export function SubjectDetail() {
 
   // Mock data for levels
   const levels = [
-    { id: 1, name: "Arrays & Strings", status: "completed" },
-    { id: 2, name: "Hash Maps", status: "completed" },
-    { id: 3, name: "Linked Lists", status: "current" },
-    { id: 4, name: "Trees & Graphs", status: "locked" },
-    { id: 5, name: "Dynamic Programming", status: "locked" },
+    { id: 1, name: "Variables", status: "completed", time: "15 min", xp: "250 XP" },
+    { id: 2, name: "Control Structures", status: "locked", time: "25 min", xp: "400 XP" },
+    { id: 3, name: "Functions & Scope", status: "locked", time: "30 min", xp: "450 XP" },
   ];
 
   return (
-    <div className="p-4 sm:p-8 max-w-3xl mx-auto pb-24 md:pb-8">
+    <div className="max-w-4xl mx-auto px-4 md:px-0 py-12 md:py-20 min-h-screen relative">
 
-      <button
-        onClick={() => navigate('/home')}
-        className="flex items-center text-sm font-bold text-gnosis-muted hover:text-gnosis-text mb-6 transition-colors"
-      >
-        <ArrowLeft className="w-4 h-4 mr-2" />
-        Back to Map
-      </button>
+      {/* Background Mandala */}
+      <div className="fixed bottom-0 right-0 -z-10 opacity-[0.03] pointer-events-none">
+        <svg height="600" viewBox="0 0 100 100" width="600">
+          <circle cx="50" cy="50" fill="none" r="45" stroke="#f4a261" strokeWidth="0.1"></circle>
+          <rect fill="none" height="60" stroke="#f4a261" strokeWidth="0.1" transform="rotate(45 50 50)" width="60" x="20" y="20"></rect>
+          <rect fill="none" height="50" stroke="#f4a261" strokeWidth="0.1" transform="rotate(22.5 50 50)" width="50" x="25" y="25"></rect>
+          <circle cx="50" cy="50" fill="none" r="35" stroke="#f4a261" strokeWidth="0.1"></circle>
+        </svg>
+      </div>
 
-      <motion.div
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        className="bg-gnosis-card border border-gnosis-border rounded-3xl p-8 mb-10 text-center relative overflow-hidden shadow-lg"
-      >
-        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-gnosis-purple via-gnosis-purple-light to-gnosis-purple"></div>
+      {/* Header Section */}
+      <header className="mb-16 border-l-4 border-[#f4a261] pl-6">
+        <nav className="flex items-center gap-2 mb-4 text-gnosis-muted text-xs font-bold uppercase tracking-widest">
+          <button onClick={() => navigate('/home')} className="hover:text-gnosis-text transition-colors">Courses</button>
+          <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+          <span className="text-[#f4a261]">C Programming</span>
+        </nav>
+        <h1 className="text-4xl md:text-5xl font-serif font-bold text-gnosis-text mb-4">C Programming</h1>
+        <p className="text-lg text-gnosis-muted max-w-2xl">
+          Master the fundamental principles of procedural programming. From pointer arithmetic to memory management, build a foundation for high-performance engineering.
+        </p>
+      </header>
 
-        <div className="w-16 h-16 mx-auto bg-gnosis-bg rounded-2xl flex items-center justify-center mb-4">
-          <BookOpen className="w-8 h-8 text-gnosis-purple-light" />
-        </div>
+      {/* Vertical Stacked Cards */}
+      <div className="space-y-6">
+        {levels.map((level, idx) => {
+          const isCompleted = level.status === 'completed';
+          const isLocked = level.status === 'locked';
 
-        <h1 className="text-3xl font-black mb-2 tracking-tight">Data Structures</h1>
-        <p className="text-gnosis-muted font-medium mb-6">Master the fundamental building blocks of computer science.</p>
-
-        <div className="flex justify-center items-center gap-8">
-          <div className="text-center">
-            <div className="text-3xl font-black text-gnosis-green">2/5</div>
-            <div className="text-xs text-gnosis-muted uppercase tracking-wider font-bold mt-1">Completed</div>
-          </div>
-          <div className="w-px h-10 bg-gnosis-border"></div>
-          <div className="text-center">
-            <div className="text-3xl font-black text-gnosis-purple-light">40%</div>
-            <div className="text-xs text-gnosis-muted uppercase tracking-wider font-bold mt-1">Progress</div>
-          </div>
-        </div>
-      </motion.div>
-
-      <div className="space-y-4 relative">
-        {/* Connection line behind levels */}
-        <div className="absolute left-[2.25rem] top-8 bottom-8 w-1.5 bg-gnosis-border -z-10 hidden sm:block rounded-full"></div>
-
-        {levels.map((level, idx) => (
-          <motion.div
-            key={level.id}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: idx * 0.1 }}
-            className="flex items-center gap-4 sm:gap-6"
-          >
-
-            {/* Timeline Node */}
-            <div className={`hidden sm:flex w-16 h-16 rounded-2xl border-4 items-center justify-center bg-gnosis-bg z-10 shrink-0 transition-colors
-              ${level.status === 'completed' ? 'border-gnosis-green text-gnosis-green' :
-                level.status === 'current' ? 'border-gnosis-purple text-gnosis-purple-light shadow-[0_0_15px_rgba(124,58,237,0.5)]' :
-                'border-gnosis-border text-gnosis-muted'}
+          return (
+            <div key={level.id} className={`relative group p-8 rounded-lg transition-all duration-300
+              ${isLocked ? 'bg-[#151c29]/40 border border-[#2e3543]/50 opacity-60 grayscale-[0.5]' : 'bg-[#151c29] border border-[#2e3543] hover:border-[#f4a261]/40 shadow-sm'}
             `}>
-              {level.status === 'completed' ? <CheckCircle className="w-6 h-6" /> :
-               level.status === 'current' ? <Play className="w-6 h-6 ml-1 fill-current" /> :
-               <Lock className="w-6 h-6" />}
+              {!isLocked && <div className="absolute top-0 left-0 w-1 h-6 bg-[#f4a261]"></div>}
+
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                <div className="flex items-start gap-6">
+                  {/* Circle number */}
+                  <div className={`flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full text-2xl font-serif font-bold
+                    ${isLocked ? 'border border-[#2e3543] text-gnosis-muted' : 'bg-[#f4a261]/10 border border-[#f4a261]/20 text-[#f4a261]'}
+                  `}>
+                    {level.id}
+                  </div>
+
+                  {/* Content */}
+                  <div>
+                    <div className="flex items-center gap-3 mb-1">
+                      <h3 className="text-2xl font-serif font-bold text-gnosis-text">{level.name}</h3>
+                      {!isLocked && <span className="bg-[#30a193]/20 text-[#30a193] px-2 py-1 rounded text-xs font-bold">CURRENT</span>}
+                    </div>
+
+                    <div className="flex flex-wrap items-center gap-4 text-gnosis-muted text-sm font-bold mt-2">
+                      <span className="flex items-center gap-1.5">
+                        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                        {level.time}
+                      </span>
+                      <span className="flex items-center gap-1.5">
+                        <svg className="w-5 h-5 text-[#f1cc71] fill-current" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                        {level.xp}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right side status / action */}
+                {!isLocked ? (
+                  <button onClick={() => navigate(`/lesson/${level.id}`)} className="bg-[#f4a261] text-[#4e2600] px-8 py-3 font-bold text-sm uppercase tracking-wider hover:brightness-110 transition-colors active:scale-95">
+                    Start Session
+                  </button>
+                ) : (
+                  <div className="flex items-center gap-2 text-gnosis-muted font-bold text-sm">
+                    <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+                    Locked
+                  </div>
+                )}
+              </div>
             </div>
-
-            {/* Level Card */}
-            <Link
-              to={level.status !== 'locked' ? `/lesson/${level.id}` : '#'}
-              className={`flex-1 p-6 rounded-2xl border-2 transition-all flex items-center justify-between
-                ${level.status === 'locked' ? 'bg-gnosis-card/50 border-gnosis-border/50 opacity-75 cursor-not-allowed' :
-                  level.status === 'current' ? 'bg-gnosis-card border-gnosis-purple hover:bg-gnosis-purple/5' :
-                  'bg-gnosis-card border-gnosis-border hover:border-gnosis-purple-light'}
-              `}
-            >
-              <div>
-                <div className="text-xs font-black text-gnosis-purple-light mb-1 tracking-wider">LESSON {level.id}</div>
-                <h3 className={`text-xl font-bold ${level.status === 'locked' ? 'text-gnosis-muted' : 'text-gnosis-text'}`}>
-                  {level.name}
-                </h3>
-              </div>
-
-              <div className="hidden sm:block">
-                {level.status === 'completed' && <span className="bg-gnosis-green/10 text-gnosis-green font-bold px-3 py-1 rounded-lg text-sm">Done</span>}
-                {level.status === 'current' && <span className="bg-gnosis-purple/10 text-gnosis-purple-light font-bold px-3 py-1 rounded-lg text-sm">Active</span>}
-              </div>
-            </Link>
-          </motion.div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

@@ -7,16 +7,24 @@ export default {
   theme: {
     extend: {
       colors: {
-        'gnosis-bg': '#0F172A',
-        'gnosis-card': '#1E293B',
-        'gnosis-border': '#334155',
-        'gnosis-purple': '#7C3AED',
-        'gnosis-purple-light': '#A78BFA',
-        'gnosis-gold': '#F59E0B',
-        'gnosis-green': '#10B981',
-        'gnosis-red': '#EF4444',
-        'gnosis-text': '#F8FAFC',
-        'gnosis-muted': '#94A3B8',
+        'gnosis-bg': '#0c1320', // New dark blue background (from images)
+        'gnosis-card': '#19202d', // New lighter blue card
+        'gnosis-border': '#2e3543', // New outline color
+        'gnosis-primary': '#f4a261', // The orange/beige accent
+        'gnosis-primary-light': '#ffc499',
+        'gnosis-secondary': '#30a193', // The teal accent
+        'gnosis-secondary-light': '#6fd8c8',
+        'gnosis-text': '#dce2f5', // Main text
+        'gnosis-muted': '#a08d80', // Muted text
+        'gnosis-gold': '#d4b058',
+        'gnosis-error': '#ffb4ab',
+        'gnosis-error-container': '#93000a',
+        'gnosis-green': '#30a193', // using secondary for success/green
+        'gnosis-red': '#ffb4ab'
+      },
+      fontFamily: {
+        'sans': ['Inter', 'sans-serif'],
+        'serif': ['Noto Serif', 'serif'],
       }
     },
   },

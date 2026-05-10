@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { X, Check, ArrowRight } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
 
 export function ActiveQuiz() {
   const { levelId } = useParams();
@@ -12,9 +10,14 @@ export function ActiveQuiz() {
   const progress = 30; // 30%
 
   const mockQuestion = {
-    text: "Which data structure uses LIFO (Last In, First Out) principle?",
-    options: ["Queue", "Stack", "Linked List", "Binary Tree"],
-    correctIndex: 1
+    text: "Which physical principle directly implies the existence of the Heisenberg Uncertainty Relation?",
+    options: [
+      "Non-commutativity of operators",
+      "Wave-particle duality of light",
+      "The exclusion principle",
+      "Conservation of angular momentum"
+    ],
+    correctIndex: 0
   };
 
   const handleSelect = (idx) => {
@@ -28,116 +31,122 @@ export function ActiveQuiz() {
   };
 
   return (
-    <div className="min-h-screen bg-gnosis-bg flex flex-col absolute top-0 left-0 w-full z-50">
+    <div className="min-h-screen bg-gnosis-bg flex flex-col relative z-50 pt-20">
 
-      {/* Quiz Header */}
-      <div className="flex items-center gap-4 p-4 sm:p-6 max-w-4xl mx-auto w-full">
-        <button
-          onClick={() => navigate(`/subject/1`)}
-          className="text-gnosis-muted hover:text-gnosis-text transition-colors"
-        >
-          <X className="w-6 h-6" />
-        </button>
-        <div className="flex-1 bg-gnosis-card rounded-full h-4 border border-gnosis-border overflow-hidden">
-          <motion.div
-            initial={{ width: 0 }}
-            animate={{ width: `${progress}%` }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className="bg-gradient-to-r from-gnosis-purple to-gnosis-purple-light h-full rounded-full"
-          />
-        </div>
-        <span className="text-sm font-black text-gnosis-muted">3 / 10</span>
+      {/* Background Mandala Watermark */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.03]">
+        <svg height="100%" viewBox="0 0 800 800" width="100%" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" stroke="#f4a261" strokeWidth="0.5">
+            <circle cx="400" cy="400" r="300"></circle>
+            <circle cx="400" cy="400" r="250"></circle>
+            <circle cx="400" cy="400" r="200"></circle>
+            <path d="M400 100 L400 700 M100 400 L700 400"></path>
+            <rect height="400" transform="rotate(45 400 400)" width="400" x="200" y="200"></rect>
+            <rect height="300" width="300" x="250" y="250"></rect>
+          </g>
+        </svg>
       </div>
 
-      {/* Question Area */}
-      <motion.div
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        className="flex-1 flex flex-col items-center px-4 pt-8 sm:pt-16 max-w-3xl mx-auto w-full"
-      >
-        <h2 className="text-2xl sm:text-4xl font-black text-center mb-12 leading-tight">
-          {mockQuestion.text}
-        </h2>
+      <main className="flex-grow flex flex-col items-center justify-center px-4 md:px-10 max-w-container-max mx-auto w-full z-10">
+        <div className="w-full max-w-3xl">
 
-        {/* Options Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
-          {mockQuestion.options.map((option, idx) => {
-            let stateClass = "bg-gnosis-card border-gnosis-border hover:border-gnosis-purple hover:bg-gnosis-purple/5 text-gnosis-text";
+          {/* Header Stats Section */}
+          <div className="flex justify-between items-end mb-8 w-full">
+            <div className="space-y-1">
+              <span className="text-xs font-bold text-[#30a193] uppercase tracking-widest">Quantum Mechanics II</span>
+              <h2 className="text-2xl font-serif font-bold text-gnosis-text">Question 3 of 10</h2>
+            </div>
+            <div className="text-right">
+              <span className="text-sm font-bold text-gnosis-muted block mb-1">Session XP</span>
+              <span className="text-2xl font-serif font-bold text-[#f4a261]">+ 150</span>
+            </div>
+          </div>
 
-            if (isAnswered) {
-              if (idx === mockQuestion.correctIndex) {
-                stateClass = "bg-gnosis-green/10 border-gnosis-green text-gnosis-green shadow-[0_0_15px_rgba(16,185,129,0.2)]";
-              } else if (idx === selectedOption) {
-                stateClass = "bg-gnosis-red/10 border-gnosis-red text-gnosis-red shadow-[0_0_15px_rgba(239,68,68,0.2)]";
-              } else {
-                stateClass = "bg-gnosis-card border-gnosis-border opacity-30";
+          {/* Global Progress Bar */}
+          <div className="w-full h-1 bg-[#2e3543] rounded-full mb-16 overflow-hidden">
+            <div className="h-full bg-[#30a193] transition-all duration-500 shadow-[0_0_8px_rgba(48,161,147,0.4)]" style={{width: `${progress}%`}}></div>
+          </div>
+
+          {/* Question Canvas */}
+          <section className="text-center mb-16">
+            <p className="text-3xl md:text-5xl font-serif font-bold text-gnosis-text leading-tight">
+              {mockQuestion.text}
+            </p>
+          </section>
+
+          {/* Option Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
+            {mockQuestion.options.map((option, idx) => {
+              let stateClass = "border-[#2e3543]/30 bg-[#151c29] hover:border-[#f4a261] text-gnosis-text";
+              let markerClass = "border-[#f4a261]/30 text-[#f4a261] group-hover:bg-[#f4a261] group-hover:text-[#4e2600]";
+              let notchClass = "bg-transparent group-hover:bg-[#f4a261]";
+
+              if (isAnswered) {
+                if (idx === mockQuestion.correctIndex) {
+                  stateClass = "border-[#30a193] bg-[#30a193]/10 text-gnosis-text shadow-[0_0_15px_rgba(48,161,147,0.2)]";
+                  markerClass = "bg-[#30a193] text-[#003731] border-[#30a193]";
+                  notchClass = "bg-[#30a193]";
+                } else if (idx === selectedOption) {
+                  stateClass = "border-[#ffb4ab] bg-[#93000a]/30 text-gnosis-text shadow-[0_0_15px_rgba(255,180,171,0.2)]";
+                  markerClass = "bg-[#ffb4ab] text-[#690005] border-[#ffb4ab]";
+                  notchClass = "bg-[#ffb4ab]";
+                } else {
+                  stateClass = "border-[#2e3543]/30 bg-[#151c29] text-gnosis-muted opacity-50";
+                  markerClass = "border-[#2e3543] text-gnosis-muted";
+                  notchClass = "bg-transparent";
+                }
               }
-            } else if (selectedOption === idx) {
-              stateClass = "bg-gnosis-purple/20 border-gnosis-purple text-gnosis-purple-light shadow-[0_0_15px_rgba(124,58,237,0.2)]";
-            }
 
-            return (
-              <motion.button
-                key={idx}
-                whileHover={!isAnswered ? { scale: 1.02 } : {}}
-                whileTap={!isAnswered ? { scale: 0.98 } : {}}
-                onClick={() => handleSelect(idx)}
-                disabled={isAnswered}
-                className={`p-6 rounded-2xl border-2 text-lg font-bold transition-all text-left flex justify-between items-center ${stateClass}`}
-              >
-                <span>{option}</span>
-                {isAnswered && idx === mockQuestion.correctIndex && <Check className="w-6 h-6" strokeWidth={3} />}
-                {isAnswered && idx === selectedOption && idx !== mockQuestion.correctIndex && <X className="w-6 h-6" strokeWidth={3} />}
-              </motion.button>
-            );
-          })}
+              return (
+                <button
+                  key={idx}
+                  onClick={() => handleSelect(idx)}
+                  disabled={isAnswered}
+                  className={`group relative flex items-center p-6 border transition-all duration-200 text-left active:scale-[0.98] ${stateClass}`}
+                >
+                  <div className={`absolute top-0 left-0 w-1 h-full transition-colors ${notchClass}`}></div>
+                  <span className={`font-bold text-sm mr-6 border px-3 py-1 rounded-sm transition-colors ${markerClass}`}>
+                    {String.fromCharCode(65 + idx)}
+                  </span>
+                  <span className="text-lg">{option}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Next Button appearing when answered */}
+          {isAnswered && (
+             <div className="flex justify-center mb-10">
+               <button onClick={handleNext} className="bg-[#f4a261] text-[#4e2600] px-12 py-4 font-bold text-sm tracking-widest uppercase hover:brightness-110 active:scale-95 transition-all shadow-lg flex items-center gap-2">
+                 CONTINUE
+                 <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+               </button>
+             </div>
+          )}
+
         </div>
-      </motion.div>
+      </main>
 
-      {/* Feedback Footer */}
-      <AnimatePresence>
-        {isAnswered && (
-          <motion.div
-            initial={{ y: "100%" }}
-            animate={{ y: 0 }}
-            exit={{ y: "100%" }}
-            transition={{ type: "spring", bounce: 0, duration: 0.3 }}
-            className={`fixed bottom-0 left-0 w-full p-6 sm:p-8 border-t-2 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]
-              ${selectedOption === mockQuestion.correctIndex
-                ? 'bg-gnosis-green/10 border-gnosis-green backdrop-blur-md'
-                : 'bg-gnosis-red/10 border-gnosis-red backdrop-blur-md'}
-            `}
-          >
-            <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
-              <div className="flex items-center gap-5">
-                <div className={`w-14 h-14 rounded-full flex items-center justify-center shadow-lg
-                  ${selectedOption === mockQuestion.correctIndex ? 'bg-gnosis-green text-white' : 'bg-gnosis-red text-white'}
-                `}>
-                  {selectedOption === mockQuestion.correctIndex ? <Check className="w-8 h-8" strokeWidth={3} /> : <X className="w-8 h-8" strokeWidth={3} />}
-                </div>
-                <div>
-                  <h3 className={`text-2xl font-black mb-1
-                    ${selectedOption === mockQuestion.correctIndex ? 'text-gnosis-green' : 'text-gnosis-red'}
-                  `}>
-                    {selectedOption === mockQuestion.correctIndex ? 'Excellent!' : 'Incorrect'}
-                  </h3>
-                  {selectedOption !== mockQuestion.correctIndex && (
-                    <p className="text-gnosis-text font-bold">Correct answer: <span className="text-gnosis-green">{mockQuestion.options[mockQuestion.correctIndex]}</span></p>
-                  )}
-                </div>
-              </div>
-              <button
-                onClick={handleNext}
-                className={`px-10 py-4 rounded-xl font-black text-white text-lg flex items-center gap-2 w-full sm:w-auto justify-center transition-transform hover:scale-105 shadow-xl
-                  ${selectedOption === mockQuestion.correctIndex ? 'bg-gnosis-green hover:bg-gnosis-green/90' : 'bg-gnosis-red hover:bg-gnosis-red/90'}
-                `}
-              >
-                Continue <ArrowRight className="w-6 h-6" strokeWidth={3} />
+      {/* Professional Countdown Footer */}
+      {!isAnswered && (
+        <footer className="fixed bottom-0 left-0 w-full z-50">
+          <div className="max-w-container-max mx-auto px-4 md:px-10 py-4 flex justify-between items-center bg-[#151c29]/80 backdrop-blur-md">
+            <div className="flex items-center gap-3">
+              <svg className="w-5 h-5 text-[#f1cc71] fill-current" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              <span className="text-sm font-bold text-gnosis-muted">Time remaining: <span className="text-gnosis-text font-bold">14s</span></span>
+            </div>
+            <div className="flex items-center gap-6">
+              <button className="text-gnosis-muted hover:text-[#ffb4ab] transition-colors flex items-center gap-2">
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6z"/></svg>
+                <span className="font-bold text-xs">REPORT</span>
               </button>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+          <div className="w-full h-1.5 bg-[#2e3543]">
+            <div className="h-full bg-[#f1cc71] transition-all duration-1000 ease-linear shadow-[0_0_12px_rgba(241,204,113,0.3)]" style={{width: '35%'}}></div>
+          </div>
+        </footer>
+      )}
 
     </div>
   );

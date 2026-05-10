@@ -1,73 +1,104 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Check, Lock, Play } from 'lucide-react';
 
 export function Home() {
-  const pathNodes = [
-    { id: 1, name: "Data Structures", status: "completed", offset: -40 },
-    { id: 2, name: "Algorithms", status: "completed", offset: 40 },
-    { id: 3, name: "React Basics", status: "current", offset: 0 },
-    { id: 4, name: "System Design", status: "locked", offset: -30 },
-    { id: 5, name: "Databases", status: "locked", offset: 30 },
+  const subjects = [
+    { id: 'c_programming', name: "C Programming" },
+    { id: 'python', name: "Python" },
+    { id: 'java', name: "Java" },
+    { id: 'dsa', name: "Data Structures & Algorithms" },
+    { id: 'dbms', name: "DBMS" },
+    { id: 'os', name: "Operating Systems" },
+    { id: 'dcn', name: "Computer Networks" },
+    { id: 'coa', name: "Computer Organization" },
+    { id: 'daa', name: "Design & Analysis of Algorithms" },
+    { id: 'toc', name: "Theory of Computation" },
+    { id: 'engineering_math', name: "Engineering Math" },
+    { id: 'digital_electronics', name: "Digital Electronics" },
+    { id: 'software_engineering', name: "Software Engineering" },
+    { id: 'systemdesign', name: "System Design" },
+    { id: 'ooad', name: "Object-Oriented Analysis" },
+    { id: 'linux', name: "Linux" },
+    { id: 'aws_cloud_mastery', name: "AWS Cloud Mastery" },
+    { id: 'docker', name: "Docker" },
+    { id: 'kubernetes', name: "Kubernetes" },
+    { id: 'cicd', name: "CI/CD" },
+    { id: 'terraform', name: "Terraform" },
+    { id: 'devsecops', name: "DevSecOps" },
+    { id: 'cryptography', name: "Cryptography" },
+    { id: 'logical_reasoning', name: "Logical Reasoning" },
+    { id: 'quant', name: "Quantitative Aptitude" },
   ];
 
+  const pathNodes = subjects.map((sub, idx) => ({
+    id: sub.id,
+    name: sub.name,
+    status: idx < 3 ? 'completed' : idx === 3 ? 'current' : 'locked',
+  }));
+
   return (
-    <div className="p-4 sm:p-8 max-w-lg mx-auto pb-32 md:pb-16 flex flex-col items-center">
+    <div className="max-w-container-max mx-auto px-4 sm:px-10 py-12 md:py-20 relative">
+      <section className="flex flex-col items-center relative z-10">
+        <div className="text-center mb-16 max-w-2xl">
+          <h1 className="text-4xl font-serif font-bold text-gnosis-text mb-4">Architectural Foundation</h1>
+          <p className="text-lg text-gnosis-muted">Master the core principles of high-performance system design through our structured academic curriculum.</p>
+        </div>
 
-      <div className="mb-12 text-center">
-        <h1 className="text-3xl font-black mb-2 tracking-tight">Learning Path</h1>
-        <p className="text-gnosis-muted font-medium">Continue your journey.</p>
-      </div>
+        <div className="relative flex flex-col items-center">
+          {/* Vertical Connecting Line */}
+          <div className="absolute w-1 h-full bg-gnosis-border/30 left-1/2 -translate-x-1/2 rounded-full overflow-hidden">
+             {/* Progress fill to node 4 */}
+            <div className="absolute top-0 w-full bg-gnosis-secondary" style={{height: '14%'}}></div>
+          </div>
 
-      <div className="relative w-full flex flex-col items-center py-8">
+          <div className="space-y-24 w-full max-w-md flex flex-col items-center pb-24">
+            {pathNodes.map((node, idx) => {
+              const isCompleted = node.status === 'completed';
+              const isCurrent = node.status === 'current';
+              const isLocked = node.status === 'locked';
+              const isLeft = idx % 2 === 0;
 
-        {/* Background dotted line */}
-        <div className="absolute top-0 bottom-0 w-2 border-l-4 border-dashed border-gnosis-border -ml-1 z-0"></div>
+              return (
+                <div key={node.id} className={`flex items-center gap-8 w-full group ${isLeft ? '' : 'flex-row-reverse text-right'} ${isLocked ? 'opacity-40 grayscale' : ''}`}>
 
-        {/* Nodes */}
-        {pathNodes.map((node, idx) => {
-          const isCompleted = node.status === 'completed';
-          const isCurrent = node.status === 'current';
-          const isLocked = node.status === 'locked';
+                  {/* Icon Circle */}
+                  <Link
+                    to={!isLocked ? `/subject/${node.id}` : '#'}
+                    className={`relative z-20 flex-shrink-0 flex items-center justify-center border-4 border-gnosis-bg
+                      ${isCurrent ? 'w-24 h-24 rounded-full bg-[#f4a261] border-[#f4a261] node-pulse cursor-pointer transform hover:scale-105 transition-transform duration-300 z-30' : ''}
+                      ${isCompleted ? 'w-20 h-20 rounded-full bg-gnosis-secondary/20' : ''}
+                      ${isLocked ? 'w-20 h-20 rounded-full bg-gnosis-border' : ''}
+                    `}
+                  >
+                    {isCompleted && (
+                      <svg className="w-10 h-10 text-gnosis-secondary fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    )}
+                    {isCurrent && (
+                      <svg className="w-12 h-12 text-[#4e2600] fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    )}
+                    {isLocked && (
+                      <svg className="w-8 h-8 text-gnosis-text" viewBox="0 0 24 24"><path fill="currentColor" d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+                    )}
+                  </Link>
 
-          return (
-            <motion.div
-              key={node.id}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: idx * 0.15, type: "spring" }}
-              className="relative z-10 w-full flex flex-col items-center mb-16 last:mb-0"
-              style={{ transform: `translateX(${node.offset}px)` }}
-            >
-              <Link
-                to={!isLocked ? `/subject/${node.id}` : '#'}
-                className="group relative flex flex-col items-center"
-              >
-                {/* Node Button */}
-                <div className={`
-                  w-20 h-20 rounded-full flex items-center justify-center border-b-[6px] transition-all
-                  ${isCompleted ? 'bg-gnosis-green border-gnosis-green/50 text-white hover:brightness-110' : ''}
-                  ${isCurrent ? 'bg-gnosis-purple border-gnosis-purple/50 text-white shadow-[0_0_30px_rgba(124,58,237,0.5)] animate-bounce-slow' : ''}
-                  ${isLocked ? 'bg-gnosis-card border-gnosis-border text-gnosis-muted cursor-not-allowed' : ''}
-                  active:border-b-0 active:translate-y-[6px]
-                `}>
-                  {isCompleted && <Check className="w-10 h-10" strokeWidth={3} />}
-                  {isCurrent && <Play className="w-10 h-10 ml-1 fill-white" strokeWidth={3} />}
-                  {isLocked && <Lock className="w-8 h-8" strokeWidth={2.5} />}
+                  {/* Text Description */}
+                  <div className="flex-grow">
+                    {isCurrent && <span className="bg-[#ffc499] text-[#4e2600] px-3 py-1 rounded-full text-xs font-bold mb-2 inline-block">CURRENT</span>}
+                    <h3 className="text-2xl font-serif font-bold text-gnosis-text">{node.name}</h3>
+                    <p className={`text-sm font-semibold tracking-widest uppercase mt-1
+                      ${isCompleted ? 'text-gnosis-secondary' : isCurrent ? 'text-[#f4a261]' : 'text-gnosis-text'}
+                    `}>
+                      {isCompleted ? 'Mastered' : isCurrent ? 'Active' : 'Locked'}
+                    </p>
+                  </div>
+
                 </div>
-
-                {/* Node Label Floating slightly below */}
-                <div className={`mt-4 px-4 py-2 rounded-xl font-bold text-sm text-center shadow-lg whitespace-nowrap
-                  ${isCurrent ? 'bg-gnosis-purple text-white' : 'bg-gnosis-card border border-gnosis-border text-gnosis-muted'}
-                `}>
-                  {node.name}
-                </div>
-              </Link>
-            </motion.div>
-          );
-        })}
-      </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

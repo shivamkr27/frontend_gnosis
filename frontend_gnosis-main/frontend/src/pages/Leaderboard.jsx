@@ -1,92 +1,116 @@
 import React, { useState } from 'react';
-import { Trophy, Medal, Search } from 'lucide-react';
 
 export function Leaderboard() {
   const [activeTab, setActiveTab] = useState('global');
 
   const mockData = [
-    { rank: 1, name: "AlgoMaster", points: 15420, isCurrentUser: false },
-    { rank: 2, name: "CodeNinja", points: 14200, isCurrentUser: false },
-    { rank: 3, name: "BugSquasher", points: 13950, isCurrentUser: false },
-    { rank: 4, name: "ReactGod", points: 12100, isCurrentUser: false },
-    { rank: 5, name: "You (Player One)", points: 11800, isCurrentUser: true },
-    { rank: 6, name: "DevDude", points: 11200, isCurrentUser: false },
+    { rank: 4, name: "David Chen", points: 4100, isCurrentUser: false },
+    { rank: 5, name: "Aisha Patel", points: 3950, isCurrentUser: false },
+    { rank: 6, name: "Marcus Johnson", points: 3820, isCurrentUser: false },
+    { rank: 7, name: "Sarah Williams", points: 3710, isCurrentUser: false },
+    { rank: 8, name: "You", points: 3600, isCurrentUser: true },
+    { rank: 9, name: "James Lee", points: 3450, isCurrentUser: false },
+    { rank: 10, name: "Elena Rodriguez", points: 3200, isCurrentUser: false },
   ];
 
   return (
-    <div className="p-4 sm:p-8 max-w-4xl mx-auto pb-24 md:pb-8">
+    <div className="max-w-container-max mx-auto px-4 md:px-10 py-12">
 
-      <div className="text-center mb-10">
-        <h1 className="text-4xl font-extrabold mb-4 flex items-center justify-center gap-3">
-          <Trophy className="text-gnosis-gold w-10 h-10" /> Hall of Fame
-        </h1>
-        <p className="text-gnosis-muted">See how you stack up against the Gnosis community.</p>
+      {/* Header Section */}
+      <div className="mb-12">
+        <h1 className="text-4xl font-serif font-bold text-gnosis-text mb-4">Academic Vanguard</h1>
+        <p className="text-gnosis-muted text-lg max-w-2xl">
+          The hall of fame for the university's most consistent scholars. Precision, persistence, and pursuit of Gnosis.
+        </p>
+        <p className="text-gnosis-secondary text-sm font-bold tracking-widest uppercase mt-4">Weekly reset in 4 days 12 hours.</p>
       </div>
 
-      {/* Tabs */}
-      <div className="flex bg-gnosis-card p-1 rounded-xl mb-8">
-        <button
-          onClick={() => setActiveTab('global')}
-          className={`flex-1 py-3 text-sm font-bold rounded-lg transition-colors ${activeTab === 'global' ? 'bg-gnosis-purple text-white' : 'text-gnosis-muted hover:text-gnosis-text'}`}
-        >
-          Global
-        </button>
-        <button
-          onClick={() => setActiveTab('friends')}
-          className={`flex-1 py-3 text-sm font-bold rounded-lg transition-colors ${activeTab === 'friends' ? 'bg-gnosis-purple text-white' : 'text-gnosis-muted hover:text-gnosis-text'}`}
-        >
-          Friends
-        </button>
-      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
 
-      {/* Search */}
-      <div className="relative mb-6">
-        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gnosis-muted" />
-        <input
-          type="text"
-          placeholder="Search players..."
-          className="w-full bg-gnosis-card border border-gnosis-border rounded-xl py-4 pl-12 pr-4 text-gnosis-text focus:outline-none focus:border-gnosis-purple transition-colors"
-        />
-      </div>
+        {/* Left Podium Section */}
+        <div className="lg:col-span-5 flex flex-col space-y-8 order-2 lg:order-1">
+          {/* Tabs */}
+          <div className="flex p-1 bg-[#232a38] rounded-lg w-fit">
+            <button
+              onClick={() => setActiveTab('global')}
+              className={`px-8 py-2 font-bold text-sm rounded transition-colors ${activeTab === 'global' ? 'bg-[#f4a261] text-[#4e2600]' : 'text-gnosis-muted hover:text-gnosis-text'}`}
+            >
+              Global
+            </button>
+            <button
+              onClick={() => setActiveTab('friends')}
+              className={`px-8 py-2 font-bold text-sm rounded transition-colors ${activeTab === 'friends' ? 'bg-[#f4a261] text-[#4e2600]' : 'text-gnosis-muted hover:text-gnosis-text'}`}
+            >
+              Friends
+            </button>
+          </div>
 
-      {/* List */}
-      <div className="space-y-3">
-        {mockData.map((user) => (
-          <div
-            key={user.rank}
-            className={`flex items-center p-4 rounded-xl border transition-colors
-              ${user.isCurrentUser ? 'bg-gnosis-purple/10 border-gnosis-purple' : 'bg-gnosis-card border-gnosis-border'}
-            `}
-          >
-            {/* Rank */}
-            <div className="w-12 flex justify-center">
-              {user.rank === 1 ? <Medal className="w-8 h-8 text-gnosis-gold" /> :
-               user.rank === 2 ? <Medal className="w-8 h-8 text-slate-300" /> :
-               user.rank === 3 ? <Medal className="w-8 h-8 text-amber-600" /> :
-               <span className="text-xl font-bold text-gnosis-muted">#{user.rank}</span>}
-            </div>
-
-            {/* Avatar & Name */}
-            <div className="flex items-center gap-4 flex-1 ml-4">
-              <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm
-                ${user.isCurrentUser ? 'bg-gnosis-purple text-white' : 'bg-gnosis-bg text-gnosis-muted'}
-              `}>
-                {user.name.charAt(0)}
+          {/* Podium */}
+          <div className="relative flex items-end justify-center gap-4 pt-20 h-80">
+            {/* Rank 2 */}
+            <div className="flex flex-col items-center flex-1">
+              <div className="relative mb-4">
+                <div className="w-20 h-20 rounded-full border-4 border-slate-400 bg-slate-800 flex items-center justify-center text-xl font-bold">A</div>
+                <div className="absolute -top-3 -right-3 bg-slate-400 text-slate-900 px-2 py-1 rounded text-[10px] font-bold">#2</div>
               </div>
-              <span className={`font-bold ${user.isCurrentUser ? 'text-gnosis-purple-light' : 'text-gnosis-text'}`}>
-                {user.name}
-              </span>
+              <div className="bg-[#232a38] border-t border-slate-400/50 w-full pt-4 pb-8 flex flex-col items-center rounded-t-lg">
+                <span className="font-bold text-gnosis-text text-sm">Arjun K.</span>
+                <span className="text-gnosis-secondary text-xs font-bold mt-1">4,820 XP</span>
+              </div>
             </div>
 
-            {/* Points */}
-            <div className="text-right">
-              <div className="font-bold">{user.points.toLocaleString()}</div>
-              <div className="text-xs text-gnosis-muted uppercase tracking-wider">PTS</div>
+            {/* Rank 1 */}
+            <div className="flex flex-col items-center flex-1 z-10 -translate-y-8">
+              <div className="relative mb-4">
+                <div className="w-24 h-24 rounded-full border-4 border-[#d4b058] bg-slate-800 flex items-center justify-center text-2xl font-bold">P</div>
+                <div className="absolute -top-3 -right-3 bg-[#d4b058] text-[#3e2e00] px-2 py-1 rounded text-[10px] font-bold">#1</div>
+              </div>
+              <div className="bg-[#232a38] border-t-2 border-[#d4b058] w-full pt-4 pb-12 flex flex-col items-center rounded-t-lg shadow-[0_0_20px_rgba(212,176,88,0.2)]">
+                <span className="font-bold text-[#d4b058] text-sm">Priya M.</span>
+                <span className="text-gnosis-secondary text-xs font-bold mt-1">5,100 XP</span>
+              </div>
+            </div>
+
+            {/* Rank 3 */}
+            <div className="flex flex-col items-center flex-1">
+              <div className="relative mb-4">
+                <div className="w-20 h-20 rounded-full border-4 border-amber-700 bg-slate-800 flex items-center justify-center text-xl font-bold">R</div>
+                <div className="absolute -top-3 -right-3 bg-amber-700 text-amber-100 px-2 py-1 rounded text-[10px] font-bold">#3</div>
+              </div>
+              <div className="bg-[#232a38] border-t border-amber-700/50 w-full pt-4 pb-8 flex flex-col items-center rounded-t-lg">
+                <span className="font-bold text-gnosis-text text-sm">Rahul T.</span>
+                <span className="text-gnosis-secondary text-xs font-bold mt-1">4,250 XP</span>
+              </div>
             </div>
           </div>
-        ))}
-      </div>
+        </div>
 
+        {/* Right List Section */}
+        <div className="lg:col-span-7 order-1 lg:order-2">
+          <div className="bg-[#19202d] border border-[#2e3543] rounded-lg p-6">
+            <h2 className="text-xl font-serif font-bold mb-6 text-[#f4a261]">Rankings</h2>
+
+            <div className="space-y-2 max-h-[600px] overflow-y-auto pr-2 custom-scrollbar">
+              {mockData.map((user) => (
+                <div key={user.rank} className={`flex items-center justify-between p-4 rounded border transition-colors ${user.isCurrentUser ? 'bg-[#f4a261]/10 border-[#f4a261]' : 'bg-[#0c1320] border-[#2e3543] hover:border-gnosis-secondary/50'}`}>
+                  <div className="flex items-center gap-4">
+                    <span className={`w-8 text-center font-bold text-sm ${user.isCurrentUser ? 'text-[#f4a261]' : 'text-gnosis-muted'}`}>#{user.rank}</span>
+                    <div className="w-10 h-10 rounded-full bg-[#232a38] border border-[#2e3543] flex items-center justify-center font-bold text-sm">
+                      {user.name.charAt(0)}
+                    </div>
+                    <span className={`font-bold text-sm ${user.isCurrentUser ? 'text-[#f4a261]' : 'text-gnosis-text'}`}>{user.name}</span>
+                  </div>
+                  <div className="text-right">
+                    <span className="text-gnosis-text font-bold text-sm block">{user.points.toLocaleString()}</span>
+                    <span className="text-[10px] text-gnosis-muted uppercase tracking-widest font-bold">XP</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   );
 }

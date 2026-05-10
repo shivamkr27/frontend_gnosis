@@ -1,16 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif:wght@600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   body {
-    @apply bg-gnosis-bg text-gnosis-text antialiased;
+    @apply bg-gnosis-bg text-gnosis-text antialiased font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
   }
 }
 
 @layer utilities {
   .animate-bounce-slow {
     animation: bounce-slow 3s infinite;
+  }
+
+  .node-pulse {
+    box-shadow: 0 0 0 0 rgba(244, 162, 97, 0.4);
+    animation: pulse-saffron 2s infinite;
   }
 }
 
@@ -23,4 +34,10 @@
     transform: translateY(0);
     animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
+}
+
+@keyframes pulse-saffron {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(244, 162, 97, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(244, 162, 97, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(244, 162, 97, 0); }
 }

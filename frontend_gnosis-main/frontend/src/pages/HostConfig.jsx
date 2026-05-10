@@ -1,151 +1,134 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Play, Plus, Save, Trash2, CheckCircle } from 'lucide-react';
-import { motion } from 'framer-motion';
 
 export function HostConfig() {
   const navigate = useNavigate();
-  const [quizName, setQuizName] = useState('My Custom Quiz');
-  const [questions, setQuestions] = useState([]);
-
-  // Current question editor state
-  const [qText, setQText] = useState('');
-  const [options, setOptions] = useState([{text: '', isCorrect: false}, {text: '', isCorrect: false}, {text: '', isCorrect: false}, {text: '', isCorrect: false}]);
-
-  const toggleCorrect = (idx) => {
-    const newOptions = [...options];
-    newOptions[idx].isCorrect = !newOptions[idx].isCorrect;
-    setOptions(newOptions);
-  };
-
-  const updateOptionText = (idx, val) => {
-    const newOptions = [...options];
-    newOptions[idx].text = val;
-    setOptions(newOptions);
-  };
-
-  const saveQuestion = () => {
-    if (!qText || options.some(o => !o.text) || !options.some(o => o.isCorrect)) return;
-    setQuestions([...questions, { text: qText, options: [...options] }]);
-    // Reset form
-    setQText('');
-    setOptions([{text: '', isCorrect: false}, {text: '', isCorrect: false}, {text: '', isCorrect: false}, {text: '', isCorrect: false}]);
-  };
-
-  const deleteQuestion = (idx) => {
-    setQuestions(questions.filter((_, i) => i !== idx));
-  };
 
   return (
-    <div className="p-4 sm:p-8 max-w-6xl mx-auto h-[calc(100vh-80px)] flex flex-col md:flex-row gap-6">
+    <div className="max-w-container-max mx-auto px-4 md:px-10 py-12">
+      <div className="grid grid-cols-12 gap-8">
 
-      {/* Left Panel: Overview & Saved Questions */}
-      <div className="w-full md:w-1/3 flex flex-col gap-6">
-        <div className="bg-gnosis-card border border-gnosis-border rounded-3xl p-6">
-          <h2 className="text-xl font-bold mb-4">Quiz Details</h2>
-          <div className="mb-4">
-            <label className="block text-sm font-bold text-gnosis-muted mb-2">Quiz Name</label>
-            <input
-              type="text"
-              value={quizName}
-              onChange={(e) => setQuizName(e.target.value)}
-              className="w-full bg-gnosis-bg border border-gnosis-border rounded-xl p-3 text-gnosis-text focus:outline-none focus:border-gnosis-purple font-medium"
-            />
-          </div>
-          <div className="flex justify-between items-center bg-gnosis-bg p-4 rounded-xl border border-gnosis-border">
-            <span className="font-bold text-gnosis-muted">Total Questions</span>
-            <span className="font-black text-xl text-gnosis-purple-light">{questions.length}</span>
-          </div>
-        </div>
+        {/* Left Column: Settings Sidebar */}
+        <aside className="col-span-12 lg:col-span-4 space-y-8">
+          <div className="bg-[#151c29] p-8 border border-[#2e3543]/20">
+            <h2 className="text-2xl font-serif font-bold text-[#f4a261] mb-6">Quiz Configuration</h2>
+            <form className="space-y-6">
+              <div className="group">
+                <label className="block text-sm font-bold text-gnosis-muted mb-2 group-focus-within:text-[#f4a261] transition-colors">Subject Name</label>
+                <input className="w-full bg-transparent border-b border-[#2e3543] focus:border-[#f4a261] text-gnosis-text py-2 px-0 transition-all outline-none" placeholder="e.g. Advanced Fluid Dynamics" type="text"/>
+              </div>
 
-        <div className="bg-gnosis-card border border-gnosis-border rounded-3xl p-6 flex-1 overflow-y-auto min-h-[300px]">
-          <h2 className="text-xl font-bold mb-4">Saved Questions</h2>
-          {questions.length === 0 ? (
-            <div className="text-center text-gnosis-muted py-8 text-sm">
-              No questions added yet. Use the editor to add some!
-            </div>
-          ) : (
-            <div className="space-y-3">
-              {questions.map((q, idx) => (
-                <div key={idx} className="bg-gnosis-bg border border-gnosis-border rounded-xl p-4 relative group">
-                  <span className="text-xs font-bold text-gnosis-purple-light mb-1 block">Q{idx + 1}</span>
-                  <p className="text-sm font-medium line-clamp-2 pr-6">{q.text}</p>
-                  <button
-                    onClick={() => deleteQuestion(idx)}
-                    className="absolute top-3 right-3 text-gnosis-muted hover:text-gnosis-red opacity-0 group-hover:opacity-100 transition-opacity"
-                  >
-                    <Trash2 className="w-4 h-4" />
-                  </button>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="group">
+                  <label className="block text-sm font-bold text-gnosis-muted mb-2 group-focus-within:text-[#f4a261] transition-colors">Question Count</label>
+                  <input className="w-full bg-transparent border-b border-[#2e3543] focus:border-[#f4a261] text-gnosis-text py-2 px-0 transition-all outline-none" min="1" type="number" defaultValue="10"/>
                 </div>
-              ))}
+                <div className="group">
+                  <label className="block text-sm font-bold text-gnosis-muted mb-2 group-focus-within:text-[#f4a261] transition-colors">Timer (Sec)</label>
+                  <input className="w-full bg-transparent border-b border-[#2e3543] focus:border-[#f4a261] text-gnosis-text py-2 px-0 transition-all outline-none" min="5" step="5" type="number" defaultValue="45"/>
+                </div>
+              </div>
+
+              <div className="pt-8">
+                <button onClick={() => navigate('/battle/host/room-123')} className="w-full bg-[#f4a261] text-[#4e2600] font-bold text-sm py-4 px-6 hover:brightness-110 transition-all flex justify-center items-center gap-2 active:scale-[0.98]" type="button">
+                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M3 3h8v8H3zm2 2v4h4V5zm8-2h8v8h-8zm2 2v4h4V5zM3 13h8v8H3zm2 2v4h4v-4zm13.5-.5c.28 0 .5.22.5.5s-.22.5-.5.5-.5-.22-.5-.5.22-.5.5-.5zm-3.5 3c.28 0 .5.22.5.5s-.22.5-.5.5-.5-.22-.5-.5.22-.5.5-.5zm3.5 3c.28 0 .5.22.5.5s-.22.5-.5.5-.5-.22-.5-.5.22-.5.5-.5zm-6-6c.28 0 .5.22.5.5s-.22.5-.5.5-.5-.22-.5-.5.22-.5.5-.5zm3.5 0c.28 0 .5.22.5.5s-.22.5-.5.5-.5-.22-.5-.5.22-.5.5-.5zm0 3c.28 0 .5.22.5.5s-.22.5-.5.5-.5-.22-.5-.5.22-.5.5-.5zm3.5-3c.28 0 .5.22.5.5s-.22.5-.5.5-.5-.22-.5-.5.22-.5.5-.5z"/></svg>
+                  Generate Sync Code
+                </button>
+                <p className="mt-4 text-gnosis-muted text-xs text-center italic">Creates a unique room for real-time multiplayer engagement.</p>
+              </div>
+            </form>
+          </div>
+
+          <div className="hidden lg:block">
+            <div className="p-6 border border-[#2e3543]/10 bg-[#151c29]">
+              <h4 className="text-sm font-bold text-[#30a193] mb-4 flex items-center gap-2">
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.8 11.88 7 10.52 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.52-.8 2.88-2.15 4.1z"/></svg>
+                HOST TIP
+              </h4>
+              <p className="text-gnosis-muted text-sm leading-relaxed">
+                A 45-second timer is optimal for calculation-based questions. For theoretical concepts, consider lowering it to 20 seconds to maintain high-intensity engagement.
+              </p>
             </div>
-          )}
-        </div>
+          </div>
+        </aside>
 
-        <button
-          onClick={() => navigate('/battle/host/room-123')}
-          disabled={questions.length === 0}
-          className={`w-full py-4 font-black rounded-xl flex items-center justify-center gap-2 transition-all
-            ${questions.length > 0 ? 'bg-gnosis-green hover:bg-gnosis-green/90 text-white shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:scale-[1.02]' : 'bg-gnosis-card border border-gnosis-border text-gnosis-muted cursor-not-allowed'}
-          `}
-        >
-          Generate Room Code <Play className="w-5 h-5" />
-        </button>
-      </div>
+        {/* Right Column: Question Editor */}
+        <section className="col-span-12 lg:col-span-8 space-y-8">
+          <div className="bg-[#151c29] border-t-2 border-[#f4a261]">
+            <div className="p-8">
+              <div className="flex justify-between items-end mb-8">
+                <h3 className="text-2xl font-serif font-bold text-gnosis-text">Question <span className="text-[#f4a261]">01</span></h3>
+                <div className="flex gap-2">
+                  <span className="px-3 py-1 border border-[#30a193] text-[#30a193] font-bold text-xs uppercase tracking-wider">Physics</span>
+                  <span className="px-3 py-1 border border-[#2e3543] text-gnosis-muted font-bold text-xs uppercase tracking-wider">Multiple Choice</span>
+                </div>
+              </div>
 
-      {/* Right Panel: Editor */}
-      <div className="w-full md:w-2/3 bg-gnosis-card border border-gnosis-border rounded-3xl p-6 sm:p-8 flex flex-col">
-        <h2 className="text-2xl font-black mb-6">Question Editor</h2>
+              <div className="mb-10 group">
+                <label className="block text-sm font-bold text-gnosis-muted mb-4 group-focus-within:text-[#f4a261] transition-colors uppercase tracking-widest">Question Statement</label>
+                <textarea className="w-full bg-[#2e3543]/20 border border-[#2e3543] focus:border-[#f4a261] focus:ring-1 focus:ring-[#f4a261] text-gnosis-text p-4 text-lg resize-none transition-all outline-none" placeholder="Enter your academic challenge here..." rows="4"></textarea>
+              </div>
 
-        <div className="mb-6">
-          <label className="block text-sm font-bold text-gnosis-muted mb-2">Question Text</label>
-          <textarea
-            rows="3"
-            value={qText}
-            onChange={(e) => setQText(e.target.value)}
-            placeholder="e.g., What is the time complexity of quicksort in the worst case?"
-            className="w-full bg-gnosis-bg border border-gnosis-border rounded-xl p-4 text-gnosis-text focus:outline-none focus:border-gnosis-purple resize-none"
-          />
-        </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Option A */}
+                <div className="relative group">
+                  <div className="absolute left-4 top-1/2 -translate-y-1/2 flex items-center gap-2">
+                    <input defaultChecked className="w-4 h-4 bg-transparent border-[#f4a261] text-[#f4a261] focus:ring-0 rounded-sm" type="checkbox"/>
+                    <span className="font-bold text-sm text-[#f4a261]">A</span>
+                  </div>
+                  <input className="w-full bg-transparent border border-[#f4a261]/40 focus:border-[#f4a261] pl-16 pr-4 py-4 text-gnosis-text text-sm outline-none transition-all" type="text" defaultValue="Bernoulli's Principle"/>
+                  <svg className="absolute right-4 top-1/2 -translate-y-1/2 w-6 h-6 text-[#f4a261] fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                </div>
+                {/* Option B */}
+                <div className="relative group">
+                  <div className="absolute left-4 top-1/2 -translate-y-1/2 flex items-center gap-2">
+                    <input className="w-4 h-4 bg-transparent border-[#2e3543] text-[#2e3543] focus:ring-0 rounded-sm" type="checkbox"/>
+                    <span className="font-bold text-sm text-gnosis-muted">B</span>
+                  </div>
+                  <input className="w-full bg-transparent border border-[#2e3543] focus:border-[#f4a261] pl-16 pr-4 py-4 text-gnosis-text text-sm outline-none transition-all" placeholder="Option B" type="text"/>
+                </div>
+                {/* Option C */}
+                <div className="relative group">
+                  <div className="absolute left-4 top-1/2 -translate-y-1/2 flex items-center gap-2">
+                    <input className="w-4 h-4 bg-transparent border-[#2e3543] text-[#2e3543] focus:ring-0 rounded-sm" type="checkbox"/>
+                    <span className="font-bold text-sm text-gnosis-muted">C</span>
+                  </div>
+                  <input className="w-full bg-transparent border border-[#2e3543] focus:border-[#f4a261] pl-16 pr-4 py-4 text-gnosis-text text-sm outline-none transition-all" placeholder="Option C" type="text"/>
+                </div>
+                {/* Option D */}
+                <div className="relative group">
+                  <div className="absolute left-4 top-1/2 -translate-y-1/2 flex items-center gap-2">
+                    <input className="w-4 h-4 bg-transparent border-[#2e3543] text-[#2e3543] focus:ring-0 rounded-sm" type="checkbox"/>
+                    <span className="font-bold text-sm text-gnosis-muted">D</span>
+                  </div>
+                  <input className="w-full bg-transparent border border-[#2e3543] focus:border-[#f4a261] pl-16 pr-4 py-4 text-gnosis-text text-sm outline-none transition-all" placeholder="Option D" type="text"/>
+                </div>
+              </div>
 
-        <div className="space-y-4 mb-8 flex-1">
-          <label className="block text-sm font-bold text-gnosis-muted">Answer Options (Select correct ones)</label>
-          {options.map((opt, idx) => (
-            <div key={idx} className={`flex items-center gap-3 bg-gnosis-bg border rounded-xl p-2 pl-4 transition-colors
-              ${opt.isCorrect ? 'border-gnosis-green shadow-[0_0_10px_rgba(16,185,129,0.1)]' : 'border-gnosis-border'}
-            `}>
-              <span className="font-bold text-gnosis-muted w-6">{String.fromCharCode(65 + idx)}.</span>
-              <input
-                type="text"
-                value={opt.text}
-                onChange={(e) => updateOptionText(idx, e.target.value)}
-                placeholder={`Option ${idx + 1}`}
-                className="flex-1 bg-transparent border-none focus:outline-none text-gnosis-text"
-              />
-              <button
-                onClick={() => toggleCorrect(idx)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-bold transition-colors
-                  ${opt.isCorrect ? 'bg-gnosis-green text-white' : 'bg-gnosis-card text-gnosis-muted hover:text-gnosis-text'}
-                `}
-              >
-                <CheckCircle className={`w-4 h-4 ${opt.isCorrect ? 'fill-current text-white' : ''}`} />
-                {opt.isCorrect ? 'Correct' : 'Mark'}
-              </button>
+              <div className="mt-12 flex justify-between items-center">
+                <button className="flex items-center gap-2 text-gnosis-muted hover:text-[#ffb4ab] transition-colors font-bold text-sm">
+                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+                  Clear Question
+                </button>
+                <button className="border border-[#30a193] text-[#30a193] hover:bg-[#30a193]/5 px-8 py-3 font-bold text-sm flex items-center gap-2 active:scale-95 transition-all">
+                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                  Add Question
+                </button>
+              </div>
             </div>
-          ))}
-        </div>
+          </div>
 
-        <div className="mt-auto pt-6 border-t border-gnosis-border flex justify-end">
-          <button
-            onClick={saveQuestion}
-            className="bg-gnosis-purple hover:bg-gnosis-purple/90 text-white font-bold py-3 px-6 rounded-xl flex items-center gap-2 transition-transform hover:scale-[1.02]"
-          >
-            <Save className="w-5 h-5" /> Save Question
-          </button>
-        </div>
-
+          <div className="flex gap-4 overflow-x-auto pb-4">
+            <div className="flex-none w-12 h-12 bg-[#f4a261] flex items-center justify-center text-[#4e2600] font-bold">1</div>
+            <div className="flex-none w-12 h-12 border border-[#2e3543] flex items-center justify-center text-gnosis-muted font-bold cursor-pointer hover:border-[#30a193] transition-colors">2</div>
+            <div className="flex-none w-12 h-12 border border-[#2e3543] flex items-center justify-center text-gnosis-muted font-bold cursor-pointer hover:border-[#30a193] transition-colors">3</div>
+            <div className="flex-none w-12 h-12 border border-[#2e3543] flex items-center justify-center text-gnosis-muted font-bold cursor-pointer hover:border-[#30a193] transition-colors">4</div>
+            <div className="flex-none w-12 h-12 border border-[#2e3543] border-dashed flex items-center justify-center text-gnosis-muted cursor-pointer hover:text-[#f4a261] transition-colors">
+              <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+            </div>
+          </div>
+        </section>
       </div>
-
     </div>
   );
 }

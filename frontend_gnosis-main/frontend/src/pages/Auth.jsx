@@ -1,123 +1,93 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Lock, User as UserIcon, ArrowRight, Code } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export function Auth() {
-  const [isLogin, setIsLogin] = useState(true);
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
     navigate('/home');
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center relative p-4">
+      {/* Background elements */}
+      <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none overflow-hidden">
+        <svg className="text-[#f4a261] stroke-current fill-none" height="800" viewBox="0 0 100 100" width="800">
+          <circle cx="50" cy="50" r="45" strokeWidth="0.1"></circle>
+          <circle cx="50" cy="50" r="35" strokeWidth="0.1"></circle>
+          <path d="M50 5 L50 95 M5 50 L95 50" strokeWidth="0.1"></path>
+          <rect height="50" strokeWidth="0.1" transform="rotate(45 50 50)" width="50" x="25" y="25"></rect>
+          <rect height="60" strokeWidth="0.1" transform="rotate(22.5 50 50)" width="60" x="20" y="20"></rect>
+          <rect height="60" strokeWidth="0.1" transform="rotate(67.5 50 50)" width="60" x="20" y="20"></rect>
+        </svg>
+      </div>
 
-      {/* Cool animated background shape */}
-      <motion.div
-        animate={{ rotate: 360 }}
-        transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-tr from-gnosis-purple/10 to-transparent rounded-full blur-[100px] pointer-events-none"
-      />
+      <section className="w-full max-w-[440px] z-10">
+        <div className="bg-[#151c29] border border-[#2e3543] rounded-lg p-10 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-16 h-[2px] bg-[#f4a261]"></div>
 
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95, y: 20 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        className="w-full max-w-md bg-gnosis-card/80 backdrop-blur-xl border border-gnosis-border rounded-3xl p-8 relative z-10 shadow-2xl"
-      >
-        <div className="text-center mb-8">
-          <Link to="/" className="text-3xl font-black tracking-tighter inline-block mb-6">
-            GNOSIS<span className="text-gnosis-purple">.</span>
-          </Link>
-          <h2 className="text-2xl font-black mb-2">
-            {isLogin ? 'Welcome back' : 'Create an account'}
-          </h2>
-          <p className="text-gnosis-muted font-medium">
-            {isLogin ? 'Enter your details to continue your path.' : 'Join the ultimate gamified learning platform.'}
-          </p>
-        </div>
+          <div className="mb-10 text-center">
+            <h1 className="text-2xl font-serif font-bold text-gnosis-text mb-2">Academic Portal</h1>
+            <p className="text-gnosis-muted">Enter your credentials to continue research.</p>
+          </div>
 
-        <form onSubmit={handleSubmit} className="space-y-5">
-          <AnimatePresence mode="popLayout">
-            {!isLogin && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0 }}
-              >
-                <label className="block text-sm font-bold text-gnosis-muted mb-1.5">Username</label>
-                <div className="relative">
-                  <UserIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gnosis-muted" />
-                  <input
-                    type="text"
-                    className="w-full bg-gnosis-bg border border-gnosis-border rounded-xl py-3.5 pl-12 pr-4 text-gnosis-text focus:outline-none focus:border-gnosis-purple focus:ring-1 focus:ring-gnosis-purple transition-all font-medium"
-                    placeholder="e.g. MasterDev99"
-                    required={!isLogin}
-                  />
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+          <div className="flex border-b border-[#2e3543] mb-8">
+            <button className="flex-1 pb-4 font-bold text-sm text-[#f4a261] border-b-2 border-[#f4a261] transition-all">Log In</button>
+            <button className="flex-1 pb-4 font-bold text-sm text-gnosis-muted hover:text-gnosis-text transition-all">Sign Up</button>
+          </div>
 
-          <div>
-            <label className="block text-sm font-bold text-gnosis-muted mb-1.5">Email</label>
-            <div className="relative">
-              <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gnosis-muted" />
+          <form className="space-y-6" onSubmit={handleLogin}>
+            <div className="space-y-1">
+              <label className="text-xs font-bold text-gnosis-muted uppercase tracking-wider block">Email Address</label>
               <input
+                className="w-full bg-transparent border-b border-[#2e3543] focus:border-[#f4a261] px-0 py-3 text-gnosis-text placeholder-[#2e3543] transition-all outline-none"
+                placeholder="student.id@gnosis.edu"
                 type="email"
-                className="w-full bg-gnosis-bg border border-gnosis-border rounded-xl py-3.5 pl-12 pr-4 text-gnosis-text focus:outline-none focus:border-gnosis-purple focus:ring-1 focus:ring-gnosis-purple transition-all font-medium"
-                placeholder="you@example.com"
-                required
               />
             </div>
-          </div>
 
-          <div>
-            <label className="block text-sm font-bold text-gnosis-muted mb-1.5">Password</label>
-            <div className="relative">
-              <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gnosis-muted" />
+            <div className="space-y-1">
+              <div className="flex justify-between items-center">
+                <label className="text-xs font-bold text-gnosis-muted uppercase tracking-wider block">Password</label>
+                <a className="text-xs font-bold text-[#f4a261] hover:underline" href="#">Forgot?</a>
+              </div>
               <input
-                type="password"
-                className="w-full bg-gnosis-bg border border-gnosis-border rounded-xl py-3.5 pl-12 pr-4 text-gnosis-text focus:outline-none focus:border-gnosis-purple focus:ring-1 focus:ring-gnosis-purple transition-all font-medium"
+                className="w-full bg-transparent border-b border-[#2e3543] focus:border-[#f4a261] px-0 py-3 text-gnosis-text placeholder-[#2e3543] transition-all outline-none"
                 placeholder="••••••••"
-                required
+                type="password"
               />
             </div>
+
+            <div className="flex items-center gap-3 py-2">
+              <input className="w-4 h-4 rounded-none border-[#2e3543] text-[#f4a261] focus:ring-[#f4a261] bg-transparent" id="remember" type="checkbox"/>
+              <label className="text-sm text-gnosis-muted font-bold" htmlFor="remember">Stay authenticated for 30 days</label>
+            </div>
+
+            <button className="w-full bg-[#f4a261] hover:brightness-110 text-[#4e2600] font-bold py-4 rounded-lg transition-all active:scale-[0.98] mt-4 flex items-center justify-center gap-2" type="submit">
+              Initiate Session
+              <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03 0 1.42.39.39 1.02.39 1.41 0l6.59-6.59c.39-.39.39-1.02 0-1.41l-6.58-6.6a.996.996 0 10-1.41 1.41L16.17 11H5c-.55 0-1 .45-1 1s.45 1 1 1z"/></svg>
+            </button>
+          </form>
+
+          <div className="mt-10">
+            <div className="relative flex items-center mb-8">
+              <div className="flex-grow border-t border-[#2e3543]"></div>
+              <span className="flex-shrink mx-4 text-xs font-bold text-gnosis-muted uppercase">External Protocols</span>
+              <div className="flex-grow border-t border-[#2e3543]"></div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <button className="flex items-center justify-center gap-3 border border-[#2e3543] bg-[#232a38]/50 hover:bg-[#232a38] py-3 rounded-lg transition-all font-bold text-sm text-gnosis-text">
+                Google
+              </button>
+              <button className="flex items-center justify-center gap-3 border border-[#2e3543] bg-[#232a38]/50 hover:bg-[#232a38] py-3 rounded-lg transition-all font-bold text-sm text-gnosis-text">
+                GitHub
+              </button>
+            </div>
           </div>
-
-          <button
-            type="submit"
-            className="w-full bg-gradient-to-r from-gnosis-purple to-gnosis-purple-light hover:shadow-[0_0_20px_rgba(124,58,237,0.4)] text-white rounded-xl py-4 font-black flex items-center justify-center gap-2 mt-6 transition-all hover:scale-[1.02]"
-          >
-            {isLogin ? 'Log In' : 'Sign Up'}
-            <ArrowRight className="w-5 h-5" />
-          </button>
-        </form>
-
-        <div className="my-6 flex items-center gap-4">
-          <div className="h-px bg-gnosis-border flex-1"></div>
-          <span className="text-xs font-bold text-gnosis-muted uppercase tracking-wider">OR</span>
-          <div className="h-px bg-gnosis-border flex-1"></div>
         </div>
-
-        <button className="w-full bg-gnosis-bg border border-gnosis-border hover:bg-gnosis-card text-gnosis-text rounded-xl py-3.5 font-bold flex items-center justify-center gap-3 transition-colors">
-          <Code className="w-5 h-5" /> Continue with GitHub
-        </button>
-
-        <div className="mt-8 text-center text-sm font-medium">
-          <span className="text-gnosis-muted">
-            {isLogin ? "Don't have an account? " : "Already have an account? "}
-          </span>
-          <button
-            onClick={() => setIsLogin(!isLogin)}
-            className="text-gnosis-purple-light hover:text-white font-bold ml-1 transition-colors"
-          >
-            {isLogin ? 'Sign up' : 'Log in'}
-          </button>
-        </div>
-      </motion.div>
+      </section>
     </div>
   );
 }

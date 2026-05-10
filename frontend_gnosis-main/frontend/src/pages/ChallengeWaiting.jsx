@@ -1,56 +1,57 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 export function ChallengeWaiting() {
   const navigate = useNavigate();
+  const { friendId } = useParams();
 
   return (
-    <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-20 flex flex-col items-center font-body-md text-on-surface selection:bg-primary-container selection:text-on-primary-container min-h-screen bg-background">
+    <div className="max-w-container-max mx-auto px-4 md:px-10 py-12 md:py-20 flex flex-col items-center">
 
       {/* Match Info Header */}
       <div className="text-center mb-16 space-y-4">
-        <h2 className="font-label-md text-[14px] font-semibold text-primary tracking-[0.2em] uppercase">Upcoming Encounter</h2>
-        <h1 className="font-headline-xl text-[48px] font-bold">1v1 Combat Initiative</h1>
-        <p className="text-on-surface-variant max-w-xl mx-auto text-[18px]">A formal challenge has been issued. Awaiting the opponent's confirmation to begin the assessment.</p>
+        <h2 className="text-sm font-bold text-[#f4a261] tracking-[0.2em] uppercase">Upcoming Encounter</h2>
+        <h1 className="text-4xl md:text-5xl font-serif font-bold text-gnosis-text">1v1 Combat Initiative</h1>
+        <p className="text-gnosis-muted max-w-xl mx-auto text-lg">A formal challenge has been issued. Awaiting the opponent's confirmation to begin the assessment.</p>
       </div>
 
       {/* Battle Canvas */}
-      <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+      <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
         {/* Current User (Left) */}
         <div className="md:col-span-5 flex flex-col items-center md:items-end text-center md:text-right space-y-6">
           <div className="relative">
-            <div className="w-40 h-40 rounded-full border border-primary/30 p-2">
-              <img alt="Your Avatar" className="w-full h-full rounded-full grayscale hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6xTRh_CfMfOudbWdDKRNduBcuWwYErv-US9bfj3NnWwUEbw3CwrLgMGua8Lmvkte3nM15eZXOQlyW9UasPK8WBxC_bP9cGsGb961hT0l6eInPlGj4kUHYo38rct2d6p3DVUzTI_V83M7ez2i8b2JLzWjQaMgdozgn39uiAWP2kI6_XncxOV7YK-vqKkAO0QY1HKZt4vm2ngTR_8DC8OSXU8WZa_gOzaCBQFnQGp5y5jX5jW9nPcptnkNLHr9DHt87SbCYQuFKLKk"/>
+            <div className="w-40 h-40 rounded-full border border-[#f4a261]/30 p-2">
+              <div className="w-full h-full rounded-full bg-slate-800 flex items-center justify-center text-4xl font-bold text-slate-400">AC</div>
             </div>
-            <div className="absolute -bottom-2 -right-2 bg-secondary text-on-secondary px-3 py-1 rounded-sm font-label-sm text-[12px] font-medium">YOU</div>
+            <div className="absolute -bottom-2 -right-2 bg-[#30a193] text-[#003731] px-3 py-1 rounded-sm font-bold text-xs">YOU</div>
           </div>
           <div className="space-y-1">
-            <h3 className="font-headline-md text-[24px] font-semibold">Alex Chen</h3>
-            <p className="text-on-surface-variant font-label-md text-[14px] font-semibold">Rank: Senior Scholar</p>
+            <h3 className="text-2xl font-serif font-bold text-gnosis-text">Alex Chen</h3>
+            <p className="text-gnosis-muted font-bold text-sm">Rank: Senior Scholar</p>
           </div>
         </div>
 
         {/* VS Indicator (Center) */}
         <div className="md:col-span-2 flex flex-col items-center justify-center space-y-4 py-8">
-          <div className="w-px h-24 bg-gradient-to-b from-transparent via-outline-variant to-transparent"></div>
-          <div className="text-primary font-headline-md text-[24px] font-semibold italic tracking-widest px-4">VS</div>
-          <div className="w-px h-24 bg-gradient-to-b from-outline-variant via-outline-variant to-transparent"></div>
+          <div className="w-px h-24 bg-gradient-to-b from-transparent via-[#2e3543] to-transparent"></div>
+          <div className="text-[#f4a261] text-3xl font-serif font-bold italic tracking-widest px-4">VS</div>
+          <div className="w-px h-24 bg-gradient-to-b from-[#2e3543] via-[#2e3543] to-transparent"></div>
         </div>
 
         {/* Opponent (Right) */}
         <div className="md:col-span-5 flex flex-col items-center md:items-start text-center md:text-left space-y-6">
           <div className="relative">
-            <div className="w-40 h-40 rounded-full border border-dashed border-outline-variant/50 p-2 animate-[pulse_3s_infinite]">
-              <img alt="Opponent Avatar" className="w-full h-full rounded-full opacity-60 grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWbf96v7gcDN7mogV3I-8XBowBbH7kNv5MRazF7LLrtqrKXnWRs8DwBxFtOeQX92ENHmPwRXhDLcf01CbXT1wfkNuGaVbl2KXchCgqu18hMAWZc_Jo2bWPI3zOOJJlw3JB23hWA1OssXrk421nLVqK5Gf6d4xJeM9fIoeHluWujcSIDKK6trkXSdXk8c08WEezJ1wjgdSVtkyYHzqvxyMwO9eDYy9D16pKL5nfKR4YGrUoywkxi0I2c7S29i32x_yMr9bUs-qTdEs"/>
+            <div className="w-40 h-40 rounded-full border border-dashed border-[#2e3543]/50 p-2 animate-[pulse_3s_infinite]">
+              <div className="w-full h-full rounded-full bg-slate-800 flex items-center justify-center text-4xl font-bold text-slate-400 opacity-60">JV</div>
             </div>
-            <div className="absolute -bottom-2 -left-2 bg-surface-container-highest border border-outline-variant/30 text-on-surface-variant px-3 py-1 rounded-sm font-label-sm text-[12px] font-medium">PENDING</div>
+            <div className="absolute -bottom-2 -left-2 bg-[#2e3543] border border-[#2e3543]/30 text-gnosis-muted px-3 py-1 rounded-sm font-bold text-xs">PENDING</div>
           </div>
           <div className="space-y-1">
-            <h3 className="font-headline-md text-[24px] font-semibold">Jordan V.</h3>
-            <div className="flex items-center gap-2 text-primary font-label-md text-[14px] font-semibold">
+            <h3 className="text-2xl font-serif font-bold text-gnosis-text">Jordan V.</h3>
+            <div className="flex items-center gap-2 text-[#f4a261] font-bold text-sm">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#f4a261] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#f4a261]"></span>
               </span>
               Waiting for response...
             </div>
@@ -58,9 +59,36 @@ export function ChallengeWaiting() {
         </div>
       </div>
 
+      {/* Battle Details Bento */}
+      <div className="mt-20 w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* Subject Card */}
+        <div className="bg-[#151c29] border border-[#2e3543]/20 p-8 flex flex-col justify-between">
+          <div className="space-y-4">
+            <div className="flex items-center gap-3 text-[#30a193]">
+              <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2zm0 3.83L19.17 19H4.83L12 5.83z"/></svg>
+              <span className="font-bold text-sm tracking-widest uppercase">ACADEMIC SUBJECT</span>
+            </div>
+            <h4 className="text-2xl font-serif font-bold text-gnosis-text">System Design</h4>
+            <p className="text-gnosis-muted text-sm">Module 4: Distributed Caching and Databases.</p>
+          </div>
+        </div>
+
+        {/* Format Card */}
+        <div className="bg-[#151c29] border border-[#2e3543]/20 p-8 flex flex-col justify-between">
+          <div className="space-y-4">
+            <div className="flex items-center gap-3 text-[#f4a261]">
+              <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
+              <span className="font-bold text-sm tracking-widest uppercase">BATTLE FORMAT</span>
+            </div>
+            <h4 className="text-2xl font-serif font-bold text-gnosis-text">Blitz Assessment</h4>
+            <p className="text-gnosis-muted text-sm">10 questions | 45 seconds per response | Precision bonus enabled.</p>
+          </div>
+        </div>
+      </div>
+
       {/* Action Bar */}
       <div className="mt-16 flex flex-col md:flex-row gap-6 w-full max-w-4xl justify-center">
-        <button onClick={() => navigate('/battle')} className="px-12 py-4 bg-primary text-on-primary font-label-md text-[14px] font-semibold rounded-sm active:scale-95 transition-all duration-200">
+        <button onClick={() => navigate('/battle')} className="px-12 py-4 bg-[#f4a261] text-[#4e2600] font-bold text-sm rounded-sm active:scale-95 transition-all duration-200" style={{ boxShadow: '0 0 15px rgba(244, 162, 97, 0.15)' }}>
           CANCEL CHALLENGE
         </button>
       </div>

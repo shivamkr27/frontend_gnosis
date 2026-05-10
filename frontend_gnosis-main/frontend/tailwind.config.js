@@ -7,83 +7,24 @@ export default {
   theme: {
     extend: {
       colors: {
-        "surface-dim": "#0c1320",
-        "error-container": "#93000a",
-        "on-tertiary-container": "#594300",
-        "inverse-primary": "#8e4e14",
-        "surface-container-high": "#232a38",
-        "on-surface": "#dce2f5",
-        "surface-variant": "#2e3543",
-        "outline": "#a08d80",
-        "on-tertiary-fixed-variant": "#5a4400",
-        "on-error": "#690005",
-        "outline-variant": "#534439",
-        "on-primary": "#4e2600",
-        "secondary-container": "#30a193",
-        "on-tertiary": "#3e2e00",
-        "primary-container": "#f4a261",
-        "secondary": "#6fd8c8",
-        "on-secondary-fixed": "#00201c",
-        "surface-container-highest": "#2e3543",
-        "primary-fixed": "#ffdcc4",
-        "on-primary-fixed": "#2f1400",
-        "on-primary-container": "#6f3800",
-        "primary-fixed-dim": "#ffb780",
-        "surface": "#0c1320",
-        "on-secondary": "#003731",
-        "surface-tint": "#ffb780",
-        "surface-container": "#19202d",
-        "inverse-on-surface": "#2a303e",
-        "on-error-container": "#ffdad6",
-        "tertiary-container": "#d4b058",
-        "tertiary-fixed-dim": "#e7c268",
-        "on-background": "#dce2f5",
-        "surface-bright": "#323948",
-        "secondary-fixed-dim": "#6fd8c8",
-        "on-tertiary-fixed": "#251a00",
-        "background": "#0c1320",
-        "error": "#ffb4ab",
-        "surface-container-lowest": "#070e1b",
-        "secondary-fixed": "#8cf5e4",
-        "primary": "#ffc499",
-        "on-surface-variant": "#d8c2b5",
-        "on-primary-fixed-variant": "#6f3800",
-        "inverse-surface": "#dce2f5",
-        "tertiary-fixed": "#ffdf96",
-        "on-secondary-container": "#00302a",
-        "surface-container-low": "#151c29",
-        "tertiary": "#f1cc71",
-        "on-secondary-fixed-variant": "#005048",
-
-        // keeping old colors just in case some components need them temporarily while we are refactoring
-        'gnosis-bg': '#0F172A',
-        'gnosis-card': '#1E293B',
-        'gnosis-border': '#334155',
-        'gnosis-purple': '#7C3AED',
-        'gnosis-purple-light': '#A78BFA',
-        'gnosis-gold': '#F59E0B',
-        'gnosis-green': '#10B981',
-        'gnosis-red': '#EF4444',
-        'gnosis-text': '#F8FAFC',
-        'gnosis-muted': '#94A3B8',
+        'gnosis-bg': '#0c1320', // New dark blue background (from images)
+        'gnosis-card': '#19202d', // New lighter blue card
+        'gnosis-border': '#2e3543', // New outline color
+        'gnosis-primary': '#f4a261', // The orange/beige accent
+        'gnosis-primary-light': '#ffc499',
+        'gnosis-secondary': '#30a193', // The teal accent
+        'gnosis-secondary-light': '#6fd8c8',
+        'gnosis-text': '#dce2f5', // Main text
+        'gnosis-muted': '#a08d80', // Muted text
+        'gnosis-gold': '#d4b058',
+        'gnosis-error': '#ffb4ab',
+        'gnosis-error-container': '#93000a',
+        'gnosis-green': '#30a193', // using secondary for success/green
+        'gnosis-red': '#ffb4ab'
       },
       fontFamily: {
-        "body-md": ["Inter"],
-        "headline-lg": ["Noto Serif"],
-        "headline-xl": ["Noto Serif"],
-        "body-lg": ["Inter"],
-        "headline-md": ["Noto Serif"],
-        "label-md": ["Inter"],
-        "label-sm": ["Inter"]
-      },
-      fontSize: {
-        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
-        "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
-        "headline-xl": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
-        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
-        "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
-        "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
-        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "500"}]
+        'sans': ['Inter', 'sans-serif'],
+        'serif': ['Noto Serif', 'serif'],
       }
     },
   },

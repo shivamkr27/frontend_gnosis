@@ -1,116 +1,110 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from "react";
+import Layout from "../components/Layout";
+import api from "../lib/api";
+import { useAuthStore } from "../lib/store";
+import { motion } from "framer-motion";
 
-export function Leaderboard() {
-  const [activeTab, setActiveTab] = useState('global');
+export default function Leaderboard() {
+  const [board, setBoard] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const { user } = useAuthStore();
 
-  const mockData = [
-    { rank: 4, name: "David Chen", points: 4100, isCurrentUser: false },
-    { rank: 5, name: "Aisha Patel", points: 3950, isCurrentUser: false },
-    { rank: 6, name: "Marcus Johnson", points: 3820, isCurrentUser: false },
-    { rank: 7, name: "Sarah Williams", points: 3710, isCurrentUser: false },
-    { rank: 8, name: "You", points: 3600, isCurrentUser: true },
-    { rank: 9, name: "James Lee", points: 3450, isCurrentUser: false },
-    { rank: 10, name: "Elena Rodriguez", points: 3200, isCurrentUser: false },
-  ];
+  useEffect(() => {
+    const fetchLeaderboard = async () => {
+      try {
+        const res = await api.get(
+          `/xp/leaderboard/global?currentUserId=${user?.id}`,
+        );
+        setBoard(res.data.leaderboard);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchLeaderboard();
+  }, [user]);
+
+  // Generate countdown string for "Sunday reset"
+  const getNextReset = () => {
+    const now = new Date();
+    const target = new Date();
+    target.setDate(now.getDate() + ((7 - now.getDay()) % 7)); // Next Sunday
+    target.setHours(23, 59, 59, 999);
+
+    const diff = target - now;
+    if (diff <= 0) return "Resetting soon...";
+
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    return `${d}d ${h}h until reset`;
+  };
+
+  if (loading)
+    return (
+      <Layout>
+        <div className="flex justify-center items-center h-screen">
+          <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      </Layout>
+    );
 
   return (
-    <div className="max-w-container-max mx-auto px-4 md:px-10 py-12">
-
-      {/* Header Section */}
-      <div className="mb-12">
-        <h1 className="text-4xl font-serif font-bold text-gnosis-text mb-4">Academic Vanguard</h1>
-        <p className="text-gnosis-muted text-lg max-w-2xl">
-          The hall of fame for the university's most consistent scholars. Precision, persistence, and pursuit of Gnosis.
-        </p>
-        <p className="text-gnosis-secondary text-sm font-bold tracking-widest uppercase mt-4">Weekly reset in 4 days 12 hours.</p>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-
-        {/* Left Podium Section */}
-        <div className="lg:col-span-5 flex flex-col space-y-8 order-2 lg:order-1">
-          {/* Tabs */}
-          <div className="flex p-1 bg-[#232a38] rounded-lg w-fit">
-            <button
-              onClick={() => setActiveTab('global')}
-              className={`px-8 py-2 font-bold text-sm rounded transition-colors ${activeTab === 'global' ? 'bg-[#f4a261] text-[#4e2600]' : 'text-gnosis-muted hover:text-gnosis-text'}`}
-            >
-              Global
-            </button>
-            <button
-              onClick={() => setActiveTab('friends')}
-              className={`px-8 py-2 font-bold text-sm rounded transition-colors ${activeTab === 'friends' ? 'bg-[#f4a261] text-[#4e2600]' : 'text-gnosis-muted hover:text-gnosis-text'}`}
-            >
-              Friends
-            </button>
-          </div>
-
-          {/* Podium */}
-          <div className="relative flex items-end justify-center gap-4 pt-20 h-80">
-            {/* Rank 2 */}
-            <div className="flex flex-col items-center flex-1">
-              <div className="relative mb-4">
-                <div className="w-20 h-20 rounded-full border-4 border-slate-400 bg-slate-800 flex items-center justify-center text-xl font-bold">A</div>
-                <div className="absolute -top-3 -right-3 bg-slate-400 text-slate-900 px-2 py-1 rounded text-[10px] font-bold">#2</div>
-              </div>
-              <div className="bg-[#232a38] border-t border-slate-400/50 w-full pt-4 pb-8 flex flex-col items-center rounded-t-lg">
-                <span className="font-bold text-gnosis-text text-sm">Arjun K.</span>
-                <span className="text-gnosis-secondary text-xs font-bold mt-1">4,820 XP</span>
-              </div>
-            </div>
-
-            {/* Rank 1 */}
-            <div className="flex flex-col items-center flex-1 z-10 -translate-y-8">
-              <div className="relative mb-4">
-                <div className="w-24 h-24 rounded-full border-4 border-[#d4b058] bg-slate-800 flex items-center justify-center text-2xl font-bold">P</div>
-                <div className="absolute -top-3 -right-3 bg-[#d4b058] text-[#3e2e00] px-2 py-1 rounded text-[10px] font-bold">#1</div>
-              </div>
-              <div className="bg-[#232a38] border-t-2 border-[#d4b058] w-full pt-4 pb-12 flex flex-col items-center rounded-t-lg shadow-[0_0_20px_rgba(212,176,88,0.2)]">
-                <span className="font-bold text-[#d4b058] text-sm">Priya M.</span>
-                <span className="text-gnosis-secondary text-xs font-bold mt-1">5,100 XP</span>
-              </div>
-            </div>
-
-            {/* Rank 3 */}
-            <div className="flex flex-col items-center flex-1">
-              <div className="relative mb-4">
-                <div className="w-20 h-20 rounded-full border-4 border-amber-700 bg-slate-800 flex items-center justify-center text-xl font-bold">R</div>
-                <div className="absolute -top-3 -right-3 bg-amber-700 text-amber-100 px-2 py-1 rounded text-[10px] font-bold">#3</div>
-              </div>
-              <div className="bg-[#232a38] border-t border-amber-700/50 w-full pt-4 pb-8 flex flex-col items-center rounded-t-lg">
-                <span className="font-bold text-gnosis-text text-sm">Rahul T.</span>
-                <span className="text-gnosis-secondary text-xs font-bold mt-1">4,250 XP</span>
-              </div>
-            </div>
+    <Layout>
+      <div className="p-4 md:p-8 max-w-4xl mx-auto">
+        <div className="text-center mb-10">
+          <h1 className="text-4xl font-bold text-inverse-surface mb-3 tracking-tight">
+            League of Scholars
+          </h1>
+          <div className="inline-block px-4 py-2 bg-surface-variant rounded-full text-on-surface-variant font-bold text-sm">
+            {getNextReset()}
           </div>
         </div>
 
-        {/* Right List Section */}
-        <div className="lg:col-span-7 order-1 lg:order-2">
-          <div className="bg-[#19202d] border border-[#2e3543] rounded-lg p-6">
-            <h2 className="text-xl font-serif font-bold mb-6 text-[#f4a261]">Rankings</h2>
+        <div className="bg-white rounded-3xl p-4 md:p-8 shadow-soft border border-surface-variant">
+          <div className="space-y-2">
+            {board.map((entry, idx) => (
+              <motion.div
+                key={entry.userId}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: idx * 0.05 }}
+                className={`flex items-center gap-4 p-4 rounded-2xl ${entry.userId === user?.id ? "bg-primary-container/10 border-primary border" : "bg-surface hover:bg-surface-container transition-colors"}`}
+              >
+                <div
+                  className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg ${
+                    idx === 0
+                      ? "bg-secondary-container text-secondary-container-on"
+                      : idx === 1
+                        ? "bg-surface-variant text-on-surface-variant"
+                        : idx === 2
+                          ? "bg-primary-fixed text-primary-fixed-on"
+                          : "bg-transparent text-on-surface-variant"
+                  }`}
+                >
+                  {entry.rank}
+                </div>
 
-            <div className="space-y-2 max-h-[600px] overflow-y-auto pr-2 custom-scrollbar">
-              {mockData.map((user) => (
-                <div key={user.rank} className={`flex items-center justify-between p-4 rounded border transition-colors ${user.isCurrentUser ? 'bg-[#f4a261]/10 border-[#f4a261]' : 'bg-[#0c1320] border-[#2e3543] hover:border-gnosis-secondary/50'}`}>
-                  <div className="flex items-center gap-4">
-                    <span className={`w-8 text-center font-bold text-sm ${user.isCurrentUser ? 'text-[#f4a261]' : 'text-gnosis-muted'}`}>#{user.rank}</span>
-                    <div className="w-10 h-10 rounded-full bg-[#232a38] border border-[#2e3543] flex items-center justify-center font-bold text-sm">
-                      {user.name.charAt(0)}
-                    </div>
-                    <span className={`font-bold text-sm ${user.isCurrentUser ? 'text-[#f4a261]' : 'text-gnosis-text'}`}>{user.name}</span>
-                  </div>
-                  <div className="text-right">
-                    <span className="text-gnosis-text font-bold text-sm block">{user.points.toLocaleString()}</span>
-                    <span className="text-[10px] text-gnosis-muted uppercase tracking-widest font-bold">XP</span>
+                <div className="w-12 h-12 bg-tertiary-container rounded-full flex items-center justify-center text-white font-bold uppercase overflow-hidden">
+                  {entry.username.substring(0, 2)}
+                </div>
+
+                <div className="flex-1">
+                  <h3 className="font-bold text-inverse-surface text-lg">
+                    {entry.username}
+                  </h3>
+                </div>
+
+                <div className="text-right">
+                  <div className="font-bold text-primary text-xl">
+                    {entry.xp} XP
                   </div>
                 </div>
-              ))}
-            </div>
+              </motion.div>
+            ))}
           </div>
         </div>
-
       </div>
-    </div>
+    </Layout>
   );
 }

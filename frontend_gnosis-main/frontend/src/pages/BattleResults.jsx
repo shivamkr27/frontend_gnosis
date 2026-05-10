@@ -1,89 +1,84 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import Layout from "../components/Layout";
+import { Trophy, Home, RotateCcw } from "lucide-react";
+import { motion } from "framer-motion";
 
-export function BattleResults() {
+export default function BattleResults() {
   const navigate = useNavigate();
+  const { id } = useParams();
+
+  const isVictory = true; // Hardcoded for preview
 
   return (
-    <div className="max-w-container-max mx-auto px-4 md:px-10 pt-12 pb-32">
-      {/* Victory Section */}
-      <section className="flex flex-col items-center mb-16">
-        <h1 className="text-5xl md:text-6xl font-serif font-bold text-[#f4a261] tracking-[0.2em] mb-2" style={{ textShadow: '0 0 40px rgba(244, 162, 97, 0.4)' }}>VICTORY</h1>
-        <p className="text-sm font-bold text-gnosis-muted uppercase tracking-widest">Gnosis Arena Series • Match #742</p>
-      </section>
+    <Layout>
+      <div className="p-4 md:p-8 max-w-2xl mx-auto h-[90vh] flex flex-col items-center justify-center">
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          className="text-center w-full"
+        >
+          <div className="mb-8 relative inline-block">
+            <div className="w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-4 bg-secondary-container">
+              <Trophy className="w-16 h-16 text-secondary-container-on" />
+            </div>
+            {isVictory && (
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.5 }}
+                className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-white px-6 py-2 rounded-full border-2 border-surface-variant font-bold text-lg whitespace-nowrap shadow-md text-inverse-surface"
+              >
+                VICTORY!
+              </motion.div>
+            )}
+          </div>
 
-      {/* Battle Comparison Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center mb-16">
-        {/* User Profile (Winner Side) */}
-        <div className="md:col-span-5 flex flex-col items-center md:items-end text-center md:text-right">
-          <div className="relative mb-6">
-            <div className="w-40 h-40 rounded-full border-2 border-[#f4a261] p-2">
-              <div className="w-full h-full rounded-full bg-slate-800 flex items-center justify-center text-5xl font-bold text-slate-400">AS</div>
+          <div className="bg-white rounded-[2rem] p-8 shadow-soft border border-surface-variant mb-8 w-full">
+            <div className="flex justify-between items-center mb-8 pb-8 border-b border-surface-variant">
+              <div className="text-center w-1/3">
+                <div className="text-sm font-bold text-on-surface-variant uppercase mb-2">
+                  You
+                </div>
+                <div className="text-4xl font-bold text-primary">850</div>
+              </div>
+              <div className="text-2xl font-bold text-on-surface-variant/50">
+                VS
+              </div>
+              <div className="text-center w-1/3">
+                <div className="text-sm font-bold text-on-surface-variant uppercase mb-2">
+                  AlexD
+                </div>
+                <div className="text-4xl font-bold text-inverse-surface">
+                  720
+                </div>
+              </div>
             </div>
-            <div className="absolute -bottom-2 -right-2 bg-[#f4a261] text-[#4e2600] px-3 py-1 font-bold text-sm rounded">YOU</div>
-          </div>
-          <h3 className="text-2xl font-serif font-bold text-gnosis-text mb-1">Aaryan Sharma</h3>
-          <p className="text-sm font-bold text-[#f4a261] mb-4">Lvl 42 Quantitative Analyst</p>
-          <div className="flex gap-4">
-            <div className="text-right">
-              <p className="text-xs font-bold text-gnosis-muted uppercase">Accuracy</p>
-              <p className="text-2xl font-serif font-bold text-gnosis-text">94%</p>
-            </div>
-            <div className="text-right border-l border-[#2e3543] pl-4">
-              <p className="text-xs font-bold text-gnosis-muted uppercase">Time</p>
-              <p className="text-2xl font-serif font-bold text-gnosis-text">12.4s</p>
-            </div>
-          </div>
-        </div>
 
-        {/* VS Divider */}
-        <div className="md:col-span-2 flex flex-col items-center justify-center py-8">
-          <div className="w-px h-24 bg-gradient-to-b from-transparent via-[#2e3543] to-transparent opacity-30"></div>
-          <div className="text-3xl font-serif font-bold text-gnosis-muted/40 italic py-4">VS</div>
-          <div className="w-px h-24 bg-gradient-to-b from-[#2e3543] via-[#2e3543] to-transparent opacity-30"></div>
-        </div>
+            <div className="flex justify-between items-center px-4">
+              <span className="font-bold text-on-surface-variant">
+                Room XP Earned
+              </span>
+              <span className="font-bold text-secondary text-xl">+150 XP</span>
+            </div>
+          </div>
 
-        {/* Opponent Profile (Loser Side) */}
-        <div className="md:col-span-5 flex flex-col items-center md:items-start text-center md:text-left">
-          <div className="relative mb-6">
-            <div className="w-40 h-40 rounded-full border border-[#2e3543] p-2 opacity-60">
-              <div className="w-full h-full rounded-full bg-slate-800 flex items-center justify-center text-5xl font-bold text-slate-400 grayscale">MT</div>
-            </div>
+          <div className="flex gap-4 w-full">
+            <button
+              onClick={() => navigate("/home")}
+              className="flex-1 py-4 bg-surface text-inverse-surface border-2 border-surface-variant font-bold text-lg rounded-xl flex items-center justify-center gap-2 hover:bg-surface-variant transition-colors"
+            >
+              <Home className="w-5 h-5" /> Return Home
+            </button>
+            <button
+              onClick={() => navigate("/battle")}
+              className="flex-1 py-4 bg-primary text-white font-bold text-lg rounded-xl flex items-center justify-center gap-2 hover:bg-primary-container transition-colors shadow-soft"
+            >
+              <RotateCcw className="w-5 h-5" /> Play Again
+            </button>
           </div>
-          <h3 className="text-2xl font-serif font-bold text-gnosis-muted mb-1">Marcus Thorne</h3>
-          <p className="text-sm font-bold text-gnosis-muted/70 mb-4">Lvl 38 Systems Architect</p>
-          <div className="flex gap-4">
-            <div className="text-left">
-              <p className="text-xs font-bold text-gnosis-muted uppercase">Accuracy</p>
-              <p className="text-2xl font-serif font-bold text-gnosis-muted/60">82%</p>
-            </div>
-            <div className="text-left border-l border-[#2e3543] pl-4">
-              <p className="text-xs font-bold text-gnosis-muted uppercase">Time</p>
-              <p className="text-2xl font-serif font-bold text-gnosis-muted/60">15.1s</p>
-            </div>
-          </div>
-        </div>
+        </motion.div>
       </div>
-
-      {/* Simplified Rewards Box (Removing extra badges/skills per user request) */}
-      <div className="max-w-md mx-auto">
-        <div className="bg-[#19202d] border border-[#2e3543] p-8 rounded-lg flex flex-col items-center justify-center relative overflow-hidden group">
-          <div className="absolute top-0 left-0 w-full h-1 bg-[#f4a261]"></div>
-          <svg className="w-8 h-8 text-[#f4a261] mb-2 fill-current" viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2zm0 3.83L19.17 19H4.83L12 5.83z"/></svg>
-          <p className="text-sm font-bold text-gnosis-muted uppercase mb-2">Room XP Earned</p>
-          <h4 className="text-4xl font-serif font-bold text-gnosis-text">+50</h4>
-        </div>
-      </div>
-
-      {/* Action Buttons */}
-      <div className="flex flex-col sm:flex-row gap-4 justify-center mt-16">
-        <button onClick={() => navigate('/battle')} className="bg-[#f4a261] text-[#4e2600] px-12 py-4 font-bold text-sm tracking-widest uppercase hover:brightness-110 transition-all active:scale-95 flex items-center justify-center gap-2">
-          Play Again
-        </button>
-        <button onClick={() => navigate('/home')} className="border border-[#f4a261] text-[#f4a261] px-12 py-4 font-bold text-sm tracking-widest uppercase hover:bg-[#f4a261]/5 transition-all active:scale-95 flex items-center justify-center gap-2">
-          Return Home
-        </button>
-      </div>
-    </div>
+    </Layout>
   );
 }

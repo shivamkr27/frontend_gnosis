@@ -1,98 +1,188 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import Layout from "../components/Layout";
+import api from "../lib/api";
+import { useAuthStore } from "../lib/store";
+import { motion, AnimatePresence } from "framer-motion";
+import { Swords, Users, Play, Copy, RefreshCw } from "lucide-react";
 
-export function BattleLobby() {
+export default function BattleLobby() {
+  const [activeTab, setActiveTab] = useState("1v1");
+  const [friends, setFriends] = useState([]);
+  const [roomCode, setRoomCode] = useState("");
+  const [quizName, setQuizName] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { user } = useAuthStore();
+
+  useEffect(() => {
+    // In a real app we fetch friends from /auth/friends
+    // For now we'll mock it since we can't easily add friends in the UI yet
+    setFriends([
+      { id: "mock-1", username: "AlexD", total_xp: 4500, online: true },
+      { id: "mock-2", username: "SamuraiX", total_xp: 3200, online: true },
+      { id: "mock-3", username: "PriyaK", total_xp: 5100, online: false },
+    ]);
+  }, []);
+
+  const handleCreateGroup = () => {
+    navigate("/battle/host");
+  };
+
+  const handleJoinGroup = () => {
+    if (roomCode.trim().length === 6) {
+      navigate(`/battle/lobby/${roomCode.toUpperCase()}`);
+    }
+  };
+
+  const handleChallenge = (friendId) => {
+    navigate(`/battle/waiting/${friendId}`);
+  };
 
   return (
-    <div className="max-w-container-max mx-auto px-4 md:px-10 py-12">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        <div className="lg:col-span-8 flex flex-col gap-10">
-          <section>
-            <h1 className="text-4xl font-serif font-bold text-gnosis-text mb-2">Arena</h1>
-            <p className="text-gnosis-muted text-lg mb-8">Test your engineering prowess in real-time mental combat.</p>
+    <Layout>
+      <div className="p-4 md:p-8 max-w-4xl mx-auto">
+        <div className="text-center mb-10">
+          <h1 className="text-4xl font-bold text-inverse-surface mb-3 tracking-tight">
+            Battle Arena
+          </h1>
+          <p className="text-on-surface-variant">
+            Test your knowledge against others in real-time.
+          </p>
+        </div>
 
-            <div className="flex border-b border-[#2e3543] mb-8">
-              <button className="px-8 py-4 font-bold text-sm text-[#f4a261] border-b-2 border-[#f4a261] tracking-wider transition-all">1V1 CHALLENGE</button>
-              <button className="px-8 py-4 font-bold text-sm text-gnosis-muted hover:text-[#f4a261] tracking-wider transition-all">GROUP QUIZ</button>
-            </div>
+        {/* Custom Tabs */}
+        <div className="flex bg-surface-variant rounded-2xl p-1 mb-8 relative w-full max-w-md mx-auto">
+          <div
+            className={`absolute top-1 bottom-1 w-[calc(50%-4px)] bg-white rounded-xl shadow-sm transition-all duration-300 ${activeTab === "1v1" ? "left-1" : "left-[calc(50%+2px)]"}`}
+          />
+          <button
+            className={`flex-1 py-3 text-sm font-bold relative z-10 flex items-center justify-center gap-2 ${activeTab === "1v1" ? "text-inverse-surface" : "text-on-surface-variant"}`}
+            onClick={() => setActiveTab("1v1")}
+          >
+            <Swords className="w-4 h-4" /> 1v1 Duel
+          </button>
+          <button
+            className={`flex-1 py-3 text-sm font-bold relative z-10 flex items-center justify-center gap-2 ${activeTab === "group" ? "text-inverse-surface" : "text-on-surface-variant"}`}
+            onClick={() => setActiveTab("group")}
+          >
+            <Users className="w-4 h-4" /> Group Quiz
+          </button>
+        </div>
 
-            <div className="flex flex-col gap-4">
-              <div className="flex items-center justify-between p-6 bg-[#19202d] border-l-4 border-[#f4a261] hover:bg-[#232a38] transition-colors">
-                <div className="flex items-center gap-4">
-                  <div className="relative">
-                    <div className="w-14 h-14 rounded-full bg-[#2e3543] flex items-center justify-center font-bold text-gnosis-muted border border-[#2e3543]">
-                      AS
+        <div className="bg-white rounded-3xl p-6 md:p-8 shadow-soft border border-surface-variant min-h-[400px]">
+          <AnimatePresence mode="wait">
+            {activeTab === "1v1" ? (
+              <motion.div
+                key="1v1"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 20 }}
+                className="space-y-4"
+              >
+                <h2 className="text-xl font-bold text-inverse-surface mb-6 flex justify-between items-center">
+                  Challenge Friends
+                  <button className="text-primary hover:bg-primary-container/10 p-2 rounded-full transition-colors">
+                    <RefreshCw className="w-5 h-5" />
+                  </button>
+                </h2>
+
+                {friends.map((friend) => (
+                  <div
+                    key={friend.id}
+                    className="flex items-center justify-between p-4 rounded-2xl bg-surface border border-surface-variant"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="relative">
+                        <div className="w-12 h-12 bg-tertiary-container rounded-full flex items-center justify-center text-white font-bold uppercase">
+                          {friend.username.substring(0, 2)}
+                        </div>
+                        {friend.online && (
+                          <div className="absolute bottom-0 right-0 w-3.5 h-3.5 bg-green-500 border-2 border-surface rounded-full"></div>
+                        )}
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-inverse-surface">
+                          {friend.username}
+                        </h3>
+                        <p className="text-sm font-medium text-primary">
+                          {friend.total_xp} XP
+                        </p>
+                      </div>
                     </div>
-                    <div className="absolute bottom-0 right-0 w-3.5 h-3.5 bg-[#30a193] border-2 border-[#19202d] rounded-full"></div>
+                    <button
+                      onClick={() => handleChallenge(friend.id)}
+                      disabled={!friend.online}
+                      className="px-6 py-2.5 bg-primary text-white rounded-xl font-bold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-primary-container transition-colors shadow-soft"
+                    >
+                      Challenge
+                    </button>
                   </div>
-                  <div>
-                    <h3 className="font-bold text-gnosis-text text-sm">Arya Sharma</h3>
-                    <span className="text-xs text-[#30a193] uppercase font-bold tracking-widest mt-1 inline-block">Online</span>
+                ))}
+              </motion.div>
+            ) : (
+              <motion.div
+                key="group"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                className="grid md:grid-cols-2 gap-8"
+              >
+                <div className="flex flex-col items-center text-center p-8 border-2 border-dashed border-surface-variant rounded-3xl bg-surface">
+                  <div className="w-16 h-16 bg-primary-container/20 text-primary rounded-2xl flex items-center justify-center mb-6">
+                    <Users className="w-8 h-8" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-inverse-surface mb-3">
+                    Host a Room
+                  </h3>
+                  <p className="text-on-surface-variant mb-8">
+                    Create custom questions and invite friends to a live
+                    multiplayer quiz.
+                  </p>
+                  <button
+                    onClick={handleCreateGroup}
+                    className="w-full py-3.5 bg-primary text-white rounded-xl font-bold hover:bg-primary-container transition-all shadow-soft"
+                  >
+                    Create Room
+                  </button>
+                </div>
+
+                <div className="flex flex-col items-center text-center p-8 border border-surface-variant rounded-3xl bg-surface-container-lowest shadow-sm">
+                  <div className="w-16 h-16 bg-secondary-container/20 text-secondary rounded-2xl flex items-center justify-center mb-6">
+                    <Play className="w-8 h-8 ml-1" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-inverse-surface mb-3">
+                    Join a Room
+                  </h3>
+                  <p className="text-on-surface-variant mb-6">
+                    Enter the 6-character room code provided by the host.
+                  </p>
+
+                  <div className="w-full flex gap-2">
+                    <input
+                      type="text"
+                      maxLength={6}
+                      value={roomCode}
+                      onChange={(e) =>
+                        setRoomCode(e.target.value.toUpperCase())
+                      }
+                      placeholder="ENTER CODE"
+                      className="flex-1 px-4 py-3.5 text-center font-bold text-xl tracking-widest bg-white border-2 border-surface-variant rounded-xl focus:outline-none focus:border-secondary uppercase"
+                    />
+                    <button
+                      onClick={handleJoinGroup}
+                      disabled={roomCode.length !== 6}
+                      className="px-6 bg-secondary text-white rounded-xl font-bold hover:bg-secondary-container disabled:opacity-50 transition-colors shadow-soft"
+                    >
+                      Join
+                    </button>
                   </div>
                 </div>
-                <button onClick={() => navigate('/battle/waiting/1')} className="px-6 py-2 border border-[#f4a261] text-[#f4a261] hover:bg-[#f4a261] hover:text-[#4e2600] font-bold text-sm transition-all active:scale-95">CHALLENGE</button>
-              </div>
-
-              <div className="flex items-center justify-between p-6 bg-[#19202d] border-l-4 border-[#2e3543] hover:bg-[#232a38] transition-colors">
-                <div className="flex items-center gap-4">
-                  <div className="relative">
-                    <div className="w-14 h-14 rounded-full bg-[#2e3543] flex items-center justify-center font-bold text-gnosis-muted border border-[#2e3543]">
-                      KV
-                    </div>
-                    <div className="absolute bottom-0 right-0 w-3.5 h-3.5 bg-[#30a193] border-2 border-[#19202d] rounded-full"></div>
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-gnosis-text text-sm">Kartik Varma</h3>
-                    <span className="text-xs text-[#30a193] uppercase font-bold tracking-widest mt-1 inline-block">Online</span>
-                  </div>
-                </div>
-                <button onClick={() => navigate('/battle/waiting/2')} className="px-6 py-2 border border-[#f4a261] text-[#f4a261] hover:bg-[#f4a261] hover:text-[#4e2600] font-bold text-sm transition-all active:scale-95">CHALLENGE</button>
-              </div>
-
-              <div className="flex items-center justify-between p-6 bg-[#19202d]/50 border-l-4 border-transparent opacity-60">
-                <div className="flex items-center gap-4">
-                  <div className="relative">
-                    <div className="w-14 h-14 rounded-full bg-[#2e3543] flex items-center justify-center font-bold text-gnosis-muted border border-[#2e3543]">
-                      ML
-                    </div>
-                    <div className="absolute bottom-0 right-0 w-3.5 h-3.5 bg-[#534439] border-2 border-[#19202d] rounded-full"></div>
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-gnosis-text text-sm">Meera Lal</h3>
-                    <span className="text-xs text-gnosis-muted uppercase font-bold tracking-widest mt-1 inline-block">Offline</span>
-                  </div>
-                </div>
-                <button className="px-6 py-2 border border-[#534439] text-gnosis-muted cursor-not-allowed font-bold text-sm">CHALLENGE</button>
-              </div>
-            </div>
-          </section>
-
-          <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-8 bg-[#232a38] border border-[#2e3543]/30 flex flex-col items-center text-center gap-6">
-              <div className="w-16 h-16 flex items-center justify-center bg-[#f4a261]/10 rounded-full">
-                <svg className="w-8 h-8 text-[#f4a261] fill-current" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-              </div>
-              <div>
-                <h3 className="text-2xl font-serif font-bold text-gnosis-text mb-2">Create Room</h3>
-                <p className="text-sm text-gnosis-muted">Host a custom quiz for your study group.</p>
-              </div>
-              <button onClick={() => navigate('/battle/host')} className="w-full py-4 bg-[#f4a261] text-[#4e2600] font-bold text-sm active:scale-95 transition-all">START HOSTING</button>
-            </div>
-
-            <div className="p-8 bg-[#232a38] border border-[#2e3543]/30 flex flex-col items-center text-center gap-6">
-              <div className="w-16 h-16 flex items-center justify-center bg-[#30a193]/10 rounded-full">
-                <svg className="w-8 h-8 text-[#30a193] fill-current" viewBox="0 0 24 24"><path d="M12.65 10C11.83 7.67 9.61 6 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6c2.61 0 4.83-1.67 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
-              </div>
-              <div>
-                <h3 className="text-2xl font-serif font-bold text-gnosis-text mb-2">Join with Code</h3>
-                <p className="text-sm text-gnosis-muted">Enter a private lobby code to join a session.</p>
-              </div>
-              <button className="w-full py-4 border border-[#30a193] text-[#30a193] hover:bg-[#30a193]/10 font-bold text-sm active:scale-95 transition-all">ENTER CODE</button>
-            </div>
-          </section>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
-    </div>
+    </Layout>
   );
 }

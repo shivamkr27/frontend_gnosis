@@ -8,3 +8,34 @@
   ➜  Local:   http://localhost:5173/
   ➜  Network: use --host to expose
 10:41:25 AM [vite] (client) [optimizer] bundling dependencies...
+11:42:19 AM [vite] (client) hmr update /src/index.css
+11:42:19 AM [vite] (client) hmr update /src/index.css
+11:43:33 AM [vite] (client) hmr update /src/index.css, /src/pages/Landing.jsx
+11:44:30 AM [vite] (client) hmr update /src/index.css, /src/pages/BattleLobby.jsx
+11:45:46 AM [vite] (client) hmr update /src/index.css, /src/pages/BattleResults.jsx
+11:46:41 AM [vite] (client) hmr update /src/index.css, /src/pages/ChallengeWaiting.jsx
+11:47:40 AM [vite] (client) hmr update /src/index.css, /src/pages/HostLobby.jsx
+11:48:43 AM [vite] (client) hmr update /src/index.css, /src/pages/Leaderboard.jsx
+11:49:52 AM [vite] (client) hmr update /src/index.css, /src/pages/Profile.jsx
+11:50:50 AM [vite] (client) hmr update /src/index.css, /src/pages/ActiveQuiz.jsx
+11:51:46 AM [vite] (client) hmr update /src/index.css, /src/pages/ParticipantWaiting.jsx
+11:52:54 AM [vite] (client) hmr update /src/index.css, /src/pages/SubjectDetail.jsx
+11:53:58 AM [vite] (client) hmr update /src/index.css, /src/pages/Home.jsx
+11:54:40 AM [vite] (client) hmr update /src/index.css, /src/pages/Auth.jsx
+11:56:15 AM [vite] (client) hmr update /src/index.css, /src/pages/HostConfig.jsx
+11:56:54 AM [vite] (client) hmr update /src/index.css, /src/pages/LessonComplete.jsx
+12:02:03 PM [vite] (client) hmr update /src/App.jsx, /src/index.css
+12:02:57 PM [vite] (client) hmr update /src/index.css, /src/pages/QuizReview.jsx
+12:02:57 PM [vite] (client) hmr update /src/index.css, /src/pages/ActiveBattle.jsx
+12:07:44 PM [vite] (client) hmr update /src/index.css, /src/pages/Auth.jsx
+2:23:16 PM [vite] (client) hmr update /src/index.css
+2:23:16 PM [vite] (client) hmr update /src/index.css
+2:35:46 PM [vite] vite.config.js changed, restarting server...
+2:35:46 PM [vite] .env changed, restarting server...
+2:35:47 PM [vite] server restarted.
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://192.168.0.2:5173/
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://192.168.0.2:5173/

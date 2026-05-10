@@ -1,19 +1,19 @@
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Home, Swords, Trophy, User } from 'lucide-react';
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Home, Swords, Trophy, User } from "lucide-react";
 
 export function BottomNav() {
   const location = useLocation();
 
   const navItems = [
-    { name: 'Home', path: '/home', icon: Home },
-    { name: 'Battle', path: '/battle', icon: Swords },
-    { name: 'Rank', path: '/leaderboard', icon: Trophy },
-    { name: 'Profile', path: '/profile/me', icon: User },
+    { name: "Home", path: "/home", icon: Home },
+    { name: "Battle", path: "/battle", icon: Swords },
+    { name: "Rank", path: "/leaderboard", icon: Trophy },
+    { name: "Profile", path: "/profile/me", icon: User },
   ];
 
   // Do not show bottom nav on landing or auth pages
-  if (['/', '/auth'].includes(location.pathname)) {
+  if (["/", "/auth"].includes(location.pathname)) {
     return null;
   }
 
@@ -27,7 +27,9 @@ export function BottomNav() {
               key={item.name}
               to={item.path}
               className={`flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors ${
-                isActive ? 'text-gnosis-purple-light' : 'text-gnosis-muted hover:text-gnosis-text'
+                isActive
+                  ? "text-gnosis-purple-light"
+                  : "text-gnosis-muted hover:text-gnosis-text"
               }`}
             >
               <item.icon className="w-6 h-6" />

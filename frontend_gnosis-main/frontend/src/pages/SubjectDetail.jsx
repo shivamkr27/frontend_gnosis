@@ -1,100 +1,180 @@
-import React from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import Layout from "../components/Layout";
+import api from "../lib/api";
+import { useAuthStore } from "../lib/store";
+import { motion } from "framer-motion";
+import { ArrowLeft, Play, Lock, CheckCircle2, Flame } from "lucide-react";
 
-export function SubjectDetail() {
+export default function SubjectDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { user } = useAuthStore();
+  const [subject, setSubject] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  // Mock data for levels
-  const levels = [
-    { id: 1, name: "Variables", status: "completed", time: "15 min", xp: "250 XP" },
-    { id: 2, name: "Control Structures", status: "locked", time: "25 min", xp: "400 XP" },
-    { id: 3, name: "Functions & Scope", status: "locked", time: "30 min", xp: "450 XP" },
-  ];
+  useEffect(() => {
+    const fetchDetail = async () => {
+      try {
+        const [contentRes, progRes] = await Promise.all([
+          api.get(`/content/subjects/${id}`),
+          api.get(`/progress/${user.id}/subject/${id}`),
+        ]);
+
+        // Merge content levels with progress status
+        const mergedLevels = contentRes.data.levels.map((l) => {
+          const p = progRes.data.levels.find((pl) => pl.level_id === l.id);
+          return {
+            ...l,
+            status: p ? p.status : "locked",
+            xp_earned: p ? p.xp_earned : 0,
+          };
+        });
+
+        setSubject({
+          ...contentRes.data,
+          levels: mergedLevels,
+        });
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchDetail();
+  }, [id, user.id]);
+
+  if (loading || !subject)
+    return (
+      <Layout>
+        <div className="flex justify-center items-center h-screen">
+          <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      </Layout>
+    );
+
+  const completedCount = subject.levels.filter(
+    (l) => l.status === "complete",
+  ).length;
+  const progressPercent = (completedCount / subject.levels.length) * 100;
 
   return (
-    <div className="max-w-4xl mx-auto px-4 md:px-0 py-12 md:py-20 min-h-screen relative">
+    <Layout>
+      <div className="p-4 md:p-8 max-w-4xl mx-auto">
+        {/* Header */}
+        <button
+          onClick={() => navigate("/home")}
+          className="flex items-center gap-2 text-on-surface-variant hover:text-inverse-surface transition-colors font-bold mb-8"
+        >
+          <ArrowLeft className="w-5 h-5" /> Back to Journey
+        </button>
 
-      {/* Background Mandala */}
-      <div className="fixed bottom-0 right-0 -z-10 opacity-[0.03] pointer-events-none">
-        <svg height="600" viewBox="0 0 100 100" width="600">
-          <circle cx="50" cy="50" fill="none" r="45" stroke="#f4a261" strokeWidth="0.1"></circle>
-          <rect fill="none" height="60" stroke="#f4a261" strokeWidth="0.1" transform="rotate(45 50 50)" width="60" x="20" y="20"></rect>
-          <rect fill="none" height="50" stroke="#f4a261" strokeWidth="0.1" transform="rotate(22.5 50 50)" width="50" x="25" y="25"></rect>
-          <circle cx="50" cy="50" fill="none" r="35" stroke="#f4a261" strokeWidth="0.1"></circle>
-        </svg>
-      </div>
+        <div className="bg-white rounded-3xl p-8 shadow-soft border border-surface-variant relative overflow-hidden mb-8">
+          {/* Decorative Jaali Background for header card */}
+          <div className="absolute inset-0 opacity-5 pointer-events-none jaali-bg mix-blend-multiply" />
 
-      {/* Header Section */}
-      <header className="mb-16 border-l-4 border-[#f4a261] pl-6">
-        <nav className="flex items-center gap-2 mb-4 text-gnosis-muted text-xs font-bold uppercase tracking-widest">
-          <button onClick={() => navigate('/home')} className="hover:text-gnosis-text transition-colors">Courses</button>
-          <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-          <span className="text-[#f4a261]">C Programming</span>
-        </nav>
-        <h1 className="text-4xl md:text-5xl font-serif font-bold text-gnosis-text mb-4">C Programming</h1>
-        <p className="text-lg text-gnosis-muted max-w-2xl">
-          Master the fundamental principles of procedural programming. From pointer arithmetic to memory management, build a foundation for high-performance engineering.
-        </p>
-      </header>
+          <div className="relative z-10 flex flex-col md:flex-row gap-8 justify-between">
+            <div className="flex-1">
+              <h1 className="text-3xl md:text-4xl font-bold text-inverse-surface mb-4">
+                {subject.name}
+              </h1>
+              <p className="text-on-surface-variant text-lg leading-relaxed mb-6">
+                {subject.description}
+              </p>
 
-      {/* Vertical Stacked Cards */}
-      <div className="space-y-6">
-        {levels.map((level, idx) => {
-          const isCompleted = level.status === 'completed';
-          const isLocked = level.status === 'locked';
+              <div className="flex items-center gap-4">
+                <div className="flex-1 max-w-xs h-3 bg-surface-container rounded-full overflow-hidden">
+                  <motion.div
+                    initial={{ width: 0 }}
+                    animate={{ width: `${progressPercent}%` }}
+                    className="h-full bg-gradient-to-r from-secondary-container to-primary"
+                  />
+                </div>
+                <span className="font-bold text-inverse-surface">
+                  {completedCount}/{subject.levels.length} Complete
+                </span>
+              </div>
+            </div>
 
-          return (
-            <div key={level.id} className={`relative group p-8 rounded-lg transition-all duration-300
-              ${isLocked ? 'bg-[#151c29]/40 border border-[#2e3543]/50 opacity-60 grayscale-[0.5]' : 'bg-[#151c29] border border-[#2e3543] hover:border-[#f4a261]/40 shadow-sm'}
-            `}>
-              {!isLocked && <div className="absolute top-0 left-0 w-1 h-6 bg-[#f4a261]"></div>}
+            <div className="hidden md:flex flex-col items-center justify-center p-6 bg-surface rounded-2xl border border-surface-variant w-48">
+              <Flame className="w-10 h-10 text-primary mb-2" />
+              <span className="text-sm font-bold text-on-surface-variant uppercase tracking-wider mb-1">
+                Subject Streak
+              </span>
+              <span className="text-2xl font-bold text-inverse-surface">
+                Active
+              </span>
+            </div>
+          </div>
+        </div>
 
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-                <div className="flex items-start gap-6">
-                  {/* Circle number */}
-                  <div className={`flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full text-2xl font-serif font-bold
-                    ${isLocked ? 'border border-[#2e3543] text-gnosis-muted' : 'bg-[#f4a261]/10 border border-[#f4a261]/20 text-[#f4a261]'}
-                  `}>
-                    {level.id}
+        {/* Levels Grid */}
+        <div className="grid gap-4">
+          {subject.levels.map((level, idx) => {
+            const isLocked = level.status === "locked";
+            const isComplete = level.status === "complete";
+
+            return (
+              <motion.div
+                key={level.id}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: idx * 0.1 }}
+                onClick={() => !isLocked && navigate(`/lesson/${level.id}`)}
+                className={`bg-white rounded-2xl p-6 border ${isLocked ? "border-surface-variant opacity-75" : "border-surface-variant hover:border-primary cursor-pointer card-hover"} flex items-center justify-between gap-4`}
+              >
+                <div className="flex items-center gap-6 flex-1">
+                  <div
+                    className={`w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0 ${
+                      isComplete
+                        ? "bg-secondary text-white"
+                        : isLocked
+                          ? "bg-surface-variant text-on-surface-variant"
+                          : "bg-primary-fixed text-primary border-2 border-primary"
+                    }`}
+                  >
+                    {isComplete ? (
+                      <CheckCircle2 className="w-7 h-7" />
+                    ) : isLocked ? (
+                      <Lock className="w-6 h-6 opacity-50" />
+                    ) : (
+                      <span className="font-bold text-xl">
+                        {level.level_number}
+                      </span>
+                    )}
                   </div>
 
-                  {/* Content */}
                   <div>
-                    <div className="flex items-center gap-3 mb-1">
-                      <h3 className="text-2xl font-serif font-bold text-gnosis-text">{level.name}</h3>
-                      {!isLocked && <span className="bg-[#30a193]/20 text-[#30a193] px-2 py-1 rounded text-xs font-bold">CURRENT</span>}
-                    </div>
-
-                    <div className="flex flex-wrap items-center gap-4 text-gnosis-muted text-sm font-bold mt-2">
-                      <span className="flex items-center gap-1.5">
-                        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-                        {level.time}
+                    <h3
+                      className={`text-xl font-bold mb-1 ${isLocked ? "text-on-surface-variant" : "text-inverse-surface"}`}
+                    >
+                      {level.topic}
+                    </h3>
+                    <div className="flex gap-4 text-sm font-bold text-on-surface-variant">
+                      <span className="text-primary">
+                        {level.xp_reward} XP Reward
                       </span>
-                      <span className="flex items-center gap-1.5">
-                        <svg className="w-5 h-5 text-[#f1cc71] fill-current" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-                        {level.xp}
-                      </span>
+                      <span>•</span>
+                      <span>Level {level.level_number}</span>
                     </div>
                   </div>
                 </div>
 
-                {/* Right side status / action */}
-                {!isLocked ? (
-                  <button onClick={() => navigate(`/lesson/${level.id}`)} className="bg-[#f4a261] text-[#4e2600] px-8 py-3 font-bold text-sm uppercase tracking-wider hover:brightness-110 transition-colors active:scale-95">
-                    Start Session
+                {!isLocked && !isComplete && (
+                  <button className="hidden md:flex bg-primary text-white px-6 py-3 rounded-xl font-bold hover:bg-primary-container transition-colors items-center gap-2">
+                    <Play className="w-5 h-5 fill-current" /> Start Mission
                   </button>
-                ) : (
-                  <div className="flex items-center gap-2 text-gnosis-muted font-bold text-sm">
-                    <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
-                    Locked
-                  </div>
                 )}
-              </div>
-            </div>
-          );
-        })}
+                {!isLocked && !isComplete && (
+                  <button className="md:hidden w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center">
+                    <Play className="w-5 h-5 fill-current" />
+                  </button>
+                )}
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </Layout>
   );
 }

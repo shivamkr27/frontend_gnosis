@@ -1,7 +1,7 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
-import { Navbar } from './Navbar';
-import { BottomNav } from './BottomNav';
+import React from "react";
+import { Outlet } from "react-router-dom";
+import { Navbar } from "./Navbar";
+import { BottomNav } from "./BottomNav";
 
 export function AppLayout() {
   return (

@@ -1,153 +1,128 @@
-import React, { useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import Layout from "../components/Layout";
+import { Clock, Trophy, Flame } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
-export function ActiveQuiz() {
-  const { levelId } = useParams();
+export default function ActiveQuiz() {
+  const { id } = useParams(); // levelId or roomId
   const navigate = useNavigate();
+  const [timeLeft, setTimeLeft] = useState(15);
+  const [selected, setSelected] = useState(null);
+  const [status, setStatus] = useState("idle"); // idle, correct, incorrect
+  const isBattle = id.startsWith("room-");
 
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [isAnswered, setIsAnswered] = useState(false);
-  const progress = 30; // 30%
-
-  const mockQuestion = {
-    text: "Which physical principle directly implies the existence of the Heisenberg Uncertainty Relation?",
+  // Dummy question
+  const question = {
+    text: "What is the time complexity of binary search?",
     options: [
-      "Non-commutativity of operators",
-      "Wave-particle duality of light",
-      "The exclusion principle",
-      "Conservation of angular momentum"
+      { id: "A", text: "O(n)" },
+      { id: "B", text: "O(n log n)" },
+      { id: "C", text: "O(log n)" },
+      { id: "D", text: "O(1)" },
     ],
-    correctIndex: 0
+    correct: "C",
   };
 
-  const handleSelect = (idx) => {
-    if (isAnswered) return;
-    setSelectedOption(idx);
-    setIsAnswered(true);
-  };
+  useEffect(() => {
+    if (timeLeft > 0 && status === "idle") {
+      const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
+      return () => clearTimeout(timer);
+    } else if (timeLeft === 0 && status === "idle") {
+      handleAnswer("timeout");
+    }
+  }, [timeLeft, status]);
 
-  const handleNext = () => {
-    navigate(`/lesson/${levelId}/complete`);
+  const handleAnswer = (optionId) => {
+    if (status !== "idle") return;
+    setSelected(optionId);
+
+    if (optionId === question.correct) {
+      setStatus("correct");
+    } else {
+      setStatus("incorrect");
+    }
+
+    setTimeout(() => {
+      navigate(isBattle ? `/battle/results/${id}` : `/lesson/${id}/review`);
+    }, 2000);
   };
 
   return (
-    <div className="min-h-screen bg-gnosis-bg flex flex-col relative z-50 pt-20">
-
-      {/* Background Mandala Watermark */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.03]">
-        <svg height="100%" viewBox="0 0 800 800" width="100%" xmlns="http://www.w3.org/2000/svg">
-          <g fill="none" stroke="#f4a261" strokeWidth="0.5">
-            <circle cx="400" cy="400" r="300"></circle>
-            <circle cx="400" cy="400" r="250"></circle>
-            <circle cx="400" cy="400" r="200"></circle>
-            <path d="M400 100 L400 700 M100 400 L700 400"></path>
-            <rect height="400" transform="rotate(45 400 400)" width="400" x="200" y="200"></rect>
-            <rect height="300" width="300" x="250" y="250"></rect>
-          </g>
-        </svg>
-      </div>
-
-      <main className="flex-grow flex flex-col items-center justify-center px-4 md:px-10 max-w-container-max mx-auto w-full z-10">
-        <div className="w-full max-w-3xl">
-
-          {/* Header Stats Section */}
-          <div className="flex justify-between items-end mb-8 w-full">
-            <div className="space-y-1">
-              <span className="text-xs font-bold text-[#30a193] uppercase tracking-widest">Quantum Mechanics II</span>
-              <h2 className="text-2xl font-serif font-bold text-gnosis-text">Question 3 of 10</h2>
-            </div>
-            <div className="text-right">
-              <span className="text-sm font-bold text-gnosis-muted block mb-1">Session XP</span>
-              <span className="text-2xl font-serif font-bold text-[#f4a261]">+ 150</span>
-            </div>
+    <Layout>
+      <div className="p-4 md:p-8 max-w-3xl mx-auto h-[90vh] flex flex-col">
+        {/* Top Bar */}
+        <div className="flex justify-between items-center mb-8 bg-white p-4 rounded-2xl shadow-sm border border-surface-variant">
+          <div className="flex flex-col">
+            <span className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">
+              Question 3/10
+            </span>
+            <span className="font-bold text-inverse-surface">Algorithms</span>
           </div>
 
-          {/* Global Progress Bar */}
-          <div className="w-full h-1 bg-[#2e3543] rounded-full mb-16 overflow-hidden">
-            <div className="h-full bg-[#30a193] transition-all duration-500 shadow-[0_0_8px_rgba(48,161,147,0.4)]" style={{width: `${progress}%`}}></div>
-          </div>
+          {isBattle ? (
+            <div className="flex items-center gap-6 font-bold text-lg">
+              <span className="text-primary">You: 150</span>
+              <span className="text-on-surface-variant">vs</span>
+              <span className="text-secondary">AlexD: 120</span>
+            </div>
+          ) : (
+            <div className="flex items-center gap-2 font-bold text-secondary">
+              <Trophy className="w-5 h-5" /> 150 XP
+            </div>
+          )}
+        </div>
 
-          {/* Question Canvas */}
-          <section className="text-center mb-16">
-            <p className="text-3xl md:text-5xl font-serif font-bold text-gnosis-text leading-tight">
-              {mockQuestion.text}
-            </p>
-          </section>
+        {/* Timer Bar */}
+        <div className="w-full h-2 bg-surface-container rounded-full overflow-hidden mb-8">
+          <motion.div
+            initial={{ width: "100%" }}
+            animate={{ width: `${(timeLeft / 15) * 100}%` }}
+            transition={{ duration: 1, ease: "linear" }}
+            className={`h-full ${timeLeft <= 3 ? "bg-error" : "bg-primary"}`}
+          />
+        </div>
 
-          {/* Option Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
-            {mockQuestion.options.map((option, idx) => {
-              let stateClass = "border-[#2e3543]/30 bg-[#151c29] hover:border-[#f4a261] text-gnosis-text";
-              let markerClass = "border-[#f4a261]/30 text-[#f4a261] group-hover:bg-[#f4a261] group-hover:text-[#4e2600]";
-              let notchClass = "bg-transparent group-hover:bg-[#f4a261]";
+        {/* Question Area */}
+        <div className="flex-1 flex flex-col justify-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-inverse-surface mb-10 leading-relaxed text-center">
+            {question.text}
+          </h2>
 
-              if (isAnswered) {
-                if (idx === mockQuestion.correctIndex) {
-                  stateClass = "border-[#30a193] bg-[#30a193]/10 text-gnosis-text shadow-[0_0_15px_rgba(48,161,147,0.2)]";
-                  markerClass = "bg-[#30a193] text-[#003731] border-[#30a193]";
-                  notchClass = "bg-[#30a193]";
-                } else if (idx === selectedOption) {
-                  stateClass = "border-[#ffb4ab] bg-[#93000a]/30 text-gnosis-text shadow-[0_0_15px_rgba(255,180,171,0.2)]";
-                  markerClass = "bg-[#ffb4ab] text-[#690005] border-[#ffb4ab]";
-                  notchClass = "bg-[#ffb4ab]";
+          <div className="grid sm:grid-cols-2 gap-4">
+            {question.options.map((opt) => {
+              let bg = "bg-white hover:border-primary/50 text-inverse-surface";
+              let border = "border-2 border-surface-variant";
+
+              if (status !== "idle") {
+                if (opt.id === question.correct) {
+                  bg = "bg-green-100 text-green-900";
+                  border = "border-2 border-green-500";
+                } else if (opt.id === selected) {
+                  bg = "bg-error-container text-on-error-container";
+                  border = "border-2 border-error";
                 } else {
-                  stateClass = "border-[#2e3543]/30 bg-[#151c29] text-gnosis-muted opacity-50";
-                  markerClass = "border-[#2e3543] text-gnosis-muted";
-                  notchClass = "bg-transparent";
+                  bg = "bg-surface opacity-50";
                 }
               }
 
               return (
                 <button
-                  key={idx}
-                  onClick={() => handleSelect(idx)}
-                  disabled={isAnswered}
-                  className={`group relative flex items-center p-6 border transition-all duration-200 text-left active:scale-[0.98] ${stateClass}`}
+                  key={opt.id}
+                  disabled={status !== "idle"}
+                  onClick={() => handleAnswer(opt.id)}
+                  className={`p-6 rounded-2xl text-lg font-bold text-left transition-all ${bg} ${border} ${status === "idle" ? "hover:-translate-y-1 shadow-sm hover:shadow-md" : ""}`}
                 >
-                  <div className={`absolute top-0 left-0 w-1 h-full transition-colors ${notchClass}`}></div>
-                  <span className={`font-bold text-sm mr-6 border px-3 py-1 rounded-sm transition-colors ${markerClass}`}>
-                    {String.fromCharCode(65 + idx)}
+                  <span className="inline-block w-8 h-8 rounded-lg bg-surface-variant/50 text-center leading-8 mr-4 text-sm text-on-surface-variant">
+                    {opt.id}
                   </span>
-                  <span className="text-lg">{option}</span>
+                  {opt.text}
                 </button>
               );
             })}
           </div>
-
-          {/* Next Button appearing when answered */}
-          {isAnswered && (
-             <div className="flex justify-center mb-10">
-               <button onClick={handleNext} className="bg-[#f4a261] text-[#4e2600] px-12 py-4 font-bold text-sm tracking-widest uppercase hover:brightness-110 active:scale-95 transition-all shadow-lg flex items-center gap-2">
-                 CONTINUE
-                 <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-               </button>
-             </div>
-          )}
-
         </div>
-      </main>
-
-      {/* Professional Countdown Footer */}
-      {!isAnswered && (
-        <footer className="fixed bottom-0 left-0 w-full z-50">
-          <div className="max-w-container-max mx-auto px-4 md:px-10 py-4 flex justify-between items-center bg-[#151c29]/80 backdrop-blur-md">
-            <div className="flex items-center gap-3">
-              <svg className="w-5 h-5 text-[#f1cc71] fill-current" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-              <span className="text-sm font-bold text-gnosis-muted">Time remaining: <span className="text-gnosis-text font-bold">14s</span></span>
-            </div>
-            <div className="flex items-center gap-6">
-              <button className="text-gnosis-muted hover:text-[#ffb4ab] transition-colors flex items-center gap-2">
-                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6z"/></svg>
-                <span className="font-bold text-xs">REPORT</span>
-              </button>
-            </div>
-          </div>
-          <div className="w-full h-1.5 bg-[#2e3543]">
-            <div className="h-full bg-[#f1cc71] transition-all duration-1000 ease-linear shadow-[0_0_12px_rgba(241,204,113,0.3)]" style={{width: '35%'}}></div>
-          </div>
-        </footer>
-      )}
-
-    </div>
+      </div>
+    </Layout>
   );
 }

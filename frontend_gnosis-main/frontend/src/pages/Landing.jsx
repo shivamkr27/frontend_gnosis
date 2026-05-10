@@ -1,102 +1,277 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import {
+  Zap,
+  Award,
+  BookOpen,
+  Swords,
+  Trophy,
+  Users,
+  Star,
+  Globe,
+  Share2,
+} from "lucide-react";
 
-export function Landing() {
+const Landing = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gnosis-bg text-gnosis-text relative">
-      {/* Background elements */}
-      <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none overflow-hidden">
-        <svg className="text-[#f4a261] stroke-current fill-none" height="800" viewBox="0 0 100 100" width="800">
-          <circle cx="50" cy="50" r="45" strokeWidth="0.1"></circle>
-          <circle cx="50" cy="50" r="35" strokeWidth="0.1"></circle>
-          <path d="M50 5 L50 95 M5 50 L95 50" strokeWidth="0.1"></path>
-          <rect height="50" strokeWidth="0.1" transform="rotate(45 50 50)" width="50" x="25" y="25"></rect>
-          <rect height="60" strokeWidth="0.1" transform="rotate(22.5 50 50)" width="60" x="20" y="20"></rect>
-          <rect height="60" strokeWidth="0.1" transform="rotate(67.5 50 50)" width="60" x="20" y="20"></rect>
-        </svg>
+    <div className="min-h-screen bg-gnosis-bg text-gnosis-text font-sans selection:bg-gnosis-primary selection:text-white">
+      {/* Navbar */}
+      <nav className="flex justify-between items-center px-8 py-4 border-b border-gnosis-border bg-white">
+        <div className="flex items-center gap-8">
+          <div className="text-gnosis-red font-bold text-xl tracking-wider">
+            GNOSIS
+          </div>
+          <div className="hidden md:flex gap-6 text-sm font-medium">
+            <span className="text-gnosis-red border-b-2 border-gnosis-red pb-1 cursor-pointer">
+              Home
+            </span>
+            <span className="text-gnosis-muted hover:text-gnosis-text cursor-pointer transition-colors">
+              Learning Path
+            </span>
+            <span className="text-gnosis-muted hover:text-gnosis-text cursor-pointer transition-colors">
+              Arena
+            </span>
+            <span className="text-gnosis-muted hover:text-gnosis-text cursor-pointer transition-colors">
+              Community
+            </span>
+          </div>
+        </div>
+        <div className="flex items-center gap-4">
+          <Zap size={20} className="text-gnosis-primary cursor-pointer" />
+          <Award size={20} className="text-gnosis-text cursor-pointer" />
+          <div className="w-8 h-8 rounded-full bg-gray-300 overflow-hidden cursor-pointer">
+            {/* Placeholder for user avatar */}
+            <img src="https://i.pravatar.cc/150?img=11" alt="User" />
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <div className="max-w-7xl mx-auto px-8 py-20 flex flex-col md:flex-row items-center justify-between gap-12 relative">
+        <div className="w-full md:w-1/2 relative z-10">
+          <h1 className="text-4xl md:text-5xl font-semibold leading-tight mb-6 text-gnosis-text">
+            Mastering Subjects and{" "}
+            <span className="text-gnosis-red">Defeating Friends</span>
+          </h1>
+          <p className="text-gnosis-muted mb-8 text-lg">
+            Experience the next evolution of education. GNOSIS combines deep
+            computer science theory with competitive arena battles to make every
+            lesson an epic quest for mastery.
+          </p>
+          <div className="flex gap-4 mb-8">
+            <button
+              onClick={() => navigate("/auth")}
+              className="bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 text-white px-8 py-3 rounded-md font-semibold transition-all shadow-md"
+            >
+              Start Learning Free
+            </button>
+            <button
+              onClick={() => navigate("/auth")}
+              className="bg-white border-2 border-gnosis-red text-gnosis-red hover:bg-red-50 px-8 py-3 rounded-md font-semibold transition-all"
+            >
+              Log In
+            </button>
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="flex -space-x-3">
+              <div className="w-8 h-8 rounded-full bg-gray-200 border-2 border-white"></div>
+              <div className="w-8 h-8 rounded-full bg-gray-300 border-2 border-white"></div>
+              <div className="w-8 h-8 rounded-full bg-orange-200 border-2 border-white"></div>
+            </div>
+            <span className="text-sm text-gnosis-muted">
+              Join 45,000+ commanders worldwide
+            </span>
+          </div>
+        </div>
+
+        <div className="w-full md:w-1/2 flex justify-center relative">
+          <div className="absolute top-0 right-10 bg-white p-4 rounded-xl rounded-bl-none shadow-lg max-w-xs z-20">
+            <p className="text-sm italic font-medium">
+              "Welcome, Commander! Let's master computer science together."
+            </p>
+          </div>
+          <div className="w-80 h-80 bg-gnosis-bg-alt rounded-full absolute -z-10 blur-xl opacity-50"></div>
+          {/* Placeholder for the 3D robot image, using a placeholder styling */}
+          <div className="w-80 h-80 rounded-full bg-gnosis-bg-alt flex items-center justify-center relative shadow-inner overflow-hidden">
+            {/* Replace with actual robot image if available in assets, else abstract representation */}
+            <div className="text-6xl text-gnosis-muted">🤖</div>
+          </div>
+        </div>
       </div>
 
-      <main className="relative pt-32 pb-20 px-4 md:px-10 max-w-container-max mx-auto z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      {/* Features Section */}
+      <div className="max-w-7xl mx-auto px-8 py-20 text-center">
+        <h2 className="text-lg font-medium mb-12">
+          Engineered for Enlightenment
+          <div className="h-1 w-16 bg-gnosis-primary mx-auto mt-2"></div>
+        </h2>
 
-          {/* Left Text */}
-          <div className="lg:col-span-7 z-10">
-            <span className="inline-block px-3 py-1 bg-[#30a193]/10 text-[#30a193] border border-[#30a193]/20 text-xs font-bold uppercase tracking-widest mb-6 rounded-lg">GATEWAY TO TECHNICAL EXCELLENCE</span>
-            <h1 className="text-5xl md:text-6xl font-serif font-bold text-gnosis-text mb-6 leading-tight">
-              Master Tech. <br/>
-              <span className="text-[#f4a261]">One Level at a Time.</span>
-            </h1>
-            <p className="text-lg text-gnosis-muted mb-10 max-w-xl">
-              A rigorous, gamified curriculum designed specifically for BTech students. Transcend traditional learning through algorithmic challenges, architecture battles, and real-time skill tracking.
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="bg-white p-8 rounded-2xl shadow-sm text-left hover:shadow-md transition-shadow">
+            <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center text-red-500 mb-6">
+              <BookOpen size={24} />
+            </div>
+            <h3 className="text-xl font-semibold mb-3">
+              Gamified Learning Path
+            </h3>
+            <p className="text-gnosis-muted">
+              Navigate through a meticulously crafted curriculum designed as a
+              legendary world map. Unlock regions as you master complex
+              concepts.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <button onClick={() => navigate('/auth')} className="bg-[#f4a261] text-[#4e2600] px-8 py-4 font-bold text-sm rounded shadow-lg active:scale-95 transition-transform hover:brightness-110">
-                Start Learning
-              </button>
-              <button onClick={() => navigate('/auth')} className="border border-[#f4a261] text-[#f4a261] px-8 py-4 font-bold text-sm rounded hover:bg-[#f4a261]/5 active:scale-95 transition-transform">
-                Login
-              </button>
-            </div>
           </div>
-
-          {/* Right Visual */}
-          <div className="lg:col-span-5 relative mt-12 lg:mt-0">
-            <div className="aspect-square bg-[#232a38] border border-[#2e3543] relative overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0c1320] via-transparent to-transparent z-10"></div>
-              {/* Mock Image Placeholder */}
-              <div className="w-full h-full bg-[#151c29] flex items-center justify-center border-4 border-[#2e3543] opacity-60">
-                 <svg className="w-32 h-32 text-[#2e3543]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm5 15h-2v-6H9v6H7v-7.81l5-4.5 5 4.5V18z"/></svg>
-              </div>
-
-              {/* Floating Badge */}
-              <div className="absolute top-4 right-4 p-4 bg-[#2e3543] border border-[#f4a261]/20 z-20">
-                <div className="absolute top-0 left-0 w-10 h-[2px] bg-[#f4a261]"></div>
-                <div className="text-xs font-bold text-[#f4a261] uppercase mb-1">Live Challenge</div>
-                <div className="font-serif text-xl font-bold text-gnosis-text">System Design</div>
-              </div>
+          <div className="bg-white p-8 rounded-2xl shadow-sm text-left hover:shadow-md transition-shadow">
+            <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center text-orange-500 mb-6">
+              <Swords size={24} />
             </div>
+            <h3 className="text-xl font-semibold mb-3">
+              Real-time Multiplayer Battles
+            </h3>
+            <p className="text-gnosis-muted">
+              Test your knowledge against peers in high-stakes arena challenges.
+              Real-time coding duels and logic puzzles await the brave.
+            </p>
+          </div>
+          <div className="bg-white p-8 rounded-2xl shadow-sm text-left hover:shadow-md transition-shadow">
+            <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center text-purple-500 mb-6">
+              <Trophy size={24} />
+            </div>
+            <h3 className="text-xl font-semibold mb-3">Global Leaderboard</h3>
+            <p className="text-gnosis-muted">
+              Ascend the ranks from Apprentice to Guru. Earn exclusive medals
+              and showcase your expertise to a global community of elite
+              learners.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Community/Challenge Section */}
+      <div className="max-w-7xl mx-auto px-8 py-20 grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Left Orange Card */}
+        <div className="bg-gradient-to-br from-orange-600 to-orange-700 rounded-3xl p-10 text-white relative overflow-hidden flex flex-col justify-between min-h-[400px]">
+          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent mix-blend-overlay"></div>
+          <div className="relative z-10">
+            <div className="inline-flex items-center gap-2 bg-white/20 px-4 py-1.5 rounded-full text-sm font-medium mb-6">
+              <Zap size={16} />
+              Daily Challenge Live
+            </div>
+            <h3 className="text-2xl font-bold mb-4">
+              The Paradox of Recursion
+            </h3>
+            <p className="text-orange-100 mb-8 max-w-md">
+              Solve today's algorithmic puzzle and earn double XP plus a rare
+              'Infinite Mind' badge. 14,203 commanders already solved it.
+            </p>
+          </div>
+          <div className="relative z-10">
+            <button className="bg-white text-orange-700 font-semibold px-6 py-3 rounded-md hover:bg-orange-50 transition-colors">
+              Enter the Arena
+            </button>
+          </div>
+          <div className="absolute bottom-10 right-10 flex text-white/30">
+            <div className="text-8xl font-light">&lt;&gt;</div>
           </div>
         </div>
 
-        {/* Features Bento */}
-        <div className="mt-32">
-          <div className="flex flex-col mb-12">
-            <h2 className="text-3xl font-serif font-bold text-gnosis-text mb-4">Core Mechanics</h2>
-            <div className="h-1 w-20 bg-[#f4a261]"></div>
+        {/* Right Cards */}
+        <div className="flex flex-col gap-8">
+          <div className="bg-[#f0ece3] p-8 rounded-3xl">
+            <div className="flex gap-1 text-orange-500 mb-4">
+              <Star size={20} fill="currentColor" />
+              <Star size={20} fill="currentColor" />
+              <Star size={20} fill="currentColor" />
+              <Star size={20} fill="currentColor" />
+              <Star size={20} fill="currentColor" />
+            </div>
+            <p className="italic text-gnosis-text mb-6">
+              "GNOSIS turned my exam prep from a chore into a lifestyle. I
+              actually look forward to outperforming my friends in Data
+              Structures battles!"
+            </p>
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 bg-orange-200 rounded-full"></div>
+              <div>
+                <div className="font-semibold text-gnosis-text">Arjun K.</div>
+                <div className="text-sm text-gnosis-muted">
+                  CS Undergraduate, IIT Bombay
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-8 bg-[#19202d] border border-[#2e3543] flex flex-col items-start relative hover:border-[#f4a261]/40 transition-colors group">
-              <div className="absolute top-0 left-0 w-10 h-[2px] bg-[#f4a261]"></div>
-              <div className="p-3 bg-[#f4a261]/10 mb-6">
-                <svg className="w-8 h-8 text-[#f4a261] fill-current" viewBox="0 0 24 24"><path d="M16.01 7L16 3h-2v4h-4V3H8v4h-.01C7 6.99 6 7.99 6 8.99v5.49L9.5 18v3h5v-3l3.5-3.51v-5.5c0-1-1-2-1.99-2z"/></svg>
-              </div>
-              <h3 className="text-2xl font-serif font-bold text-gnosis-text mb-4">Streaks</h3>
-              <p className="text-gnosis-muted">Forge discipline through consistency. Our precision-engineered streak system tracks daily technical deep-dives, rewarding your focus with rare academic badges.</p>
+          <div className="bg-white p-8 rounded-3xl shadow-sm flex items-center gap-6">
+            <div className="w-16 h-16 bg-gnosis-bg rounded-2xl flex items-center justify-center text-red-700">
+              <Users size={32} />
             </div>
-
-            <div className="p-8 bg-[#19202d] border border-[#2e3543] flex flex-col items-start relative hover:border-[#f4a261]/40 transition-colors group">
-              <div className="absolute top-0 left-0 w-10 h-[2px] bg-[#f4a261]"></div>
-              <div className="p-3 bg-[#f4a261]/10 mb-6">
-                <svg className="w-8 h-8 text-[#f4a261] fill-current" viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
-              </div>
-              <h3 className="text-2xl font-serif font-bold text-gnosis-text mb-4">XP Ledger</h3>
-              <p className="text-gnosis-muted">Measure your technical mastery. Earn quantified experience points for accurate problem solving, speed, and architectural correctness.</p>
-            </div>
-
-            <div className="p-8 bg-[#19202d] border border-[#2e3543] flex flex-col items-start relative hover:border-[#f4a261]/40 transition-colors group">
-              <div className="absolute top-0 left-0 w-10 h-[2px] bg-[#f4a261]"></div>
-              <div className="p-3 bg-[#f4a261]/10 mb-6">
-                <svg className="w-8 h-8 text-[#f4a261] fill-current" viewBox="0 0 24 24"><path d="M15.54 5.54L13.77 7.3 12 5.54 10.23 7.3 8.46 5.54 12 2l3.54 3.54zM7.3 10.23l1.76 1.77L7.3 13.77 5.54 12l1.76-1.77zm9.4 0l1.76 1.77-1.76 1.77-1.77-1.77 1.77-1.77zM12 22l-3.54-3.54 1.77-1.76 1.77 1.76 1.77-1.76 1.77 1.76L12 22z"/></svg>
-              </div>
-              <h3 className="text-2xl font-serif font-bold text-gnosis-text mb-4">Live Battles</h3>
-              <p className="text-gnosis-muted">Test your knowledge against peers in real-time technical combat. Host secure group quizzes or challenge friends to 1v1 duels.</p>
+            <div>
+              <h4 className="font-semibold text-lg mb-1">Study Guilds</h4>
+              <p className="text-gnosis-muted text-sm">
+                Join exclusive guilds to collaborate on complex projects and
+                share resources.
+              </p>
             </div>
           </div>
         </div>
-      </main>
+      </div>
+
+      {/* Footer CTA */}
+      <div className="max-w-4xl mx-auto px-8 py-20 text-center">
+        <div className="bg-white p-12 rounded-3xl shadow-sm border border-gnosis-border">
+          <h2 className="text-2xl font-semibold mb-4">Ready to Ascend?</h2>
+          <p className="text-gnosis-muted mb-8">
+            Start your journey today and see why GNOSIS is the preferred
+            training ground for the next generation of engineers.
+          </p>
+          <button
+            onClick={() => navigate("/auth")}
+            className="bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 text-white px-8 py-3 rounded-md font-semibold transition-all shadow-md"
+          >
+            Create Your Commander Profile
+          </button>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <footer className="bg-gnosis-bg-alt py-8 px-8 border-t border-gnosis-border">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+          <div>
+            <div className="font-bold text-lg mb-1">GNOSIS</div>
+            <div className="text-sm text-gnosis-muted">
+              © 2024 GNOSIS Learning. All rights reserved.
+            </div>
+          </div>
+          <div className="flex gap-6 text-sm font-medium text-gnosis-text">
+            <span className="cursor-pointer hover:text-gnosis-primary">
+              About Us
+            </span>
+            <span className="cursor-pointer hover:text-gnosis-primary">
+              Curriculum
+            </span>
+            <span className="cursor-pointer hover:text-gnosis-primary">
+              Privacy Policy
+            </span>
+            <span className="cursor-pointer hover:text-gnosis-primary">
+              Terms of Service
+            </span>
+          </div>
+          <div className="flex gap-4 text-gnosis-text">
+            <Share2
+              size={20}
+              className="cursor-pointer hover:text-gnosis-primary"
+            />
+            <Globe
+              size={20}
+              className="cursor-pointer hover:text-gnosis-primary"
+            />
+          </div>
+        </div>
+      </footer>
     </div>
   );
-}
+};
+
+export default Landing;

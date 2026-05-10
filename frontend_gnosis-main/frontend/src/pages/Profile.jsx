@@ -3,12 +3,6 @@ import { Settings, Zap, Flame, Trophy, BookOpen, Medal } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export function Profile() {
-  const stats = [
-    { label: "Total XP", value: "12,450", icon: <Zap className="text-gnosis-purple-light" /> },
-    { label: "Current Streak", value: "15", icon: <Flame className="text-orange-500 fill-orange-500/20" /> },
-    { label: "Subjects Complete", value: "3", icon: <BookOpen className="text-gnosis-green" /> },
-    { label: "Global Rank", value: "#142", icon: <Trophy className="text-gnosis-gold" /> },
-  ];
 
   const achievements = [
     { name: "First Blood", desc: "Win your first battle", unlocked: true },
@@ -17,87 +11,135 @@ export function Profile() {
   ];
 
   return (
-    <div className="p-4 sm:p-8 max-w-4xl mx-auto pb-24 md:pb-8">
+    <div className="max-w-container-max mx-auto px-margin-desktop py-12 md:py-20 font-body-md text-on-surface selection:bg-primary-container selection:text-on-primary-container min-h-screen bg-background">
 
-      {/* Header Profile Card */}
-      <motion.div
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        className="bg-gnosis-card border border-gnosis-border rounded-3xl p-8 mb-8 relative overflow-hidden"
-      >
-        <div className="absolute top-0 left-0 w-full h-3 bg-gradient-to-r from-gnosis-purple via-gnosis-purple-light to-gnosis-gold"></div>
-
-        <button className="absolute top-8 right-8 text-gnosis-muted hover:text-gnosis-text transition-transform hover:rotate-90">
-          <Settings className="w-6 h-6" />
-        </button>
-
-        <div className="flex flex-col sm:flex-row items-center gap-8 mt-4">
-          <div className="relative">
-            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-gnosis-purple to-gnosis-purple-light flex items-center justify-center text-5xl font-black text-white border-4 border-gnosis-bg shadow-xl">
-              U
-            </div>
-            <div className="absolute -bottom-2 -right-2 bg-gnosis-bg border-2 border-gnosis-border rounded-full p-2">
-              <Trophy className="w-6 h-6 text-gnosis-gold" />
-            </div>
+      {/* Profile Header Section */}
+      <div className="flex flex-col md:flex-row items-center md:items-start gap-10 mb-20">
+        <div className="relative">
+          <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border-2 border-primary/30 p-1">
+            <img alt="User Profile" className="w-full h-full object-cover rounded-full grayscale hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_V6mLErgmjtwjYGw4IYhN2-EpGe-9TYmxyp2JwUVLy81rZFum2gzx3txam4BARMht7HqfL1MAJA074LQb05ufVYiZwHwHdE6xcn3HEJKET-ReInhWT_3vX-GkqAN5A-DzQ40G5BYSYbZ2fxjzLr2Il03CsVDvuFkNZc8-r0VpOQfQGs7_r0gON1FYMYsV03DzVeGrWOZUFNbRpns9IDCJg4F3gypPI2nkb9LTo6Of6CSCg6a6wr9Lc_UXF2QYPCxkf7XrMtBMxg8"/>
           </div>
-
-          <div className="text-center sm:text-left flex-1">
-            <h1 className="text-4xl font-black mb-2 tracking-tight">Player One</h1>
-            <p className="text-gnosis-muted font-medium mb-4 flex items-center justify-center sm:justify-start gap-2">
-               Gnosis Member
-            </p>
+          <div className="absolute bottom-2 right-2 bg-primary text-on-primary w-8 h-8 rounded-full flex items-center justify-center border-4 border-background">
+            <span className="material-symbols-outlined text-[16px]" style={{ fontVariationSettings: "'FILL' 1" }}>verified</span>
           </div>
         </div>
-      </motion.div>
+        <div className="flex-1 text-center md:text-left">
+          <h1 className="font-headline-xl text-[48px] font-bold text-on-surface mb-2">Arjun Mehta</h1>
+          <p className="font-body-md text-[16px] text-on-surface-variant mb-4">M.Tech Computer Science • Final Year</p>
+          <div className="flex flex-wrap justify-center md:justify-start gap-3">
+            <span className="bg-surface-container-high text-on-surface-variant px-3 py-1 rounded font-label-sm text-[12px] border border-outline-variant/30">Joined Jan 2023</span>
+            <span className="bg-secondary-container/20 text-secondary px-3 py-1 rounded font-label-sm text-[12px] border border-secondary/20">Active Researcher</span>
+          </div>
+        </div>
+        <div className="flex gap-4">
+          <button className="px-6 py-3 bg-primary text-on-primary font-label-md text-[14px] font-semibold rounded-lg active:scale-95 transition-all">Edit Profile</button>
+          <button className="px-6 py-3 border border-outline-variant text-on-surface font-label-md text-[14px] font-semibold rounded-lg hover:bg-surface-variant/20 transition-all">Share Profile</button>
+        </div>
+      </div>
 
       {/* Stats Grid */}
-      <div className="mb-10">
-        <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-          Your Stats
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {stats.map((stat, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: idx * 0.1 }}
-              className="bg-gnosis-card border border-gnosis-border rounded-2xl p-6 flex flex-col items-center text-center hover:border-gnosis-purple transition-colors"
-            >
-              <div className="mb-3 p-3 bg-gnosis-bg rounded-2xl shadow-inner">
-                {stat.icon}
-              </div>
-              <div className="text-2xl font-black mb-1">{stat.value}</div>
-              <div className="text-xs font-bold text-gnosis-muted uppercase tracking-wider">{stat.label}</div>
-            </motion.div>
-          ))}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
+        <div className="bg-surface-container-low border border-outline-variant/20 p-6 rounded-xl flex flex-col justify-between group hover:border-primary/50 transition-all">
+          <div className="flex justify-between items-start mb-4">
+            <span className="material-symbols-outlined text-primary">local_fire_department</span>
+            <span className="font-label-sm text-[12px] font-medium text-on-surface-variant">Total XP</span>
+          </div>
+          <div className="text-[24px] font-semibold text-primary">12,450</div>
+        </div>
+        <div className="bg-surface-container-low border border-outline-variant/20 p-6 rounded-xl flex flex-col justify-between group hover:border-primary/50 transition-all">
+          <div className="flex justify-between items-start mb-4">
+            <span className="material-symbols-outlined text-primary">bolt</span>
+            <span className="font-label-sm text-[12px] font-medium text-on-surface-variant">Daily Streak</span>
+          </div>
+          <div className="text-[24px] font-semibold text-primary">42 Days</div>
+        </div>
+        <div className="bg-surface-container-low border border-outline-variant/20 p-6 rounded-xl flex flex-col justify-between group hover:border-primary/50 transition-all">
+          <div className="flex justify-between items-start mb-4">
+            <span className="material-symbols-outlined text-primary">menu_book</span>
+            <span className="font-label-sm text-[12px] font-medium text-on-surface-variant">Subjects</span>
+          </div>
+          <div className="text-[24px] font-semibold text-primary">18 / 24</div>
+        </div>
+        <div className="bg-surface-container-low border border-outline-variant/20 p-6 rounded-xl flex flex-col justify-between group hover:border-primary/50 transition-all">
+          <div className="flex justify-between items-start mb-4">
+            <span className="material-symbols-outlined text-primary">public</span>
+            <span className="font-label-sm text-[12px] font-medium text-on-surface-variant">Global Rank</span>
+          </div>
+          <div className="text-[24px] font-semibold text-primary">#142</div>
         </div>
       </div>
 
-      {/* Achievements */}
-      <div>
-        <h2 className="text-xl font-bold mb-4">Achievements</h2>
-        <div className="space-y-4">
-          {achievements.map((ach, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ x: -20, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.2 + (idx * 0.1) }}
-              className={`flex items-center p-5 rounded-2xl border transition-all ${ach.unlocked ? 'bg-gnosis-card border-gnosis-border hover:shadow-lg' : 'bg-gnosis-bg border-gnosis-border/50 opacity-60'}`}
-            >
-              <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mr-5 ${ach.unlocked ? 'bg-gnosis-gold/20 text-gnosis-gold' : 'bg-gnosis-card text-gnosis-muted'}`}>
-                <Medal className="w-7 h-7" />
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        {/* Progress Section */}
+        <div className="lg:col-span-2">
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="font-headline-md text-[24px] font-semibold text-on-surface">Academic Progress</h2>
+          </div>
+          <div className="space-y-8">
+            <div className="space-y-3">
+              <div className="flex justify-between items-end">
+                <div>
+                  <h3 className="font-label-md text-[14px] font-semibold text-on-surface">Quantum Mechanics III</h3>
+                  <p className="font-label-sm text-[12px] font-medium text-on-surface-variant">Final Module: Entanglement</p>
+                </div>
+                <span className="font-label-md text-[14px] font-semibold text-primary">85%</span>
               </div>
-              <div>
-                <h3 className="font-bold text-lg">{ach.name}</h3>
-                <p className="text-sm font-medium text-gnosis-muted">{ach.desc}</p>
+              <div className="h-1 w-full bg-surface-container-highest rounded-full overflow-hidden">
+                <div className="h-full bg-primary" style={{ width: '85%' }}></div>
               </div>
-            </motion.div>
-          ))}
+            </div>
+            <div className="space-y-3">
+              <div className="flex justify-between items-end">
+                <div>
+                  <h3 className="font-label-md text-[14px] font-semibold text-on-surface">Advanced Data Structures</h3>
+                  <p className="font-label-sm text-[12px] font-medium text-on-surface-variant">Review Phase: B-Trees</p>
+                </div>
+                <span className="font-label-md text-[14px] font-semibold text-primary">62%</span>
+              </div>
+              <div className="h-1 w-full bg-surface-container-highest rounded-full overflow-hidden">
+                <div className="h-full bg-primary" style={{ width: '62%' }}></div>
+              </div>
+            </div>
+            <div className="space-y-3">
+              <div className="flex justify-between items-end">
+                <div>
+                  <h3 className="font-label-md text-[14px] font-semibold text-on-surface">Digital Signal Processing</h3>
+                  <p className="font-label-sm text-[12px] font-medium text-on-surface-variant">In Progress: Fourier Series</p>
+                </div>
+                <span className="font-label-md text-[14px] font-semibold text-primary">40%</span>
+              </div>
+              <div className="h-1 w-full bg-surface-container-highest rounded-full overflow-hidden">
+                <div className="h-full bg-primary" style={{ width: '40%' }}></div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
 
+        {/* Achievements Section */}
+        <div className="lg:col-span-1">
+          <h2 className="font-headline-md text-[24px] font-semibold text-on-surface mb-6">Achievements</h2>
+          <div className="space-y-4">
+            {achievements.map((ach, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ x: -20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 0.2 + (idx * 0.1) }}
+                className={`flex items-center p-5 rounded-2xl border transition-all ${ach.unlocked ? 'bg-surface-container-low border-outline-variant/30 hover:border-primary/50' : 'bg-surface-container-lowest border-outline-variant/10 opacity-60'}`}
+              >
+                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mr-5 ${ach.unlocked ? 'bg-primary/20 text-primary' : 'bg-surface-variant text-on-surface-variant'}`}>
+                  <Medal className="w-7 h-7" />
+                </div>
+                <div>
+                  <h3 className="font-label-md text-[14px] font-semibold">{ach.name}</h3>
+                  <p className="font-label-sm text-[12px] font-medium text-on-surface-variant mt-1">{ach.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+      </div>
     </div>
   );
 }

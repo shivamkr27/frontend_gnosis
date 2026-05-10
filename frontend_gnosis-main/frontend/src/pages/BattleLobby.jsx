@@ -1,139 +1,111 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Swords, Users, PlusCircle, UserPlus, Search } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
 
 export function BattleLobby() {
   const navigate = useNavigate();
-  const [showFriends, setShowFriends] = useState(false);
-
-  const groupModes = [
-    {
-      id: 'host',
-      title: "Host Group Quiz",
-      desc: "Create a room and invite multiple friends.",
-      icon: <PlusCircle className="w-8 h-8 text-gnosis-gold" />,
-      color: "border-gnosis-gold/30 hover:border-gnosis-gold hover:shadow-[0_0_20px_rgba(245,158,11,0.2)]",
-      action: () => navigate('/battle/host')
-    },
-    {
-      id: 'join',
-      title: "Join Group Quiz",
-      desc: "Enter a room code to join a game.",
-      icon: <Users className="w-8 h-8 text-gnosis-green" />,
-      color: "border-gnosis-green/30 hover:border-gnosis-green hover:shadow-[0_0_20px_rgba(16,185,129,0.2)]",
-      action: () => navigate('/battle/join/enter-code')
-    }
-  ];
-
-  const friendsList = [
-    { id: 'f1', name: 'CodeNinja', isOnline: true },
-    { id: 'f2', name: 'ReactGod', isOnline: true },
-    { id: 'f3', name: 'AlexDev', isOnline: false },
-    { id: 'f4', name: 'Sam99', isOnline: false },
-  ];
+  const [activeTab, setActiveTab] = useState('1v1');
 
   return (
-    <div className="p-4 sm:p-8 max-w-5xl mx-auto pb-24 md:pb-8">
-      <div className="mb-12 text-center">
-        <h1 className="text-4xl font-black mb-4 tracking-tighter">Battle Arena</h1>
-        <p className="text-gnosis-muted max-w-xl mx-auto font-medium">
-          Challenge your friends to a 1v1 duel, or host a group trivia night.
-        </p>
-      </div>
+    <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 selection:bg-primary-container selection:text-on-primary-container font-body-md text-on-surface">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+        <div className="lg:col-span-8 flex flex-col gap-10">
+          <section>
+            <h1 className="font-headline-xl text-[48px] leading-[1.2] font-bold mb-2 font-headline-xl">Arena</h1>
+            <p className="text-on-surface-variant text-[18px] mb-8">Test your engineering prowess in real-time mental combat.</p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-        {/* 1v1 Section */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="bg-gnosis-card border border-gnosis-border rounded-3xl p-6 flex flex-col h-full"
-        >
-          <div className="flex items-center gap-4 mb-6">
-            <div className="w-16 h-16 bg-gnosis-purple/20 rounded-2xl flex items-center justify-center shrink-0">
-              <Swords className="w-8 h-8 text-gnosis-purple-light" />
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold">1v1 Duel</h2>
-              <p className="text-sm text-gnosis-muted">Challenge a friend</p>
-            </div>
-          </div>
-
-          <button
-            onClick={() => setShowFriends(!showFriends)}
-            className="w-full bg-gnosis-purple hover:bg-gnosis-purple/90 text-white font-bold py-4 rounded-xl transition-colors mb-6"
-          >
-            {showFriends ? 'Hide Friends' : 'Pick Opponent'}
-          </button>
-
-          <AnimatePresence>
-            {showFriends && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0 }}
-                className="overflow-hidden"
+            <div className="flex border-b border-outline-variant/20 mb-8">
+              <button
+                onClick={() => setActiveTab('1v1')}
+                className={`px-8 py-4 font-label-md text-label-md tracking-wider transition-all ${activeTab === '1v1' ? 'border-b-2 border-primary text-primary' : 'text-on-surface-variant hover:text-primary'}`}
               >
-                <div className="relative mb-4">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gnosis-muted" />
-                  <input
-                    type="text"
-                    placeholder="Search friends..."
-                    className="w-full bg-gnosis-bg border border-gnosis-border rounded-lg py-2 pl-10 pr-4 text-sm focus:border-gnosis-purple outline-none"
-                  />
-                </div>
+                1V1 CHALLENGE
+              </button>
+              <button
+                onClick={() => setActiveTab('group')}
+                className={`px-8 py-4 font-label-md text-label-md tracking-wider transition-all ${activeTab === 'group' ? 'border-b-2 border-primary text-primary' : 'text-on-surface-variant hover:text-primary'}`}
+              >
+                GROUP QUIZ
+              </button>
+            </div>
 
-                <div className="space-y-2 max-h-48 overflow-y-auto pr-2">
-                  {friendsList.map(friend => (
-                    <div key={friend.id} className="flex items-center justify-between p-3 rounded-xl bg-gnosis-bg border border-gnosis-border hover:border-gnosis-purple/50 transition-colors">
-                      <div className="flex items-center gap-3">
-                        <div className="relative">
-                          <div className="w-8 h-8 rounded-full bg-gnosis-card flex items-center justify-center font-bold text-sm">
-                            {friend.name.charAt(0)}
-                          </div>
-                          <div className={`absolute -bottom-1 -right-1 w-3.5 h-3.5 rounded-full border-2 border-gnosis-bg ${friend.isOnline ? 'bg-gnosis-green' : 'bg-gnosis-muted'}`}></div>
-                        </div>
-                        <span className="font-bold text-sm">{friend.name}</span>
+            {activeTab === '1v1' && (
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center justify-between p-6 bg-surface-container border-l-4 border-primary hover:bg-surface-container-high transition-colors">
+                  <div className="flex items-center gap-4">
+                    <div className="relative">
+                      <div className="w-14 h-14 rounded-full bg-surface-variant flex items-center justify-center overflow-hidden border border-outline-variant">
+                        <img className="w-full h-full object-cover" alt="Arya Sharma" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3900Fg6CwuvUlIL9MkbmLZkLvUNWBRwlLXnawim6PPeu7bvINo6IUq_IAzx9gyNvFNviTT8zOJSFvGUKL6u4ZQj3J7gL_ImP2eFgFSTCxaEO9x0xA1-E_EigJfaNNzKptrPGjWBuQaI_IMLXKR9c0Bds_6yL4Auuh3N1-rcb7udN7OuufdkH_SYgBIYcX4h3AcyDJlNcSVRU6wUkHKlsiy9VEXHfjLb48--AMTsmFU5y1JUsBNFAxSzmKs9sqRS096rXyPX68Hd4"/>
                       </div>
-                      <button
-                        onClick={() => navigate(`/battle/waiting/${friend.id}`)}
-                        disabled={!friend.isOnline}
-                        className={`text-xs font-bold px-3 py-1.5 rounded-lg transition-colors
-                          ${friend.isOnline ? 'bg-gnosis-purple/20 text-gnosis-purple-light hover:bg-gnosis-purple hover:text-white' : 'bg-gnosis-card text-gnosis-muted opacity-50 cursor-not-allowed'}
-                        `}
-                      >
-                        Challenge
-                      </button>
+                      <div className="absolute bottom-0 right-0 w-3.5 h-3.5 bg-secondary border-2 border-surface-container rounded-full"></div>
                     </div>
-                  ))}
+                    <div>
+                      <h3 className="font-label-md text-on-surface">Arya Sharma</h3>
+                      <span className="text-[12px] text-secondary uppercase font-bold tracking-widest">Online</span>
+                    </div>
+                  </div>
+                  <button onClick={() => navigate('/battle/waiting/f1')} className="px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-on-primary font-label-md transition-all active:scale-95">CHALLENGE</button>
                 </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </motion.div>
 
-        {/* Group Section */}
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="flex flex-col gap-6"
-        >
-          {groupModes.map((mode, idx) => (
-            <button
-              key={mode.id}
-              onClick={mode.action}
-              className={`bg-gnosis-card border-2 rounded-3xl p-6 flex items-center gap-6 transition-all text-left ${mode.color}`}
-            >
-              <div className="w-16 h-16 bg-gnosis-bg rounded-2xl flex items-center justify-center shrink-0">
-                {mode.icon}
+                <div className="flex items-center justify-between p-6 bg-surface-container border-l-4 border-outline-variant hover:bg-surface-container-high transition-colors">
+                  <div className="flex items-center gap-4">
+                    <div className="relative">
+                      <div className="w-14 h-14 rounded-full bg-surface-variant flex items-center justify-center overflow-hidden border border-outline-variant">
+                        <img className="w-full h-full object-cover" alt="Kartik Varma" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBN2TjrEREOJojPRC52t05JA7yi9CgAD3VLsaVBcfdkge6MTE6X1_GbCUB6Xvd1EZf4UsiccX-rH_vlgflkG5roFdtOuBJdbiiIZ2WJVM49XStloiw9hMWt5MJxw8zPPE9nE9dlKkUmM7e4FDOPOYXPUkzI3PCd-qaBXmudZ3mdpWiIwGKH6W--cgqrzEYA8uUexKkEPAcI9ZYt35-4ReQYyhGxSkIihNXLltpDW4hG38JKnTWvAjt_IKFaeEWys0pHPLaRoA-wOx0"/>
+                      </div>
+                      <div className="absolute bottom-0 right-0 w-3.5 h-3.5 bg-secondary border-2 border-surface-container rounded-full"></div>
+                    </div>
+                    <div>
+                      <h3 className="font-label-md text-on-surface">Kartik Varma</h3>
+                      <span className="text-[12px] text-secondary uppercase font-bold tracking-widest">Online</span>
+                    </div>
+                  </div>
+                  <button onClick={() => navigate('/battle/waiting/f2')} className="px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-on-primary font-label-md transition-all active:scale-95">CHALLENGE</button>
+                </div>
+
+                <div className="flex items-center justify-between p-6 bg-surface-container/50 border-l-4 border-transparent opacity-60">
+                  <div className="flex items-center gap-4">
+                    <div className="relative">
+                      <div className="w-14 h-14 rounded-full bg-surface-variant flex items-center justify-center overflow-hidden border border-outline-variant">
+                        <img className="w-full h-full object-cover" alt="Meera Lal" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVh-Cwqlo1deJxLgX_aLPJVXN4jBOg1g_4qCa_ozLKFh7wPnm6d6byYTruVsSsx1Xqp3O2C_SUZdiAtKuDRqouXwAlnmEenZMwKHzQq7DOxkGYwwe7GKZTP8qAdmnABamcZ1EScMhUVOm5Ijn1Lr5xtUc0Tn8Wd2Rc4N76ov1KmF15QPSb-P9LUsWRSGQHBMlWIF-l5bqF40etHAjt-BUVIHzPzMWugZJiV0wXYDkbWWj4xXEWMMGW7JNSTbujCEXdrRv-XzV8VtU"/>
+                      </div>
+                      <div className="absolute bottom-0 right-0 w-3.5 h-3.5 bg-outline-variant border-2 border-surface-container rounded-full"></div>
+                    </div>
+                    <div>
+                      <h3 className="font-label-md text-on-surface">Meera Lal</h3>
+                      <span className="text-[12px] text-on-surface-variant uppercase font-bold tracking-widest">Offline</span>
+                    </div>
+                  </div>
+                  <button className="px-6 py-2 border border-outline-variant text-outline-variant cursor-not-allowed font-label-md">CHALLENGE</button>
+                </div>
               </div>
-              <div>
-                <h3 className="text-xl font-bold mb-1">{mode.title}</h3>
-                <p className="text-sm text-gnosis-muted">{mode.desc}</p>
+            )}
+
+            {activeTab === 'group' && (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+                <div className="p-8 bg-surface-container-high border border-outline-variant/30 flex flex-col items-center text-center gap-6">
+                  <div className="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-full">
+                    <span className="material-symbols-outlined text-primary text-[32px]">groups</span>
+                  </div>
+                  <div>
+                    <h3 className="font-headline-md text-headline-md mb-2">Create Room</h3>
+                    <p className="text-label-sm text-on-surface-variant">Host a custom quiz for your study group.</p>
+                  </div>
+                  <button onClick={() => navigate('/battle/host')} className="w-full py-4 bg-primary text-on-primary font-label-md active:scale-95 transition-all">START HOSTING</button>
+                </div>
+                <div className="p-8 bg-surface-container-high border border-outline-variant/30 flex flex-col items-center text-center gap-6">
+                  <div className="w-16 h-16 flex items-center justify-center bg-secondary/10 rounded-full">
+                    <span className="material-symbols-outlined text-secondary text-[32px]">key</span>
+                  </div>
+                  <div>
+                    <h3 className="font-headline-md text-headline-md mb-2">Join with Code</h3>
+                    <p className="text-label-sm text-on-surface-variant">Enter a private lobby code to join a session.</p>
+                  </div>
+                  <button onClick={() => navigate('/battle/join/enter-code')} className="w-full py-4 border border-secondary text-secondary hover:bg-secondary/10 font-label-md active:scale-95 transition-all">ENTER CODE</button>
+                </div>
               </div>
-            </button>
-          ))}
-        </motion.div>
+            )}
+          </section>
+        </div>
       </div>
     </div>
   );

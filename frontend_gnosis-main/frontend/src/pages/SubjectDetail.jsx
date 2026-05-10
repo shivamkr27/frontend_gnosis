@@ -1,107 +1,159 @@
 import React from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Lock, CheckCircle, Play, BookOpen } from 'lucide-react';
-import { motion } from 'framer-motion';
 
 export function SubjectDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  // Mock data for levels
-  const levels = [
-    { id: 1, name: "Arrays & Strings", status: "completed" },
-    { id: 2, name: "Hash Maps", status: "completed" },
-    { id: 3, name: "Linked Lists", status: "current" },
-    { id: 4, name: "Trees & Graphs", status: "locked" },
-    { id: 5, name: "Dynamic Programming", status: "locked" },
-  ];
-
   return (
-    <div className="p-4 sm:p-8 max-w-3xl mx-auto pb-24 md:pb-8">
+    <div className="bg-surface text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container min-h-screen">
+      <main className="max-w-4xl mx-auto px-margin-mobile md:px-0 py-12 md:py-20">
 
-      <button
-        onClick={() => navigate('/home')}
-        className="flex items-center text-sm font-bold text-gnosis-muted hover:text-gnosis-text mb-6 transition-colors"
-      >
-        <ArrowLeft className="w-4 h-4 mr-2" />
-        Back to Map
-      </button>
+        {/* Header Section */}
+        <header className="mb-16 border-l-4 border-primary pl-6">
+          <nav className="flex items-center gap-2 mb-4 text-on-surface-variant font-label-sm text-[12px] font-medium">
+            <span className="cursor-pointer hover:text-on-surface" onClick={() => navigate('/home')}>Courses</span>
+            <span className="material-symbols-outlined text-[14px]">chevron_right</span>
+            <span className="text-primary">Data Structures</span>
+          </nav>
+          <h1 className="font-headline-xl text-[48px] font-bold mb-4">Data Structures</h1>
+          <p className="text-on-surface-variant max-w-2xl font-body-lg text-[18px]">
+            Master the fundamental principles of procedural programming. From pointer arithmetic to memory management, build a foundation for high-performance engineering.
+          </p>
+        </header>
 
-      <motion.div
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        className="bg-gnosis-card border border-gnosis-border rounded-3xl p-8 mb-10 text-center relative overflow-hidden shadow-lg"
-      >
-        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-gnosis-purple via-gnosis-purple-light to-gnosis-purple"></div>
-
-        <div className="w-16 h-16 mx-auto bg-gnosis-bg rounded-2xl flex items-center justify-center mb-4">
-          <BookOpen className="w-8 h-8 text-gnosis-purple-light" />
+        {/* Progress Display */}
+        <div className="flex items-center gap-8 mb-12 bg-surface-container-low border border-outline-variant/30 p-6 rounded-lg">
+          <div className="flex-1">
+             <div className="flex justify-between items-end mb-2">
+                <span className="font-label-md text-[14px] font-semibold text-primary">Progress</span>
+                <span className="font-label-md text-[14px] font-semibold text-primary">25% (1/4)</span>
+             </div>
+             <div className="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+                <div className="h-full bg-primary" style={{ width: '25%' }}></div>
+             </div>
+          </div>
+          <div className="flex items-center gap-2 border-l border-outline-variant/30 pl-8">
+             <span className="material-symbols-outlined text-tertiary text-3xl">local_fire_department</span>
+             <div>
+                <div className="font-headline-md text-[24px] font-semibold text-on-surface leading-none">42</div>
+                <div className="font-label-sm text-[12px] font-medium text-tertiary uppercase tracking-widest mt-1">Day Streak</div>
+             </div>
+          </div>
         </div>
 
-        <h1 className="text-3xl font-black mb-2 tracking-tight">Data Structures</h1>
-        <p className="text-gnosis-muted font-medium mb-6">Master the fundamental building blocks of computer science.</p>
+        {/* Vertical Stacked Cards */}
+        <div className="space-y-6">
 
-        <div className="flex justify-center items-center gap-8">
-          <div className="text-center">
-            <div className="text-3xl font-black text-gnosis-green">2/5</div>
-            <div className="text-xs text-gnosis-muted uppercase tracking-wider font-bold mt-1">Completed</div>
-          </div>
-          <div className="w-px h-10 bg-gnosis-border"></div>
-          <div className="text-center">
-            <div className="text-3xl font-black text-gnosis-purple-light">40%</div>
-            <div className="text-xs text-gnosis-muted uppercase tracking-wider font-bold mt-1">Progress</div>
-          </div>
-        </div>
-      </motion.div>
-
-      <div className="space-y-4 relative">
-        {/* Connection line behind levels */}
-        <div className="absolute left-[2.25rem] top-8 bottom-8 w-1.5 bg-gnosis-border -z-10 hidden sm:block rounded-full"></div>
-
-        {levels.map((level, idx) => (
-          <motion.div
-            key={level.id}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: idx * 0.1 }}
-            className="flex items-center gap-4 sm:gap-6"
-          >
-
-            {/* Timeline Node */}
-            <div className={`hidden sm:flex w-16 h-16 rounded-2xl border-4 items-center justify-center bg-gnosis-bg z-10 shrink-0 transition-colors
-              ${level.status === 'completed' ? 'border-gnosis-green text-gnosis-green' :
-                level.status === 'current' ? 'border-gnosis-purple text-gnosis-purple-light shadow-[0_0_15px_rgba(124,58,237,0.5)]' :
-                'border-gnosis-border text-gnosis-muted'}
-            `}>
-              {level.status === 'completed' ? <CheckCircle className="w-6 h-6" /> :
-               level.status === 'current' ? <Play className="w-6 h-6 ml-1 fill-current" /> :
-               <Lock className="w-6 h-6" />}
+          {/* Level 1: Unlocked */}
+          <div className="relative group bg-surface-container-low border border-outline-variant/30 hover:border-primary/40 transition-all duration-300 p-8 rounded-lg shadow-sm">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div className="flex items-start gap-6">
+                <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-primary/10 border border-primary/20 text-primary rounded-full">
+                  <span className="font-headline-md text-[24px] font-semibold">1</span>
+                </div>
+                <div>
+                  <div className="flex items-center gap-3 mb-1">
+                    <h3 className="font-headline-md text-[24px] font-semibold text-on-surface">Arrays & Strings</h3>
+                    <span className="bg-secondary-container/20 text-secondary px-2 py-1 rounded font-label-sm text-[12px] font-medium">CURRENT</span>
+                  </div>
+                  <div className="flex flex-wrap items-center gap-4 text-on-surface-variant font-label-md text-[14px] font-semibold">
+                    <span className="flex items-center gap-1.5">
+                      <span className="material-symbols-outlined text-[18px]">schedule</span> 15 min
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <span className="material-symbols-outlined text-[18px] text-tertiary">stars</span> 250 XP
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <button
+                onClick={() => navigate('/lesson/1')}
+                className="bg-primary text-on-primary px-8 py-3 font-label-md text-[14px] font-semibold uppercase tracking-wider hover:bg-primary-container transition-colors active:scale-95 rounded"
+              >
+                Start Session
+              </button>
             </div>
+          </div>
 
-            {/* Level Card */}
-            <Link
-              to={level.status !== 'locked' ? `/lesson/${level.id}` : '#'}
-              className={`flex-1 p-6 rounded-2xl border-2 transition-all flex items-center justify-between
-                ${level.status === 'locked' ? 'bg-gnosis-card/50 border-gnosis-border/50 opacity-75 cursor-not-allowed' :
-                  level.status === 'current' ? 'bg-gnosis-card border-gnosis-purple hover:bg-gnosis-purple/5' :
-                  'bg-gnosis-card border-gnosis-border hover:border-gnosis-purple-light'}
-              `}
-            >
-              <div>
-                <div className="text-xs font-black text-gnosis-purple-light mb-1 tracking-wider">LESSON {level.id}</div>
-                <h3 className={`text-xl font-bold ${level.status === 'locked' ? 'text-gnosis-muted' : 'text-gnosis-text'}`}>
-                  {level.name}
-                </h3>
+          {/* Level 2: Locked */}
+          <div className="relative bg-surface-container-low/40 border border-outline-variant/10 p-8 rounded-lg opacity-60 grayscale-[0.5]">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div className="flex items-start gap-6">
+                <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center border border-outline-variant/30 text-on-surface-variant rounded-full">
+                  <span className="font-headline-md text-[24px] font-semibold">2</span>
+                </div>
+                <div>
+                  <h3 className="font-headline-md text-[24px] font-semibold text-on-surface mb-1">Hash Maps</h3>
+                  <div className="flex flex-wrap items-center gap-4 text-on-surface-variant font-label-md text-[14px] font-semibold">
+                    <span className="flex items-center gap-1.5">
+                      <span className="material-symbols-outlined text-[18px]">schedule</span> 25 min
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <span className="material-symbols-outlined text-[18px]">stars</span> 400 XP
+                    </span>
+                  </div>
+                </div>
               </div>
+              <div className="flex items-center gap-2 text-on-surface-variant font-label-md text-[14px] font-semibold">
+                <span className="material-symbols-outlined">lock</span> Locked
+              </div>
+            </div>
+          </div>
 
-              <div className="hidden sm:block">
-                {level.status === 'completed' && <span className="bg-gnosis-green/10 text-gnosis-green font-bold px-3 py-1 rounded-lg text-sm">Done</span>}
-                {level.status === 'current' && <span className="bg-gnosis-purple/10 text-gnosis-purple-light font-bold px-3 py-1 rounded-lg text-sm">Active</span>}
+          {/* Level 3: Locked */}
+          <div className="relative bg-surface-container-low/40 border border-outline-variant/10 p-8 rounded-lg opacity-60 grayscale-[0.5]">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div className="flex items-start gap-6">
+                <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center border border-outline-variant/30 text-on-surface-variant rounded-full">
+                  <span className="font-headline-md text-[24px] font-semibold">3</span>
+                </div>
+                <div>
+                  <h3 className="font-headline-md text-[24px] font-semibold text-on-surface mb-1">Linked Lists</h3>
+                  <div className="flex flex-wrap items-center gap-4 text-on-surface-variant font-label-md text-[14px] font-semibold">
+                    <span className="flex items-center gap-1.5">
+                      <span className="material-symbols-outlined text-[18px]">schedule</span> 30 min
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <span className="material-symbols-outlined text-[18px]">stars</span> 500 XP
+                    </span>
+                  </div>
+                </div>
               </div>
-            </Link>
-          </motion.div>
-        ))}
-      </div>
+              <div className="flex items-center gap-2 text-on-surface-variant font-label-md text-[14px] font-semibold">
+                <span className="material-symbols-outlined">lock</span> Locked
+              </div>
+            </div>
+          </div>
+
+          {/* Level 4: Locked */}
+          <div className="relative bg-surface-container-low/40 border border-outline-variant/10 p-8 rounded-lg opacity-60 grayscale-[0.5]">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div className="flex items-start gap-6">
+                <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center border border-outline-variant/30 text-on-surface-variant rounded-full">
+                  <span className="font-headline-md text-[24px] font-semibold">4</span>
+                </div>
+                <div>
+                  <h3 className="font-headline-md text-[24px] font-semibold text-on-surface mb-1">Trees & Graphs</h3>
+                  <div className="flex flex-wrap items-center gap-4 text-on-surface-variant font-label-md text-[14px] font-semibold">
+                    <span className="flex items-center gap-1.5">
+                      <span className="material-symbols-outlined text-[18px]">schedule</span> 45 min
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <span className="material-symbols-outlined text-[18px]">stars</span> 750 XP
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 text-on-surface-variant font-label-md text-[14px] font-semibold">
+                <span className="material-symbols-outlined">lock</span> Locked
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </main>
     </div>
   );
 }

@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "../components/Layout";
 import { useAuthStore } from "../lib/store";
+import { createSocket } from "../lib/socket";
 
 export default function HostLobby() {
   const navigate = useNavigate();
+  const { user } = useAuthStore();
+  const socketRef = useRef(null);
   const [questions, setQuestions] = useState([]);
+  const [quizName, setQuizName] = useState("Group Quiz");
+  const [error, setError] = useState("");
   const [currentQ, setCurrentQ] = useState({
     text: "",
     a: "",
@@ -14,6 +19,20 @@ export default function HostLobby() {
     d: "",
     correct: "A",
   });
+
+  useEffect(() => {
+    if (!user?.id) return undefined;
+    const socket = createSocket(user);
+    socketRef.current = socket;
+
+    socket.on("group:created", ({ roomCode }) => {
+      navigate(`/battle/lobby/${roomCode}?host=1`);
+    });
+
+    socket.on("battle:error", ({ message }) => setError(message));
+
+    return () => socket.disconnect();
+  }, [navigate, user]);
 
   const handleAdd = () => {
     if (currentQ.text && currentQ.a && currentQ.b && currentQ.c && currentQ.d) {
@@ -26,31 +45,45 @@ export default function HostLobby() {
           option_c: currentQ.c,
           option_d: currentQ.d,
           correct_options: [currentQ.correct],
-          question_type: "single_correct",
-          timer_seconds: 15,
+          question_type: "easy",
+          timer_seconds: 20,
+          explanation: "",
         },
       ]);
       setCurrentQ({ text: "", a: "", b: "", c: "", d: "", correct: "A" });
+      setError("");
     }
   };
 
   const handleCreate = () => {
-    // In a full app, we would emit 'group:create' here with the Socket
-    // For now we simulate navigation to the lobby room screen
-    const fakeCode = "X7B9WQ";
-    navigate(`/battle/lobby/${fakeCode}`);
+    if (!socketRef.current || questions.length === 0) return;
+    socketRef.current.emit("group:create", {
+      hostId: user.id,
+      hostUsername: user.username,
+      quizName,
+      questions,
+    });
   };
 
   return (
     <Layout>
-      <div className="p-4 md:p-8 max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold text-inverse-surface mb-8">
+      <div className="mx-auto max-w-4xl p-4 md:p-8">
+        <h1 className="mb-8 text-3xl font-bold text-inverse-surface">
           Host Setup
         </h1>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="bg-white p-6 rounded-3xl shadow-soft border border-surface-variant">
-            <h2 className="text-xl font-bold mb-4 text-inverse-surface">
+        <div className="mb-6 rounded-2xl border border-surface-variant bg-white p-4">
+          <input
+            value={quizName}
+            onChange={(e) => setQuizName(e.target.value)}
+            placeholder="Quiz name"
+            className="w-full rounded-xl border-2 border-surface-variant p-3 font-bold outline-none focus:border-primary"
+          />
+        </div>
+
+        <div className="grid gap-8 md:grid-cols-2">
+          <div className="rounded-3xl border border-surface-variant bg-white p-6 shadow-soft">
+            <h2 className="mb-4 text-xl font-bold text-inverse-surface">
               Add Question
             </h2>
             <div className="space-y-4">
@@ -60,48 +93,27 @@ export default function HostLobby() {
                   setCurrentQ({ ...currentQ, text: e.target.value })
                 }
                 placeholder="Question Text"
-                className="w-full p-3 border-2 border-surface-variant rounded-xl"
+                className="w-full rounded-xl border-2 border-surface-variant p-3"
               />
               <div className="grid grid-cols-2 gap-2">
-                <input
-                  value={currentQ.a}
-                  onChange={(e) =>
-                    setCurrentQ({ ...currentQ, a: e.target.value })
-                  }
-                  placeholder="Option A"
-                  className="p-3 border-2 border-surface-variant rounded-xl"
-                />
-                <input
-                  value={currentQ.b}
-                  onChange={(e) =>
-                    setCurrentQ({ ...currentQ, b: e.target.value })
-                  }
-                  placeholder="Option B"
-                  className="p-3 border-2 border-surface-variant rounded-xl"
-                />
-                <input
-                  value={currentQ.c}
-                  onChange={(e) =>
-                    setCurrentQ({ ...currentQ, c: e.target.value })
-                  }
-                  placeholder="Option C"
-                  className="p-3 border-2 border-surface-variant rounded-xl"
-                />
-                <input
-                  value={currentQ.d}
-                  onChange={(e) =>
-                    setCurrentQ({ ...currentQ, d: e.target.value })
-                  }
-                  placeholder="Option D"
-                  className="p-3 border-2 border-surface-variant rounded-xl"
-                />
+                {["a", "b", "c", "d"].map((key) => (
+                  <input
+                    key={key}
+                    value={currentQ[key]}
+                    onChange={(e) =>
+                      setCurrentQ({ ...currentQ, [key]: e.target.value })
+                    }
+                    placeholder={`Option ${key.toUpperCase()}`}
+                    className="rounded-xl border-2 border-surface-variant p-3"
+                  />
+                ))}
               </div>
               <select
                 value={currentQ.correct}
                 onChange={(e) =>
                   setCurrentQ({ ...currentQ, correct: e.target.value })
                 }
-                className="w-full p-3 border-2 border-surface-variant rounded-xl font-bold"
+                className="w-full rounded-xl border-2 border-surface-variant p-3 font-bold"
               >
                 <option value="A">Correct: A</option>
                 <option value="B">Correct: B</option>
@@ -110,41 +122,40 @@ export default function HostLobby() {
               </select>
               <button
                 onClick={handleAdd}
-                className="w-full py-3 bg-surface-variant text-inverse-surface font-bold rounded-xl hover:bg-surface-dim"
+                className="w-full rounded-xl bg-surface-variant py-3 font-bold text-inverse-surface hover:bg-surface-dim"
               >
                 Add to Quiz
               </button>
             </div>
           </div>
 
-          <div>
-            <div className="bg-white p-6 rounded-3xl shadow-soft border border-surface-variant h-full flex flex-col">
-              <h2 className="text-xl font-bold mb-4 text-inverse-surface">
-                Quiz Summary
-              </h2>
-              <div className="flex-1 overflow-auto space-y-2">
-                {questions.map((q, i) => (
-                  <div
-                    key={i}
-                    className="p-3 bg-surface rounded-xl border border-surface-variant text-sm font-medium"
-                  >
-                    {i + 1}. {q.question_text}
-                  </div>
-                ))}
-                {questions.length === 0 && (
-                  <p className="text-on-surface-variant text-sm">
-                    No questions added yet.
-                  </p>
-                )}
-              </div>
-              <button
-                onClick={handleCreate}
-                disabled={questions.length === 0}
-                className="mt-4 w-full py-4 bg-primary text-white font-bold rounded-xl disabled:opacity-50"
-              >
-                Generate Room Code
-              </button>
+          <div className="rounded-3xl border border-surface-variant bg-white p-6 shadow-soft">
+            <h2 className="mb-4 text-xl font-bold text-inverse-surface">
+              Quiz Summary
+            </h2>
+            <div className="min-h-64 space-y-2">
+              {questions.map((q, i) => (
+                <div
+                  key={`${q.question_text}-${i}`}
+                  className="rounded-xl border border-surface-variant bg-surface p-3 text-sm font-medium"
+                >
+                  {i + 1}. {q.question_text}
+                </div>
+              ))}
+              {questions.length === 0 && (
+                <p className="text-sm text-on-surface-variant">
+                  No questions added yet.
+                </p>
+              )}
             </div>
+            {error && <p className="mt-3 font-semibold text-error">{error}</p>}
+            <button
+              onClick={handleCreate}
+              disabled={questions.length === 0}
+              className="mt-4 w-full rounded-xl bg-primary py-4 font-bold text-white disabled:opacity-50"
+            >
+              Generate Room Code
+            </button>
           </div>
         </div>
       </div>

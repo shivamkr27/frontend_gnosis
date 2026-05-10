@@ -1,119 +1,221 @@
-import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import Layout from "../components/Layout";
-import { Clock, Trophy, Flame } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import api from "../lib/api";
+import { motion } from "framer-motion";
+import { Trophy } from "lucide-react";
+
+const optionMap = [
+  ["A", "option_a"],
+  ["B", "option_b"],
+  ["C", "option_c"],
+  ["D", "option_d"],
+];
 
 export default function ActiveQuiz() {
-  const { id } = useParams(); // levelId or roomId
+  const { levelId } = useParams();
   const navigate = useNavigate();
-  const [timeLeft, setTimeLeft] = useState(15);
+  const [questions, setQuestions] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [startTime, setStartTime] = useState(Date.now());
+  const [timeLeft, setTimeLeft] = useState(20);
   const [selected, setSelected] = useState(null);
-  const [status, setStatus] = useState("idle"); // idle, correct, incorrect
-  const isBattle = id.startsWith("room-");
+  const [result, setResult] = useState(null);
+  const [totalXp, setTotalXp] = useState(0);
+  const [correctCount, setCorrectCount] = useState(0);
+  const [answers, setAnswers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
-  // Dummy question
-  const question = {
-    text: "What is the time complexity of binary search?",
-    options: [
-      { id: "A", text: "O(n)" },
-      { id: "B", text: "O(n log n)" },
-      { id: "C", text: "O(log n)" },
-      { id: "D", text: "O(1)" },
-    ],
-    correct: "C",
-  };
+  const question = questions[currentIndex];
+  const timerSeconds = question?.timer_seconds || 20;
+
+  const options = useMemo(() => {
+    if (!question) return [];
+    return optionMap.map(([id, key]) => ({ id, text: question[key] }));
+  }, [question]);
 
   useEffect(() => {
-    if (timeLeft > 0 && status === "idle") {
-      const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
-      return () => clearTimeout(timer);
-    } else if (timeLeft === 0 && status === "idle") {
-      handleAnswer("timeout");
+    const fetchQuestions = async () => {
+      try {
+        const res = await api.get(`/content/levels/${levelId}/questions`);
+        setQuestions(res.data);
+        setTimeLeft(res.data[0]?.timer_seconds || 20);
+        setStartTime(Date.now());
+      } catch (err) {
+        setError(err.response?.data?.error || "Failed to load questions.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchQuestions();
+  }, [levelId]);
+
+  const goNext = useCallback(
+    (nextXp, nextCorrect, nextAnswers) => {
+      if (currentIndex >= questions.length - 1) {
+        navigate(`/lesson/${levelId}/complete`, {
+          state: {
+            totalXp: nextXp,
+            correctCount: nextCorrect,
+            totalQuestions: questions.length,
+            answers: nextAnswers,
+          },
+        });
+        return;
+      }
+
+      const nextIndex = currentIndex + 1;
+      const nextQuestion = questions[nextIndex];
+      setCurrentIndex(nextIndex);
+      setSelected(null);
+      setResult(null);
+      setTimeLeft(nextQuestion?.timer_seconds || 20);
+      setStartTime(Date.now());
+    },
+    [currentIndex, levelId, navigate, questions],
+  );
+
+  const submitAnswer = useCallback(
+    async (optionId) => {
+      if (!question || result) return;
+
+      const selectedOptions = optionId ? [optionId] : [];
+      const timeTakenMs = Date.now() - startTime;
+      setSelected(optionId || "timeout");
+
+      try {
+        const res = await api.post(`/content/levels/${levelId}/answer`, {
+          questionId: question.id,
+          selectedOptions,
+          timeTakenMs,
+        });
+
+        const answerResult = res.data;
+        setResult(answerResult);
+
+        const nextXp = totalXp + (answerResult.xpEarned || 0);
+        const nextCorrect = correctCount + (answerResult.correct ? 1 : 0);
+        const nextAnswers = [
+          ...answers,
+          {
+            question,
+            selectedOptions,
+            ...answerResult,
+          },
+        ];
+
+        setTotalXp(nextXp);
+        setCorrectCount(nextCorrect);
+        setAnswers(nextAnswers);
+        setTimeout(() => goNext(nextXp, nextCorrect, nextAnswers), 1200);
+      } catch (err) {
+        setError(err.response?.data?.error || "Failed to submit answer.");
+      }
+    },
+    [
+      answers,
+      correctCount,
+      goNext,
+      levelId,
+      question,
+      result,
+      startTime,
+      totalXp,
+    ],
+  );
+
+  useEffect(() => {
+    if (!question || result) return;
+    if (timeLeft <= 0) {
+      submitAnswer(null);
+      return;
     }
-  }, [timeLeft, status]);
 
-  const handleAnswer = (optionId) => {
-    if (status !== "idle") return;
-    setSelected(optionId);
+    const timer = setTimeout(() => setTimeLeft((value) => value - 1), 1000);
+    return () => clearTimeout(timer);
+  }, [question, result, submitAnswer, timeLeft]);
 
-    if (optionId === question.correct) {
-      setStatus("correct");
-    } else {
-      setStatus("incorrect");
-    }
+  if (loading) {
+    return (
+      <Layout>
+        <div className="flex h-screen items-center justify-center">
+          <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+        </div>
+      </Layout>
+    );
+  }
 
-    setTimeout(() => {
-      navigate(isBattle ? `/battle/results/${id}` : `/lesson/${id}/review`);
-    }, 2000);
-  };
+  if (error || !question) {
+    return (
+      <Layout>
+        <div className="mx-auto max-w-xl p-8 text-center font-bold text-error">
+          {error || "No questions found for this level."}
+        </div>
+      </Layout>
+    );
+  }
 
   return (
     <Layout>
-      <div className="p-4 md:p-8 max-w-3xl mx-auto h-[90vh] flex flex-col">
-        {/* Top Bar */}
-        <div className="flex justify-between items-center mb-8 bg-white p-4 rounded-2xl shadow-sm border border-surface-variant">
+      <div className="mx-auto flex h-[90vh] max-w-3xl flex-col p-4 md:p-8">
+        <div className="mb-8 flex items-center justify-between rounded-2xl border border-surface-variant bg-white p-4 shadow-sm">
           <div className="flex flex-col">
-            <span className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">
-              Question 3/10
+            <span className="text-xs font-bold uppercase tracking-wider text-on-surface-variant">
+              Question {currentIndex + 1}/{questions.length}
             </span>
-            <span className="font-bold text-inverse-surface">Algorithms</span>
+            <span className="font-bold text-inverse-surface">
+              {question.question_type}
+            </span>
           </div>
 
-          {isBattle ? (
-            <div className="flex items-center gap-6 font-bold text-lg">
-              <span className="text-primary">You: 150</span>
-              <span className="text-on-surface-variant">vs</span>
-              <span className="text-secondary">AlexD: 120</span>
-            </div>
-          ) : (
-            <div className="flex items-center gap-2 font-bold text-secondary">
-              <Trophy className="w-5 h-5" /> 150 XP
-            </div>
-          )}
+          <div className="flex items-center gap-2 font-bold text-secondary">
+            <Trophy className="h-5 w-5" /> {totalXp} XP
+          </div>
         </div>
 
-        {/* Timer Bar */}
-        <div className="w-full h-2 bg-surface-container rounded-full overflow-hidden mb-8">
+        <div className="mb-8 h-2 w-full overflow-hidden rounded-full bg-surface-container">
           <motion.div
-            initial={{ width: "100%" }}
-            animate={{ width: `${(timeLeft / 15) * 100}%` }}
-            transition={{ duration: 1, ease: "linear" }}
+            animate={{ width: `${(timeLeft / timerSeconds) * 100}%` }}
+            transition={{ duration: 0.4, ease: "linear" }}
             className={`h-full ${timeLeft <= 3 ? "bg-error" : "bg-primary"}`}
           />
         </div>
 
-        {/* Question Area */}
-        <div className="flex-1 flex flex-col justify-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-inverse-surface mb-10 leading-relaxed text-center">
-            {question.text}
+        <div className="flex flex-1 flex-col justify-center">
+          <h2 className="mb-10 text-center text-2xl font-bold leading-relaxed text-inverse-surface md:text-3xl">
+            {question.question_text}
           </h2>
 
-          <div className="grid sm:grid-cols-2 gap-4">
-            {question.options.map((opt) => {
-              let bg = "bg-white hover:border-primary/50 text-inverse-surface";
-              let border = "border-2 border-surface-variant";
+          <div className="grid gap-4 sm:grid-cols-2">
+            {options.map((opt) => {
+              const isCorrect = result?.correctOptions?.includes(opt.id);
+              const isSelected = selected === opt.id;
+              let stateClass =
+                "border-surface-variant bg-white text-inverse-surface hover:border-primary/50";
 
-              if (status !== "idle") {
-                if (opt.id === question.correct) {
-                  bg = "bg-green-100 text-green-900";
-                  border = "border-2 border-green-500";
-                } else if (opt.id === selected) {
-                  bg = "bg-error-container text-on-error-container";
-                  border = "border-2 border-error";
+              if (result) {
+                if (isCorrect) {
+                  stateClass = "border-green-500 bg-green-100 text-green-900";
+                } else if (isSelected) {
+                  stateClass =
+                    "border-error bg-error-container text-on-error-container";
                 } else {
-                  bg = "bg-surface opacity-50";
+                  stateClass = "border-surface-variant bg-surface opacity-60";
                 }
               }
 
               return (
                 <button
                   key={opt.id}
-                  disabled={status !== "idle"}
-                  onClick={() => handleAnswer(opt.id)}
-                  className={`p-6 rounded-2xl text-lg font-bold text-left transition-all ${bg} ${border} ${status === "idle" ? "hover:-translate-y-1 shadow-sm hover:shadow-md" : ""}`}
+                  disabled={Boolean(result)}
+                  onClick={() => submitAnswer(opt.id)}
+                  className={`rounded-2xl border-2 p-6 text-left text-lg font-bold transition-all ${stateClass} ${
+                    !result ? "shadow-sm hover:-translate-y-1 hover:shadow-md" : ""
+                  }`}
                 >
-                  <span className="inline-block w-8 h-8 rounded-lg bg-surface-variant/50 text-center leading-8 mr-4 text-sm text-on-surface-variant">
+                  <span className="mr-4 inline-block h-8 w-8 rounded-lg bg-surface-variant/50 text-center text-sm leading-8 text-on-surface-variant">
                     {opt.id}
                   </span>
                   {opt.text}
@@ -121,6 +223,21 @@ export default function ActiveQuiz() {
               );
             })}
           </div>
+
+          {result && (
+            <div
+              className={`mt-6 rounded-2xl p-4 font-semibold ${
+                result.correct
+                  ? "bg-green-100 text-green-900"
+                  : "bg-error-container text-on-error-container"
+              }`}
+            >
+              {result.correct ? "Correct" : "Wrong"} · +{result.xpEarned} XP
+              {!result.correct && (
+                <span> · Correct: {result.correctOptions?.join(", ")}</span>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </Layout>

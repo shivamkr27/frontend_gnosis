@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import { useAuthStore, useAppStore } from "./lib/store";
 import api from "./lib/api";
+import { createSocket } from "./lib/socket";
 
 import LandingPage from "./pages/LandingPage";
 import AuthPage from "./pages/AuthPage";
@@ -21,6 +22,8 @@ import ParticipantLobby from "./pages/ParticipantLobby";
 import ActiveQuiz from "./pages/ActiveQuiz";
 import BattleResults from "./pages/BattleResults";
 import ChallengeSent from "./pages/ChallengeSent";
+import LessonComplete from "./pages/LessonComplete";
+import QuizReview from "./pages/QuizReview";
 
 function ProtectedRoute({ children }) {
   const { token } = useAuthStore();
@@ -29,7 +32,7 @@ function ProtectedRoute({ children }) {
 }
 
 function App() {
-  const { token, setUser } = useAuthStore();
+  const { user, token, setUser, logout } = useAuthStore();
   const { setImageMap } = useAppStore();
 
   useEffect(() => {
@@ -48,9 +51,16 @@ function App() {
         })
         .catch((err) => {
           console.error("Failed to fetch user", err);
+          logout();
         });
     }
-  }, [token, setUser]);
+  }, [logout, token, setUser]);
+
+  useEffect(() => {
+    if (!token || !user?.id) return undefined;
+    const socket = createSocket(user);
+    return () => socket.disconnect();
+  }, [token, user]);
 
   return (
     <Router>
@@ -125,10 +135,26 @@ function App() {
             }
           />
           <Route
-            path="/lesson/:id"
+            path="/lesson/:levelId"
             element={
               <ProtectedRoute>
                 <ActiveQuiz />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/lesson/:levelId/complete"
+            element={
+              <ProtectedRoute>
+                <LessonComplete />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/lesson/:levelId/review"
+            element={
+              <ProtectedRoute>
+                <QuizReview />
               </ProtectedRoute>
             }
           />

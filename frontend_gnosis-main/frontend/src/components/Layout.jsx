@@ -51,12 +51,16 @@ export default function Layout({ children }) {
                 `flex flex-col items-center gap-1.5 group ${isActive ? "text-primary" : "text-on-surface-variant hover:text-inverse-surface"}`
               }
             >
-              <div
-                className={`p-3 rounded-2xl transition-all ${isActive ? "bg-primary-container/10" : "group-hover:bg-surface"}`}
-              >
-                {item.icon}
-              </div>
-              <span className="text-xs font-bold">{item.label}</span>
+              {({ isActive }) => (
+                <>
+                  <div
+                    className={`p-3 rounded-2xl transition-all ${isActive ? "bg-primary-container/10" : "group-hover:bg-surface"}`}
+                  >
+                    {item.icon}
+                  </div>
+                  <span className="text-xs font-bold">{item.label}</span>
+                </>
+              )}
             </NavLink>
           ))}
         </div>
@@ -73,12 +77,16 @@ export default function Layout({ children }) {
                 `flex flex-col items-center gap-1 w-16 ${isActive ? "text-primary" : "text-on-surface-variant"}`
               }
             >
-              <div
-                className={`p-1.5 rounded-xl ${isActive ? "bg-primary-container/10" : ""}`}
-              >
-                {item.icon}
-              </div>
-              <span className="text-[10px] font-bold">{item.label}</span>
+              {({ isActive }) => (
+                <>
+                  <div
+                    className={`p-1.5 rounded-xl ${isActive ? "bg-primary-container/10" : ""}`}
+                  >
+                    {item.icon}
+                  </div>
+                  <span className="text-[10px] font-bold">{item.label}</span>
+                </>
+              )}
             </NavLink>
           ))}
         </div>

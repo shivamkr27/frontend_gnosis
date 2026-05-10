@@ -11,6 +11,7 @@ export default function Profile() {
   const { user, logout } = useAuthStore();
   const [profile, setProfile] = useState(null);
   const [progress, setProgress] = useState([]);
+  const [globalRank, setGlobalRank] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -24,8 +25,11 @@ export default function Profile() {
           // profData = res.data;
         }
 
-        const progRes = await api.get(`/progress/${profData.id}`);
-        const contentRes = await api.get("/content/subjects");
+        const [progRes, contentRes, rankRes] = await Promise.all([
+          api.get(`/progress/${profData.id}`),
+          api.get("/content/subjects"),
+          api.get(`/xp/leaderboard/global?currentUserId=${profData.id}`),
+        ]);
 
         const merged = contentRes.data
           .map((cs) => {
@@ -45,6 +49,7 @@ export default function Profile() {
 
         setProfile(profData);
         setProgress(merged);
+        setGlobalRank(rankRes.data.currentUserRank || null);
       } catch (err) {
         console.error(err);
       } finally {
@@ -108,7 +113,7 @@ export default function Profile() {
           <StatCard
             icon={<Star className="text-secondary-container-on" />}
             title="Global Rank"
-            value={"Top 10%"}
+            value={globalRank ? `#${globalRank}` : "-"}
           />
         </div>
 

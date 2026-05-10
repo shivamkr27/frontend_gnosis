@@ -4,26 +4,90 @@ import Layout from "../components/Layout";
 import api from "../lib/api";
 import { useAuthStore } from "../lib/store";
 import { motion, AnimatePresence } from "framer-motion";
-import { Swords, Users, Play, Copy, RefreshCw } from "lucide-react";
+import { Swords, Users, Play, RefreshCw, Search, UserPlus, Inbox } from "lucide-react";
 
 export default function BattleLobby() {
   const [activeTab, setActiveTab] = useState("1v1");
   const [friends, setFriends] = useState([]);
+  const [query, setQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  const [pending, setPending] = useState([]);
+  const [message, setMessage] = useState("");
   const [roomCode, setRoomCode] = useState("");
-  const [quizName, setQuizName] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { user } = useAuthStore();
 
+  const fetchFriends = async () => {
+    setLoading(true);
+    try {
+      const friendsRes = await api.get("/auth/friends");
+      const ids = friendsRes.data.map((friend) => friend.id);
+      const onlineRes = ids.length
+        ? await api.post("/notifications/online/batch", { userIds: ids })
+        : { data: {} };
+
+      setFriends(
+        friendsRes.data.map((friend) => ({
+          ...friend,
+          online: Boolean(onlineRes.data[friend.id]),
+        })),
+      );
+    } catch (err) {
+      console.error(err);
+      setFriends([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const fetchPending = async () => {
+    try {
+      const res = await api.get("/auth/friend-requests/pending");
+      setPending(res.data || []);
+    } catch (err) {
+      console.error(err);
+      setPending([]);
+    }
+  };
+
   useEffect(() => {
-    // In a real app we fetch friends from /auth/friends
-    // For now we'll mock it since we can't easily add friends in the UI yet
-    setFriends([
-      { id: "mock-1", username: "AlexD", total_xp: 4500, online: true },
-      { id: "mock-2", username: "SamuraiX", total_xp: 3200, online: true },
-      { id: "mock-3", username: "PriyaK", total_xp: 5100, online: false },
-    ]);
+    fetchFriends();
+    fetchPending();
   }, []);
+
+  const handleSearch = async () => {
+    if (!query.trim()) return;
+    try {
+      const res = await api.get(`/auth/users/search?q=${encodeURIComponent(query.trim())}`);
+      setSearchResults(res.data || []);
+      setMessage("");
+    } catch (err) {
+      setMessage(err.response?.data?.error || "Search failed");
+    }
+  };
+
+  const sendRequest = async (receiverId) => {
+    try {
+      await api.post("/auth/friend-request", { receiverId });
+      setMessage("Friend request sent");
+      setSearchResults([]);
+      setQuery("");
+    } catch (err) {
+      setMessage(err.response?.data?.error || "Could not send request");
+    }
+  };
+
+  const respondRequest = async (requesterId, action) => {
+    try {
+      await api.post("/auth/friend-request/respond", { requesterId, action });
+      setMessage(action === "accept" ? "Friend added" : "Request declined");
+      fetchPending();
+      fetchFriends();
+    } catch (err) {
+      setMessage(err.response?.data?.error || "Could not update request");
+    }
+  };
 
   const handleCreateGroup = () => {
     navigate("/battle/host");
@@ -82,12 +146,112 @@ export default function BattleLobby() {
               >
                 <h2 className="text-xl font-bold text-inverse-surface mb-6 flex justify-between items-center">
                   Challenge Friends
-                  <button className="text-primary hover:bg-primary-container/10 p-2 rounded-full transition-colors">
+                  <button
+                    onClick={fetchFriends}
+                    className="text-primary hover:bg-primary-container/10 p-2 rounded-full transition-colors"
+                  >
                     <RefreshCw className="w-5 h-5" />
                   </button>
                 </h2>
 
-                {friends.map((friend) => (
+                <div className="rounded-2xl border border-surface-variant bg-surface p-4">
+                  <div className="mb-3 flex items-center gap-2 font-bold text-inverse-surface">
+                    <UserPlus className="h-5 w-5 text-primary" /> Add Friend
+                  </div>
+                  <div className="flex gap-2">
+                    <input
+                      value={query}
+                      onChange={(e) => setQuery(e.target.value)}
+                      onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+                      placeholder="Search username"
+                      className="min-w-0 flex-1 rounded-xl border-2 border-surface-variant bg-white px-4 py-3 font-semibold outline-none focus:border-primary"
+                    />
+                    <button
+                      onClick={handleSearch}
+                      className="rounded-xl bg-primary px-4 font-bold text-white"
+                    >
+                      <Search className="h-5 w-5" />
+                    </button>
+                  </div>
+                  {message && (
+                    <p className="mt-3 text-sm font-semibold text-on-surface-variant">
+                      {message}
+                    </p>
+                  )}
+                  {searchResults.length > 0 && (
+                    <div className="mt-3 space-y-2">
+                      {searchResults.map((result) => (
+                        <div
+                          key={result.id}
+                          className="flex items-center justify-between rounded-xl bg-white p-3"
+                        >
+                          <div>
+                            <p className="font-bold text-inverse-surface">
+                              {result.username}
+                            </p>
+                            <p className="text-sm font-semibold text-primary">
+                              {result.total_xp} XP
+                            </p>
+                          </div>
+                          <button
+                            onClick={() => sendRequest(result.id)}
+                            className="rounded-lg bg-secondary px-4 py-2 font-bold text-white"
+                          >
+                            Add
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {pending.length > 0 && (
+                  <div className="rounded-2xl border border-surface-variant bg-surface p-4">
+                    <div className="mb-3 flex items-center gap-2 font-bold text-inverse-surface">
+                      <Inbox className="h-5 w-5 text-secondary" /> Pending Requests
+                    </div>
+                    <div className="space-y-2">
+                      {pending.map((request) => (
+                        <div
+                          key={request.id}
+                          className="flex items-center justify-between rounded-xl bg-white p-3"
+                        >
+                          <p className="font-bold text-inverse-surface">
+                            {request.requester.username}
+                          </p>
+                          <div className="flex gap-2">
+                            <button
+                              onClick={() => respondRequest(request.requester.id, "accept")}
+                              className="rounded-lg bg-primary px-3 py-2 text-sm font-bold text-white"
+                            >
+                              Accept
+                            </button>
+                            <button
+                              onClick={() => respondRequest(request.requester.id, "reject")}
+                              className="rounded-lg bg-surface-variant px-3 py-2 text-sm font-bold text-inverse-surface"
+                            >
+                              Reject
+                            </button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {loading && (
+                  <div className="flex h-32 items-center justify-center">
+                    <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+                  </div>
+                )}
+
+                {!loading && friends.length === 0 && (
+                  <p className="rounded-2xl bg-surface p-6 text-center font-semibold text-on-surface-variant">
+                    No friends found.
+                  </p>
+                )}
+
+                {!loading && friends.map((friend) => (
                   <div
                     key={friend.id}
                     className="flex items-center justify-between p-4 rounded-2xl bg-surface border border-surface-variant"

@@ -5,31 +5,53 @@ import { useAuthStore } from "../lib/store";
 import { motion } from "framer-motion";
 
 export default function Leaderboard() {
+  const [activeTab, setActiveTab] = useState("global");
   const [board, setBoard] = useState([]);
   const [loading, setLoading] = useState(true);
   const { user } = useAuthStore();
 
   useEffect(() => {
+    if (!user) return;
+
     const fetchLeaderboard = async () => {
+      setLoading(true);
       try {
-        const res = await api.get(
-          `/xp/leaderboard/global?currentUserId=${user?.id}`,
-        );
-        setBoard(res.data.leaderboard);
+        if (activeTab === "global") {
+          const res = await api.get(
+            `/xp/leaderboard/global?currentUserId=${user.id}`,
+          );
+          setBoard(res.data.leaderboard || []);
+        } else {
+          const friendsRes = await api.get("/auth/friends");
+          const friendIds = [
+            user.id,
+            ...friendsRes.data.map((friend) => friend.id),
+          ].join(",");
+          const res = await api.get(
+            `/xp/leaderboard/friends?userId=${user.id}&friendIds=${friendIds}`,
+          );
+          setBoard(
+            res.data.map((entry) => ({
+              ...entry,
+              xp: entry.totalXp,
+            })),
+          );
+        }
       } catch (err) {
         console.error(err);
+        setBoard([]);
       } finally {
         setLoading(false);
       }
     };
-    fetchLeaderboard();
-  }, [user]);
 
-  // Generate countdown string for "Sunday reset"
+    fetchLeaderboard();
+  }, [activeTab, user]);
+
   const getNextReset = () => {
     const now = new Date();
     const target = new Date();
-    target.setDate(now.getDate() + ((7 - now.getDay()) % 7)); // Next Sunday
+    target.setDate(now.getDate() + ((7 - now.getDay()) % 7));
     target.setHours(23, 59, 59, 999);
 
     const diff = target - now;
@@ -40,69 +62,78 @@ export default function Leaderboard() {
     return `${d}d ${h}h until reset`;
   };
 
-  if (loading)
-    return (
-      <Layout>
-        <div className="flex justify-center items-center h-screen">
-          <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
-        </div>
-      </Layout>
-    );
-
   return (
     <Layout>
-      <div className="p-4 md:p-8 max-w-4xl mx-auto">
-        <div className="text-center mb-10">
-          <h1 className="text-4xl font-bold text-inverse-surface mb-3 tracking-tight">
+      <div className="mx-auto max-w-4xl p-4 md:p-8">
+        <div className="mb-8 text-center">
+          <h1 className="mb-3 text-4xl font-bold tracking-tight text-inverse-surface">
             League of Scholars
           </h1>
-          <div className="inline-block px-4 py-2 bg-surface-variant rounded-full text-on-surface-variant font-bold text-sm">
+          <div className="inline-block rounded-full bg-surface-variant px-4 py-2 text-sm font-bold text-on-surface-variant">
             {getNextReset()}
           </div>
         </div>
 
-        <div className="bg-white rounded-3xl p-4 md:p-8 shadow-soft border border-surface-variant">
-          <div className="space-y-2">
-            {board.map((entry, idx) => (
-              <motion.div
-                key={entry.userId}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: idx * 0.05 }}
-                className={`flex items-center gap-4 p-4 rounded-2xl ${entry.userId === user?.id ? "bg-primary-container/10 border-primary border" : "bg-surface hover:bg-surface-container transition-colors"}`}
-              >
-                <div
-                  className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg ${
-                    idx === 0
-                      ? "bg-secondary-container text-secondary-container-on"
-                      : idx === 1
-                        ? "bg-surface-variant text-on-surface-variant"
-                        : idx === 2
-                          ? "bg-primary-fixed text-primary-fixed-on"
-                          : "bg-transparent text-on-surface-variant"
+        <div className="mx-auto mb-8 flex max-w-sm rounded-2xl bg-surface-variant p-1">
+          {["global", "friends"].map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              className={`flex-1 rounded-xl py-3 text-sm font-bold capitalize transition-colors ${
+                activeTab === tab
+                  ? "bg-white text-inverse-surface shadow-sm"
+                  : "text-on-surface-variant"
+              }`}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
+
+        <div className="rounded-3xl border border-surface-variant bg-white p-4 shadow-soft md:p-8">
+          {loading ? (
+            <div className="flex h-64 items-center justify-center">
+              <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+            </div>
+          ) : board.length === 0 ? (
+            <p className="p-8 text-center font-semibold text-on-surface-variant">
+              No leaderboard entries yet.
+            </p>
+          ) : (
+            <div className="space-y-2">
+              {board.map((entry, idx) => (
+                <motion.div
+                  key={`${entry.userId}-${activeTab}`}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: idx * 0.05 }}
+                  className={`flex items-center gap-4 rounded-2xl p-4 ${
+                    entry.userId === user?.id
+                      ? "border border-primary bg-primary-container/10"
+                      : "bg-surface transition-colors hover:bg-surface-container"
                   }`}
                 >
-                  {entry.rank}
-                </div>
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-surface-variant text-lg font-bold text-on-surface-variant">
+                    {entry.rank}
+                  </div>
 
-                <div className="w-12 h-12 bg-tertiary-container rounded-full flex items-center justify-center text-white font-bold uppercase overflow-hidden">
-                  {entry.username.substring(0, 2)}
-                </div>
+                  <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-tertiary-container font-bold uppercase text-white">
+                    {entry.username.substring(0, 2)}
+                  </div>
 
-                <div className="flex-1">
-                  <h3 className="font-bold text-inverse-surface text-lg">
-                    {entry.username}
-                  </h3>
-                </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold text-inverse-surface">
+                      {entry.username}
+                    </h3>
+                  </div>
 
-                <div className="text-right">
-                  <div className="font-bold text-primary text-xl">
+                  <div className="text-right text-xl font-bold text-primary">
                     {entry.xp} XP
                   </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                </motion.div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </Layout>

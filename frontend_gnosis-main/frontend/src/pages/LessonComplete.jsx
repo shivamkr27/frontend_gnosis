@@ -1,54 +1,144 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import { Award, ArrowRight } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import Layout from "../components/Layout";
+import api from "../lib/api";
+import { useAuthStore } from "../lib/store";
+import { ArrowRight, Award, Flame, ListChecks, Trophy } from "lucide-react";
 
-const LessonComplete = () => {
+export default function LessonComplete() {
+  const { levelId } = useParams();
+  const location = useLocation();
+  const { state } = location;
   const navigate = useNavigate();
+  const { user, setUser } = useAuthStore();
+  const [streak, setStreak] = useState(null);
+  const [status, setStatus] = useState("Saving progress...");
+  const savedRef = useRef(false);
+
+  const totalXp = Number(state?.totalXp || 0);
+  const correctCount = Number(state?.correctCount || 0);
+  const totalQuestions = Number(state?.totalQuestions || 10);
+  const hasAnswers = Array.isArray(state?.answers) && state.answers.length > 0;
+
+  useEffect(() => {
+    if (state?.saved) {
+      setStatus("Progress saved");
+      return;
+    }
+
+    if (!user || !levelId || savedRef.current) return;
+    savedRef.current = true;
+
+    const saveCompletion = async () => {
+      try {
+        const levelRes = await api.get(`/content/levels/${levelId}`);
+        const subjectId = levelRes.data.subject_id;
+
+        await api.post("/xp/award", {
+          userId: user.id,
+          username: user.username,
+          amount: totalXp,
+          source: "lesson",
+          scope: "global",
+        });
+
+        await api.post("/progress/complete-level", {
+          userId: user.id,
+          levelId,
+          subjectId,
+          xpEarned: totalXp,
+        });
+
+        const [streakRes, meRes] = await Promise.all([
+          api.get(`/progress/${user.id}/streak`),
+          api.get("/auth/me"),
+        ]);
+        setStreak(streakRes.data);
+        setUser(meRes.data);
+        setStatus("Progress saved");
+        navigate(`/lesson/${levelId}/complete`, {
+          replace: true,
+          state: { ...state, saved: true },
+        });
+      } catch (err) {
+        setStatus(err.response?.data?.error || "Could not save progress");
+      }
+    };
+
+    saveCompletion();
+  }, [levelId, navigate, setUser, state, totalXp, user]);
 
   return (
-    <div className="min-h-screen bg-[#fbf8f1] flex flex-col items-center justify-center p-8 font-sans">
-      <div className="max-w-2xl w-full bg-white rounded-3xl shadow-lg border border-[#e5dfd3] p-12 text-center relative overflow-hidden">
-        {/* Confetti-like background elements */}
-        <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20">
-          <div className="absolute top-10 left-10 w-4 h-4 bg-orange-500 rounded-full"></div>
-          <div className="absolute top-20 right-20 w-3 h-3 bg-blue-500 rotate-45"></div>
-          <div className="absolute bottom-20 left-32 w-5 h-5 bg-yellow-500 rounded-full"></div>
-          <div className="absolute bottom-10 right-10 w-4 h-4 bg-green-500 rotate-12"></div>
-        </div>
+    <Layout>
+      <div className="flex min-h-screen items-center justify-center p-8">
+        <div className="relative w-full max-w-2xl overflow-hidden rounded-3xl border border-surface-variant bg-white p-10 text-center shadow-xl">
+          <div className="relative z-10">
+            <div className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-primary-fixed text-primary">
+              <Award size={48} />
+            </div>
 
-        <div className="relative z-10">
-          <div className="w-24 h-24 bg-orange-100 text-orange-500 rounded-full flex items-center justify-center mx-auto mb-6">
-            <Award size={48} />
-          </div>
+            <h1 className="mb-2 text-4xl font-bold text-inverse-surface">
+              Lesson Complete
+            </h1>
+            <p className="mb-8 text-lg text-on-surface-variant">{status}</p>
 
-          <h1 className="text-4xl font-bold text-[#1f2937] mb-2">
-            Lesson Complete!
-          </h1>
-          <p className="text-[#6b7280] text-lg mb-10">
-            Excellent work mastering this module.
-          </p>
+            <div className="mx-auto mb-8 grid max-w-md grid-cols-2 gap-4">
+              <div className="rounded-2xl border border-surface-variant bg-surface p-5">
+                <Trophy className="mx-auto mb-2 h-6 w-6 text-secondary" />
+                <p className="text-xs font-bold uppercase tracking-wider text-on-surface-variant">
+                  XP Earned
+                </p>
+                <p className="text-3xl font-black text-primary">+{totalXp}</p>
+              </div>
 
-          <div className="bg-[#fbf8f1] border border-[#e5dfd3] rounded-2xl p-8 mb-10 max-w-sm mx-auto">
-            <p className="text-[#6b7280] font-medium mb-2 uppercase tracking-widest text-sm">
-              Experience Gained
-            </p>
-            <p className="text-4xl font-black text-orange-600 mb-2">+150 XP</p>
-            <div className="flex justify-center items-center gap-2 text-sm font-bold text-[#1f2937] bg-white w-max mx-auto px-3 py-1 rounded-full border border-[#e5dfd3]">
-              <span className="text-orange-500 text-lg">🔥</span> 1-Day Streak
-              Bonus
+              <div className="rounded-2xl border border-surface-variant bg-surface p-5">
+                <Flame className="mx-auto mb-2 h-6 w-6 text-primary" />
+                <p className="text-xs font-bold uppercase tracking-wider text-on-surface-variant">
+                  Streak
+                </p>
+                <p className="text-3xl font-black text-inverse-surface">
+                  {streak?.streakCount ?? user?.streak_count ?? 0}
+                </p>
+              </div>
+            </div>
+
+            <div className="mx-auto mb-8 max-w-md rounded-2xl bg-surface p-5">
+              <div className="mb-2 flex justify-between font-bold">
+                <span>Correct Answers</span>
+                <span className="text-primary">
+                  {correctCount}/{totalQuestions}
+                </span>
+              </div>
+              <div className="h-3 overflow-hidden rounded-full bg-surface-container">
+                <div
+                  className="h-full bg-gradient-to-r from-secondary-container to-primary"
+                  style={{
+                    width: `${(correctCount / Math.max(totalQuestions, 1)) * 100}%`,
+                  }}
+                />
+              </div>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-2">
+              {hasAnswers && (
+                <button
+                  onClick={() => navigate(`/lesson/${levelId}/review`, { state })}
+                  className="flex w-full items-center justify-center gap-2 rounded-xl border border-primary bg-white py-4 text-lg font-bold text-primary transition-colors hover:bg-primary-fixed"
+                >
+                  Review Answers <ListChecks size={22} />
+                </button>
+              )}
+
+              <button
+                onClick={() => navigate("/home")}
+                className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-4 text-lg font-bold text-white shadow-soft transition-colors hover:bg-primary-container"
+              >
+                Continue Path <ArrowRight size={22} />
+              </button>
             </div>
           </div>
-
-          <button
-            onClick={() => navigate("/subject/1")}
-            className="w-full bg-gradient-to-r from-orange-500 to-amber-500 text-white py-4 rounded-xl font-bold text-xl hover:from-orange-600 hover:to-amber-600 transition-all flex items-center justify-center gap-2 shadow-md"
-          >
-            Continue <ArrowRight size={24} />
-          </button>
         </div>
       </div>
-    </div>
+    </Layout>
   );
-};
-
-export default LessonComplete;
+}

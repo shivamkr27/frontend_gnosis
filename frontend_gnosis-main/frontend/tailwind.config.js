@@ -7,6 +7,13 @@ export default {
   theme: {
     extend: {
       colors: {
+        brand: {
+          bg: '#FAF7F2',
+          primary: '#8B2500',
+          accent: '#D4641A',
+          text: '#1A1A1A',
+          muted: '#6B6B6B'
+        },
         surface: {
           DEFAULT: '#fbf9f4',
           dim: '#dbdad5',

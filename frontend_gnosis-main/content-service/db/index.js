@@ -57,6 +57,22 @@ async function initialize() {
         created_at TIMESTAMP DEFAULT NOW()
       )
     `);
+
+    // Remove duplicates keeping the lowest ID and add Unique Constraint
+    await client.query(`
+        DELETE FROM questions a
+        USING questions b
+        WHERE a.id > b.id
+        AND a.level_id = b.level_id
+        AND a.question_text = b.question_text;
+    `);
+
+    await client.query(`
+      ALTER TABLE questions ADD CONSTRAINT unique_question UNIQUE (level_id, question_text);
+    `);
+
+  } catch(e) {
+    console.error('Migration failed or constraint already exists', e);
   } finally {
     client.release();
   }

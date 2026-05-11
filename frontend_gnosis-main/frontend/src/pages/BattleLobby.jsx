@@ -1,92 +1,133 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "../components/Layout";
-import api from "../lib/api";
 import { useAuthStore } from "../lib/store";
+import api from "../lib/api";
+import { Users, Play, Search, UserPlus, Inbox, RefreshCw } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Swords, Users, Play, RefreshCw, Search, UserPlus, Inbox } from "lucide-react";
 
 export default function BattleLobby() {
+  const navigate = useNavigate();
+  const { user } = useAuthStore();
   const [activeTab, setActiveTab] = useState("1v1");
   const [friends, setFriends] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [roomCode, setRoomCode] = useState("");
+
+  // Friend Management State
   const [query, setQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [pending, setPending] = useState([]);
   const [message, setMessage] = useState("");
-  const [roomCode, setRoomCode] = useState("");
-  const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
-  const { user } = useAuthStore();
+
+  // Subject Selection Modal State
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedFriend, setSelectedFriend] = useState(null);
+  const [subjects, setSubjects] = useState([]);
+  const [selectedSubjectId, setSelectedSubjectId] = useState("");
+
+  useEffect(() => {
+    fetchFriends();
+    fetchPendingRequests();
+    fetchSubjects();
+  }, []);
 
   const fetchFriends = async () => {
     setLoading(true);
     try {
-      const friendsRes = await api.get("/auth/friends");
-      const ids = friendsRes.data.map((friend) => friend.id);
-      const onlineRes = ids.length
-        ? await api.post("/notifications/online/batch", { userIds: ids })
-        : { data: {} };
+      const res = await api.get("/auth/friends");
+      const friendsData = res.data;
 
-      setFriends(
-        friendsRes.data.map((friend) => ({
-          ...friend,
-          online: Boolean(onlineRes.data[friend.id]),
-        })),
-      );
+      // Batch online status check
+      if (friendsData.length > 0) {
+        const userIds = friendsData.map(f => f.id);
+        const onlineRes = await api.post('/notifications/online/batch', { userIds });
+        const onlineStatusMap = onlineRes.data;
+
+        const friendsWithStatus = friendsData.map(f => ({
+          ...f,
+          online: onlineStatusMap[f.id] || false
+        }));
+        setFriends(friendsWithStatus);
+      } else {
+        setFriends([]);
+      }
     } catch (err) {
       console.error(err);
-      setFriends([]);
     } finally {
       setLoading(false);
     }
   };
 
-  const fetchPending = async () => {
+  const fetchPendingRequests = async () => {
     try {
       const res = await api.get("/auth/friend-requests/pending");
-      setPending(res.data || []);
+      setPending(res.data);
     } catch (err) {
       console.error(err);
-      setPending([]);
     }
   };
 
-  useEffect(() => {
-    fetchFriends();
-    fetchPending();
-  }, []);
+  const fetchSubjects = async () => {
+    try {
+      const res = await api.get("/content/subjects");
+      setSubjects(Array.isArray(res.data) ? res.data : res.data.subjects);
+    } catch(err) {
+      console.error(err);
+    }
+  };
 
   const handleSearch = async () => {
-    if (!query.trim()) return;
+    if (!query) return;
     try {
-      const res = await api.get(`/auth/users/search?q=${encodeURIComponent(query.trim())}`);
-      setSearchResults(res.data || []);
+      const res = await api.get(`/auth/users/search?q=${query}`);
+      setSearchResults(res.data);
       setMessage("");
     } catch (err) {
-      setMessage(err.response?.data?.error || "Search failed");
+      console.error(err);
+      setMessage("Search failed");
     }
   };
 
-  const sendRequest = async (receiverId) => {
+  const sendRequest = async (id) => {
     try {
-      await api.post("/auth/friend-request", { receiverId });
-      setMessage("Friend request sent");
+      await api.post("/auth/friend-request", { receiverId: id });
+      setMessage("Request sent!");
       setSearchResults([]);
       setQuery("");
     } catch (err) {
-      setMessage(err.response?.data?.error || "Could not send request");
+      setMessage(err.response?.data?.error || "Failed to send");
     }
   };
 
-  const respondRequest = async (requesterId, action) => {
+  const respondRequest = async (id, action) => {
     try {
-      await api.post("/auth/friend-request/respond", { requesterId, action });
-      setMessage(action === "accept" ? "Friend added" : "Request declined");
-      fetchPending();
-      fetchFriends();
+      await api.post("/auth/friend-request/respond", {
+        requesterId: id,
+        action,
+      });
+      fetchPendingRequests();
+      if (action === "accept") fetchFriends();
     } catch (err) {
-      setMessage(err.response?.data?.error || "Could not update request");
+      console.error(err);
     }
+  };
+
+  const handleChallengeClick = (friend) => {
+    setSelectedFriend(friend);
+    setIsModalOpen(true);
+  };
+
+  const confirmChallenge = () => {
+    if (!selectedSubjectId || !selectedFriend) return;
+
+    // Find the subject detail
+    const subject = subjects.find(s => s.id === selectedSubjectId);
+
+    // Note: To keep things simple, we'll challenge on Level 1 of the chosen subject.
+    // Ideally we would fetch the subject levels and pick one, but battle flow needs levelId.
+    // We will just pass the subject and let the next page deal with it or fetch levels here.
+    navigate(`/battle/waiting/${selectedFriend.id}?subjectId=${selectedSubjectId}&subjectName=${encodeURIComponent(subject.name)}`);
   };
 
   const handleCreateGroup = () => {
@@ -94,47 +135,35 @@ export default function BattleLobby() {
   };
 
   const handleJoinGroup = () => {
-    if (roomCode.trim().length === 6) {
-      navigate(`/battle/lobby/${roomCode.toUpperCase()}`);
+    if (roomCode.length === 6) {
+      navigate(`/battle/lobby/${roomCode}`);
     }
-  };
-
-  const handleChallenge = (friendId) => {
-    navigate(`/battle/waiting/${friendId}`);
   };
 
   return (
     <Layout>
-      <div className="p-4 md:p-8 max-w-4xl mx-auto">
-        <div className="text-center mb-10">
-          <h1 className="text-4xl font-bold text-inverse-surface mb-3 tracking-tight">
-            Battle Arena
-          </h1>
-          <p className="text-on-surface-variant">
-            Test your knowledge against others in real-time.
-          </p>
+      <div className="mx-auto max-w-5xl p-4 md:p-8">
+        <h1 className="mb-8 text-4xl font-bold tracking-tight text-inverse-surface text-center">
+          Battle Arena
+        </h1>
+
+        <div className="mx-auto mb-8 flex max-w-sm rounded-2xl bg-surface-variant p-1">
+          {["1v1", "group"].map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              className={`flex-1 rounded-xl py-3 text-sm font-bold transition-colors ${
+                activeTab === tab
+                  ? "bg-white text-inverse-surface shadow-sm"
+                  : "text-on-surface-variant hover:text-inverse-surface"
+              }`}
+            >
+              {tab === "1v1" ? "⚔️ 1v1 Duel" : "👥 Group Quiz"}
+            </button>
+          ))}
         </div>
 
-        {/* Custom Tabs */}
-        <div className="flex bg-surface-variant rounded-2xl p-1 mb-8 relative w-full max-w-md mx-auto">
-          <div
-            className={`absolute top-1 bottom-1 w-[calc(50%-4px)] bg-white rounded-xl shadow-sm transition-all duration-300 ${activeTab === "1v1" ? "left-1" : "left-[calc(50%+2px)]"}`}
-          />
-          <button
-            className={`flex-1 py-3 text-sm font-bold relative z-10 flex items-center justify-center gap-2 ${activeTab === "1v1" ? "text-inverse-surface" : "text-on-surface-variant"}`}
-            onClick={() => setActiveTab("1v1")}
-          >
-            <Swords className="w-4 h-4" /> 1v1 Duel
-          </button>
-          <button
-            className={`flex-1 py-3 text-sm font-bold relative z-10 flex items-center justify-center gap-2 ${activeTab === "group" ? "text-inverse-surface" : "text-on-surface-variant"}`}
-            onClick={() => setActiveTab("group")}
-          >
-            <Users className="w-4 h-4" /> Group Quiz
-          </button>
-        </div>
-
-        <div className="bg-white rounded-3xl p-6 md:p-8 shadow-soft border border-surface-variant min-h-[400px]">
+        <div className="min-h-[500px]">
           <AnimatePresence mode="wait">
             {activeTab === "1v1" ? (
               <motion.div
@@ -154,6 +183,7 @@ export default function BattleLobby() {
                   </button>
                 </h2>
 
+                {/* Friend Search and Pending (Rest of UI is same) */}
                 <div className="rounded-2xl border border-surface-variant bg-surface p-4">
                   <div className="mb-3 flex items-center gap-2 font-bold text-inverse-surface">
                     <UserPlus className="h-5 w-5 text-primary" /> Add Friend
@@ -275,7 +305,7 @@ export default function BattleLobby() {
                       </div>
                     </div>
                     <button
-                      onClick={() => handleChallenge(friend.id)}
+                      onClick={() => handleChallengeClick(friend)}
                       disabled={!friend.online}
                       className="px-6 py-2.5 bg-primary text-white rounded-xl font-bold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-primary-container transition-colors shadow-soft"
                     >
@@ -347,6 +377,50 @@ export default function BattleLobby() {
           </AnimatePresence>
         </div>
       </div>
+
+      {/* Subject Selection Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+          <div className="w-full max-w-md rounded-3xl bg-white p-6 shadow-xl">
+            <h3 className="mb-4 text-2xl font-bold text-inverse-surface">
+              Select Subject for Battle
+            </h3>
+            <p className="mb-6 font-semibold text-on-surface-variant">
+              Choose a subject to challenge {selectedFriend?.username}.
+            </p>
+            <div className="max-h-60 overflow-y-auto space-y-2 mb-6">
+              {subjects.map((sub) => (
+                <button
+                  key={sub.id}
+                  onClick={() => setSelectedSubjectId(sub.id)}
+                  className={`w-full p-4 rounded-xl border-2 text-left font-bold transition-colors ${
+                    selectedSubjectId === sub.id
+                      ? 'border-primary bg-primary-container/10 text-primary'
+                      : 'border-surface-variant hover:border-primary/50'
+                  }`}
+                >
+                  {sub.name}
+                </button>
+              ))}
+            </div>
+            <div className="flex justify-end gap-3">
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="px-6 py-2.5 rounded-xl font-bold text-on-surface-variant hover:bg-surface-variant"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={confirmChallenge}
+                disabled={!selectedSubjectId}
+                className="px-6 py-2.5 rounded-xl bg-primary text-white font-bold shadow-soft disabled:opacity-50"
+              >
+                Send Challenge
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </Layout>
   );
 }

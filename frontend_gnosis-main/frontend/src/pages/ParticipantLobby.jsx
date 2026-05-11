@@ -218,17 +218,19 @@ export default function ParticipantLobby() {
                   </div>
                   <span className="truncate text-sm font-bold">
                     {player.username}
-                    {player.host ? " (Host)" : ""}
                   </span>
                 </div>
               ))}
+              {players.length === 0 && (
+                <p className="text-sm font-semibold text-on-surface-variant">Waiting for players...</p>
+              )}
             </div>
           </div>
 
           {isHost && (
             <button
               onClick={startQuiz}
-              disabled={players.length < 2}
+              disabled={players.length < 1}
               className="mt-10 w-full rounded-xl bg-primary py-4 text-lg font-bold text-white shadow-soft disabled:opacity-50"
             >
               Start Game

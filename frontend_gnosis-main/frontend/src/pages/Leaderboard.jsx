@@ -22,18 +22,21 @@ export default function Leaderboard() {
           );
           setBoard(res.data.leaderboard || []);
         } else {
+          // Fix for Friends Leaderboard: correctly format friendIds query and default array
           const friendsRes = await api.get("/auth/friends");
+          const friendsList = Array.isArray(friendsRes.data) ? friendsRes.data : [];
           const friendIds = [
             user.id,
-            ...friendsRes.data.map((friend) => friend.id),
+            ...friendsList.map((friend) => friend.id),
           ].join(",");
+
           const res = await api.get(
             `/xp/leaderboard/friends?userId=${user.id}&friendIds=${friendIds}`,
           );
           setBoard(
             res.data.map((entry) => ({
               ...entry,
-              xp: entry.totalXp,
+              xp: entry.totalXp, // Map totalXp to xp for uniform display
             })),
           );
         }

@@ -1,11 +1,51 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { BookOpen, Trophy, Swords, User } from "lucide-react";
 import { useAuthStore } from "../lib/store";
+import { createSocket } from "../lib/socket";
 
 export default function Layout({ children }) {
   const { user } = useAuthStore();
   const navigate = useNavigate();
+  const socketRef = useRef(null);
+
+  // Incoming challenge state
+  const [incomingChallenge, setIncomingChallenge] = useState(null);
+
+  useEffect(() => {
+    if (!user?.id) return;
+    const socket = createSocket(user);
+    socketRef.current = socket;
+
+    socket.on("connect", () => {
+      socket.emit("user:identify", { userId: user.id, username: user.username });
+    });
+
+    socket.on("challenge:received", (payload) => {
+      setIncomingChallenge(payload);
+    });
+
+    socket.on("challenge:accepted", (payload) => {
+        if(payload.roomCode) {
+            navigate(`/battle/lobby/${payload.roomCode}`);
+        }
+    });
+
+    return () => socket.disconnect();
+  }, [user, navigate]);
+
+  const handleRespond = (accepted) => {
+    if(!incomingChallenge || !socketRef.current) return;
+    socketRef.current.emit("challenge:respond", {
+        accepted,
+        fromUserId: incomingChallenge.fromUserId,
+        subjectId: incomingChallenge.subjectId,
+        levelId: incomingChallenge.levelId,
+        subjectName: incomingChallenge.subjectName,
+        levelNumber: incomingChallenge.levelNumber
+    });
+    setIncomingChallenge(null);
+  }
 
   const navItems = [
     { to: "/home", icon: <BookOpen className="w-6 h-6" />, label: "Learn" },
@@ -93,6 +133,34 @@ export default function Layout({ children }) {
       </nav>
 
       <main className="max-w-3xl mx-auto min-h-screen">{children}</main>
+
+      {/* Incoming Challenge Modal */}
+      {incomingChallenge && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 p-4">
+          <div className="w-full max-w-sm rounded-3xl bg-white p-6 shadow-xl text-center">
+            <h3 className="mb-2 text-2xl font-bold text-inverse-surface">
+              Challenge Received!
+            </h3>
+            <p className="mb-6 font-semibold text-on-surface-variant">
+              <span className="text-primary font-bold">{incomingChallenge.fromUsername}</span> has challenged you to a battle in <span className="font-bold">{incomingChallenge.subjectName}</span>!
+            </p>
+            <div className="flex justify-center gap-4">
+              <button
+                onClick={() => handleRespond(false)}
+                className="flex-1 py-3 rounded-xl font-bold border-2 border-surface-variant text-on-surface-variant hover:bg-surface-variant transition-colors"
+              >
+                Decline
+              </button>
+              <button
+                onClick={() => handleRespond(true)}
+                className="flex-1 py-3 rounded-xl bg-primary text-white font-bold shadow-soft hover:bg-primary/90 transition-colors"
+              >
+                Accept
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

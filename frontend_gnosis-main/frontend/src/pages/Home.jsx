@@ -4,13 +4,14 @@ import Layout from "../components/Layout";
 import api from "../lib/api";
 import { useAuthStore } from "../lib/store";
 import { motion } from "framer-motion";
-import { Trophy, Flame, Lock, Check, Star } from "lucide-react";
+import { Trophy, Bell, Lock, Check, BookOpen, ChevronRight } from "lucide-react";
 
 export default function Home() {
   const { user } = useAuthStore();
   const [subjects, setSubjects] = useState([]);
-  const [streakData, setStreakData] = useState(null);
+  const [totalXp, setTotalXp] = useState(user?.total_xp || 0);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,45 +19,39 @@ export default function Home() {
 
     const fetchData = async () => {
       try {
-        const [progRes, streakRes] = await Promise.all([
+        setLoading(true);
+        const [progRes, contentRes, xpRes] = await Promise.all([
           api.get(`/progress/${user.id}`),
-          api.get(`/progress/${user.id}/streak`),
+          api.get("/content/subjects"),
+          api.get(`/xp/user/${user.id}/total`),
         ]);
 
-        // Fetch subject details for names/descriptions
-        const contentRes = await api.get("/content/subjects");
         const contentSubjects = contentRes.data;
+        const userProgress = progRes.data.subjects || [];
 
-        // Merge progress with content to get a complete 25-node list
-        const merged = contentSubjects
-          .map((cs) => {
-            const userProg = progRes.data.subjects.find(
-              (s) => s.subject_id === cs.id,
-            );
-            const isComplete =
-              userProg && userProg.levels.every((l) => l.status === "complete");
-            const isUnlocked =
-              userProg &&
-              userProg.levels.some(
-                (l) => l.status === "unlocked" || l.status === "complete",
-              );
+        const merged = contentSubjects.map((cs) => {
+          const uProg = userProgress.find((s) => s.subject_id === cs.id);
+          const completedLevels = uProg ? uProg.levels.filter((l) => l.status === "complete").length : 0;
+          const totalLevels = 4;
+          const progressPercentage = (completedLevels / totalLevels) * 100;
 
-            return {
-              ...cs,
-              status: isComplete
-                ? "complete"
-                : isUnlocked
-                  ? "unlocked"
-                  : "locked",
-              progress: userProg ? userProg.levels : [],
-            };
-          })
-          .sort((a, b) => a.order_index - b.order_index);
+          const isComplete = completedLevels === totalLevels;
+          const isUnlocked = uProg && uProg.levels.some((l) => l.status === "unlocked" || l.status === "complete");
+
+          return {
+            ...cs,
+            status: isComplete ? "complete" : isUnlocked ? "unlocked" : "locked",
+            progressPercentage,
+            completedLevels,
+            totalLevels
+          };
+        }).sort((a, b) => a.order_index - b.order_index);
 
         setSubjects(merged);
-        setStreakData(streakRes.data);
+        setTotalXp(xpRes.data.totalXp);
       } catch (err) {
-        console.error("Failed to fetch progress", err);
+        console.error("Failed to fetch data", err);
+        setError("Failed to load your learning path. Please try again.");
       } finally {
         setLoading(false);
       }
@@ -65,116 +60,158 @@ export default function Home() {
     fetchData();
   }, [user]);
 
-  if (loading)
+  if (loading) {
     return (
       <Layout>
-        <div className="flex justify-center items-center h-screen">
-          <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+        <div className="flex justify-center items-center h-screen bg-[#FAF7F2]">
+          <div className="w-8 h-8 border-4 border-[#8B2500] border-t-transparent rounded-full animate-spin"></div>
         </div>
       </Layout>
     );
+  }
+
+  if (error) {
+    return (
+      <Layout>
+        <div className="flex flex-col justify-center items-center h-screen bg-[#FAF7F2]">
+          <p className="text-[#8B2500] font-bold mb-4">{error}</p>
+          <button onClick={() => window.location.reload()} className="px-6 py-2 bg-[#8B2500] text-white rounded-lg font-bold">Retry</button>
+        </div>
+      </Layout>
+    );
+  }
 
   return (
     <Layout>
-      {/* Top Header */}
-      <header className="sticky top-0 md:top-4 bg-white/90 backdrop-blur-md z-30 border-b md:border md:rounded-2xl border-surface-variant p-4 flex justify-between items-center md:mx-4 shadow-sm">
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-2 bg-surface p-2 pr-4 rounded-xl">
-            <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center text-primary">
-              <Flame className="w-5 h-5" />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-xs text-on-surface-variant font-bold uppercase tracking-wider">
-                Streak
-              </span>
-              <span className="text-sm font-bold text-inverse-surface leading-none">
-                {streakData?.streakCount || 0} Days
-              </span>
-            </div>
-          </div>
+      {/* Top Navbar overriding default Layout header behavior visually */}
+      <header className="sticky top-0 bg-[#FAF7F2]/90 backdrop-blur-md z-30 border-b border-[#E8DFD1] p-4 flex justify-between items-center shadow-sm">
+        <div className="flex items-center gap-2">
+           <h1 className="text-2xl font-extrabold text-[#8B2500] hidden md:block">Gnosis</h1>
         </div>
 
-        <div className="flex items-center gap-2 bg-secondary-container/20 p-2 pr-4 rounded-xl">
-          <div className="w-8 h-8 bg-secondary-container rounded-lg flex items-center justify-center text-secondary-container-on">
-            <Trophy className="w-5 h-5" />
+        {/* Right side icons */}
+        <div className="flex items-center gap-4">
+          <div className="flex items-center gap-1 text-[#D4641A] font-bold bg-[#FFF4E5] px-3 py-1.5 rounded-full">
+            <Trophy className="w-4 h-4" />
+            <span>{totalXp} XP</span>
           </div>
-          <div className="flex flex-col">
-            <span className="text-xs text-on-surface-variant font-bold uppercase tracking-wider">
-              Total XP
-            </span>
-            <span className="text-sm font-bold text-inverse-surface leading-none">
-              {user?.total_xp || 0}
-            </span>
+          <button className="p-2 text-[#8a8a8a] hover:text-[#8B2500] transition-colors relative">
+            <Bell className="w-5 h-5" />
+            <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-[#D4641A] rounded-full border-2 border-[#FAF7F2]"></span>
+          </button>
+          <div className="w-9 h-9 bg-[#8B2500] rounded-full flex items-center justify-center text-white font-bold uppercase cursor-pointer shadow-sm">
+            {user?.username ? user.username[0] : "U"}
           </div>
         </div>
       </header>
 
-      {/* Path Container */}
-      <div className="py-12 px-4 flex flex-col items-center relative">
-        {/* The dotted line connecting nodes */}
-        <div className="absolute top-0 bottom-0 left-1/2 w-1.5 -ml-[3px] bg-surface-variant rounded-full z-0" />
+      {/* Main Content */}
+      <div className="pt-10 pb-20 px-4 flex flex-col items-center bg-[#FAF7F2] min-h-screen">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-extrabold text-[#1a1a1a] mb-2">Your Learning Path</h2>
+          <p className="text-[#6b6b6b] text-lg">Select a subject to continue your journey.</p>
+        </div>
 
-        {subjects.map((subject, index) => {
-          // Zigzag layout logic
-          const isLeft = index % 2 === 0;
-          const xOffset = isLeft ? -40 : 40;
+        {/* Path Container */}
+        <div className="relative w-full max-w-lg flex flex-col items-center">
+          {/* Vertical Dotted Connecting Line */}
+          <div className="absolute top-8 bottom-8 left-12 md:left-1/2 w-0 border-l-[3px] border-dashed border-[#E8DFD1] -ml-[1.5px] z-0"></div>
 
-          let NodeIcon = Lock;
-          let nodeColor =
-            "bg-surface text-on-surface-variant border-surface-variant";
-          let shadow = "";
-          let pulse = "";
+          {subjects.map((subject, index) => {
+            const isComplete = subject.status === "complete";
+            const isUnlocked = subject.status === "unlocked";
+            const isLocked = subject.status === "locked";
 
-          if (subject.status === "complete") {
-            NodeIcon = Check;
-            nodeColor = "bg-secondary text-white border-secondary";
-            shadow = "shadow-lg shadow-secondary/30";
-          } else if (subject.status === "unlocked") {
-            NodeIcon = Star;
-            nodeColor = "bg-primary text-white border-primary";
-            shadow = "shadow-xl shadow-primary/40";
-            pulse = "ring-4 ring-primary/20 ring-offset-2 animate-pulse";
-          }
+            let iconBg = "bg-white border-[#E8DFD1]";
+            let iconColor = "text-[#c2c2c2]";
+            let IconComponent = Lock;
+            let titleColor = "text-[#1a1a1a]";
 
-          return (
-            <motion.div
-              key={subject.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.05 }}
-              className="relative z-10 my-6 flex flex-col items-center group cursor-pointer"
-              style={{ transform: `translateX(${xOffset}px)` }}
-              onClick={() => {
-                if (subject.status !== "locked") {
-                  navigate(`/subject/${subject.id}`);
-                }
-              }}
-            >
-              {/* Tooltip bubble */}
-              <div
-                className={`absolute -top-14 whitespace-nowrap bg-white px-4 py-2 rounded-xl shadow-md border border-surface-variant font-bold text-inverse-surface transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:-translate-y-1 pointer-events-none`}
+            if (isComplete) {
+              iconBg = "bg-[#4CAF50] border-[#4CAF50]";
+              iconColor = "text-white";
+              IconComponent = Check;
+            } else if (isUnlocked) {
+              iconBg = "bg-[#D4641A] border-[#D4641A] ring-4 ring-[#D4641A]/20";
+              iconColor = "text-white";
+              IconComponent = BookOpen;
+            } else {
+              titleColor = "text-[#a0a0a0]";
+            }
+
+            return (
+              <motion.div
+                key={subject.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                className={`relative z-10 flex items-center w-full mb-12 group ${isLocked ? "opacity-70 cursor-not-allowed" : "cursor-pointer"}`}
+                onClick={() => {
+                  if (!isLocked) navigate(`/subject/${subject.id}`);
+                }}
               >
-                {subject.name}
-              </div>
+                {/* Desktop: Alternate sides. Mobile: All on right of line */}
+                <div className={`hidden md:flex w-1/2 justify-end pr-8 ${index % 2 !== 0 ? "md:invisible" : ""}`}>
+                  {/* Left Side Content (Desktop only) */}
+                  <div className="bg-white p-5 rounded-2xl shadow-sm border border-[#E8DFD1] w-full max-w-sm text-right hover:shadow-md transition-shadow relative">
+                     {/* Triangle pointer */}
+                     <div className="absolute right-[-8px] top-8 w-4 h-4 bg-white border-t border-r border-[#E8DFD1] rotate-45"></div>
+                     <h3 className={`font-bold text-xl mb-1 ${titleColor}`}>{subject.name}</h3>
+                     <p className="text-sm text-[#6b6b6b] mb-3 line-clamp-2">{subject.description}</p>
 
-              {/* Node */}
-              <div
-                className={`w-20 h-20 rounded-full border-4 flex items-center justify-center transition-transform group-hover:scale-110 ${nodeColor} ${shadow} ${pulse}`}
-              >
-                <NodeIcon
-                  className={`w-8 h-8 ${subject.status === "locked" ? "opacity-50" : ""}`}
-                />
-              </div>
-            </motion.div>
-          );
-        })}
-      </div>
+                     <div className="w-full bg-[#FAF7F2] rounded-full h-2.5 flex justify-end overflow-hidden">
+                        <div className="bg-[#D4641A] h-2.5 rounded-full" style={{ width: `${subject.progressPercentage}%` }}></div>
+                     </div>
+                     <div className="flex justify-between items-center mt-2">
+                       {isUnlocked && (
+                         <button className="text-sm font-bold text-[#8B2500] hover:text-[#D4641A] flex items-center gap-1">
+                           Continue Learning <ChevronRight size={14}/>
+                         </button>
+                       )}
+                       <span className="text-xs font-bold text-[#8a8a8a] w-full text-left">{subject.progressPercentage}%</span>
+                     </div>
+                  </div>
+                </div>
 
-      {/* Scroll indicator for the bottom */}
-      <div className="py-12 flex justify-center text-on-surface-variant/50">
-        <div className="w-2 h-2 rounded-full bg-current mx-1"></div>
-        <div className="w-2 h-2 rounded-full bg-current mx-1"></div>
-        <div className="w-2 h-2 rounded-full bg-current mx-1"></div>
+                {/* Central Node */}
+                <div className="relative flex justify-center w-24 md:w-auto md:px-0 z-20">
+                   {isLocked && (
+                      <div className="absolute -top-10 whitespace-nowrap bg-[#1a1a1a] text-white text-xs font-bold px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-30">
+                        Complete previous to unlock
+                      </div>
+                   )}
+                   <div className={`w-16 h-16 rounded-full border-4 flex items-center justify-center transition-transform group-hover:scale-105 shadow-md ${iconBg}`}>
+                     <IconComponent className={`w-6 h-6 ${iconColor}`} strokeWidth={2.5} />
+                   </div>
+                </div>
+
+                {/* Mobile: Content always on right. Desktop: Right side content */}
+                <div className={`flex-1 pl-4 md:pl-8 md:w-1/2 ${index % 2 === 0 ? "md:invisible md:hidden" : "md:flex"}`}>
+                  <div className="bg-white p-5 rounded-2xl shadow-sm border border-[#E8DFD1] w-full max-w-sm hover:shadow-md transition-shadow relative">
+                     {/* Triangle pointer (Desktop only for right side) */}
+                     <div className="hidden md:block absolute left-[-8px] top-8 w-4 h-4 bg-white border-b border-l border-[#E8DFD1] rotate-45"></div>
+
+                     <h3 className={`font-bold text-xl mb-1 ${titleColor}`}>{subject.name}</h3>
+                     <p className="text-sm text-[#6b6b6b] mb-3 line-clamp-2">{subject.description}</p>
+
+                     <div className="w-full bg-[#FAF7F2] rounded-full h-2.5 overflow-hidden">
+                        <div className="bg-[#D4641A] h-2.5 rounded-full transition-all duration-1000" style={{ width: `${subject.progressPercentage}%` }}></div>
+                     </div>
+                     <div className="flex justify-between items-center mt-2">
+                       <span className="text-xs font-bold text-[#8a8a8a]">{subject.progressPercentage}%</span>
+                       {isUnlocked && (
+                         <button className="text-sm font-bold text-[#8B2500] hover:text-[#D4641A] flex items-center gap-1">
+                           Continue <ChevronRight size={14}/>
+                         </button>
+                       )}
+                     </div>
+                  </div>
+                </div>
+
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </Layout>
   );

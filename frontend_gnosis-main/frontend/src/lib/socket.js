@@ -1,4 +1,5 @@
 import { io } from "socket.io-client";
+import { useSocketStore } from "./store";
 
 const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || "http://localhost:3005";
 
@@ -14,6 +15,10 @@ export function createSocket(user) {
         username: user.username,
       });
     }
+  });
+
+  socket.on('notification:new', (notification) => {
+      useSocketStore.getState().addNotification(notification);
   });
 
   return socket;

@@ -20,7 +20,8 @@ export default function Leaderboard() {
           const res = await api.get(
             `/xp/leaderboard/global?currentUserId=${user.id}`,
           );
-          setBoard(res.data.leaderboard || []);
+          const boardData = res.data.leaderboard || [];
+          setBoard(boardData.slice(0, 10)); // Top 10 limit
         } else {
           // Fix for Friends Leaderboard: correctly format friendIds query and default array
           const friendsRes = await api.get("/auth/friends");
@@ -33,12 +34,12 @@ export default function Leaderboard() {
           const res = await api.get(
             `/xp/leaderboard/friends?userId=${user.id}&friendIds=${friendIds}`,
           );
-          setBoard(
-            res.data.map((entry) => ({
+          const formattedBoard = res.data.map((entry, index) => ({
               ...entry,
               xp: entry.totalXp, // Map totalXp to xp for uniform display
-            })),
-          );
+              rank: index + 1 // Add index as rank since friends API returns sorted
+            }));
+          setBoard(formattedBoard.slice(0, 10)); // Top 10 limit
         }
       } catch (err) {
         console.error(err);

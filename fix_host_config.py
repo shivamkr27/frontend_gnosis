@@ -1,4 +1,9 @@
-import React, { useState } from "react";
+import re
+
+with open('frontend_gnosis-main/frontend/src/pages/HostConfig.jsx', 'r') as f:
+    content = f.read()
+
+new_content = """import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "../components/Layout";
 
@@ -111,3 +116,7 @@ const HostConfig = () => {
 };
 
 export default HostConfig;
+"""
+
+with open('frontend_gnosis-main/frontend/src/pages/HostConfig.jsx', 'w') as f:
+    f.write(new_content)

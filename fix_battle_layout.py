@@ -1,146 +1,30 @@
-import React, { useEffect, useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
-import Layout from "../components/Layout";
-import { useAuthStore } from "../lib/store";
-import api from "../lib/api";
-import { Users, Play, Search, UserPlus, Inbox, RefreshCw } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import re
 
-export default function BattleLobby() {
-  const navigate = useNavigate();
-  const { user } = useAuthStore();
-  const [activeTab, setActiveTab] = useState("1v1");
-  const [friends, setFriends] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [roomCode, setRoomCode] = useState("");
+with open('frontend_gnosis-main/frontend/src/pages/BattleLobby.jsx', 'r') as f:
+    content = f.read()
 
-  // Friend Management State
-  const [query, setQuery] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
-  const [pending, setPending] = useState([]);
-  const [message, setMessage] = useState("");
+# We need to change the Layout of the BattleLobby to match the reference "battle hub.png"
+# It has a "Battle Arena" title, and two large cards side-by-side for "1 VS 1" and "Group Battle"
+# Under "1 VS 1", there are tabs "Friend List" and "Add Friends"
+# Under "Group Battle", there are buttons "Host Room" and "Join Room"
 
-  // Subject Selection Modal State
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedFriend, setSelectedFriend] = useState(null);
-  const [subjects, setSubjects] = useState([]);
-  const [selectedSubjectId, setSelectedSubjectId] = useState("");
+replacement = """  const [activeTab, setActiveTab] = useState("friendList");
 
   useEffect(() => {
     fetchFriends();
     fetchPendingRequests();
     fetchSubjects();
-  }, []);
+  }, []);"""
 
-  const fetchFriends = async () => {
-    setLoading(true);
-    try {
-      const res = await api.get("/auth/friends");
-      const friendsData = res.data;
+content = content.replace("""  const [activeTab, setActiveTab] = useState("1v1");
 
-      // Batch online status check
-      if (friendsData.length > 0) {
-        const userIds = friendsData.map(f => f.id);
-        const onlineRes = await api.post('/notifications/online/batch', { userIds });
-        const onlineStatusMap = onlineRes.data;
+  useEffect(() => {
+    fetchFriends();
+    fetchPendingRequests();
+    fetchSubjects();
+  }, []);""", replacement)
 
-        const friendsWithStatus = friendsData.map(f => ({
-          ...f,
-          online: onlineStatusMap[f.id] || false
-        }));
-        setFriends(friendsWithStatus);
-      } else {
-        setFriends([]);
-      }
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const fetchPendingRequests = async () => {
-    try {
-      const res = await api.get("/auth/friend-requests/pending");
-      setPending(res.data);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  const fetchSubjects = async () => {
-    try {
-      const res = await api.get("/content/subjects");
-      setSubjects(Array.isArray(res.data) ? res.data : res.data.subjects);
-    } catch(err) {
-      console.error(err);
-    }
-  };
-
-  const handleSearch = async () => {
-    if (!query) return;
-    try {
-      const res = await api.get(`/auth/users/search?q=${query}`);
-      setSearchResults(res.data);
-      setMessage("");
-    } catch (err) {
-      console.error(err);
-      setMessage("Search failed");
-    }
-  };
-
-  const sendRequest = async (id) => {
-    try {
-      await api.post("/auth/friend-request", { receiverId: id });
-      setMessage("Request sent!");
-      setSearchResults([]);
-      setQuery("");
-    } catch (err) {
-      setMessage(err.response?.data?.error || "Failed to send");
-    }
-  };
-
-  const respondRequest = async (id, action) => {
-    try {
-      await api.post("/auth/friend-request/respond", {
-        requesterId: id,
-        action,
-      });
-      fetchPendingRequests();
-      if (action === "accept") fetchFriends();
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  const handleChallengeClick = (friend) => {
-    setSelectedFriend(friend);
-    setIsModalOpen(true);
-  };
-
-  const confirmChallenge = () => {
-    if (!selectedSubjectId || !selectedFriend) return;
-
-    // Find the subject detail
-    const subject = subjects.find(s => s.id === selectedSubjectId);
-
-    // Note: To keep things simple, we'll challenge on Level 1 of the chosen subject.
-    // Ideally we would fetch the subject levels and pick one, but battle flow needs levelId.
-    // We will just pass the subject and let the next page deal with it or fetch levels here.
-    navigate(`/battle/waiting/${selectedFriend.id}?subjectId=${selectedSubjectId}&subjectName=${encodeURIComponent(subject.name)}`);
-  };
-
-  const handleCreateGroup = () => {
-    navigate("/battle/host");
-  };
-
-  const handleJoinGroup = () => {
-    if (roomCode.length === 6) {
-      navigate(`/battle/lobby/${roomCode}`);
-    }
-  };
-
-  return (
+new_jsx = """  return (
     <Layout>
       <div className="mx-auto max-w-6xl p-4 md:p-8">
         <h1 className="mb-8 text-4xl font-bold tracking-tight text-[#1f2937] text-center">
@@ -444,3 +328,9 @@ export default function BattleLobby() {
     </Layout>
   );
 }
+"""
+
+content = re.sub(r'  return \(\n    <Layout>.*?    </Layout>\n  \);\n}', new_jsx, content, flags=re.DOTALL)
+
+with open('frontend_gnosis-main/frontend/src/pages/BattleLobby.jsx', 'w') as f:
+    f.write(content)

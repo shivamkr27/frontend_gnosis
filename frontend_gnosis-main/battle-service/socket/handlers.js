@@ -265,8 +265,8 @@ module.exports = (io, redisClient) => {
       });
 
       // Filter out disconnected or inactive players before deciding if everyone answered
-      const activePlayers = players.filter(p => io.sockets.sockets.has(p.socketId));
-      const allAnswered = activePlayers.every(p => p.answered);
+      // Fix: Don't rely on io.sockets.sockets.has() as it might not be fully accurate, just check all players
+      const allAnswered = players.every(p => p.answered);
 
       if (allAnswered) {
         const nextIndex = currentIndex + 1;

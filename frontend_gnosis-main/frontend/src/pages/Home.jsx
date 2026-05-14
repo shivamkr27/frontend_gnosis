@@ -115,8 +115,8 @@ export default function Home() {
         {/* Path Container */}
         <div className="relative w-full max-w-lg flex flex-col items-center">
           {/* Vertical Dotted Connecting Line */}
-          <div className="absolute top-8 bottom-8 left-12 md:left-1/2 w-0 border-l-[3px] border-dashed border-[#E8DFD1] -ml-[1.5px] z-0"></div>
-
+          <div className="absolute top-0 bottom-0 left-[31px] md:left-1/2 w-0 border-l-[3px] border-dashed border-[#E8DFD1] -ml-[1.5px] z-0"></div>
+          
           {subjects.map((subject, index) => {
             const isComplete = subject.status === "complete";
             const isUnlocked = subject.status === "unlocked";
@@ -151,8 +151,7 @@ export default function Home() {
                 }}
               >
                 {/* Desktop: Alternate sides. Mobile: All on right of line */}
-                <div className={`hidden md:flex w-1/2 justify-end pr-8 ${index % 2 !== 0 ? "md:invisible" : ""}`}>
-                  {/* Left Side Content (Desktop only) */}
+<div className={`hidden md:flex w-1/2 justify-end pr-8 ${index % 2 !== 0 ? "md:hidden" : ""}`}>                  {/* Left Side Content (Desktop only) */}
                   <div className="bg-white p-5 rounded-2xl shadow-sm border border-[#E8DFD1] w-full max-w-sm text-right hover:shadow-md transition-shadow relative">
                      {/* Triangle pointer */}
                      <div className="absolute right-[-8px] top-8 w-4 h-4 bg-white border-t border-r border-[#E8DFD1] rotate-45"></div>
@@ -186,7 +185,8 @@ export default function Home() {
                 </div>
 
                 {/* Mobile: Content always on right. Desktop: Right side content */}
-                <div className={`flex-1 pl-4 md:pl-8 md:w-1/2 ${index % 2 === 0 ? "md:invisible md:hidden" : "md:flex"}`}>
+                
+                <div className={`flex-1 pl-4 md:pl-8 md:w-1/2 ${index % 2 === 0 ? " md:hidden" : "md:flex"}`}>
                   <div className="bg-white p-5 rounded-2xl shadow-sm border border-[#E8DFD1] w-full max-w-sm hover:shadow-md transition-shadow relative">
                      {/* Triangle pointer (Desktop only for right side) */}
                      <div className="hidden md:block absolute left-[-8px] top-8 w-4 h-4 bg-white border-b border-l border-[#E8DFD1] rotate-45"></div>

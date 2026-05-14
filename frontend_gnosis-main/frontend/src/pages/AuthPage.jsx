@@ -47,6 +47,11 @@ export default function AuthPage() {
           password: formData.password,
         });
         login(res.data.user, res.data.token);
+        try {
+  await api.post(`/progress/initialize/${res.data.user.id}`);
+} catch(e) {
+  console.log("Progress already initialized or error:", e.message);
+}
         navigate("/home");
       } else if (view === "signup") {
         await api.post("/auth/register", {

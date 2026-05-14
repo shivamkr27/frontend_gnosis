@@ -56,7 +56,7 @@ export default function ActiveQuiz() {
         setInitialTotalXp(userRes.data.xp || 0);
 
         if (qRes.data.length === 0) {
-          setError("No questions found for this level.");
+          setError("No questions available for this level yet. Please check back later or try another level.");
           return;
         }
 

@@ -73,11 +73,11 @@ function App() {
 
   // Socket connection - only after user is loaded
   // DISABLED temporarily to debug 429 errors - socket.io might be causing cascading requests
-  useEffect(() => {
-    // if (!token || !user?.id) return undefined;
-    // const socket = createSocket(user);
-    // return () => socket.disconnect();
-  }, [token, user?.id, user?.username]);
+ useEffect(() => {
+  if (!token || !user?.id) return undefined;
+  const socket = createSocket(user);
+  return () => socket.disconnect();
+}, [token, user?.id, user?.username]);
 
   return (
     <Router>

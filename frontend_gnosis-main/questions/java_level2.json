@@ -1,6 +1,6 @@
 [
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "easy",
@@ -16,7 +16,7 @@
     "explanation": "The 'extends' keyword is used to establish inheritance between classes in Java."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "easy",
@@ -32,7 +32,7 @@
     "explanation": "Object is the root of the class hierarchy. Every class has Object as a superclass."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "easy",
@@ -48,7 +48,7 @@
     "explanation": "Java has public, protected, private, and default (no keyword). 'internal' is used in languages like C# or Kotlin."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "easy",
@@ -64,7 +64,7 @@
     "explanation": "Java supports multiple inheritance through interfaces, allowing a class to implement any number of them."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "easy",
@@ -80,7 +80,7 @@
     "explanation": "The 'catch' block contains code that executes if an exception of a specific type occurs in the try block."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "easy",
@@ -96,7 +96,7 @@
     "explanation": "Declaring a method as 'final' prevents it from being overridden by subclasses."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "easy",
@@ -112,7 +112,7 @@
     "explanation": "Polymorphism (many forms) allows one interface/method to be used for a general class of actions."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "easy",
@@ -128,7 +128,7 @@
     "explanation": "ArrayIndexOutOfBoundsException is specifically thrown when an invalid index is used to access an array."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "easy",
@@ -144,7 +144,7 @@
     "explanation": "Abstract classes serve as blueprints and can contain both implemented methods and abstract method signatures."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "easy",
@@ -160,7 +160,7 @@
     "explanation": "The 'throw' keyword is used to transfer control to an exception handler with a specific exception object."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "medium",
@@ -176,7 +176,7 @@
     "explanation": "Overloading (static) is resolved at compile time based on parameters; Overriding (dynamic) is resolved at runtime based on object type."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "medium",
@@ -192,7 +192,7 @@
     "explanation": "The finally block is guaranteed to run after try/catch, unless System.exit() is called or the JVM crashes."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "medium",
@@ -208,7 +208,7 @@
     "explanation": "Interfaces do not represent stateful objects and cannot be instantiated, so they don't have constructors."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "medium",
@@ -224,7 +224,7 @@
     "explanation": "The 'super()' call invokes the constructor of the immediate parent class."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "medium",
@@ -240,7 +240,7 @@
     "explanation": "Unchecked exceptions are those that inherit from RuntimeException or Error."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "medium",
@@ -256,7 +256,7 @@
     "explanation": "If a concrete class lacks implementations for inherited abstract methods, it cannot be instantiated and must be declared abstract."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "medium",
@@ -272,7 +272,7 @@
     "explanation": "Uncaught exceptions propagate up the call stack after finally blocks finish. If never caught, the thread terminates."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "medium",
@@ -288,7 +288,7 @@
     "explanation": "Interfaces can have public static final variables and private methods since Java 9 for internal logic sharing."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "multi_correct",
@@ -306,7 +306,7 @@
     "explanation": "final class prevents inheritance; final method prevents overriding; private method is essentially hidden from subclasses and cannot be overridden."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "multi_correct",
@@ -324,7 +324,7 @@
     "explanation": "Java uses try-catch-finally and 'throws' for exception handling. 'goto' is not used for logic control or exception handling."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "hard",
@@ -340,7 +340,7 @@
     "explanation": "Constructors are called from the top of the hierarchy (superclass) down to the bottom (subclass)."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "hard",
@@ -356,7 +356,7 @@
     "explanation": "Static methods belong to the class, not instance. If a subclass has an identical static method, it 'hides' the parent's method (Static Polymorphism)."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "hard",
@@ -372,7 +372,7 @@
     "explanation": "Multiple inheritance of classes can cause ambiguity (Diamond Problem). Java allows multiple interface implementation and requires manual conflict resolution for default methods."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "hard",
@@ -388,7 +388,7 @@
     "explanation": "A 'return' statement in a finally block overrides any previous return or exception from the try or catch block."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "hard",
@@ -404,7 +404,7 @@
     "explanation": "Large interfaces should be split into smaller, more specific ones so that callers only see methods relevant to them."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "hard",
@@ -420,7 +420,7 @@
     "explanation": "To maintain polymorphic behavior, an overridden method cannot throw more general checked exceptions."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "hard",
@@ -436,7 +436,7 @@
     "explanation": "Java compiler forces handling of checked exceptions (descendants of Exception but not RuntimeException)."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "hard",
@@ -452,7 +452,7 @@
     "explanation": "The AutoCloseable interface (or its sub-interface Closeable) provides the close() method that JVM calls automatically."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "multi_correct",
@@ -470,7 +470,7 @@
     "explanation": "Dynamic dispatch (JVM selecting the right overridden method) is central to runtime polymorphism using superclass references."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "multi_correct",
@@ -487,7 +487,7 @@
     "explanation": "Abstract methods cannot be final (they MUST be overridden) and can ONLY exist inside an abstract class."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "tricky",
@@ -503,7 +503,7 @@
     "explanation": "Since a subclass constructor must call a parent constructor, a private parent constructor makes inheritance impossible."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "tricky",
@@ -519,7 +519,7 @@
     "explanation": "The reference type determines which members are visible. To see subclass-specific fields, you must cast the reference."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "tricky",
@@ -535,7 +535,7 @@
     "explanation": "Static methods are not polymorphic. They are dispatched based on the reference type (Parent), not the object type."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "tricky",
@@ -551,7 +551,7 @@
     "explanation": "Automatically added 'super()' only works if a zero-argument constructor exists in the parent."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "tricky",
@@ -567,7 +567,7 @@
     "explanation": "Re-throwing is a common pattern to perform some logic (log error) and then let the caller handle the final outcome."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "tricky",
@@ -583,7 +583,7 @@
     "explanation": "System.exit stops the JVM immediately. This is one of the rare cases where 'finally' does NOT execute."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "tricky",
@@ -599,7 +599,7 @@
     "explanation": "Overriding methods can throw any Unchecked Exception or a more specific Checked Exception than the parent."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "tricky",
@@ -615,7 +615,7 @@
     "explanation": "A try/finally without catch is valid when you just want cleanup logic to run regardless of the block's outcome."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "multi_correct",
@@ -632,7 +632,7 @@
     "explanation": "Public is visible everywhere; protected is visible in subclasses even in different packages."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "multi_correct",
@@ -649,7 +649,7 @@
     "explanation": "Abstract classes and Interfaces are specifically designed to be extended or implemented."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "core_concept",
@@ -665,7 +665,7 @@
     "explanation": "Encapsulation bundles data and methods, hiding the internal implementation and using public methods to control access."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "core_concept",
@@ -681,7 +681,7 @@
     "explanation": "When logic works with a superclass/interface reference, you can add new implementations later and existing logic will 'just work'."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "core_concept",
@@ -697,7 +697,7 @@
     "explanation": "Inheritance represents the IS-A relationship (e.g., Cat IS-A Animal)."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "core_concept",
@@ -713,7 +713,7 @@
     "explanation": "Abstraction hides complexity by focusing on the essential features of an object."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "core_concept",
@@ -729,7 +729,7 @@
     "explanation": "Composition (HAS-A) avoids the rigid class hierarchy and 'fragile base class' problem of inheritance."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "core_concept",
@@ -745,7 +745,7 @@
     "explanation": "LSP ensures that inheriting classes do not break the expectations set by the parent class interface."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "core_concept",
@@ -761,7 +761,7 @@
     "explanation": "Try-with-resources (introduced in Java 7) automatically closes resources, preventing leaks and reducing boilerplate."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "core_concept",
@@ -777,7 +777,7 @@
     "explanation": "@Override helps catch errors (like typos) at compile time if the signature doesn't match an inherited method."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "core_concept",
@@ -793,7 +793,7 @@
     "explanation": "Upcasting (automatic) treats subclass as superclass; Downcasting (manual) treats superclass as subclass."
   },
   {
-    "subject_name": "Java Programming",
+    "subject_name": "Java Development",
     "level_number": 2,
     "level_topic": "OOPs (Inheritance, Polymorphism, Abstraction, Interfaces), Exception Handling",
     "question_type": "core_concept",

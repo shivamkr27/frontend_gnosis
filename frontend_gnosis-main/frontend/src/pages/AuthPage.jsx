@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthStore } from "../lib/store";
 import api from "../lib/api";
@@ -18,6 +18,7 @@ export default function AuthPage() {
   const [fetchedQuestion, setFetchedQuestion] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const submittingRef = useRef(false);
   const navigate = useNavigate();
   const login = useAuthStore((state) => state.login);
 
@@ -31,6 +32,11 @@ export default function AuthPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Prevent double submission
+    if (submittingRef.current || loading) return;
+    submittingRef.current = true;
+    
     setError("");
     setLoading(true);
 
@@ -76,6 +82,7 @@ export default function AuthPage() {
       setError(
         err.response?.data?.error || "An error occurred. Please try again."
       );
+      submittingRef.current = false;
     } finally {
       setLoading(false);
     }

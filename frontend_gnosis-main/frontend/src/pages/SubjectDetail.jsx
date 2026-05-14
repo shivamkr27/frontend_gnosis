@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Layout from "../components/Layout";
 import api from "../lib/api";
-import { useAuthStore } from "../lib/store";
+import { useAuthStore , useAppStore } from "../lib/store";
 import { motion } from "framer-motion";
 import { ArrowLeft, Play, Lock, CheckCircle2, Flame, RotateCcw, Trophy, Target } from "lucide-react";
 
@@ -47,37 +47,51 @@ export default function SubjectDetail() {
   const { user } = useAuthStore();
   const [subject, setSubject] = useState(null);
   const [loading, setLoading] = useState(true);
+  const imageMap = useAppStore(state => state.imageMap);
 
   useEffect(() => {
-    const fetchDetail = async () => {
-      try {
-        const [contentRes, progRes] = await Promise.all([
-          api.get(`/content/subjects/${id}`),
-          api.get(`/progress/${user.id}/subject/${id}`),
-        ]);
+  // Wait until user is loaded
+  if (!user) {
+    return;
+  }
 
-        // Merge content levels with progress status
-        const mergedLevels = contentRes.data.levels.map((l) => {
-          const p = progRes.data.levels.find((pl) => pl.level_id === l.id);
-          return {
-            ...l,
-            status: p ? p.status : "locked",
-            xp_earned: p ? p.xp_earned : 0,
-          };
-        });
+  const fetchDetail = async () => {
+    try {
+      setLoading(true);
 
-        setSubject({
-          ...contentRes.data,
-          levels: mergedLevels,
-        });
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchDetail();
-  }, [id, user.id]);
+      const [contentRes, progRes] = await Promise.all([
+        api.get(`/content/subjects/${id}`),
+        api.get(`/progress/${user.id}/subject/${id}`),
+      ]);
+
+      // Merge content levels with progress status
+      const mergedLevels = contentRes.data.levels.map((l) => {
+        const p = progRes.data.levels.find(
+          (pl) => pl.level_id === l.id
+        );
+
+        return {
+          ...l,
+          status: p ? p.status : "locked",
+          xp_earned: p ? p.xp_earned : 0,
+        };
+      });
+
+      setSubject({
+        ...contentRes.data,
+        levels: mergedLevels,
+      });
+
+    } catch (err) {
+      console.error("Failed to fetch subject details:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchDetail();
+
+}, [id, user]);
 
   if (loading || !subject)
     return (
@@ -94,7 +108,7 @@ export default function SubjectDetail() {
   const progressPercent = (completedCount / subject.levels.length) * 100;
 
   const skills = getSkillsForSubject(subject.name);
-  const mascotUrl = useAppStore(state => state.imageMap?.[subject.name]) || `https://api.dicebear.com/7.x/bottts/svg?seed=${subject.name}`;
+  const mascotUrl = imageMap?.[subject.name] || `https://api.dicebear.com/7.x/bottts/svg?seed=${subject.name}`;
 
   return (
     <Layout>

@@ -7,16 +7,21 @@ import { useAuthStore } from "../lib/store";
 import { createSocket } from "../lib/socket";
 
 export default function Layout({ children }) {
+  const { user } = useAuthStore();
+  const navigate = useNavigate();
   const { notifications, unreadCount, setNotifications, markAsRead, removeNotification } = useSocketStore();
   const [showNotifications, setShowNotifications] = useState(false);
 
   useEffect(() => {
-    if (user?.id) {
-      api.get(`/notifications/${user.id}`).then(res => {
-        setNotifications(res.data);
-      }).catch(err => console.error("Failed to load notifications", err));
-    }
-  }, [user]);
+    // Skip notifications loading entirely for now to prevent 429 errors
+    // Will re-enable after backend implements proper rate limiting
+    return;
+    
+    // Disabled: notifications fetching causing rate limit issues
+    // if (!user?.id || !localStorage.getItem("token")) return;
+    // const controller = new AbortController();
+    // api.get(`/notifications/${user.id}`, { signal: controller.signal })...
+  }, [user?.id, setNotifications]);
 
   const handleNotificationClick = async (notif) => {
     if (!notif.read) {
@@ -40,9 +45,6 @@ export default function Layout({ children }) {
           console.error("Failed to delete", err);
       }
   };
-
-  const { user } = useAuthStore();
-  const navigate = useNavigate();
   const socketRef = useRef(null);
 
   // Incoming challenge state

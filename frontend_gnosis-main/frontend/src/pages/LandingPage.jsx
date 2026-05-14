@@ -198,7 +198,64 @@ export default function LandingPage() {
         </motion.div>
       </section>
 
-      {/* Reviews/Testimonials Alternative Animation Section */}
+      {/* Stats Section */}
+      <section className="max-w-7xl mx-auto px-8 pb-24 relative z-10 shrink-0">
+        <motion.h2
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="text-3xl font-bold text-brand-text mb-12 text-center"
+        >
+          Proven by the Numbers
+        </motion.h2>
+        <motion.div
+          initial="visible"
+          animate="visible"
+          variants={containerVariants}
+          className="grid md:grid-cols-4 gap-6"
+        >
+          {[
+            {
+              icon: <Zap className="w-6 h-6 text-brand-accent" />,
+              value: "2.5M+",
+              label: "Total XP Earned"
+            },
+            {
+              icon: <Trophy className="w-6 h-6 text-brand-primary" />,
+              value: "45K+",
+              label: "Active Learners"
+            },
+            {
+              icon: <Star className="w-6 h-6 text-brand-accent" />,
+              value: "250+",
+              label: "Subjects Mastered"
+            },
+            {
+              icon: <Map className="w-6 h-6 text-brand-primary" />,
+              value: "10K+",
+              label: "Daily Battles"
+            },
+          ].map((stat, idx) => (
+            <motion.div
+              key={idx}
+              variants={itemVariants}
+              className="bg-white p-6 md:p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100 text-center"
+            >
+              <div className="flex justify-center mb-4">
+                {stat.icon}
+              </div>
+              <h3 className="text-3xl md:text-4xl font-bold text-brand-primary mb-2">
+                {stat.value}
+              </h3>
+              <p className="text-brand-muted text-sm">
+                {stat.label}
+              </p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </section>
+
+      {/* Reviews/Testimonials Section */}
       <section className="max-w-4xl mx-auto px-8 pb-24 text-center relative z-10 shrink-0">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

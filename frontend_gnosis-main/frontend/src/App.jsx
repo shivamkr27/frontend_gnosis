@@ -34,6 +34,7 @@ function ProtectedRoute({ children }) {
 function App() {
   const { user, token, setUser, logout } = useAuthStore();
   const { setImageMap } = useAppStore();
+  const initCheckRef = React.useRef(false);
 
   useEffect(() => {
     fetch("/assets/image_map.json")
@@ -42,25 +43,41 @@ function App() {
       .catch(() => console.log("No image map found"));
   }, [setImageMap]);
 
+  // Only check auth once on mount (not on every token change)
   useEffect(() => {
-    if (token) {
-      api
-        .get("/auth/me")
-        .then((res) => {
-          setUser(res.data);
-        })
-        .catch((err) => {
+    if (initCheckRef.current || !token) return;
+    initCheckRef.current = true;
+
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+
+    api
+      .get("/auth/me", { signal: controller.signal })
+      .then((res) => {
+        clearTimeout(timeoutId);
+        setUser(res.data);
+      })
+      .catch((err) => {
+        clearTimeout(timeoutId);
+        if (err.name !== "CanceledError") {
           console.error("Failed to fetch user", err);
           logout();
-        });
-    }
-  }, [logout, token, setUser]);
+        }
+      });
 
+    return () => {
+      clearTimeout(timeoutId);
+      controller.abort();
+    };
+  }, []); // Empty deps - only runs once on mount
+
+  // Socket connection - only after user is loaded
+  // DISABLED temporarily to debug 429 errors - socket.io might be causing cascading requests
   useEffect(() => {
-    if (!token || !user?.id) return undefined;
-    const socket = createSocket(user);
-    return () => socket.disconnect();
-  }, [token, user]);
+    // if (!token || !user?.id) return undefined;
+    // const socket = createSocket(user);
+    // return () => socket.disconnect();
+  }, [token, user?.id, user?.username]);
 
   return (
     <Router>

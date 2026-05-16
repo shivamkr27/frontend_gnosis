@@ -91,15 +91,16 @@ export default function LessonComplete() {
           scope: "global",
         });
 
-        await api.post(
-          "/progress/complete-level",
-          {
-            userId: user.id,
-            levelId,
-            subjectId,
-            xpEarned: totalXp,
-          }
-        );
+      await api.post(
+  "/progress/complete-level",
+  {
+    userId: user.id,
+    levelId,
+    subjectId,
+    xpEarned: totalXp,
+    answers: state?.answers || []
+  }
+);
 
         const [streakRes, meRes] =
           await Promise.all([

@@ -9,6 +9,7 @@ import { createSocket } from "../lib/socket";
 export default function Layout({ children }) {
   const { user } = useAuthStore();
   const navigate = useNavigate();
+
   const {
     notifications,
     unreadCount,
@@ -17,8 +18,11 @@ export default function Layout({ children }) {
     removeNotification,
   } = useSocketStore();
 
-  const [showNotifications, setShowNotifications] = useState(false);
-  const [toastNotification, setToastNotification] = useState(null);
+  const [showNotifications, setShowNotifications] =
+    useState(false);
+
+  const [toastNotification, setToastNotification] =
+    useState(null);
 
   const toastTimerRef = useRef(null);
   const lastNotificationIdRef = useRef(null);
@@ -30,11 +34,14 @@ export default function Layout({ children }) {
 
     if (
       !latestNotification ||
-      latestNotification.id === lastNotificationIdRef.current
+      latestNotification.id ===
+        lastNotificationIdRef.current
     )
       return;
 
-    lastNotificationIdRef.current = latestNotification.id;
+    lastNotificationIdRef.current =
+      latestNotification.id;
+
     setToastNotification(latestNotification);
 
     if (toastTimerRef.current) {
@@ -43,7 +50,7 @@ export default function Layout({ children }) {
 
     toastTimerRef.current = setTimeout(() => {
       setToastNotification(null);
-    }, 5000);
+    }, 3500);
 
     return () => {
       if (toastTimerRef.current) {
@@ -64,7 +71,10 @@ export default function Layout({ children }) {
     setShowNotifications(false);
   };
 
-  const handleDeleteNotification = async (e, notif) => {
+  const handleDeleteNotification = async (
+    e,
+    notif
+  ) => {
     e.stopPropagation();
 
     try {
@@ -73,7 +83,10 @@ export default function Layout({ children }) {
         return;
       }
 
-      await api.delete(`/notifications/${notif.id}`);
+      await api.delete(
+        `/notifications/${notif.id}`
+      );
+
       removeNotification(notif.id);
     } catch (err) {
       console.error("Failed to delete", err);
@@ -83,12 +96,14 @@ export default function Layout({ children }) {
   const socketRef = useRef(null);
 
   // Incoming challenge state
-  const [incomingChallenge, setIncomingChallenge] = useState(null);
+  const [incomingChallenge, setIncomingChallenge] =
+    useState(null);
 
   useEffect(() => {
     if (!user?.id) return;
 
     const socket = createSocket(user);
+
     socketRef.current = socket;
 
     socket.on("connect", () => {
@@ -104,7 +119,9 @@ export default function Layout({ children }) {
 
     socket.on("challenge:accepted", (payload) => {
       if (payload.roomCode) {
-        navigate(`/battle/lobby/${payload.roomCode}`);
+        navigate(
+          `/battle/lobby/${payload.roomCode}`
+        );
       }
     });
 
@@ -112,16 +129,28 @@ export default function Layout({ children }) {
   }, [user, navigate]);
 
   const handleRespond = (accepted) => {
-    if (!incomingChallenge || !socketRef.current) return;
+    if (
+      !incomingChallenge ||
+      !socketRef.current
+    )
+      return;
 
-    socketRef.current.emit("challenge:respond", {
-      accepted,
-      fromUserId: incomingChallenge.fromUserId,
-      subjectId: incomingChallenge.subjectId,
-      levelId: incomingChallenge.levelId,
-      subjectName: incomingChallenge.subjectName,
-      levelNumber: incomingChallenge.levelNumber,
-    });
+    socketRef.current.emit(
+      "challenge:respond",
+      {
+        accepted,
+        fromUserId:
+          incomingChallenge.fromUserId,
+        subjectId:
+          incomingChallenge.subjectId,
+        levelId:
+          incomingChallenge.levelId,
+        subjectName:
+          incomingChallenge.subjectName,
+        levelNumber:
+          incomingChallenge.levelNumber,
+      }
+    );
 
     setIncomingChallenge(null);
   };
@@ -157,20 +186,10 @@ export default function Layout({ children }) {
           <div className="w-8 h-8 bg-[#8B2500] rounded-lg flex items-center justify-center text-white font-bold">
             G
           </div>
-          <span className="font-bold text-lg text-[#1a1a1a]">Gnosis</span>
-        </div>
 
-        <div className="relative">
-          <button
-            onClick={() => setShowNotifications(!showNotifications)}
-            className="p-2 relative text-[#8a8a8a] hover:text-[#1a1a1a]"
-          >
-            <Bell className="w-6 h-6" />
-
-            {unreadCount > 0 && (
-              <span className="absolute top-1 right-1 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-[#FAF7F2]"></span>
-            )}
-          </button>
+          <span className="font-bold text-lg text-[#1a1a1a]">
+            Gnosis
+          </span>
         </div>
       </div>
 
@@ -182,7 +201,11 @@ export default function Layout({ children }) {
 
         <div className="relative mb-4 w-full px-2 flex justify-center">
           <button
-            onClick={() => setShowNotifications(!showNotifications)}
+            onClick={() =>
+              setShowNotifications(
+                !showNotifications
+              )
+            }
             className="relative p-2 rounded-lg text-[#8a8a8a] hover:text-[#1a1a1a] hover:bg-white hover:shadow-sm transition-all w-full flex justify-center"
           >
             <Bell className="w-5 h-5" />
@@ -239,7 +262,9 @@ export default function Layout({ children }) {
               to={item.to}
               className={({ isActive }) =>
                 `flex flex-col items-center gap-1 w-16 ${
-                  isActive ? "text-[#D4641A]" : "text-[#8a8a8a]"
+                  isActive
+                    ? "text-[#D4641A]"
+                    : "text-[#8a8a8a]"
                 }`
               }
             >
@@ -247,7 +272,9 @@ export default function Layout({ children }) {
                 <>
                   <div
                     className={`p-1.5 rounded-xl ${
-                      isActive ? "bg-[#FFF4E5]" : ""
+                      isActive
+                        ? "bg-[#FFF4E5]"
+                        : ""
                     }`}
                   >
                     {item.icon}
@@ -281,7 +308,9 @@ export default function Layout({ children }) {
           </div>
 
           <button
-            onClick={() => setToastNotification(null)}
+            onClick={() =>
+              setToastNotification(null)
+            }
             className="text-[#8a8a8a] hover:text-[#1a1a1a] flex-shrink-0"
           >
             <X className="w-4 h-4" />
@@ -293,10 +322,14 @@ export default function Layout({ children }) {
       {showNotifications && (
         <div className="fixed top-16 md:top-4 right-4 md:left-28 z-50 w-80 bg-white rounded-2xl shadow-xl border border-[#E8DFD1] overflow-hidden flex flex-col max-h-[400px]">
           <div className="p-4 border-b border-[#E8DFD1] bg-[#FAF7F2] flex justify-between items-center">
-            <h3 className="font-bold text-[#1a1a1a]">Notifications</h3>
+            <h3 className="font-bold text-[#1a1a1a]">
+              Notifications
+            </h3>
 
             <button
-              onClick={() => setShowNotifications(false)}
+              onClick={() =>
+                setShowNotifications(false)
+              }
               className="text-[#8a8a8a] hover:text-[#1a1a1a]"
             >
               <X className="w-5 h-5" />
@@ -312,7 +345,11 @@ export default function Layout({ children }) {
               notifications.map((notif) => (
                 <div
                   key={notif.id}
-                  onClick={() => handleNotificationClick(notif)}
+                  onClick={() =>
+                    handleNotificationClick(
+                      notif
+                    )
+                  }
                   className={`p-3 rounded-xl mb-1 cursor-pointer transition-colors relative group flex items-start gap-3 ${
                     notif.read
                       ? "bg-transparent hover:bg-[#FAF7F2]"
@@ -331,13 +368,18 @@ export default function Layout({ children }) {
                     </p>
 
                     <span className="text-[10px] text-[#8a8a8a] mt-1 block">
-                      {new Date(notif.created_at).toLocaleDateString()}
+                      {new Date(
+                        notif.created_at
+                      ).toLocaleDateString()}
                     </span>
                   </div>
 
                   <button
                     onClick={(e) =>
-                      handleDeleteNotification(e, notif)
+                      handleDeleteNotification(
+                        e,
+                        notif
+                      )
                     }
                     className="opacity-0 group-hover:opacity-100 p-1 text-[#8a8a8a] hover:text-red-500 transition-opacity"
                   >
@@ -360,25 +402,33 @@ export default function Layout({ children }) {
 
             <p className="mb-8 text-[#6b6b6b] leading-relaxed">
               <span className="text-[#8B2500] font-bold">
-                {incomingChallenge.fromUsername}
+                {
+                  incomingChallenge.fromUsername
+                }
               </span>{" "}
               has challenged you to a battle in{" "}
               <span className="font-bold text-[#1a1a1a]">
-                {incomingChallenge.subjectName}
+                {
+                  incomingChallenge.subjectName
+                }
               </span>
               !
             </p>
 
             <div className="flex justify-center gap-3">
               <button
-                onClick={() => handleRespond(false)}
+                onClick={() =>
+                  handleRespond(false)
+                }
                 className="flex-1 py-3.5 rounded-xl font-bold border-2 border-[#E8DFD1] text-[#6b6b6b] hover:bg-[#FAF7F2] hover:text-[#1a1a1a] transition-all"
               >
                 Decline
               </button>
 
               <button
-                onClick={() => handleRespond(true)}
+                onClick={() =>
+                  handleRespond(true)
+                }
                 className="flex-1 py-3.5 rounded-xl bg-[#8B2500] text-white font-bold shadow-md hover:bg-[#6A1C00] transition-all hover:-translate-y-0.5"
               >
                 Accept

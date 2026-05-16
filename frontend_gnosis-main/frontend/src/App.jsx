@@ -15,6 +15,7 @@ import Home from "./pages/Home";
 import SubjectDetail from "./pages/SubjectDetail";
 import Profile from "./pages/Profile";
 import Leaderboard from "./pages/Leaderboard";
+import Notifications from "./pages/Notifications";
 
 import BattleLobby from "./pages/BattleLobby";
 import HostLobby from "./pages/HostLobby";
@@ -34,7 +35,7 @@ function ProtectedRoute({ children }) {
 function App() {
   const { user, token, setUser, logout } = useAuthStore();
   const { setImageMap } = useAppStore();
-  const initCheckRef = React.useRef(false);
+  const checkedTokenRef = React.useRef(null);
 
   useEffect(() => {
     fetch("/assets/image_map.json")
@@ -45,8 +46,8 @@ function App() {
 
   // Only check auth once on mount (not on every token change)
   useEffect(() => {
-    if (initCheckRef.current || !token) return;
-    initCheckRef.current = true;
+    if (!token || checkedTokenRef.current === token) return;
+    checkedTokenRef.current = token;
 
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
@@ -69,7 +70,7 @@ function App() {
       clearTimeout(timeoutId);
       controller.abort();
     };
-  }, []); // Empty deps - only runs once on mount
+  }, [token, setUser, logout]);
 
   // Socket connection - only after user is loaded
   // DISABLED temporarily to debug 429 errors - socket.io might be causing cascading requests
@@ -115,6 +116,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <Leaderboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/notifications"
+            element={
+              <ProtectedRoute>
+                <Notifications />
               </ProtectedRoute>
             }
           />

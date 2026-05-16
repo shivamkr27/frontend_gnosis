@@ -33,6 +33,14 @@ export default function ActiveQuiz() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showQuitConfirm, setShowQuitConfirm] = useState(false);
+
+  const optionAccentMap = {
+    A: "#B0681B",
+    B: "#D48C2B",
+    C: "#8B5E34",
+    D: "#C97A34",
+  };
 
   const question = questions[currentIndex];
   const timerSeconds = question?.timer_seconds || 20;
@@ -186,6 +194,14 @@ export default function ActiveQuiz() {
     }
   };
 
+  const handleQuit = () => {
+    setShowQuitConfirm(true);
+  };
+
+  const confirmQuit = () => {
+    navigate(-1);
+  };
+
   if (loading) {
     return (
       <div className="flex h-screen items-center justify-center bg-[#EFEEE8]">
@@ -247,7 +263,7 @@ export default function ActiveQuiz() {
             <Trophy className="h-5 w-5" /> {currentTotalXp}
           </div>
           <button
-            onClick={() => navigate(-1)}
+            onClick={handleQuit}
             className="font-bold text-gray-500 hover:text-gray-700 uppercase text-sm"
           >
             Quit
@@ -256,80 +272,150 @@ export default function ActiveQuiz() {
       </header>
 
       {/* Main Content */}
-      <main className="relative flex flex-1 items-center justify-center px-4 overflow-hidden">
-        {/* Background Decor (Matching image style) */}
-        <div className="absolute top-[-10%] right-[-10%] h-[600px] w-[600px] rounded-full bg-[#E3D9CC] opacity-50 blur-3xl z-0 pointer-events-none" />
+      <main className="relative flex flex-1 px-4 md:px-8 pb-10 overflow-hidden">
+        <div className="absolute top-[-12%] right-[-8%] h-[480px] w-[480px] rounded-full bg-[#E3D9CC] opacity-45 blur-3xl z-0 pointer-events-none" />
 
-        <div className="z-10 w-full max-w-4xl pt-8 pb-32">
-          <motion.div
-            key={currentIndex}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            className="flex flex-col items-center"
-          >
-            <h2 className="mb-12 text-center text-3xl md:text-4xl font-extrabold text-[#3D3A36] leading-tight">
-              {question.question_text}
-            </h2>
+        <div className="z-10 w-full max-w-7xl mx-auto pt-4">
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_260px] gap-6 items-start">
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              className="relative bg-[#F9F8F4] border border-[#D9CEBE] rounded-3xl p-5 md:p-7 shadow-sm"
+            >
+              <div className="absolute right-5 top-5 h-16 w-16 rounded-full border-4 border-[#E7C067] bg-white text-[#7A5624] flex items-center justify-center font-extrabold text-2xl shadow-[0_0_24px_rgba(231,192,103,0.45)]">
+                {timeLeft}s
+              </div>
 
-            {/* Timer Bar */}
-            <div className="mb-8 w-full max-w-xl h-2 rounded-full bg-gray-300 overflow-hidden">
-              <motion.div
-                key={`timer-${currentIndex}`}
-                initial={{ width: "100%" }}
-                animate={{ width: `${(timeLeft / timerSeconds) * 100}%` }}
-                transition={{ duration: 1, ease: "linear" }}
-                className={`h-full ${timeLeft <= 5 ? "bg-red-500" : "bg-[#B0681B]"}`}
-              />
-            </div>
+              <div className="pr-20">
+                <p className="text-xs tracking-wider font-bold text-[#A67B46] uppercase mb-2">
+                  Question {currentIndex + 1} of {questions.length}
+                </p>
+                <h2 className="text-3xl md:text-4xl font-extrabold text-[#2F2C28] leading-tight mb-6">
+                  {question.question_text}
+                </h2>
+              </div>
 
-            <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2">
-              {options.map((opt) => {
-                const isSelected = selectedOptions.includes(opt.id);
-                let stateClass =
-                  "border-[#C1B29E] bg-[#FAFAF8] text-[#3D3A36] hover:bg-[#F0EBE1] hover:border-[#A67B46]";
+              <div className="rounded-2xl border border-[#D9CEBE] bg-white p-4 md:p-6">
+                <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2">
+                  {options.map((opt) => {
+                    const isSelected = selectedOptions.includes(opt.id);
+                    const accentColor = optionAccentMap[opt.id] || "#B0681B";
+                    let stateClass =
+                      "border-[#CFC2AF] bg-[#FAFAF8] text-[#3D3A36] hover:bg-[#F0EBE1] hover:border-[#A67B46]";
 
-                if (isSelected) {
-                  stateClass =
-                    "border-[#B0681B] bg-[#F5EDDF] text-[#B0681B] ring-2 ring-[#B0681B]/20";
-                }
+                    if (isSelected) {
+                      stateClass =
+                        "border-[#B0681B] bg-[#F5EDDF] text-[#B0681B] ring-2 ring-[#B0681B]/20";
+                    }
 
-                return (
-                  <button
-                    key={opt.id}
-                    disabled={Boolean(result) || isSubmitting}
-                    onClick={() => toggleOption(opt.id)}
-                    className={`relative flex min-h-[100px] items-center rounded-2xl border-2 p-6 transition-all duration-200 ${stateClass} ${
-                      !result && !isSubmitting
-                        ? "active:scale-[0.98] shadow-sm hover:shadow-md"
-                        : "opacity-80 cursor-not-allowed"
-                    }`}
+                    const isCorrect = Boolean(result?.correctOptions?.includes(opt.id));
+                    const isWrongSelected = Boolean(result && selectedOptions.includes(opt.id) && !isCorrect);
+
+                    return (
+                      <button
+                        key={opt.id}
+                        disabled={Boolean(result) || isSubmitting}
+                        onClick={() => toggleOption(opt.id)}
+                        className={`relative flex min-h-[96px] items-center rounded-2xl border-2 p-5 transition-all duration-200 ${stateClass} ${
+                          !result && !isSubmitting
+                            ? "active:scale-[0.98] shadow-sm hover:shadow-md"
+                            : "opacity-80 cursor-not-allowed"
+                        }`}
+                      >
+                        <span
+                          className="mr-4 flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-bold"
+                          style={{
+                            backgroundColor: result
+                              ? isCorrect
+                                ? accentColor
+                                : isWrongSelected
+                                  ? "#C97A34"
+                                  : "#F2E6D3"
+                              : isSelected
+                                ? accentColor
+                                : "#F2E6D3",
+                            color: result ? (isCorrect || isSelected ? "#fff" : accentColor) : isSelected ? "#fff" : accentColor,
+                            boxShadow: result && isCorrect ? `0 0 0 4px ${accentColor}22` : undefined,
+                          }}
+                        >
+                          {opt.id}
+                        </span>
+                        <span className="text-left text-lg font-bold leading-snug">
+                          {opt.text}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {isMultiCorrect && !result && (
+                  <motion.button
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    disabled={selectedOptions.length === 0 || isSubmitting}
+                    onClick={() => submitAnswer(selectedOptions)}
+                    className="mt-6 rounded-full bg-[#B0681B] px-10 py-3.5 font-bold text-white shadow-lg transition hover:bg-[#8e5212] disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    <span className="mr-4 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#E3D9CC] text-sm font-bold text-[#A67B46]">
-                      {opt.id}
-                    </span>
-                    <span className="text-left text-lg font-bold leading-snug">
-                      {opt.text}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
+                    {isSubmitting ? "Checking..." : "Submit Answer"}
+                  </motion.button>
+                )}
+              </div>
+            </motion.div>
 
-            {/* Multi-correct submit button */}
-            {isMultiCorrect && !result && (
-              <motion.button
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                disabled={selectedOptions.length === 0 || isSubmitting}
-                onClick={() => submitAnswer(selectedOptions)}
-                className="mt-8 rounded-full bg-[#B0681B] px-12 py-4 font-bold text-white shadow-lg transition hover:bg-[#8e5212] disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isSubmitting ? "Checking..." : "Submit Answer"}
-              </motion.button>
-            )}
-          </motion.div>
+            <div className="space-y-4">
+              <div className="bg-white border border-[#D9CEBE] rounded-3xl p-3 shadow-sm">
+                <img
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIxuMyjeACwWBPWC2B9WRbwsFXVXV8eUCnPUdWgSwv6owm4CqI6okAMsQ8GolHxtUBFiTs0IcBJ2CNM4uNupJifH89SSY3PVKkRpNHYECq7Tw8Su5JqqvP2N4wtmHm4l52vQ8HTiDHBQuH9b-84lP8pBxShBXuZUgkirM2d8-lhV-b5KndUaxI-LzNQz7s-JY8RLcwfrAKOijz0KjYIR766ayZD53J74kNVOXcQhJO3TTn9uNcbXu_-SHxAybDJxIcuBU9vgjWKqd8"
+                  alt="Quiz robot"
+                  className="w-full h-44 object-cover rounded-2xl"
+                />
+              </div>
+
+              <div className="bg-white border border-[#D9CEBE] rounded-3xl p-5 shadow-sm">
+                <p className="text-xs font-bold tracking-wider text-[#A67B46] uppercase mb-2">Focus Boost</p>
+                <p className="text-[#3D3A36] font-bold leading-relaxed">
+                  "Stay sharp. One focused answer at a time. You are building momentum."
+                </p>
+                <div className="mt-4 h-2 w-full rounded-full bg-[#EDE5D9] overflow-hidden">
+                  <motion.div
+                    key={`focus-${currentIndex}`}
+                    initial={{ width: "100%" }}
+                    animate={{ width: `${Math.max(20, (timeLeft / timerSeconds) * 100)}%` }}
+                      className="h-full bg-gradient-to-r from-[#D48C2B] to-[#B0681B] shadow-[0_0_18px_rgba(180,104,27,0.5)]"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+
+        {showQuitConfirm && (
+          <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/35 backdrop-blur-sm px-4">
+            <div className="w-full max-w-md rounded-[28px] border border-[#D9CEBE] bg-[#F9F8F4] p-6 shadow-2xl">
+              <p className="text-xs font-bold uppercase tracking-widest text-[#A67B46] mb-2">Confirm Quit</p>
+              <h3 className="text-2xl font-extrabold text-[#2F2C28] mb-3">Quit aur progress reset?</h3>
+              <p className="text-sm leading-relaxed text-[#6B655B] mb-6">
+                Quit karne se tumhara progress reset ho jayega. Kya tum sure ho ki exit karna chahte ho?
+              </p>
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setShowQuitConfirm(false)}
+                  className="flex-1 rounded-2xl border-2 border-[#D9CEBE] bg-white px-4 py-3 font-bold text-[#6B655B] hover:bg-[#FAF7F2]"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={confirmQuit}
+                  className="flex-1 rounded-2xl bg-[#B0681B] px-4 py-3 font-bold text-white shadow-lg hover:bg-[#8e5212]"
+                >
+                  Quit Anyway
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </main>
 
       {/* Result Modal Overlay */}

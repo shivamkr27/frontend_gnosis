@@ -292,4 +292,61 @@ router.post('/complete-level', async (req, res) => {
   }
 });
 
+// POST /progress/reset-level
+router.post('/reset-level', async (req, res) => {
+  const { userId, subjectId, levelId } = req.body;
+  const authUserId = req.headers['x-user-id'];
+
+  if (!authUserId) {
+    return res.status(401).json({ error: "Unauthorized: Missing user ID" });
+  }
+
+  if (userId !== authUserId) {
+    return res.status(403).json({ error: "Forbidden: Cannot update progress for another user" });
+  }
+
+  if (!userId || !subjectId || !levelId) {
+    return res.status(400).json({ error: "Missing required fields" });
+  }
+
+  try {
+    const levelsResponse = await axios.get(`${CONTENT_SERVICE_URL}/content/subjects/${subjectId}`);
+    const levels = levelsResponse.data.levels.slice().sort((a, b) => a.level_number - b.level_number);
+    const currentLevel = levels.find((level) => level.id === levelId);
+
+    if (!currentLevel) {
+      return res.status(404).json({ error: "Level not found" });
+    }
+
+    const targetAndAfter = levels.filter((level) => level.level_number >= currentLevel.level_number);
+    const targetLevelIds = targetAndAfter.map((level) => level.id);
+
+    await pool.query(
+      `
+        UPDATE user_progress
+        SET
+          status = CASE
+            WHEN level_id = $1 THEN 'unlocked'
+            ELSE 'locked'
+          END,
+          xp_earned = 0,
+          completed_at = NULL
+        WHERE user_id = $2
+          AND subject_id = $3
+          AND level_id = ANY($4::uuid[])
+      `,
+      [levelId, userId, subjectId, targetLevelIds],
+    );
+
+    res.json({
+      message: "progress reset",
+      levelId,
+      resetFromLevelNumber: currentLevel.level_number,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 module.exports = router;

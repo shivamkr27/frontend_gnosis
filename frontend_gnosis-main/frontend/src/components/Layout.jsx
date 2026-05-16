@@ -11,17 +11,33 @@ export default function Layout({ children }) {
   const navigate = useNavigate();
   const { notifications, unreadCount, setNotifications, markAsRead, removeNotification } = useSocketStore();
   const [showNotifications, setShowNotifications] = useState(false);
+  const [toastNotification, setToastNotification] = useState(null);
+  const toastTimerRef = useRef(null);
+  const lastNotificationIdRef = useRef(null);
 
   useEffect(() => {
-    // Skip notifications loading entirely for now to prevent 429 errors
-    // Will re-enable after backend implements proper rate limiting
-    return;
-    
-    // Disabled: notifications fetching causing rate limit issues
-    // if (!user?.id || !localStorage.getItem("token")) return;
-    // const controller = new AbortController();
-    // api.get(`/notifications/${user.id}`, { signal: controller.signal })...
-  }, [user?.id, setNotifications]);
+    if (notifications.length === 0) return;
+
+    const latestNotification = notifications[0];
+    if (!latestNotification || latestNotification.id === lastNotificationIdRef.current) return;
+
+    lastNotificationIdRef.current = latestNotification.id;
+    setToastNotification(latestNotification);
+
+    if (toastTimerRef.current) {
+      clearTimeout(toastTimerRef.current);
+    }
+
+    toastTimerRef.current = setTimeout(() => {
+      setToastNotification(null);
+    }, 5000);
+
+    return () => {
+      if (toastTimerRef.current) {
+        clearTimeout(toastTimerRef.current);
+      }
+    };
+  }, [notifications]);
 
   const handleNotificationClick = async (notif) => {
     if (!notif.read) {
@@ -36,11 +52,16 @@ export default function Layout({ children }) {
     setShowNotifications(false);
   };
 
-  const handleDeleteNotification = async (e, id) => {
+  const handleDeleteNotification = async (e, notif) => {
       e.stopPropagation();
       try {
-          await api.delete(`/notifications/${id}`);
-          removeNotification(id);
+          if (notif?.source === "local") {
+            removeNotification(notif.id);
+            return;
+          }
+
+          await api.delete(`/notifications/${notif.id}`);
+          removeNotification(notif.id);
       } catch(err) {
           console.error("Failed to delete", err);
       }
@@ -97,7 +118,7 @@ export default function Layout({ children }) {
   ];
 
   return (
-    <div className="min-h-screen pb-20 md:pb-0 md:pl-24 bg-[#FAF7F2]">
+    <div className="min-h-screen pb-20 md:pb-0 md:pl-20 bg-[#FAF7F2]">
       {/* Top Bar for Mobile */}
       <div className="md:hidden sticky top-0 bg-[#FAF7F2]/90 backdrop-blur-md border-b border-[#E8DFD1] z-40 px-4 py-3 flex justify-between items-center shadow-sm">
         <div className="flex items-center gap-2">
@@ -117,37 +138,37 @@ export default function Layout({ children }) {
       </div>
 
       {/* Desktop Sidebar (No Library, matches theme) */}
-      <nav className="hidden md:flex flex-col items-center fixed left-0 top-0 bottom-0 w-24 bg-[#FAF7F2] border-r border-[#E8DFD1] z-50 py-8 shadow-[2px_0_15px_rgba(0,0,0,0.02)]">
-        <div className="w-12 h-12 bg-[#8B2500] rounded-xl flex items-center justify-center text-white font-bold text-2xl shadow-sm mb-12">
+      <nav className="hidden md:flex flex-col items-center fixed left-0 top-0 bottom-0 w-20 bg-[#FAF7F2] border-r border-[#E8DFD1] z-50 py-4 shadow-[2px_0_15px_rgba(0,0,0,0.02)]">
+        <div className="w-9 h-9 bg-[#8B2500] rounded-lg flex items-center justify-center text-white font-bold text-base shadow-sm mb-4">
           G
         </div>
 
-        <div className="relative mb-8 w-full px-4 flex justify-center">
-            <button onClick={() => setShowNotifications(!showNotifications)} className="relative p-3 rounded-2xl text-[#8a8a8a] hover:text-[#1a1a1a] hover:bg-white hover:shadow-sm transition-all w-full flex justify-center">
-                <Bell className="w-6 h-6" />
+        <div className="relative mb-4 w-full px-2 flex justify-center">
+            <button onClick={() => setShowNotifications(!showNotifications)} className="relative p-2 rounded-lg text-[#8a8a8a] hover:text-[#1a1a1a] hover:bg-white hover:shadow-sm transition-all w-full flex justify-center">
+                <Bell className="w-5 h-5" />
                 {unreadCount > 0 && (
-                  <span className="absolute top-2 right-4 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-[#FAF7F2]"></span>
+                  <span className="absolute top-1 right-2 w-2 h-2 bg-red-500 rounded-full border border-[#FAF7F2]"></span>
                 )}
             </button>
         </div>
 
-        <div className="flex flex-col gap-8 flex-1 w-full px-4">
+        <div className="flex flex-col gap-2 flex-1 w-full px-2">
           {navItems.map((item) => (
             <NavLink
               key={item.to}
               to={item.to}
               className={({ isActive }) =>
-                `flex flex-col items-center gap-1.5 group w-full ${isActive ? "text-[#8B2500]" : "text-[#8a8a8a] hover:text-[#1a1a1a]"}`
+                `flex flex-col items-center gap-0.5 group w-full ${isActive ? "text-[#8B2500]" : "text-[#8a8a8a] hover:text-[#1a1a1a]"}`
               }
             >
               {({ isActive }) => (
                 <>
                   <div
-                    className={`p-3 rounded-2xl w-full flex justify-center transition-all ${isActive ? "bg-[#FFF4E5] text-[#D4641A]" : "group-hover:bg-white group-hover:shadow-sm"}`}
+                    className={`p-2 rounded-lg w-full flex justify-center transition-all ${isActive ? "bg-[#FFF4E5] text-[#D4641A]" : "group-hover:bg-white group-hover:shadow-sm"}`}
                   >
-                    {item.icon}
+                    <div className="w-5 h-5 flex items-center justify-center">{item.icon}</div>
                   </div>
-                  <span className="text-xs font-bold">{item.label}</span>
+                  <span className="text-[9px] font-bold text-center leading-tight max-w-[60px]">{item.label}</span>
                 </>
               )}
             </NavLink>
@@ -183,6 +204,13 @@ export default function Layout({ children }) {
 
       <main className="max-w-4xl mx-auto min-h-screen bg-[#FAF7F2]">{children}</main>
 
+      {toastNotification && (
+        <div className="fixed top-4 right-4 z-[90] w-[min(92vw,24rem)] rounded-2xl border border-[#E8DFD1] bg-white shadow-2xl px-4 py-3">
+          <p className="text-xs font-bold uppercase tracking-wider text-[#8B2500]">Notification</p>
+          <p className="mt-1 text-sm font-semibold text-[#1a1a1a]">{toastNotification.message}</p>
+        </div>
+      )}
+
       {/* Notifications Dropdown */}
       {showNotifications && (
         <div className="fixed top-16 md:top-4 right-4 md:left-28 z-50 w-80 bg-white rounded-2xl shadow-xl border border-[#E8DFD1] overflow-hidden flex flex-col max-h-[400px]">
@@ -211,7 +239,7 @@ export default function Layout({ children }) {
                     </span>
                   </div>
                   <button
-                    onClick={(e) => handleDeleteNotification(e, notif.id)}
+                    onClick={(e) => handleDeleteNotification(e, notif)}
                     className="opacity-0 group-hover:opacity-100 p-1 text-[#8a8a8a] hover:text-red-500 transition-opacity"
                   >
                     <X className="w-4 h-4" />

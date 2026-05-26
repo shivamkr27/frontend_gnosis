@@ -3,16 +3,34 @@ const { generateRoomCode, updateRoomPlayers, sendNextQuestion, endQuiz } = requi
 
 module.exports = (io, redisClient) => {
   io.on('connection', (socket) => {
+    console.log(`[Socket] New connection: ${socket.id}`);
     
     // User identifies themselves after connecting
     socket.on('user:identify', async ({ userId, username }) => {
+      console.log(`[Socket] User identify: ${username} (${userId})`);
       socket.userId = userId;
       socket.username = username;
       // Store socket mapping in Redis
       await redisClient.set('gnosis:socket:' + userId, socket.id, { EX: 3600 });
+      // Also mark as online for notification service
+      await redisClient.set('gnosis:online:' + userId, '1', { EX: 30 });
     });
 
-    // ---- 1v1 CHALLENGE EVENTS ----
+    socket.on('user:heartbeat', async ({ userId }) => {
+      // Refresh online status and socket mapping
+      await redisClient.set('gnosis:online:' + userId, '1', { EX: 30 });
+      if (socket.id) {
+        await redisClient.set('gnosis:socket:' + userId, socket.id, { EX: 3600 });
+      }
+    });
+
+    socket.on('disconnect', async () => {
+      if (socket.userId) {
+        await redisClient.del('gnosis:socket:' + socket.userId);
+        await redisClient.del('gnosis:online:' + socket.userId);
+      }
+    });
+
     socket.on('challenge:send', async ({ toUserId, toUsername, subjectId, levelId, subjectName, levelNumber }) => {
       const targetSocketId = await redisClient.get('gnosis:socket:' + toUserId);
       if (!targetSocketId) {
@@ -54,31 +72,30 @@ module.exports = (io, redisClient) => {
       
       let questions = [];
       try {
-        // We attempt to get gemini questions first, if it fails, fallback to standard subject questions
-        try {
-            const res = await axios.get(`http://content-service:3002/content/levels/${levelId}/questions/gemini`);
-            questions = res.data;
-        } catch (err) {
-            console.log("Gemini fallback... fetching standard random questions.");
-            // Determine level ID from subject if a dummy was passed
-            let targetLevelId = levelId;
-            if(levelId === "dummy-level-id") {
-                const subRes = await axios.get(`http://content-service:3002/content/subjects/${subjectId}`);
-                targetLevelId = subRes.data.levels[0].id; // Fallback to first level of subject
-            }
-            const stdRes = await axios.get(`http://content-service:3002/content/levels/${targetLevelId}/questions`);
-            questions = stdRes.data;
+        // FETCH 10 RANDOM QUESTIONS FROM INTERNAL POOL
+        const res = await axios.get(`http://content-service:3002/content/levels/${levelId}/questions?internal=true`);
+        questions = res.data;
+        
+        if (!questions || questions.length === 0) {
+           const subRes = await axios.get(`http://content-service:3002/content/subjects/${subjectId}`);
+           const firstLevelId = subRes.data.levels[0].id;
+           const fallbackRes = await axios.get(`http://content-service:3002/content/levels/${firstLevelId}/questions?internal=true`);
+           questions = fallbackRes.data;
         }
+        // Take only 10
+        questions = questions.slice(0, 10);
       } catch (err) {
-        socket.emit('battle:error', { message: 'Failed to generate questions' });
+        console.error("Critical: Failed to fetch battle questions:", err.message);
+        socket.emit('challenge:error', { message: 'Failed to prepare questions. Try again.' });
         return;
       }
 
-      const challengerUsername = await redisClient.get('gnosis:challenge:' + socket.userId).then(res => res ? JSON.parse(res).fromUsername : 'Challenger');
+      const challengerDataRaw = await redisClient.get('gnosis:challenge:' + socket.userId);
+      const challengerUsername = challengerDataRaw ? JSON.parse(challengerDataRaw).fromUsername : 'Challenger';
 
       const players = [
-        { userId: fromUserId, username: challengerUsername, socketId: challengerSocketId, score: 0, answered: false },
-        { userId: socket.userId, username: socket.username, socketId: socket.id, score: 0, answered: false }
+        { userId: fromUserId, username: challengerUsername, socketId: '', score: 0, answered: false },
+        { userId: socket.userId, username: socket.username, socketId: '', score: 0, answered: false }
       ];
 
       await redisClient.hSet('gnosis:room:' + roomCode, {
@@ -86,27 +103,22 @@ module.exports = (io, redisClient) => {
         host_id: fromUserId,
         host_socket: challengerSocketId || '',
         subject_id: subjectId,
-        level_id: levelId,
-        subject_name: subjectName || '',
-        level_number: levelNumber ? levelNumber.toString() : '',
+        level_id: levelId || '',
+        subject_name: subjectName || 'Battle',
+        level_number: levelNumber ? levelNumber.toString() : '1',
         status: 'waiting',
         questions: JSON.stringify(questions),
         current_index: '0',
         q_sent_at: '0',
         players: JSON.stringify(players)
       });
-      await redisClient.expire('gnosis:room:' + roomCode, 3600);
+      await redisClient.expire('gnosis:room:' + roomCode, 1800);
 
       socket.join(roomCode);
       if (challengerSocketId) {
         io.to(challengerSocketId).emit('challenge:accepted', { roomCode, subjectName });
       }
       socket.emit('challenge:accepted', { roomCode });
-
-      setTimeout(() => {
-        redisClient.hSet('gnosis:room:' + roomCode, 'status', 'active');
-        sendNextQuestion(io, redisClient, roomCode);
-      }, 3000);
     });
 
     // ---- GROUP QUIZ EVENTS ----
@@ -141,10 +153,18 @@ module.exports = (io, redisClient) => {
         await redisClient.hSet('gnosis:room:' + roomCode, 'host_socket', socket.id);
 
         const roomData = await redisClient.hGetAll('gnosis:room:' + roomCode);
-        const players = JSON.parse(roomData.players || '[]');
+        let players = JSON.parse(roomData.players || '[]');
+        
+        // Update host socket in players array if it's a 1v1 (host IS a player)
+        const playerIndex = players.findIndex(p => p.userId === userId);
+        if (playerIndex !== -1) {
+            players[playerIndex].socketId = socket.id;
+            await updateRoomPlayers(redisClient, roomCode, players);
+        }
+
         socket.emit('room:joined', {
             roomCode,
-            quizName: roomData.quiz_name || '',
+            quizName: roomData.quiz_name || roomData.subject_name || '',
             players,
             playerCount: players.length
         });
@@ -156,27 +176,34 @@ module.exports = (io, redisClient) => {
         socket.emit('room:error', { message: 'Room not found' });
         return;
       }
-      if (roomData.status !== 'waiting') {
-        socket.emit('room:error', { message: 'Quiz already started' });
+      if (roomData.status !== 'waiting' && roomData.status !== 'active') {
+        socket.emit('room:error', { message: 'Quiz already finished' });
         return;
       }
-      if (roomData.host_id === userId) {
+      if (roomData.host_id === userId && roomData.type !== '1v1') {
         socket.emit('room:error', { message: 'Host cannot join as participant. Please use host screen.' });
         return;
       }
 
-      const players = JSON.parse(roomData.players || '[]');
+      let players = JSON.parse(roomData.players || '[]');
       const alreadyJoined = players.find(p => p.userId === userId);
       if (!alreadyJoined) {
         players.push({ userId, username, socketId: socket.id, score: 0, answered: false });
+        await updateRoomPlayers(redisClient, roomCode, players);
+      } else {
+        // Update socket ID even if already in array (relevant for 1v1 where players are pre-filled)
+        const pIndex = players.findIndex(p => p.userId === userId);
+        players[pIndex].socketId = socket.id;
         await updateRoomPlayers(redisClient, roomCode, players);
       }
 
       socket.join(roomCode);
       socket.roomCode = roomCode;
+      socket.userId = userId;
+      socket.username = username;
 
       const hostSocketId = roomData.host_socket;
-      if (hostSocketId) {
+      if (hostSocketId && hostSocketId !== socket.id) {
         io.to(hostSocketId).emit('room:player_joined', { 
           players,
           newPlayer: { userId, username }
@@ -186,9 +213,33 @@ module.exports = (io, redisClient) => {
       // Update everyone else in the room
       io.to(roomCode).emit('room:players', { players });
 
+      // AUTO-START 1v1: Wait for both players to have active socket connections
+      if (roomData.type === '1v1' && players.length === 2 && roomData.status === 'waiting') {
+        const bothConnected = players.every(p => p.socketId && p.socketId !== '');
+        if (bothConnected) {
+            // Give 2.5s for components to mount and register listeners
+            setTimeout(async () => {
+              const currentStatus = await redisClient.hGet('gnosis:room:' + roomCode, 'status');
+              if (currentStatus === 'waiting') {
+                 await redisClient.hSet('gnosis:room:' + roomCode, 'status', 'active');
+                 
+                 const qs = JSON.parse(roomData.questions || '[]');
+                 io.to(roomCode).emit('quiz:starting', { 
+                   message: 'Battle starting in 3 seconds!',
+                   totalQuestions: qs.length
+                 });
+
+                 setTimeout(() => {
+                   sendNextQuestion(io, redisClient, roomCode);
+                 }, 3000);
+              }
+            }, 2500);
+        }
+      }
+
       socket.emit('room:joined', {
         roomCode,
-        quizName: roomData.quiz_name || '',
+        quizName: roomData.quiz_name || roomData.subject_name || '',
         players,
         playerCount: players.length
       });
@@ -227,17 +278,25 @@ module.exports = (io, redisClient) => {
       const questions = JSON.parse(roomData.questions);
       const currentIndex = parseInt(roomData.current_index);
       const currentQuestion = questions[currentIndex];
-      const allowedMs = currentQuestion.timer_seconds * 1000;
+      const allowedMs = (currentQuestion.timer_seconds || 15) * 1000;
 
-      if (now - qSentAt > allowedMs) {
+      if (now - qSentAt > allowedMs + 2000) { // 2s grace period
         socket.emit('quiz:answer_rejected', { reason: 'timeout', questionId });
         return;
       }
 
+      // ROBUST ANSWER VERIFICATION
+      const normalize = (arr) => {
+        if (!arr || !Array.isArray(arr)) return [];
+        return arr.map(v => String(v).trim().toLowerCase()).sort();
+      };
+
       const correctOptions = currentQuestion.correct_options || [];
-      const sortedSelected = [...selectedOptions].sort();
-      const sortedCorrect = [...correctOptions].sort();
-      const isCorrect = JSON.stringify(sortedSelected) === JSON.stringify(sortedCorrect);
+      const normalizedSelected = normalize(selectedOptions);
+      const normalizedCorrect = normalize(correctOptions);
+      
+      const isCorrect = normalizedSelected.length === normalizedCorrect.length && 
+                        normalizedSelected.every((val, index) => val === normalizedCorrect[index]);
 
       let xpEarned = 0;
       if (isCorrect) {
@@ -284,6 +343,5 @@ module.exports = (io, redisClient) => {
         await redisClient.del('gnosis:socket:' + socket.userId);
       }
     });
-
   });
 };

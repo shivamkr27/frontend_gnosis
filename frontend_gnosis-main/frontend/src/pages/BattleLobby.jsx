@@ -25,6 +25,7 @@ export default function BattleLobby() {
   const [selectedFriend, setSelectedFriend] = useState(null);
   const [subjects, setSubjects] = useState([]);
   const [selectedSubjectId, setSelectedSubjectId] = useState("");
+  const [loadingLevels, setLoadingLevels] = useState(false);
 
   useEffect(() => {
     fetchFriends();
@@ -40,20 +41,25 @@ export default function BattleLobby() {
 
       // Batch online status check
       if (friendsData.length > 0) {
-        const userIds = friendsData.map(f => f.id);
-        const onlineRes = await api.post('/notifications/online/batch', { userIds });
-        const onlineStatusMap = onlineRes.data;
+        try {
+          const userIds = friendsData.map(f => f.id);
+          const onlineRes = await api.post('/notifications/online/batch', { userIds });
+          const onlineStatusMap = onlineRes.data;
 
-        const friendsWithStatus = friendsData.map(f => ({
-          ...f,
-          online: onlineStatusMap[f.id] || false
-        }));
-        setFriends(friendsWithStatus);
+          const friendsWithStatus = friendsData.map(f => ({
+            ...f,
+            online: !!onlineStatusMap[f.id]
+          }));
+          setFriends(friendsWithStatus);
+        } catch (statusErr) {
+          console.error("Failed to fetch online status, showing as offline", statusErr);
+          setFriends(friendsData.map(f => ({ ...f, online: false })));
+        }
       } else {
         setFriends([]);
       }
     } catch (err) {
-      console.error(err);
+      console.error("Failed to fetch friends", err);
     } finally {
       setLoading(false);
     }
@@ -118,16 +124,32 @@ export default function BattleLobby() {
     setIsModalOpen(true);
   };
 
-  const confirmChallenge = () => {
-    if (!selectedSubjectId || !selectedFriend) return;
+  const confirmChallenge = async () => {
+    if (!selectedSubjectId || !selectedFriend || loadingLevels) return;
 
-    // Find the subject detail
-    const subject = subjects.find(s => s.id === selectedSubjectId);
+    setLoadingLevels(true);
+    try {
+        // Find the subject detail
+        const subject = subjects.find(s => s.id === selectedSubjectId);
+        
+        // Fetch levels for this subject to get a valid Level 1 ID
+        const subDetailRes = await api.get(`/content/subjects/${selectedSubjectId}`);
+        const levels = subDetailRes.data.levels;
+        
+        if (!levels || levels.length === 0) {
+            alert("No levels found for this subject. Please choose another.");
+            return;
+        }
 
-    // Note: To keep things simple, we'll challenge on Level 1 of the chosen subject.
-    // Ideally we would fetch the subject levels and pick one, but battle flow needs levelId.
-    // We will just pass the subject and let the next page deal with it or fetch levels here.
-    navigate(`/battle/waiting/${selectedFriend.id}?subjectId=${selectedSubjectId}&subjectName=${encodeURIComponent(subject.name)}`);
+        const level1 = levels.find(l => l.level_number === 1) || levels[0];
+
+        navigate(`/battle/waiting/${selectedFriend.id}?subjectId=${selectedSubjectId}&subjectName=${encodeURIComponent(subject.name)}&levelId=${level1.id}&levelNumber=${level1.level_number}`);
+    } catch (err) {
+        console.error("Failed to fetch subject levels:", err);
+        alert("Something went wrong. Please try again.");
+    } finally {
+        setLoadingLevels(false);
+    }
   };
 
   const handleCreateGroup = () => {
@@ -412,10 +434,10 @@ export default function BattleLobby() {
               </button>
               <button
                 onClick={confirmChallenge}
-                disabled={!selectedSubjectId}
+                disabled={!selectedSubjectId || loadingLevels}
                 className="px-6 py-2.5 rounded-xl bg-primary text-white font-bold shadow-soft disabled:opacity-50"
               >
-                Send Challenge
+                {loadingLevels ? "Loading..." : "Send Challenge"}
               </button>
             </div>
           </div>

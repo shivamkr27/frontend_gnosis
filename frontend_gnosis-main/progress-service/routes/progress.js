@@ -107,7 +107,8 @@ router.get('/:userId/subject/:subjectId', async (req, res) => {
         level_number: level.level_number,
         status: prog ? prog.status : 'locked',
         xp_earned: prog ? prog.xp_earned : 0,
-        completed_at: prog ? prog.completed_at : null
+        completed_at: prog ? prog.completed_at : null,
+        answers: prog ? prog.answers : []
       };
     });
 
@@ -185,7 +186,13 @@ router.get('/:userId/streak', async (req, res) => {
 
 // POST /progress/complete-level
 router.post('/complete-level', async (req, res) => {
-  const { userId, levelId, subjectId, xpEarned } = req.body;
+  const {
+  userId,
+  levelId,
+  subjectId,
+  xpEarned,
+  answers,
+} = req.body;
   const authUserId = req.headers['x-user-id']; // Provided by auth middleware in api-gateway
 
   if (!authUserId) {
@@ -198,11 +205,52 @@ router.post('/complete-level', async (req, res) => {
 
   try {
     // Step 1: Update user_progress
-    await pool.query(`
+    // Step 1: Update user_progress
+try {
+  await pool.query(
+    `
       UPDATE user_progress
-      SET status = 'complete', xp_earned = $1, completed_at = NOW()
-      WHERE user_id = $2 AND level_id = $3
-    `, [xpEarned, userId, levelId]);
+      SET
+        status = 'complete',
+        xp_earned = $1,
+        completed_at = NOW(),
+        answers = $4
+      WHERE user_id = $2
+        AND level_id = $3
+    `,
+    [
+      xpEarned,
+      userId,
+      levelId,
+      JSON.stringify(
+        answers || []
+      ),
+    ]
+  );
+} catch (e) {
+  // Fallback in case answers column doesn't exist yet
+  console.warn(
+    "Failed to update answers column, falling back to original update",
+    e.message
+  );
+
+  await pool.query(
+    `
+      UPDATE user_progress
+      SET
+        status = 'complete',
+        xp_earned = $1,
+        completed_at = NOW()
+      WHERE user_id = $2
+        AND level_id = $3
+    `,
+    [
+      xpEarned,
+      userId,
+      levelId,
+    ]
+  );
+}
 
     // Step 2: Find next to unlock
     const levelsResponse = await axios.get(`${CONTENT_SERVICE_URL}/content/subjects/${subjectId}`);
@@ -247,18 +295,61 @@ router.post('/complete-level', async (req, res) => {
     `, [userId]);
 
     // Step 5: Calculate streak
-    const today = new Date();
-    const yesterday = new Date(Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate() - 1));
-    const yesterdayStr = yesterday.toISOString().split('T')[0];
-    const yesterdayResult = await pool.query(`
-      SELECT levels_completed FROM daily_activity
-      WHERE user_id = $1 AND activity_date = $2
-    `, [userId, yesterdayStr]);
+    // Step 5: Calculate streak
+const today = new Date();
 
-    let currentStreak = 1;
-    if (yesterdayResult.rows.length > 0 && yesterdayResult.rows[0].levels_completed > 0) {
-      currentStreak = 2; // Basic calculation just checking yesterday. Should technically use the logic in /streak endpoint for full streak but keeping it simple for return here.
+// Properly calculate streak by fetching the current streak and updating it if needed
+const streakRes = await pool.query(
+  `
+    SELECT streak_count, last_active_date
+    FROM users
+    WHERE id = $1
+  `,
+  [userId]
+);
+
+let currentStreak = 1;
+
+if (streakRes.rows.length > 0) {
+  const lastActive =
+    streakRes.rows[0].last_active_date;
+
+  const currentCount =
+    streakRes.rows[0].streak_count || 0;
+
+  if (lastActive) {
+    const todayDate = new Date(
+      Date.UTC(
+        today.getUTCFullYear(),
+        today.getUTCMonth(),
+        today.getUTCDate()
+      )
+    );
+
+    const lastActiveDate =
+      new Date(lastActive);
+
+    const diffTime = Math.abs(
+      todayDate - lastActiveDate
+    );
+
+    const diffDays = Math.ceil(
+      diffTime /
+        (1000 * 60 * 60 * 24)
+    );
+
+    if (diffDays === 0) {
+      // Already active today
+      currentStreak = currentCount;
+    } else if (diffDays === 1) {
+      // Active yesterday
+      currentStreak = currentCount + 1;
+    } else {
+      // Missed a day
+      currentStreak = 1;
     }
+  }
+}
 
     // Step 6: Persist streak_count on users table
     await pool.query(`

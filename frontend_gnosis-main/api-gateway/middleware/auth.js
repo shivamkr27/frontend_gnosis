@@ -19,11 +19,13 @@ const authenticateToken = (req, res, next) => {
   const token = authHeader && authHeader.split(' ')[1]; // Bearer <token>
 
   if (!token) {
+    console.log(`[Auth] Blocked: No token for ${req.method} ${req.path}`);
     return res.status(401).json({ error: "unauthorized" });
   }
 
   jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
     if (err) {
+      console.log(`[Auth] Blocked: Invalid token for ${req.method} ${req.path}`);
       return res.status(401).json({ error: "unauthorized" });
     }
 

@@ -90,16 +90,22 @@ router.get('/levels/:levelId', async (req, res) => {
 
 router.get('/levels/:levelId/questions', async (req, res) => {
   const { levelId } = req.params;
+  const isInternal = req.headers['x-internal-service'] === 'battle-service' || req.query.internal === 'true';
 
   try {
-    const result = await db.query(
-      `SELECT id, question_text, option_a, option_b, option_c, option_d, question_type, timer_seconds
-       FROM questions
-       WHERE level_id = $1
-       ORDER BY RANDOM()
-       LIMIT 10`,
-      [levelId]
-    );
+    const query = isInternal 
+      ? `SELECT id, question_text, option_a, option_b, option_c, option_d, question_type, timer_seconds, correct_options, explanation
+         FROM questions
+         WHERE level_id = $1
+         ORDER BY RANDOM()
+         LIMIT 10`
+      : `SELECT id, question_text, option_a, option_b, option_c, option_d, question_type, timer_seconds
+         FROM questions
+         WHERE level_id = $1
+         ORDER BY RANDOM()
+         LIMIT 10`;
+
+    const result = await db.query(query, [levelId]);
     res.json(result.rows);
   } catch (error) {
     console.error('GET /content/levels/:levelId/questions error', error);

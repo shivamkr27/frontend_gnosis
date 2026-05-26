@@ -16,6 +16,12 @@ const PORT = process.env.PORT || 3006;
 app.use(cors());
 app.use(express.json());
 
+// Request logger
+app.use((req, res, next) => {
+  console.log(`[Notification API] ${req.method} ${req.url}`);
+  next();
+});
+
 const redisClient = createClient({
   url: process.env.REDIS_URL
 });

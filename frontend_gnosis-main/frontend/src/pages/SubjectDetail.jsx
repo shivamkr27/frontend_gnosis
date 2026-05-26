@@ -93,7 +93,7 @@ export default function SubjectDetail() {
       try {
         setLoading(true);
 
-        const token = localStorage.getItem("token");
+        const token = localStorage.getItem("gnosis_token");
         let currentUser = user;
 
         if (!currentUser && token) {

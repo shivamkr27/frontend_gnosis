@@ -66,6 +66,7 @@ CREATE TABLE IF NOT EXISTS user_progress (
     CHECK (status IN ('locked', 'unlocked', 'complete')),
   xp_earned INT DEFAULT 0,
   completed_at TIMESTAMP,
+  answers JSONB DEFAULT '[]',
   UNIQUE(user_id, level_id)
 );
 

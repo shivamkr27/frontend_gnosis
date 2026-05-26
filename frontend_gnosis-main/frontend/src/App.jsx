@@ -27,8 +27,23 @@ import LessonComplete from "./pages/LessonComplete";
 import QuizReview from "./pages/QuizReview";
 
 function ProtectedRoute({ children }) {
-  const { token } = useAuthStore();
+  const { token, user } = useAuthStore();
+  
   if (!token) return <Navigate to="/auth" />;
+  
+  // If we have a token but user isn't loaded yet, show a loading state
+  // This prevents child components from crashing due to null user
+  if (!user) {
+    return (
+      <div className="flex h-screen w-full items-center justify-center bg-background">
+        <div className="flex flex-col items-center gap-4">
+          <div className="h-12 w-12 animate-spin rounded-full border-4 border-[#8B2500] border-t-transparent"></div>
+          <p className="font-bold text-[#8B2500] animate-pulse">Loading Gnosis...</p>
+        </div>
+      </div>
+    );
+  }
+  
   return children;
 }
 

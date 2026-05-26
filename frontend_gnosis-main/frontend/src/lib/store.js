@@ -2,15 +2,15 @@ import { create } from "zustand";
 
 export const useAuthStore = create((set) => ({
   user: null,
-  token: localStorage.getItem("token") || null,
+  token: localStorage.getItem("gnosis_token") || null,
 
   login: (user, token) => {
-    localStorage.setItem("token", token);
+    localStorage.setItem("gnosis_token", token);
     set({ user, token });
   },
 
   logout: () => {
-    localStorage.removeItem("token");
+    localStorage.removeItem("gnosis_token");
     set({ user: null, token: null });
   },
 

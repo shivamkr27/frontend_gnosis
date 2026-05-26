@@ -8,18 +8,67 @@ const https = require('https');
 
 const authenticateToken = require('./middleware/auth');
 const answerTimingMiddleware = require('./middleware/timing');
+const { createProxyMiddleware } = require('http-proxy-middleware');
 
 const app = express();
+const server = http.createServer(app);
+
+// Setup Socket.io Upgrade Proxy
+const battleProxy = createProxyMiddleware({
+  target: 'http://battle-service:3005',
+  changeOrigin: true,
+  ws: true,
+  logLevel: 'debug',
+  onProxyReq: (proxyReq, req, res) => {
+    // console.log(`[Proxy Req] ${req.method} ${req.url}`);
+  },
+  onProxyRes: (proxyRes, req, res) => {
+    console.log(`[Proxy Res] ${req.method} ${req.url} -> ${proxyRes.statusCode}`);
+  },
+  onError: (err, req, res) => {
+    console.error(`[Proxy Error] ${err.message}`);
+    if (res.writeHead && !res.headersSent) {
+      res.writeHead(502);
+    }
+    res.end('Bad Gateway');
+  }
+});
+
+const notificationProxy = createProxyMiddleware({
+  target: 'http://notification-service:3006',
+  changeOrigin: true,
+  ws: true,
+  logLevel: 'debug'
+});
+
 const PORT = process.env.PORT || 3000;
 
 app.set('trust proxy', 1);
 app.use(helmet({ contentSecurityPolicy: false }));
 app.use(cors({ origin: '*' }));
+
+// Request logger
+app.use((req, res, next) => {
+  console.log(`[API Gateway] ${req.method} ${req.url}`);
+  next();
+});
+
+// WebSocket / Battle Proxy - BEFORE Auth Middleware
+app.use('/socket.io/notifications', (req, res, next) => {
+  console.log('[API Gateway] Routing notifications socket request');
+  notificationProxy(req, res, next);
+});
+
+app.use('/socket.io', (req, res, next) => {
+  console.log(`[API Gateway] Routing /socket.io request to ${process.env.BATTLE_SERVICE}`);
+  battleProxy(req, res, next);
+});
+
 app.use(express.json());
 
 const generalLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  max: 100,
+  max: 2000, // Increased from 100 to 2000 to prevent 429s during development/typical usage
   message: { error: "Too many requests" },
   skip: (req) => {
     // Don't rate limit auth routes - they need flexibility
@@ -110,9 +159,21 @@ app.use('/auth', (req, res) => proxyRequest(process.env.AUTH_SERVICE, '/auth', r
 app.use('/content', (req, res) => proxyRequest(process.env.CONTENT_SERVICE, '/content', req, res));
 app.use('/progress', (req, res) => proxyRequest(process.env.PROGRESS_SERVICE, '/progress', req, res));
 app.use('/xp', (req, res) => proxyRequest(process.env.XP_SERVICE, '/xp', req, res));
-app.use('/battle', (req, res) => proxyRequest(process.env.BATTLE_SERVICE, '/battle', req, res));
+
+// Handle WebSocket upgrades
+server.on('upgrade', (req, socket, head) => {
+  const pathname = req.url.split('?')[0];
+  console.log(`[Proxy] Upgrade request for ${pathname}`);
+  
+  if (pathname.startsWith('/socket.io/notifications')) {
+    notificationProxy.upgrade(req, socket, head);
+  } else if (pathname.startsWith('/socket.io')) {
+    battleProxy.upgrade(req, socket, head);
+  }
+});
+
 app.use('/notifications', (req, res) => proxyRequest(process.env.NOTIFICATION_SERVICE, '/notifications', req, res));
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`API Gateway running on port ${PORT}`);
 });

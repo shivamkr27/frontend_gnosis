@@ -16,6 +16,8 @@ export default function Profile() {
 
   useEffect(() => {
     const fetchProfile = async () => {
+      if (!user) return; // Wait for user to be available
+      
       try {
         // If viewing own profile, user data is from store, else fetch
         let profData = user;
@@ -33,7 +35,7 @@ export default function Profile() {
 
         const merged = contentRes.data
           .map((cs) => {
-            const userProg = progRes.data.subjects.find(
+            const userProg = progRes.data.subjects?.find(
               (s) => s.subject_id === cs.id,
             );
             const completedCount = userProg
@@ -62,91 +64,128 @@ export default function Profile() {
   if (loading || !profile)
     return (
       <Layout>
-        <div className="flex justify-center items-center h-screen">
-          <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+        <div className="flex justify-center items-center h-[80vh]">
+          <div className="flex flex-col items-center gap-4">
+            <div className="w-12 h-12 border-4 border-[#8B2500] border-t-transparent rounded-full animate-spin"></div>
+            <p className="text-[#8B2500] font-black animate-pulse uppercase tracking-widest">Gearing Up...</p>
+          </div>
         </div>
       </Layout>
     );
 
   return (
     <Layout>
-      <div className="p-4 md:p-8 max-w-4xl mx-auto">
-        <div className="bg-white rounded-3xl p-8 shadow-soft border border-surface-variant mb-8 text-center relative overflow-hidden">
-          <div className="absolute inset-0 opacity-5 pointer-events-none jaali-bg mix-blend-multiply" />
+      <div className="p-4 md:p-8 max-w-5xl mx-auto pb-20">
+        {/* Profile Header */}
+        <motion.div 
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          className="bg-white rounded-[2.5rem] p-10 shadow-xl border-2 border-[#E8DFD1] mb-8 text-center relative overflow-hidden"
+        >
+          {/* Decorative background elements */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-[#FFF4E5] rounded-full -mr-32 -mt-32 blur-3xl opacity-50" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#F5EFE8] rounded-full -ml-32 -mb-32 blur-3xl opacity-50" />
+          
+          <div className="relative z-10">
+            <div className="relative inline-block mb-6 group">
+               <div className="w-32 h-32 bg-gradient-to-br from-[#D4641A] to-[#8B2500] text-white rounded-[2.5rem] mx-auto flex items-center justify-center text-5xl font-black shadow-2xl rotate-3 transform transition-transform group-hover:rotate-0">
+                {profile.username?.substring(0, 2).toUpperCase()}
+               </div>
+               <div className="absolute -bottom-2 -right-2 bg-white p-2 rounded-2xl shadow-lg border border-[#E8DFD1]">
+                  <Star className="w-6 h-6 text-[#D4641A] fill-[#D4641A]" />
+               </div>
+            </div>
+            
+            <h1 className="text-4xl font-black text-[#1a1a1a] mb-2 tracking-tight">
+              {profile.username}
+            </h1>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#FAF7F2] rounded-full border border-[#E8DFD1]">
+                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                <span className="text-[#6b6b6b] text-sm font-bold uppercase tracking-wider">
+                  {profile.email}
+                </span>
+            </div>
 
-          <div className="w-24 h-24 bg-primary text-white rounded-full mx-auto flex items-center justify-center text-4xl font-bold mb-4 shadow-lg relative z-10">
-            {profile.username.substring(0, 2).toUpperCase()}
+            {user?.id === profile.id && (
+              <button
+                onClick={logout}
+                className="absolute top-0 right-0 p-3 text-[#8a8a8a] hover:text-[#FF5252] transition-colors"
+                title="Logout"
+              >
+                <LogOut className="w-6 h-6" />
+              </button>
+            )}
           </div>
-          <h1 className="text-3xl font-bold text-inverse-surface mb-2 relative z-10">
-            {profile.username}
-          </h1>
-          <p className="text-on-surface-variant font-medium relative z-10">
-            {profile.email}
-          </p>
+        </motion.div>
 
-          {user?.id === profile.id && (
-            <button
-              onClick={logout}
-              className="absolute top-6 right-6 text-on-surface-variant hover:text-error transition-colors flex items-center gap-2 font-bold z-10 bg-surface px-4 py-2 rounded-xl"
-            >
-              <LogOut className="w-4 h-4" /> Logout
-            </button>
-          )}
-        </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+        {/* Stats Grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           <StatCard
-            icon={<Trophy className="text-secondary" />}
+            icon={<Trophy className="w-6 h-6 text-[#D4641A]" />}
             title="Total XP"
             value={profile.total_xp || 0}
+            color="bg-[#FFF4E5] border-[#F0C090]"
+            delay={0.1}
           />
           <StatCard
-            icon={<Flame className="text-primary" />}
+            icon={<Flame className="w-6 h-6 text-[#FF5252]" />}
             title="Day Streak"
             value={profile.streak_count || 0}
+            color="bg-[#FFF0F0] border-[#FFDADA]"
+            delay={0.2}
           />
           <StatCard
-            icon={<BookOpen className="text-tertiary" />}
+            icon={<BookOpen className="w-6 h-6 text-[#2196F3]" />}
             title="Subjects"
             value={progress.length}
+            color="bg-[#E3F2FD] border-[#BBDEFB]"
+            delay={0.3}
           />
           <StatCard
-            icon={<Star className="text-secondary-container-on" />}
+            icon={<Star className="w-6 h-6 text-[#4CAF50]" />}
             title="Global Rank"
             value={globalRank ? `#${globalRank}` : "-"}
+            color="bg-[#EAF6EA] border-[#D0E8D0]"
+            delay={0.4}
           />
         </div>
 
-        <div className="bg-white rounded-3xl p-8 shadow-soft border border-surface-variant">
-          <h2 className="text-2xl font-bold text-inverse-surface mb-6">
-            Learning Progress
+        {/* Learning Progress Section */}
+        <div className="bg-white rounded-[2.5rem] p-8 border-2 border-[#E8DFD1] shadow-lg">
+          <h2 className="text-2xl font-black text-[#1a1a1a] mb-8 flex items-center gap-3">
+             <BookOpen className="w-6 h-6 text-[#D4641A]" />
+             Learning Progress
           </h2>
-          <div className="space-y-6">
+          <div className="grid gap-6">
             {progress.length === 0 ? (
-              <p className="text-on-surface-variant">
-                No subjects started yet. Go to the Home path to begin!
-              </p>
+              <div className="text-center py-12 bg-[#FAF7F2] rounded-3xl border-2 border-dashed border-[#E8DFD1]">
+                <p className="text-[#8a8a8a] font-bold">No subjects started yet. Go to Home to begin!</p>
+              </div>
             ) : (
               progress.map((sub, idx) => (
                 <motion.div
                   key={sub.id}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: idx * 0.1 }}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.5 + idx * 0.1 }}
+                  className="p-6 rounded-3xl border-2 border-[#F0EDE8] bg-[#FAF7F2] relative overflow-hidden group hover:border-[#F0C090] transition-all"
                 >
-                  <div className="flex justify-between font-bold mb-2">
-                    <span className="text-inverse-surface">{sub.name}</span>
-                    <span className="text-primary">
-                      {sub.completedCount}/{sub.totalLevels}
+                  <div className="flex justify-between items-center mb-4 relative z-10">
+                    <span className="text-lg font-black text-[#1a1a1a]">{sub.name}</span>
+                    <span className="bg-white px-3 py-1 rounded-full text-xs font-black text-[#D4641A] border border-[#E8DFD1]">
+                      {sub.completedCount}/{sub.totalLevels} MODULES
                     </span>
                   </div>
-                  <div className="w-full h-3 bg-surface-container rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-gradient-to-r from-secondary-container to-primary transition-all duration-1000"
-                      style={{
-                        width: `${(sub.completedCount / sub.totalLevels) * 100}%`,
-                      }}
+                  <div className="w-full h-4 bg-[#E8DFD1] rounded-full overflow-hidden p-1 relative z-10">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      animate={{ width: `${(sub.completedCount / sub.totalLevels) * 100}%` }}
+                      transition={{ duration: 1, delay: 0.8 }}
+                      className="h-full bg-gradient-to-r from-[#D4641A] to-[#8B2500] rounded-full shadow-sm"
                     />
+                  </div>
+                  <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                     <Trophy className="w-12 h-12 rotate-12" />
                   </div>
                 </motion.div>
               ))
@@ -158,16 +197,20 @@ export default function Profile() {
   );
 }
 
-function StatCard({ icon, title, value }) {
+function StatCard({ icon, title, value, color, delay }) {
   return (
-    <div className="bg-white p-6 rounded-2xl shadow-sm border border-surface-variant flex flex-col items-center text-center">
-      <div className="w-12 h-12 rounded-xl bg-surface flex items-center justify-center mb-3">
+    <motion.div 
+      initial={{ scale: 0.9, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ delay }}
+      className={`${color} p-6 rounded-[2rem] border-2 shadow-sm flex flex-col items-center text-center hover:scale-105 transition-transform`}
+    >
+      <div className="mb-3 p-3 bg-white/80 rounded-2xl shadow-inner">
         {icon}
       </div>
-      <div className="text-sm font-bold text-on-surface-variant uppercase tracking-wider mb-1">
-        {title}
-      </div>
-      <div className="text-2xl font-bold text-inverse-surface">{value}</div>
-    </div>
+      <p className="text-[10px] font-black text-[#6b6b6b] uppercase tracking-widest mb-1">{title}</p>
+      <p className="text-2xl font-black text-[#1a1a1a]">{value}</p>
+    </motion.div>
   );
 }
+

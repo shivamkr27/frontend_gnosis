@@ -22,6 +22,8 @@ export default function ChallengeSent() {
     const searchParams = new URLSearchParams(location.search);
     const subjectId = searchParams.get("subjectId");
     const subjectName = searchParams.get("subjectName");
+    const levelId = searchParams.get("levelId");
+    const levelNumber = searchParams.get("levelNumber");
 
     if (!subjectId) {
       setError("No subject selected.");
@@ -35,17 +37,15 @@ export default function ChallengeSent() {
       // Identity
       socket.emit("user:identify", { userId: user.id, username: user.username });
 
-      // Wait a moment then send the challenge so opponent receiver is ready
-      setTimeout(() => {
-        socket.emit("challenge:send", {
-            toUserId: friendId,
-            toUsername: "Friend",
-            subjectId,
-            subjectName,
-            levelId: "dummy-level-id", // We'll let the backend generate fallback or we can use subject id to lookup questions
-            levelNumber: 1
-        });
-      }, 500);
+      // Send the challenge
+      socket.emit("challenge:send", {
+          toUserId: friendId,
+          toUsername: "Friend",
+          subjectId,
+          subjectName,
+          levelId: levelId || "dummy-level-id",
+          levelNumber: parseInt(levelNumber || "1")
+      });
     });
 
     socket.on("challenge:error", (data) => {

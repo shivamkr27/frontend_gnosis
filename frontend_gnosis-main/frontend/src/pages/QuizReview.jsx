@@ -189,7 +189,7 @@ export default function QuizReview() {
               <button
                 onClick={handleRetake}
                 disabled={retaking}
-                className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#A34714] text-white font-bold text-sm transition-all hover:bg-[#8f3f11] hover:shadow-sm disabled:opacity-50"
+                className="flex items-center gap-2 px-6 py-2.5 rounded-2xl bg-[#A34714] text-white font-bold text-sm transition-all hover:bg-[#8B2500] hover:shadow-md disabled:opacity-50 active:scale-95"
               >
                 {retaking ? "Resetting..." : "Retake Module"}
               </button>
@@ -204,7 +204,7 @@ export default function QuizReview() {
 
                 navigate(-1);
               }}
-              className="flex items-center gap-2 px-4 py-2 rounded-xl border-2 border-[#A34714] text-[#A34714] font-bold text-sm transition-all hover:bg-[#FFF4E5] hover:shadow-sm"
+              className="flex items-center gap-2 px-6 py-2.5 rounded-2xl border-2 border-[#A34714] text-[#A34714] font-bold text-sm transition-all hover:bg-[#FFF4E5] hover:shadow-sm active:scale-95"
             >
               <ArrowLeft className="h-4 w-4" />
               Back to Module
@@ -213,57 +213,57 @@ export default function QuizReview() {
         </div>
 
         <div className="mb-5 grid grid-cols-1 gap-3 md:grid-cols-[minmax(0,1fr)_220px]">
-          <div className="rounded-3xl border border-[#E6D8C4] bg-white p-4 md:p-5 shadow-sm flex items-center justify-between gap-4">
+          <div className="rounded-3xl border border-[#E6D8C4] bg-white p-5 md:p-6 shadow-sm flex items-center justify-between gap-4">
             <div>
-              <p className="text-xs font-bold uppercase tracking-wider text-[#7a6d60]">
-                Your Performance
+              <p className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-[#7a6d60]">
+                YOUR PERFORMANCE
               </p>
 
-              <p className="text-4xl md:text-5xl font-extrabold text-[#A34714] leading-none mt-1">
+              <p className="text-5xl md:text-6xl font-extrabold text-[#A34714] leading-none mt-2">
                 {performancePercent}%
               </p>
             </div>
 
-            <div className="relative h-24 w-24 flex-shrink-0">
+            <div className="relative h-28 w-28 flex-shrink-0">
               <svg
-                className="h-24 w-24 transform -rotate-90"
+                className="h-28 w-28 transform -rotate-90"
                 viewBox="0 0 100 100"
               >
                 <circle
                   cx="50"
                   cy="50"
-                  r="45"
+                  r="42"
                   fill="none"
-                  stroke="#E6D8C4"
-                  strokeWidth="8"
+                  stroke="#F2E6D3"
+                  strokeWidth="10"
                 />
 
                 <circle
                   cx="50"
                   cy="50"
-                  r="45"
+                  r="42"
                   fill="none"
                   stroke="#A34714"
-                  strokeWidth="8"
+                  strokeWidth="10"
                   strokeDasharray={`${
-                    performancePercent * 2.827
-                  } 282.7`}
+                    performancePercent * 2.639
+                  } 263.9`}
                   strokeLinecap="round"
                 />
               </svg>
 
               <div className="absolute inset-0 flex items-center justify-center">
-                <Trophy className="h-8 w-8 text-[#A34714]" />
+                <Trophy className="h-10 w-10 text-[#A34714]" />
               </div>
             </div>
           </div>
 
-          <div className="rounded-3xl border border-[#A34714] bg-[#A34714] p-4 md:p-5 text-white shadow-sm flex flex-col justify-center">
-            <p className="text-xs font-bold uppercase tracking-wider text-[#F6D6B0]">
-              Time Spent
+          <div className="rounded-3xl border border-[#A64B29] bg-[#A64B29] p-5 md:p-6 text-white shadow-sm flex flex-col justify-center">
+            <p className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-[#E6D8C4]">
+              TIME SPENT
             </p>
 
-            <p className="mt-1 text-3xl md:text-4xl font-extrabold leading-none">
+            <p className="mt-2 text-4xl md:text-5xl font-extrabold leading-none">
               {Math.floor(totalSeconds / 60)}:
               {String(totalSeconds % 60).padStart(2, "0")}
             </p>

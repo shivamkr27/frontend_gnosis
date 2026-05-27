@@ -108,9 +108,6 @@ export default function ParticipantLobby() {
     });
     socket.on("quiz:results", (payload) => {
         setResults(payload);
-        if (payload.top3 && payload.top3.length <= 2) {
-             navigate(`/battle/results/${code}`, { state: { results: payload } });
-        }
     });
 
     return () => {

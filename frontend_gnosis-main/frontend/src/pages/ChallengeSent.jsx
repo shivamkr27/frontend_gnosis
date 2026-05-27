@@ -218,7 +218,7 @@ export default function ChallengeSent() {
                 <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileActive={{ scale: 0.95 }}
-                    onClick={() => navigate("/battle/arena")}
+                    onClick={() => navigate("/battle")}
                     className="flex items-center gap-3 px-10 py-4 bg-white border-2 border-red-500/30 text-red-600 font-black rounded-2xl hover:bg-red-50 transition-all shadow-sm hover:shadow-md mb-8 group"
                 >
                     <X size={20} className="group-hover:rotate-90 transition-transform" />

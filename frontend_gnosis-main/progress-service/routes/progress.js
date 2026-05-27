@@ -108,7 +108,7 @@ router.get('/:userId/subject/:subjectId', async (req, res) => {
         status: prog ? prog.status : 'locked',
         xp_earned: prog ? prog.xp_earned : 0,
         completed_at: prog ? prog.completed_at : null,
-        answers: prog ? prog.answers : []
+        answers: prog?.answers ?? []
       };
     });
 
@@ -421,7 +421,8 @@ router.post('/reset-level', async (req, res) => {
             ELSE 'locked'
           END,
           xp_earned = 0,
-          completed_at = NULL
+          completed_at = NULL,
+          answers = NULL
         WHERE user_id = $2
           AND subject_id = $3
           AND level_id = ANY($4::uuid[])

@@ -558,7 +558,12 @@ export default function LessonComplete() {
                 onClick={() =>
                   navigate(
                     `/lesson/${levelId}/review`,
-                    { state }
+                    { 
+                      state: {
+                        ...state,
+                        timeSpent: state?.timeSpent
+                      }
+                    }
                   )
                 }
                 className="bg-white text-[#A34714] font-bold py-4 px-8 rounded-2xl border-2 border-[#D57B1E] hover:bg-[#FBF7F0] transition-all flex items-center justify-center gap-2"

@@ -26,6 +26,9 @@ export const useAppStore = create((set) => ({
 export const useSocketStore = create((set) => ({
   notifications: [],
   unreadCount: 0,
+  socket: null,
+
+  setSocket: (socket) => set({ socket }),
 
   setNotifications: (notifs) =>
     set({

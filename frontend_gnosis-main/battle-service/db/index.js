@@ -36,6 +36,12 @@ const createTables = async () => {
       );
     `);
 
+    // Add wins and losses to users table if they don't exist
+    await pool.query(`
+      ALTER TABLE users ADD COLUMN IF NOT EXISTS battle_wins INT DEFAULT 0;
+      ALTER TABLE users ADD COLUMN IF NOT EXISTS battle_losses INT DEFAULT 0;
+    `);
+
     console.log('Tables created or already exist');
   } catch (err) {
     console.error('Error creating tables', err);

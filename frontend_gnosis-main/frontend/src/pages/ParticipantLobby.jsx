@@ -1,9 +1,12 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Layout from "../components/Layout";
-import { useAuthStore } from "../lib/store";
+import { useAuthStore, useAppStore } from "../lib/store";
 import { createSocket } from "../lib/socket";
-import { Users, Copy, Trophy } from "lucide-react";
+import { 
+  Users, Copy, Trophy, CheckCircle2, Home, RotateCcw, 
+  Settings, HelpCircle, Mic, Zap, Award, MessageSquare 
+} from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const optionMap = [
@@ -18,22 +21,46 @@ export default function ParticipantLobby() {
   const location = useLocation();
   const navigate = useNavigate();
   const { user } = useAuthStore();
+  const { imageMap } = useAppStore();
   const socketRef = useRef(null);
-  const isHost = new URLSearchParams(location.search).get("host") === "1";
+  
+  const queryParams = new URLSearchParams(location.search);
+  const isHost = queryParams.get("host") === "1";
+  const initialType = queryParams.get("type") || "";
+  
   const [players, setPlayers] = useState([]);
   const [quizName, setQuizName] = useState("");
+  const [roomType, setRoomType] = useState(initialType);
   const [error, setError] = useState("");
   const [starting, setStarting] = useState(false);
   const [questionPayload, setQuestionPayload] = useState(null);
   const [selected, setSelected] = useState(null);
   const [answerResult, setAnswerResult] = useState(null);
   const [results, setResults] = useState(null);
+  const [timeLeft, setTimeLeft] = useState(0);
 
   const question = questionPayload?.question;
   const options = useMemo(() => {
     if (!question) return [];
     return optionMap.map(([id, key]) => ({ id, text: question[key] }));
   }, [question]);
+
+  // Countdown timer logic
+  useEffect(() => {
+    if (!question || timeLeft <= 0) return;
+    
+    const timer = setInterval(() => {
+      setTimeLeft(prev => {
+        if (prev <= 1) {
+          clearInterval(timer);
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [question, timeLeft]);
 
   useEffect(() => {
     if (!user?.id) return undefined;
@@ -50,12 +77,19 @@ export default function ParticipantLobby() {
 
     socket.on("room:joined", (payload) => {
       setQuizName(payload.quizName || "");
+      setRoomType(payload.type || "");
       setPlayers(payload.players || []);
       setError("");
     });
     socket.on("room:players", ({ players: nextPlayers }) => setPlayers(nextPlayers || []));
     socket.on("room:player_joined", ({ players: nextPlayers }) => setPlayers(nextPlayers || []));
     socket.on("room:error", ({ message }) => setError(message));
+    socket.on("room:cancelled", ({ message }) => {
+      // Direct notification and redirection
+      alert(message);
+      navigate("/battle", { replace: true });
+      window.location.reload(); // Force state clearing if necessary
+    });
     socket.on("quiz:error", ({ message }) => setError(message));
     socket.on("quiz:starting", () => {
       setStarting(true);
@@ -63,6 +97,7 @@ export default function ParticipantLobby() {
     });
     socket.on("quiz:question", (payload) => {
       setQuestionPayload(payload);
+      setTimeLeft(payload.timerSeconds || 15);
       setSelected(null);
       setAnswerResult(null);
       setStarting(false);
@@ -71,17 +106,37 @@ export default function ParticipantLobby() {
     socket.on("quiz:answer_rejected", ({ reason }) => {
       setAnswerResult({ correct: false, xpEarned: 0, explanation: reason });
     });
-    socket.on("quiz:results", (payload) => setResults(payload));
+    socket.on("quiz:results", (payload) => {
+        setResults(payload);
+        if (payload.top3 && payload.top3.length <= 2) {
+             navigate(`/battle/results/${code}`, { state: { results: payload } });
+        }
+    });
 
-    return () => socket.disconnect();
-  }, [code, isHost, user]);
+    return () => {
+      socket.emit("room:leave", { roomCode: code });
+      socket.disconnect();
+    };
+  }, [code, isHost, user, navigate]);
 
   const startQuiz = () => {
     socketRef.current?.emit("host:start_quiz", { roomCode: code });
   };
 
+  const cancelRoom = () => {
+    const msg = roomType === '1v1' ? "Terminate this battle?" : "Cancel this session?";
+    if (window.confirm(msg)) {
+      socketRef.current?.emit("host:cancel", { roomCode: code });
+    }
+  };
+
+  const leaveRoom = () => {
+    socketRef.current?.emit("room:leave", { roomCode: code });
+    navigate("/battle");
+  };
+
   const submitAnswer = (optionId) => {
-    if (!question || selected) return;
+    if (!question || selected || timeLeft <= 0) return;
     setSelected(optionId);
     socketRef.current?.emit("quiz:answer", {
       roomCode: code,
@@ -92,6 +147,7 @@ export default function ParticipantLobby() {
 
   if (results) {
     const isWinner = results.top3 && results.top3[0]?.userId === user?.id;
+    const opponent = players.find(p => p.userId !== user?.id);
     
     return (
       <Layout>
@@ -99,70 +155,67 @@ export default function ParticipantLobby() {
           <motion.div 
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            className="rounded-[2.5rem] border-2 border-[#E8DFD1] bg-white p-10 text-center shadow-xl"
+            className="rounded-[2.5rem] border-2 border-[#E8DFD1] bg-white p-10 text-center shadow-xl relative overflow-hidden"
           >
+            {/* Background Accent */}
+            <div className={`absolute top-0 left-0 right-0 h-2 ${isWinner ? 'bg-green-500' : 'bg-red-500'}`}></div>
+
             <div className="mb-8 relative inline-block">
                <div className={`w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-4 ${isWinner ? 'bg-[#FFF4E5]' : 'bg-[#F5F5F5]'}`}>
                   <Trophy className={`w-16 h-16 ${isWinner ? 'text-[#D4641A]' : 'text-[#8a8a8a]'}`} />
                </div>
                {isWinner && (
                  <motion.div 
-                   initial={{ y: 10, opacity: 0 }}
-                   animate={{ y: 0, opacity: 1 }}
-                   transition={{ delay: 0.3 }}
-                   className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-[#8B2500] text-white px-5 py-1.5 rounded-full font-black text-sm shadow-md whitespace-nowrap"
-                 >
-                   VICTORY!
-                 </motion.div>
+                   animate={{ rotate: 360 }}
+                   transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                   className="absolute inset-0 -m-4 border-2 border-dashed border-[#D4641A]/20 rounded-full"
+                 />
                )}
             </div>
 
-            <h1 className="mb-0 text-3xl font-black text-[#1a1a1a]">
-              Battle Results
+            <h1 className="mb-2 text-4xl font-black text-[#1a1a1a]">
+              {roomType === '1v1' ? (isWinner ? "COLOSSAL VICTORY!" : "VALIANT DEFEAT") : "Battle Results"}
             </h1>
-            <p className="text-[#6b6b6b] mb-8 font-medium">Top performance in the Arena</p>
             
-            <div className="space-y-3 mb-10">
-              {(results.top3 || []).map((player, index) => (
-                <motion.div
-                  key={player.userId}
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 0.2 + index * 0.1 }}
-                  className={`flex items-center justify-between rounded-2xl p-4 border-2 ${
-                    player.userId === user?.id 
-                      ? "border-[#D4641A] bg-[#FFF8F0]" 
-                      : "border-[#F0EDE8] bg-[#FAF7F2]"
-                  }`}
-                >
-                  <div className="flex items-center gap-4">
-                    <span className={`w-7 h-7 rounded-lg flex items-center justify-center font-black text-xs ${
-                      index === 0 ? "bg-[#D4641A] text-white" : "bg-[#E8DFD1] text-[#6b6b6b]"
-                    }`}>
-                      {index + 1}
-                    </span>
-                    <span className="font-bold text-base text-[#1a1a1a]">
-                      {player.username} {player.userId === user?.id && "(You)"}
-                    </span>
+            <p className="text-[#6b6b6b] mb-10 font-bold uppercase tracking-widest text-xs">
+              {roomType === '1v1' 
+                ? `Ancient Duel with ${opponent?.username || 'Opponent'}` 
+                : "Top performance in the Arena"}
+            </p>
+
+            <div className="space-y-4 mb-10">
+              {(results.top3 || []).map((player, index) => {
+                const isMe = player.userId === user?.id;
+                return (
+                  <div key={player.userId} className={`flex items-center justify-between rounded-2xl p-6 border-2 transition-all ${isMe ? "border-[#D4641A] bg-[#FFF8F0] scale-[1.02] shadow-md" : "border-[#F0EDE8] bg-[#FAF7F2]"}`}>
+                    <div className="flex items-center gap-4">
+                      <div className={`w-8 h-8 rounded-lg flex items-center justify-center font-black ${index === 0 ? 'bg-[#D4641A] text-white' : 'bg-[#E8DFD1] text-[#6E675F]'}`}>
+                        {index + 1}
+                      </div>
+                      <span className="font-bold text-[#1a1a1a] text-lg">{player.username}</span>
+                    </div>
+                    <div className="text-right">
+                      <span className="font-black text-2xl text-[#8B2500] block">{player.score}</span>
+                      <span className="text-[10px] font-black uppercase text-[#D4641A]">XP Earned</span>
+                    </div>
                   </div>
-                  <span className="font-black text-lg text-[#8B2500]">{player.score} XP</span>
-                </motion.div>
-              ))}
+                );
+              })}
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3">
-               <button
-                  onClick={() => navigate("/battle")}
-                  className="flex-1 rounded-xl border-2 border-[#E8DFD1] py-3.5 font-black text-[#6b6b6b] hover:bg-[#FAF7F2] transition-colors flex items-center justify-center gap-2"
-                >
-                  <Home className="w-5 h-5" /> Back to Arena
-                </button>
-                <button
-                  onClick={() => window.location.reload()}
-                  className="flex-1 rounded-xl bg-gradient-to-r from-[#D4641A] to-[#8B2500] py-3.5 font-black text-white shadow-lg shadow-orange-900/10 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2"
-                >
-                  <RotateCcw className="w-5 h-5" /> Play Again
-                </button>
+            <div className="grid grid-cols-2 gap-4">
+              <button 
+                onClick={() => navigate("/battle")} 
+                className="rounded-2xl border-2 border-[#E8DFD1] py-4 font-black text-[#6E675F] hover:bg-[#FAF7F2] transition-colors"
+              >
+                RETURN TO ARENA
+              </button>
+              <button 
+                onClick={() => navigate("/home")} 
+                className="rounded-2xl bg-[#8B2500] py-4 font-black text-white shadow-lg shadow-[#8B2500]/20 hover:scale-[1.02] transition-all"
+              >
+                CONTINUE JOURNEY
+              </button>
             </div>
           </motion.div>
         </div>
@@ -171,187 +224,282 @@ export default function ParticipantLobby() {
   }
 
   if (question) {
+    // ... existing question logic
     return (
       <Layout>
         <div className="mx-auto max-w-4xl px-4 py-8 md:px-8">
           <div className="mb-8 flex items-center justify-between rounded-3xl border border-[#E8DFD1] bg-white p-5 shadow-sm">
             <div className="flex items-center gap-3">
-               <div className="w-10 h-10 bg-[#FFF4E5] rounded-xl flex items-center justify-center text-[#D4641A] font-bold">
-                  {questionPayload.qIndex}
-               </div>
+               <div className="w-10 h-10 bg-[#FFF4E5] rounded-xl flex items-center justify-center text-[#D4641A] font-bold">{questionPayload.qIndex}</div>
                <div>
                   <p className="text-[10px] font-bold text-[#8a8a8a] uppercase tracking-wider">Question</p>
                   <p className="text-sm font-bold text-[#1a1a1a]">{questionPayload.qIndex} of {questionPayload.total}</p>
                </div>
             </div>
-
-            <div className="flex items-center gap-4">
-              <div className="flex -space-x-2">
-                {players.map((p, i) => (
-                   <div key={p.userId} className={`w-8 h-8 rounded-full border-2 border-white flex items-center justify-center text-[10px] font-bold text-white uppercase shadow-sm ${i === 0 ? 'bg-[#8B2500]' : 'bg-[#D4641A]'}`}>
-                      {p.username.substring(0, 2)}
-                   </div>
-                ))}
-              </div>
-              <div className="w-12 h-12 rounded-full border-4 border-[#F0C090] flex items-center justify-center text-lg font-black text-[#8B2500] shadow-sm bg-white">
-                {questionPayload.timerSeconds}
-              </div>
+            <div className="w-12 h-12 rounded-full border-4 border-[#F0C090] flex items-center justify-center text-lg font-black text-[#8B2500] shadow-sm bg-white">{timeLeft}</div>
+          </div>
+          <motion.h1 key={question.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mb-10 text-center text-3xl md:text-4xl font-extrabold text-[#1a1a1a]">{question.question_text}</motion.h1>
+          <div className="relative">
+            <div className="grid gap-4 sm:grid-cols-2">
+              {options.map((option) => (
+                <button 
+                  key={option.id} 
+                  disabled={!!selected}
+                  onClick={() => submitAnswer(option.id)} 
+                  className={`rounded-3xl border-2 p-6 text-left transition-all ${
+                    selected === option.id 
+                      ? "border-[#8B2500] bg-[#FFF4E5] scale-[1.02] shadow-md" 
+                      : selected 
+                        ? "opacity-50 grayscale-0 border-[#E8DFD1] bg-white"
+                        : "border-[#E8DFD1] bg-white hover:border-[#8B2500]/30 hover:bg-[#FAF7F2]"
+                  }`}
+                >
+                  <span className={`text-lg font-bold ${selected === option.id ? "text-[#8B2500]" : "text-[#1a1a1a]"}`}>{option.text}</span>
+                </button>
+              ))}
             </div>
-          </div>
 
-          <motion.h1 
-            key={question.id}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mb-10 text-center text-3xl md:text-4xl font-extrabold text-[#1a1a1a] leading-tight"
-          >
-            {question.question_text}
-          </motion.h1>
-
-          <div className="grid gap-4 sm:grid-cols-2">
-            {options.map((option) => (
-              <button
-                key={option.id}
-                onClick={() => submitAnswer(option.id)}
-                disabled={Boolean(selected)}
-                className={`relative group rounded-3xl border-2 p-6 text-left transition-all duration-200 ${
-                  selected === option.id
-                    ? "border-[#8B2500] bg-[#FFF4E5] shadow-md ring-2 ring-[#8B2500]/10"
-                    : "border-[#E8DFD1] bg-white hover:border-[#F0C090] hover:bg-[#FAF7F2] shadow-sm"
-                } disabled:opacity-80`}
-              >
-                <span className={`mr-4 inline-flex h-9 w-9 items-center justify-center rounded-xl font-bold transition-colors ${
-                    selected === option.id ? "bg-[#8B2500] text-white" : "bg-[#FAF7F2] text-[#8B2500]"
-                }`}>
-                  {option.id}
-                </span>
-                <span className="text-lg font-bold text-[#1a1a1a]">{option.text}</span>
-              </button>
-            ))}
-          </div>
-
-          <AnimatePresence>
-            {answerResult && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className={`mt-8 rounded-3xl p-6 border-2 ${
-                  answerResult.correct
-                    ? "bg-[#EAF6EA] border-[#4CAF50] text-[#1B5E20]"
-                    : "bg-[#FFF0F0] border-[#FF5252] text-[#B71C1C]"
-                }`}
-              >
-                <div className="flex items-center gap-3 mb-2">
-                    {answerResult.correct ? (
-                        <div className="w-6 h-6 rounded-full bg-[#4CAF50] text-white flex items-center justify-center"><CheckCircle2 className="w-4 h-4" /></div>
-                    ) : (
-                        <div className="w-6 h-6 rounded-full bg-[#FF5252] text-white flex items-center justify-center text-xs font-bold">X</div>
-                    )}
-                    <span className="font-black text-xl">{answerResult.correct ? "Spot on!" : "Keep going!"}</span>
-                    <span className="ml-auto font-bold bg-white/50 px-3 py-1 rounded-full">+{answerResult.xpEarned || 0} XP</span>
-                </div>
-                {answerResult.explanation && (
-                  <p className="text-sm font-medium leading-relaxed opacity-90">{answerResult.explanation}</p>
+            <AnimatePresence>
+                {selected && !answerResult && (
+                    <motion.div 
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        className="absolute inset-0 bg-white/40 backdrop-blur-[1px] rounded-[2rem] flex flex-col items-center justify-center z-10"
+                    >
+                        <div className="bg-white px-8 py-4 rounded-2xl shadow-2xl border-2 border-[#8B2500]/10 flex flex-col items-center gap-3">
+                            <div className="w-8 h-8 border-4 border-[#8B2500] border-t-transparent rounded-full animate-spin"></div>
+                            <p className="font-black text-[#8B2500] uppercase tracking-widest text-xs">Waiting for Opponent...</p>
+                        </div>
+                    </motion.div>
                 )}
-              </motion.div>
-            )}
-          </AnimatePresence>
+            </AnimatePresence>
+          </div>
+
+          <div className="mt-12 flex justify-center">
+             <button 
+                onClick={isHost ? cancelRoom : leaveRoom}
+                className="flex items-center gap-2 px-6 py-2.5 rounded-xl font-bold bg-red-50 text-red-600 border border-red-100 hover:bg-red-100 transition-colors text-xs uppercase tracking-widest"
+             >
+                <RotateCcw className="w-4 h-4" /> {isHost ? "Cancel Session" : "Leave Battle"}
+             </button>
+          </div>
         </div>
       </Layout>
     );
   }
 
+  const hostPlayer = players.find(p => p.isHost) || players[0];
+  const otherPlayers = players.filter(p => !p.isHost && p.userId !== hostPlayer?.userId);
+  const classReadiness = Math.min(Math.floor((players.length / 5) * 100), 100);
+
   return (
-    <Layout>
-      <div className="mx-auto flex min-h-[80vh] max-w-4xl flex-col items-center justify-center p-4 md:p-8">
-        <motion.div 
-          initial={{ scale: 0.95, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          className="w-full max-w-xl rounded-[2.5rem] border-2 border-[#E8DFD1] bg-white p-10 text-center shadow-xl md:p-14"
-        >
-          <div className="mb-6">
-            <span className="inline-block px-4 py-1.5 bg-[#FFF4E5] text-[#D4641A] rounded-full text-xs font-black uppercase tracking-widest mb-4">
-              {quizName || "Battle Arena"}
-            </span>
-            <h2 className="text-3xl font-black text-[#1a1a1a] mb-2">Room Lobby</h2>
-            <p className="text-[#6b6b6b] font-medium">Waiting for players to join the duel</p>
+    <div className="min-h-screen bg-[#FAF9F6] font-sans flex flex-col">
+      {/* Header */}
+      <div className="flex items-center justify-between px-8 py-4 border-b border-[#E6D8C4] bg-white">
+        <h1 className="text-2xl font-black text-[#A34714] tracking-tight">Gnosis</h1>
+        <div className="flex items-center gap-6">
+          <Zap size={20} className="text-[#6E675F] cursor-pointer" />
+          <Award size={20} className="text-[#6E675F] cursor-pointer" />
+          <div className="relative">
+            <MessageSquare size={20} className="text-[#6E675F] cursor-pointer" />
+            <div className="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></div>
           </div>
-
-          <div className="mb-10 flex flex-col items-center gap-4">
-            <div className="relative group cursor-pointer" onClick={() => navigator.clipboard?.writeText(code)}>
-              <span className="inline-block rounded-[1.5rem] border-2 border-dashed border-[#D4641A] bg-[#FFF8F0] px-10 py-4 text-5xl font-black tracking-[0.2em] text-[#8B2500] md:text-6xl transition-transform hover:scale-105">
-                {code}
-              </span>
-              <div className="absolute -top-3 -right-3 w-8 h-8 bg-white border-2 border-[#E8DFD1] rounded-full flex items-center justify-center text-[#D4641A] shadow-sm">
-                <Copy className="h-4 w-4" />
-              </div>
-            </div>
-            <p className="text-[10px] text-[#8a8a8a] font-bold uppercase tracking-widest leading-none">Tap to copy code</p>
+          <div className="w-10 h-10 rounded-2xl overflow-hidden border-2 border-white shadow-md">
+            <img src={imageMap?.avatars?.[user?.id] || `https://api.dicebear.com/7.x/avataaars/svg?seed=${user?.username}`} alt="My Avatar" />
           </div>
+        </div>
+      </div>
 
-          {error && (
-            <div className="mb-6 p-3 bg-red-50 border border-red-200 text-red-600 rounded-xl text-sm font-bold animate-pulse">
-              {error}
+      <div className="flex-1 flex overflow-hidden">
+        {/* Main Center Area */}
+        <div className="flex-1 overflow-y-auto p-8 flex flex-col items-center">
+            <div className="flex-1 flex flex-col items-center justify-center max-w-2xl w-full">
+                {/* Sage Avatar Center */}
+                <div className="relative mb-12">
+                    <div className="w-48 h-48 rounded-[3rem] overflow-hidden border-8 border-white shadow-2xl skew-y-1 rotate-2">
+                        <img 
+                            src={imageMap?.tutor_avatar || "https://api.dicebear.com/7.x/bottts/svg?seed=Gnosis"} 
+                            alt="Sage" 
+                            className="w-full h-full object-cover bg-gradient-to-br from-[#FFF4E5] to-[#F0C090]" 
+                        />
+                    </div>
+                    <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-[#A34714] text-white px-6 py-2 rounded-2xl font-black text-sm shadow-xl whitespace-nowrap border-4 border-white">
+                        Level 12 Sage
+                    </div>
+                </div>
+
+                {/* Question Info Box */}
+                <motion.div 
+                    initial={{ scale: 0.95, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    className="bg-white rounded-[2.5rem] p-10 shadow-sm border border-[#E6D8C4] relative mb-12 text-center"
+                >
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white px-4">
+                        <div className="w-2 h-2 rounded-full bg-orange-200"></div>
+                    </div>
+                    <h3 className="text-[#A34714] font-black text-xl mb-4">Did you know?</h3>
+                    <p className="text-[#6E675F] font-bold text-lg leading-relaxed">
+                        "The word 'Gnosis' comes from the Greek word for knowledge, but in our journey, it represents the bridge between ancient wisdom and modern innovation."
+                    </p>
+                </motion.div>
+
+                {/* Waiting State */}
+                <div className="flex flex-col items-center gap-4">
+                    <div className="w-12 h-12 border-4 border-[#A34714] border-t-transparent rounded-full animate-spin"></div>
+                    <div className="text-center">
+                        <h2 className="text-2xl font-black text-[#2F2C28] mb-1">
+                          {roomType === '1v1' ? "Initiating Ancient Duel..." : "Waiting for Host to start..."}
+                        </h2>
+                        <p className="text-[#6E675F] font-bold tracking-tight">
+                          {roomType === '1v1' ? "The scrolls of destiny are being unrolled." : "The session will begin as soon as the host is ready."}
+                        </p>
+                    </div>
+                </div>
             </div>
-          )}
 
-          {starting && (
-             <motion.div 
-               initial={{ y: 5, opacity: 0 }}
-               animate={{ y: 0, opacity: 1 }}
-               className="mb-8 p-4 bg-gradient-to-r from-[#D4641A] to-[#8B2500] rounded-2xl flex items-center justify-center gap-3 text-white shadow-lg"
-             >
-                <div className="w-6 h-6 border-3 border-white/30 border-t-white rounded-full animate-spin" />
-                <span className="font-black text-lg">Battle starting...</span>
-             </motion.div>
-          )}
+            {/* Footer Buttons */}
+            <div className="w-full flex justify-end gap-3 mt-auto pt-8">
+                <div className="bg-white p-3 rounded-2xl border border-[#E6D8C4] shadow-sm cursor-pointer hover:bg-[#FAF7F2] transition-colors">
+                    <HelpCircle className="text-[#6E675F]" size={24} />
+                </div>
+                <div className="bg-white p-3 rounded-2xl border border-[#E6D8C4] shadow-sm cursor-pointer hover:bg-[#FAF7F2] transition-colors">
+                    <Settings className="text-[#6E675F]" size={24} />
+                </div>
+            </div>
+        </div>
 
-          <div className="text-left w-full">
-            <div className="flex items-center justify-between mb-5 px-1">
-                <h3 className="flex items-center gap-2 text-base font-black text-[#1a1a1a]">
-                  <Users className="h-5 w-5 text-[#D4641A]" /> 
-                  Players Joined
-                </h3>
-                <span className="bg-[#FAF7F2] px-3 py-1 rounded-full border border-[#E8DFD1] text-xs font-bold text-[#8B2500]">
-                    {players.length} / 2
+        {/* Right Sidebar - Participants */}
+        <div className="w-96 bg-[#FAF9F6] border-l border-[#E6D8C4] p-8 flex flex-col gap-8">
+            <div className="flex items-center justify-between">
+                <h3 className="text-xl font-black text-[#2F2C28]">Participants</h3>
+                <span className="bg-[#FFF4E5] text-[#A34714] px-3 py-1 rounded-full text-xs font-black">
+                    {players.length} Online
                 </span>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10">
-              {players.map((player, idx) => (
-                <motion.div
-                  key={player.userId}
-                  initial={{ x: -10, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: idx * 0.1 }}
-                  className="flex items-center gap-3 rounded-2xl border-2 border-[#F0EDE8] bg-[#FAF7F2] p-4 group"
-                >
-                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-[#8B2500] text-sm font-black uppercase text-white shadow-sm ring-2 ring-white">
-                    {player.username?.substring(0, 2)}
-                  </div>
-                  <div className="min-w-0">
-                    <p className="text-sm font-bold text-[#1a1a1a] truncate">{player.username}</p>
-                    <p className="text-[10px] font-bold text-[#4CAF50] uppercase tracking-wider">Ready</p>
-                  </div>
-                </motion.div>
-              ))}
-              {players.length === 0 && (
-                <p className="text-sm font-semibold text-on-surface-variant">Waiting for players...</p>
-              )}
-            </div>
-          </div>
+            <div className="space-y-4">
+                {roomType === '1v1' ? (
+                  players.map((player) => (
+                    <div key={player.userId} className="bg-white rounded-[1.5rem] p-4 border border-[#E6D8C4] shadow-sm flex items-center justify-between group">
+                        <div className="flex items-center gap-4 overflow-hidden">
+                            <div className="w-12 h-12 rounded-2xl overflow-hidden border-2 border-white shadow-sm flex-shrink-0">
+                                <img src={imageMap?.avatars?.[player.userId] || `https://api.dicebear.com/7.x/avataaars/svg?seed=${player.username}`} alt="" />
+                            </div>
+                            <div className="min-w-0">
+                                <h4 className="font-bold text-[#2F2C28] truncate">{player.username}</h4>
+                                <p className="text-[10px] font-bold text-[#6E675F] truncate">Ready to Duel</p>
+                            </div>
+                        </div>
+                        <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                    </div>
+                  ))
+                ) : (
+                  <>
+                    {/* Host Card */}
+                    {hostPlayer && (
+                        <div className="bg-white rounded-[1.5rem] p-4 border-2 border-[#A34714]/10 shadow-sm relative">
+                            <div className="flex items-center gap-4">
+                                <div className="w-12 h-12 rounded-2xl overflow-hidden border-2 border-white shadow-md">
+                                    <img src={imageMap?.avatars?.[hostPlayer.userId] || `https://api.dicebear.com/7.x/avataaars/svg?seed=${hostPlayer.username}`} alt="" />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                    <div className="flex items-center gap-2">
+                                        <h4 className="font-black text-[#2F2C28] truncate">{hostPlayer.username}</h4>
+                                        <span className="bg-[#A34714] text-[8px] text-white px-2 py-0.5 rounded-lg font-black uppercase">Host</span>
+                                    </div>
+                                    <p className="text-[10px] font-bold text-[#6E675F] truncate">Mastering {quizName || 'Knowledge'}</p>
+                                </div>
+                                <Mic size={16} className="text-[#6E675F]" />
+                            </div>
+                        </div>
+                    )}
 
-          {isHost && !starting && (
-            <button
-               onClick={startQuiz}
-               disabled={players.length < 1}
-               className="w-full rounded-2xl bg-gradient-to-r from-[#D4641A] to-[#8B2500] py-5 font-black text-white shadow-xl shadow-orange-900/10 hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50"
-             >
-               Start Game Manually
-             </button>
-          )}
-        </motion.div>
+                    {/* Other Players */}
+                    {players.filter(p => p.userId !== hostPlayer?.userId).map(player => (
+                        <div key={player.userId} className="bg-white rounded-[1.5rem] p-4 border border-[#E6D8C4] shadow-sm flex items-center justify-between group">
+                            <div className="flex items-center gap-4 overflow-hidden">
+                                <div className="w-12 h-12 rounded-2xl overflow-hidden grayscale group-hover:grayscale-0 transition-all border-2 border-white shadow-sm flex-shrink-0">
+                                    <img src={imageMap?.avatars?.[player.userId] || `https://api.dicebear.com/7.x/avataaars/svg?seed=${player.username}`} alt="" />
+                                </div>
+                                <div className="min-w-0">
+                                    <h4 className="font-bold text-[#2F2C28] truncate">{player.username}</h4>
+                                    <p className="text-[10px] font-bold text-[#6E675F] truncate">Checking connections...</p>
+                                </div>
+                            </div>
+                            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                        </div>
+                    ))}
+
+                    <div className="bg-[#FAF9F6] rounded-[1.5rem] p-4 border-2 border-dashed border-[#E6D8C4] flex items-center gap-4 opacity-50">
+                        <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-[#6E675F]">
+                            <Users size={20} />
+                        </div>
+                        <h4 className="font-bold text-[#6E675F]">Waiting for more...</h4>
+                    </div>
+                  </>
+                )}
+            </div>
+
+            {/* Room Code Info */}
+            <div className="mt-auto bg-[#E6D8C4]/20 rounded-[2rem] p-6 border border-[#E6D8C4]/30">
+                {roomType !== '1v1' && (
+                  <div className="text-center mb-6">
+                      <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#A34714] mb-2">Room Entry Code</p>
+                      <div className="bg-white rounded-2xl p-4 border-2 border-[#A34714]/20 shadow-inner group">
+                          <div className="flex items-center justify-center gap-4">
+                              <span className="text-4xl font-black text-[#A34714] tracking-widest">{code}</span>
+                              <button 
+                                  onClick={() => {
+                                      navigator.clipboard.writeText(code);
+                                      alert("Room code copied!");
+                                  }}
+                                  className="p-2 hover:bg-[#FAF7F2] rounded-xl transition-colors text-[#A34714]/40 hover:text-[#A34714]"
+                              >
+                                  <Copy size={20} />
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+                )}
+
+                <div className="flex justify-between items-center mb-4">
+                    <span className="text-[10px] font-black uppercase tracking-widest text-[#A34714]">Class Readiness</span>
+                    <span className="text-sm font-black text-[#A34714]">{classReadiness}%</span>
+                </div>
+                <div className="h-3 bg-white rounded-full overflow-hidden mb-4 p-0.5 border border-[#E6D8C4]/50">
+                    <motion.div 
+                        initial={{ width: 0 }}
+                        animate={{ width: `${classReadiness}%` }}
+                        className="h-full bg-[#A34714] rounded-full"
+                    />
+                </div>
+                
+                {isHost && roomType !== '1v1' ? (
+                    <div className="grid grid-cols-5 gap-3 mt-6">
+                        <button 
+                            onClick={startQuiz}
+                            className="col-span-4 bg-[#A34714] text-white py-4 rounded-2xl font-black text-sm shadow-xl active:scale-95 transition-all"
+                        >
+                            UNLEASH NOW
+                        </button>
+                        <button 
+                            onClick={cancelRoom}
+                            className="bg-red-50 text-red-600 border-2 border-red-100 flex items-center justify-center rounded-2xl hover:bg-red-100 transition-colors"
+                        >
+                            <RotateCcw size={20} />
+                        </button>
+                    </div>
+                ) : (
+                    <button 
+                        onClick={roomType === '1v1' ? cancelRoom : leaveRoom}
+                        className="w-full mt-6 bg-white border-2 border-[#E6D8C4] text-[#6E675F] py-4 rounded-2xl font-black text-sm hover:bg-[#FAF7F2] transition-colors"
+                    >
+                        {roomType === '1v1' ? "ABANDON BATTLE" : "LEAVE ARENA"}
+                    </button>
+                )}
+            </div>
+        </div>
       </div>
-    </Layout>
+    </div>
   );
 }

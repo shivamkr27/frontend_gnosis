@@ -19,14 +19,8 @@ const battleProxy = createProxyMiddleware({
   changeOrigin: true,
   ws: true,
   logLevel: 'debug',
-  onProxyReq: (proxyReq, req, res) => {
-    // console.log(`[Proxy Req] ${req.method} ${req.url}`);
-  },
-  onProxyRes: (proxyRes, req, res) => {
-    console.log(`[Proxy Res] ${req.method} ${req.url} -> ${proxyRes.statusCode}`);
-  },
   onError: (err, req, res) => {
-    console.error(`[Proxy Error] ${err.message}`);
+    console.error(`[Proxy Error] Battle: ${err.message}`);
     if (res.writeHead && !res.headersSent) {
       res.writeHead(502);
     }
@@ -38,7 +32,17 @@ const notificationProxy = createProxyMiddleware({
   target: 'http://notification-service:3006',
   changeOrigin: true,
   ws: true,
-  logLevel: 'debug'
+  logLevel: 'debug',
+  pathRewrite: {
+    '^/socket.io/notifications': '/socket.io'
+  },
+  onError: (err, req, res) => {
+    console.error(`[Proxy Error] Notification: ${err.message}`);
+    if (res.writeHead && !res.headersSent) {
+      res.writeHead(502);
+    }
+    res.end('Bad Gateway');
+  }
 });
 
 const PORT = process.env.PORT || 3000;
@@ -49,19 +53,18 @@ app.use(cors({ origin: '*' }));
 
 // Request logger
 app.use((req, res, next) => {
-  console.log(`[API Gateway] ${req.method} ${req.url}`);
+  // console.log(`[API Gateway] ${req.method} ${req.url}`);
   next();
 });
 
-// WebSocket / Battle Proxy - BEFORE Auth Middleware
-app.use('/socket.io/notifications', (req, res, next) => {
-  console.log('[API Gateway] Routing notifications socket request');
-  notificationProxy(req, res, next);
-});
-
-app.use('/socket.io', (req, res, next) => {
-  console.log(`[API Gateway] Routing /socket.io request to ${process.env.BATTLE_SERVICE}`);
-  battleProxy(req, res, next);
+// WebSocket / Battle Proxy - WITHOUT path stripping
+app.use((req, res, next) => {
+  if (req.url.startsWith('/socket.io/notifications')) {
+    return notificationProxy(req, res, next);
+  } else if (req.url.startsWith('/socket.io')) {
+    return battleProxy(req, res, next);
+  }
+  next();
 });
 
 app.use(express.json());
@@ -159,6 +162,7 @@ app.use('/auth', (req, res) => proxyRequest(process.env.AUTH_SERVICE, '/auth', r
 app.use('/content', (req, res) => proxyRequest(process.env.CONTENT_SERVICE, '/content', req, res));
 app.use('/progress', (req, res) => proxyRequest(process.env.PROGRESS_SERVICE, '/progress', req, res));
 app.use('/xp', (req, res) => proxyRequest(process.env.XP_SERVICE, '/xp', req, res));
+app.use('/battle', (req, res) => proxyRequest(process.env.BATTLE_SERVICE, '/battle', req, res));
 
 // Handle WebSocket upgrades
 server.on('upgrade', (req, socket, head) => {

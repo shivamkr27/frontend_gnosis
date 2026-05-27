@@ -1,15 +1,19 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "../components/Layout";
-import { useAuthStore } from "../lib/store";
+import { useAuthStore, useAppStore } from "../lib/store";
 import api from "../lib/api";
-import { Users, Play, Search, UserPlus, Inbox, RefreshCw } from "lucide-react";
+import { 
+  Users, Play, Search, UserPlus, Inbox, RefreshCw, 
+  Swords, Trophy, History, Zap, Shield, Crown,
+  ChevronRight, ArrowRight, UserCircle2
+} from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function BattleLobby() {
   const navigate = useNavigate();
   const { user } = useAuthStore();
-  const [activeTab, setActiveTab] = useState("1v1");
+  const { imageMap } = useAppStore();
   const [friends, setFriends] = useState([]);
   const [loading, setLoading] = useState(true);
   const [roomCode, setRoomCode] = useState("");
@@ -27,11 +31,36 @@ export default function BattleLobby() {
   const [selectedSubjectId, setSelectedSubjectId] = useState("");
   const [loadingLevels, setLoadingLevels] = useState(false);
 
+  const [history, setHistory] = useState([]);
+  const [userRank, setUserRank] = useState(null);
+
   useEffect(() => {
     fetchFriends();
     fetchPendingRequests();
     fetchSubjects();
-  }, []);
+    fetchHistory();
+    fetchUserRank();
+  }, [user.id, user.username]);
+
+  const fetchHistory = async () => {
+    try {
+      const res = await api.get(`/battle/history/${user.id}`);
+      setHistory(res.data || []);
+    } catch (err) {
+      console.error("Failed to fetch history", err);
+    }
+  };
+
+  const fetchUserRank = async () => {
+    try {
+      const res = await api.get(`/xp/leaderboard/global?currentUserId=${user.id}`);
+      if (res.data.currentUserRank) {
+        setUserRank(res.data.currentUserRank);
+      }
+    } catch (err) {
+      console.error("Failed to fetch rank", err);
+    }
+  };
 
   const fetchFriends = async () => {
     setLoading(true);
@@ -39,7 +68,6 @@ export default function BattleLobby() {
       const res = await api.get("/auth/friends");
       const friendsData = res.data;
 
-      // Batch online status check
       if (friendsData.length > 0) {
         try {
           const userIds = friendsData.map(f => f.id);
@@ -52,7 +80,7 @@ export default function BattleLobby() {
           }));
           setFriends(friendsWithStatus);
         } catch (statusErr) {
-          console.error("Failed to fetch online status, showing as offline", statusErr);
+          console.error("Failed to fetch online status", statusErr);
           setFriends(friendsData.map(f => ({ ...f, online: false })));
         }
       } else {
@@ -129,320 +157,385 @@ export default function BattleLobby() {
 
     setLoadingLevels(true);
     try {
-        // Find the subject detail
         const subject = subjects.find(s => s.id === selectedSubjectId);
-        
-        // Fetch levels for this subject to get a valid Level 1 ID
         const subDetailRes = await api.get(`/content/subjects/${selectedSubjectId}`);
         const levels = subDetailRes.data.levels;
         
         if (!levels || levels.length === 0) {
-            alert("No levels found for this subject. Please choose another.");
+            alert("No levels found for this subject.");
             return;
         }
 
         const level1 = levels.find(l => l.level_number === 1) || levels[0];
-
         navigate(`/battle/waiting/${selectedFriend.id}?subjectId=${selectedSubjectId}&subjectName=${encodeURIComponent(subject.name)}&levelId=${level1.id}&levelNumber=${level1.level_number}`);
     } catch (err) {
         console.error("Failed to fetch subject levels:", err);
-        alert("Something went wrong. Please try again.");
     } finally {
         setLoadingLevels(false);
     }
   };
 
-  const handleCreateGroup = () => {
-    navigate("/battle/host");
-  };
-
+  const handleCreateGroup = () => navigate("/battle/host");
   const handleJoinGroup = () => {
-    if (roomCode.length === 6) {
-      navigate(`/battle/lobby/${roomCode}`);
-    }
+    if (roomCode.length === 6) navigate(`/battle/lobby/${roomCode}`);
   };
 
   return (
     <Layout>
-      <div className="mx-auto max-w-5xl p-4 md:p-8">
-        <h1 className="mb-8 text-4xl font-bold tracking-tight text-inverse-surface text-center">
-          Battle Arena
-        </h1>
-
-        <div className="mx-auto mb-8 flex max-w-sm rounded-2xl bg-surface-variant p-1">
-          {["1v1", "group"].map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`flex-1 rounded-xl py-3 text-sm font-bold transition-colors ${
-                activeTab === tab
-                  ? "bg-white text-inverse-surface shadow-sm"
-                  : "text-on-surface-variant hover:text-inverse-surface"
-              }`}
-            >
-              {tab === "1v1" ? "⚔️ 1v1 Duel" : "👥 Group Quiz"}
-            </button>
-          ))}
-        </div>
-
-        <div className="min-h-[500px]">
-          <AnimatePresence mode="wait">
-            {activeTab === "1v1" ? (
-              <motion.div
-                key="1v1"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 20 }}
-                className="space-y-4"
-              >
-                <h2 className="text-xl font-bold text-inverse-surface mb-6 flex justify-between items-center">
-                  Challenge Friends
-                  <button
-                    onClick={fetchFriends}
-                    className="text-primary hover:bg-primary-container/10 p-2 rounded-full transition-colors"
-                  >
-                    <RefreshCw className="w-5 h-5" />
-                  </button>
-                </h2>
-
-                {/* Friend Search and Pending (Rest of UI is same) */}
-                <div className="rounded-2xl border border-surface-variant bg-surface p-4">
-                  <div className="mb-3 flex items-center gap-2 font-bold text-inverse-surface">
-                    <UserPlus className="h-5 w-5 text-primary" /> Add Friend
-                  </div>
-                  <div className="flex gap-2">
-                    <input
-                      value={query}
-                      onChange={(e) => setQuery(e.target.value)}
-                      onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-                      placeholder="Search username"
-                      className="min-w-0 flex-1 rounded-xl border-2 border-surface-variant bg-white px-4 py-3 font-semibold outline-none focus:border-primary"
-                    />
-                    <button
-                      onClick={handleSearch}
-                      className="rounded-xl bg-primary px-4 font-bold text-white"
-                    >
-                      <Search className="h-5 w-5" />
-                    </button>
-                  </div>
-                  {message && (
-                    <p className="mt-3 text-sm font-semibold text-on-surface-variant">
-                      {message}
-                    </p>
-                  )}
-                  {searchResults.length > 0 && (
-                    <div className="mt-3 space-y-2">
-                      {searchResults.map((result) => (
-                        <div
-                          key={result.id}
-                          className="flex items-center justify-between rounded-xl bg-white p-3"
-                        >
-                          <div>
-                            <p className="font-bold text-inverse-surface">
-                              {result.username}
-                            </p>
-                            <p className="text-sm font-semibold text-primary">
-                              {result.total_xp} XP
-                            </p>
-                          </div>
-                          <button
-                            onClick={() => sendRequest(result.id)}
-                            className="rounded-lg bg-secondary px-4 py-2 font-bold text-white"
-                          >
-                            Add
-                          </button>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-
-                {pending.length > 0 && (
-                  <div className="rounded-2xl border border-surface-variant bg-surface p-4">
-                    <div className="mb-3 flex items-center gap-2 font-bold text-inverse-surface">
-                      <Inbox className="h-5 w-5 text-secondary" /> Pending Requests
-                    </div>
-                    <div className="space-y-2">
-                      {pending.map((request) => (
-                        <div
-                          key={request.id}
-                          className="flex items-center justify-between rounded-xl bg-white p-3"
-                        >
-                          <p className="font-bold text-inverse-surface">
-                            {request.requester.username}
-                          </p>
-                          <div className="flex gap-2">
-                            <button
-                              onClick={() => respondRequest(request.requester.id, "accept")}
-                              className="rounded-lg bg-primary px-3 py-2 text-sm font-bold text-white"
-                            >
-                              Accept
-                            </button>
-                            <button
-                              onClick={() => respondRequest(request.requester.id, "reject")}
-                              className="rounded-lg bg-surface-variant px-3 py-2 text-sm font-bold text-inverse-surface"
-                            >
-                              Reject
-                            </button>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {loading && (
-                  <div className="flex h-32 items-center justify-center">
-                    <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
-                  </div>
-                )}
-
-                {!loading && friends.length === 0 && (
-                  <p className="rounded-2xl bg-surface p-6 text-center font-semibold text-on-surface-variant">
-                    No friends found.
-                  </p>
-                )}
-
-                {!loading && friends.map((friend) => (
-                  <div
-                    key={friend.id}
-                    className="flex items-center justify-between p-4 rounded-2xl bg-surface border border-surface-variant"
-                  >
-                    <div className="flex items-center gap-4">
-                      <div className="relative">
-                        <div className="w-12 h-12 bg-tertiary-container rounded-full flex items-center justify-center text-white font-bold uppercase">
-                          {friend.username.substring(0, 2)}
-                        </div>
-                        {friend.online && (
-                          <div className="absolute bottom-0 right-0 w-3.5 h-3.5 bg-green-500 border-2 border-surface rounded-full"></div>
-                        )}
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-inverse-surface">
-                          {friend.username}
-                        </h3>
-                        <p className="text-sm font-medium text-primary">
-                          {friend.total_xp} XP
-                        </p>
-                      </div>
-                    </div>
-                    <button
-                      onClick={() => handleChallengeClick(friend)}
-                      disabled={!friend.online}
-                      className="px-6 py-2.5 bg-primary text-white rounded-xl font-bold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-primary-container transition-colors shadow-soft"
-                    >
-                      Challenge
-                    </button>
-                  </div>
-                ))}
-              </motion.div>
-            ) : (
-              <motion.div
-                key="group"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                className="grid md:grid-cols-2 gap-8"
-              >
-                <div className="flex flex-col items-center text-center p-8 border-2 border-dashed border-surface-variant rounded-3xl bg-surface">
-                  <div className="w-16 h-16 bg-primary-container/20 text-primary rounded-2xl flex items-center justify-center mb-6">
-                    <Users className="w-8 h-8" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-inverse-surface mb-3">
-                    Host a Room
-                  </h3>
-                  <p className="text-on-surface-variant mb-8">
-                    Create custom questions and invite friends to a live
-                    multiplayer quiz.
-                  </p>
-                  <button
-                    onClick={handleCreateGroup}
-                    className="w-full py-3.5 bg-primary text-white rounded-xl font-bold hover:bg-primary-container transition-all shadow-soft"
-                  >
-                    Create Room
-                  </button>
-                </div>
-
-                <div className="flex flex-col items-center text-center p-8 border border-surface-variant rounded-3xl bg-surface-container-lowest shadow-sm">
-                  <div className="w-16 h-16 bg-secondary-container/20 text-secondary rounded-2xl flex items-center justify-center mb-6">
-                    <Play className="w-8 h-8 ml-1" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-inverse-surface mb-3">
-                    Join a Room
-                  </h3>
-                  <p className="text-on-surface-variant mb-6">
-                    Enter the 6-character room code provided by the host.
-                  </p>
-
-                  <div className="w-full flex gap-2">
-                    <input
-                      type="text"
-                      maxLength={6}
-                      value={roomCode}
-                      onChange={(e) =>
-                        setRoomCode(e.target.value.toUpperCase())
-                      }
-                      placeholder="ENTER CODE"
-                      className="flex-1 px-4 py-3.5 text-center font-bold text-xl tracking-widest bg-white border-2 border-surface-variant rounded-xl focus:outline-none focus:border-secondary uppercase"
-                    />
-                    <button
-                      onClick={handleJoinGroup}
-                      disabled={roomCode.length !== 6}
-                      className="px-6 bg-secondary text-white rounded-xl font-bold hover:bg-secondary-container disabled:opacity-50 transition-colors shadow-soft"
-                    >
-                      Join
-                    </button>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-      </div>
-
-      {/* Subject Selection Modal */}
-      {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-          <div className="w-full max-w-md rounded-3xl bg-white p-6 shadow-xl">
-            <h3 className="mb-4 text-2xl font-bold text-inverse-surface">
-              Select Subject for Battle
-            </h3>
-            <p className="mb-6 font-semibold text-on-surface-variant">
-              Choose a subject to challenge {selectedFriend?.username}.
-            </p>
-            <div className="max-h-60 overflow-y-auto space-y-2 mb-6">
-              {subjects.map((sub) => (
+      <div className="max-w-7xl mx-auto px-4 py-12 pb-24">
+        {/* Banner Section */}
+        <div className="relative mb-12 overflow-hidden rounded-[40px] bg-gradient-to-br from-[#8B2500] to-[#5C1800] p-12 text-white shadow-2xl">
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="text-center md:text-left">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md mb-4 border border-white/20">
+                <Swords className="w-4 h-4 text-[#FFD700]" />
+                <span className="text-xs font-black uppercase tracking-[0.2em]">Grand Arena</span>
+              </div>
+              <h1 className="text-5xl md:text-6xl font-black mb-4 tracking-tight leading-tight">Prove Your <span className="text-[#FFD700]">Wisdom.</span></h1>
+              <p className="text-white/70 font-medium text-lg max-w-lg mb-8 italic">"In the arena of knowledge, only the curious emerge as victors." — Gnosis Sage</p>
+              
+              <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                 <button
-                  key={sub.id}
-                  onClick={() => setSelectedSubjectId(sub.id)}
-                  className={`w-full p-4 rounded-xl border-2 text-left font-bold transition-colors ${
-                    selectedSubjectId === sub.id
-                      ? 'border-primary bg-primary-container/10 text-primary'
-                      : 'border-surface-variant hover:border-primary/50'
-                  }`}
+                  onClick={handleCreateGroup}
+                  className="px-8 py-4 bg-[#FFD700] text-[#8B2500] rounded-2xl font-black text-sm uppercase tracking-wider hover:scale-105 transition-transform shadow-xl flex items-center gap-3"
                 >
-                  {sub.name}
+                  <Crown className="w-5 h-5" /> Host Battle
                 </button>
-              ))}
+                <div className="flex bg-white/10 backdrop-blur-md rounded-2xl p-1 border border-white/20">
+                  <input
+                    type="text"
+                    placeholder="Enter Code..."
+                    value={roomCode}
+                    onChange={(e) => setRoomCode(e.target.value.toUpperCase())}
+                    maxLength={6}
+                    className="bg-transparent border-none outline-none px-4 py-2 text-white font-black placeholder:text-white/40 w-32 tracking-[0.2em]"
+                  />
+                  <button
+                    onClick={handleJoinGroup}
+                    className="px-6 py-2 bg-white text-[#8B2500] rounded-xl font-black text-sm hover:scale-105 transition-transform"
+                  >
+                    Join
+                  </button>
+                </div>
+              </div>
             </div>
-            <div className="flex justify-end gap-3">
-              <button
-                onClick={() => setIsModalOpen(false)}
-                className="px-6 py-2.5 rounded-xl font-bold text-on-surface-variant hover:bg-surface-variant"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={confirmChallenge}
-                disabled={!selectedSubjectId || loadingLevels}
-                className="px-6 py-2.5 rounded-xl bg-primary text-white font-bold shadow-soft disabled:opacity-50"
-              >
-                {loadingLevels ? "Loading..." : "Send Challenge"}
-              </button>
+            
+            <div className="hidden lg:block relative">
+               <div className="w-64 h-64 bg-white/10 rounded-full flex items-center justify-center animate-pulse">
+                  <Swords className="w-32 h-32 text-white/20" />
+               </div>
+               <div className="absolute -top-4 -right-4 bg-white rounded-3xl p-6 shadow-2xl rotate-12">
+                  <Trophy className="w-12 h-12 text-[#FFD700]" />
+               </div>
+            </div>
+          </div>
+          
+          {/* Decorative shapes */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl"></div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          {/* Left Column: Friends & Social */}
+          <div className="lg:col-span-1 space-y-8">
+            {/* Quick 1v1 Action */}
+            <div className="bg-[#8B2500] rounded-[32px] p-1 shadow-lg overflow-hidden group">
+               <button 
+                  onClick={() => friends.length > 0 ? handleChallengeClick(friends[0]) : setMessage("Add scholars to challenge!")}
+                  className="w-full bg-white rounded-[28px] p-6 flex items-center justify-between hover:bg-[#8B2500] hover:text-white transition-all"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-2xl bg-[#FFE4CC] group-hover:bg-white/20 flex items-center justify-center">
+                      <Swords className="w-6 h-6 text-[#8B2500] group-hover:text-white" />
+                    </div>
+                    <div className="text-left">
+                       <h4 className="font-black text-sm uppercase tracking-wider">Ancient Duel</h4>
+                       <p className="text-[10px] font-bold opacity-60">1-on-1 Battle for glory</p>
+                    </div>
+                  </div>
+                  <ChevronRight className="w-5 h-5 opacity-40 group-hover:opacity-100" />
+               </button>
+            </div>
+
+            <div className="bg-white rounded-[32px] border border-[#E8DFD1] shadow-xl overflow-hidden p-6">
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="font-black text-[#1a1a1a] text-lg flex items-center gap-2">
+                  <Users className="w-5 h-5 text-[#8B2500]" /> Scholars
+                </h3>
+                <button 
+                  onClick={fetchFriends}
+                  className="p-2 hover:bg-[#FAF7F2] rounded-xl transition-colors text-[#8a8a8a]"
+                >
+                  <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
+                </button>
+              </div>
+
+              {/* Add Scholar Search */}
+              <div className="relative mb-6">
+                <input
+                  type="text"
+                  placeholder="Invite more scholars..."
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+                  className="w-full bg-[#FAF7F2] border-2 border-transparent focus:border-[#8B2500] rounded-2xl py-4 pl-12 pr-4 text-sm font-bold text-[#1a1a1a] outline-none transition-all"
+                />
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#8a8a8a] w-5 h-5" />
+              </div>
+
+              {/* Search Results */}
+              <AnimatePresence>
+                {searchResults.length > 0 && (
+                  <motion.div 
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    className="mb-6 space-y-2"
+                  >
+                    {searchResults.map((res) => (
+                      <div key={res.id} className="flex items-center gap-3 p-3 bg-[#FFF4E5] rounded-2xl border border-[#FFE4CC]">
+                        <div className="w-10 h-10 rounded-xl overflow-hidden bg-white">
+                          <img src={imageMap?.avatars?.[res.id] || `https://api.dicebear.com/7.x/avataaars/svg?seed=${res.username}`} alt="" />
+                        </div>
+                        <div className="flex-1">
+                          <p className="font-bold text-xs text-[#1a1a1a]">{res.username}</p>
+                          <p className="text-[10px] font-black text-[#D4641A] uppercase">{res.total_xp} XP</p>
+                        </div>
+                        <button 
+                          onClick={() => sendRequest(res.id)}
+                          className="bg-[#1a1a1a] text-white p-2 rounded-lg hover:scale-105 transition-transform"
+                        >
+                          <UserPlus className="w-4 h-4" />
+                        </button>
+                      </div>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {/* Pending Invites */}
+              {pending.length > 0 && (
+                <div className="mb-6 p-4 bg-[#8B2500]/5 rounded-2xl border border-[#8B2500]/10">
+                  <p className="text-[10px] font-black text-[#8B2500] uppercase tracking-widest mb-3 flex items-center gap-2">
+                    <Inbox className="w-3 h-3" /> Challenges Sent to You
+                  </p>
+                  <div className="space-y-2">
+                    {pending.map((req) => (
+                      <div key={req.id} className="flex items-center justify-between">
+                        <span className="font-bold text-sm text-[#1a1a1a] truncate max-w-[120px]">{req.requester.username}</span>
+                        <div className="flex gap-1">
+                          <button onClick={() => respondRequest(req.requester.id, "accept")} className="text-[9px] font-black bg-[#8B2500] text-white px-3 py-1.5 rounded-lg">ACCEPT</button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Scholar List */}
+              <div className="space-y-2 overflow-y-auto max-h-[400px] pr-2 custom-scrollbar">
+                {friends.length > 0 ? (
+                  friends.map((friend) => (
+                    <motion.div
+                      layout
+                      key={friend.id}
+                      className="group flex items-center gap-4 p-4 rounded-3xl hover:bg-[#FAF7F2] border-2 border-transparent hover:border-[#E8DFD1] transition-all cursor-pointer"
+                      onClick={() => handleChallengeClick(friend)}
+                    >
+                      <div className="relative">
+                        <div className="w-14 h-14 rounded-2xl overflow-hidden border-2 border-white shadow-md bg-[#F0E6D2]">
+                          <img src={imageMap?.avatars?.[friend.id] || `https://api.dicebear.com/7.x/avataaars/svg?seed=${friend.username}`} alt="" />
+                        </div>
+                        <div className={`absolute -bottom-1 -right-1 w-4 h-4 rounded-full border-2 border-white transition-colors ${friend.online ? 'bg-green-500' : 'bg-gray-300'}`}></div>
+                      </div>
+                      <div className="flex-1">
+                        <p className="font-bold text-[#1a1a1a] group-hover:text-[#8B2500] transition-colors">{friend.username}</p>
+                        <p className="text-[10px] font-black text-[#8a8a8a] uppercase tracking-wider">{friend.online ? 'Ready for Duel' : 'Ancient Slumber'}</p>
+                      </div>
+                      <div className="w-10 h-10 rounded-xl bg-white border border-[#E8DFD1] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <Swords className="w-5 h-5 text-[#8B2500]" />
+                      </div>
+                    </motion.div>
+                  ))
+                ) : (
+                  <div className="py-12 text-center">
+                    <div className="w-16 h-16 bg-[#FAF7F2] rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Users className="w-8 h-8 text-[#E8DFD1]" />
+                    </div>
+                    <p className="text-[#8a8a8a] font-bold">No scholars in your circle yet.</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Status & History */}
+          <div className="lg:col-span-2 space-y-12">
+            {/* Arena Status */}
+            <div>
+              <h3 className="font-black text-[#1a1a1a] text-xl uppercase tracking-tighter mb-6 italic flex items-center gap-3">
+                <Shield className="w-6 h-6 text-[#D4641A]" /> Arena Status
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="bg-white rounded-[32px] p-6 border border-[#E8DFD1] shadow-lg hover:shadow-xl transition-shadow group">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 rounded-2xl bg-[#FFF4E5] flex items-center justify-center">
+                      <Zap className="w-6 h-6 text-[#D4641A]" />
+                    </div>
+                    <div>
+                      <h4 className="font-black text-[#1a1a1a] text-sm">Winning Streak</h4>
+                      <p className="text-[10px] font-black text-[#8a8a8a] uppercase tracking-widest leading-none mt-1">Consistency is key</p>
+                    </div>
+                  </div>
+                  <div className="flex items-end gap-2">
+                    <span className="text-4xl font-black text-[#1a1a1a]">{user.streak_count || 0}</span>
+                    <span className="text-xs font-bold text-[#8a8a8a] mb-1.5 uppercase">Arena Victories</span>
+                  </div>
+                  <div className="mt-4 h-2 bg-[#FAF7F2] rounded-full overflow-hidden">
+                    <div className="h-full bg-[#D4641A] rounded-full" style={{ width: `${Math.min((user.streak_count || 0) * 10, 100)}%` }}></div>
+                  </div>
+                </div>
+
+                <div className="bg-white rounded-[32px] p-6 border border-[#E8DFD1] shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 rounded-2xl bg-[#8B2500]/10 flex items-center justify-center">
+                      <Crown className="w-6 h-6 text-[#8B2500]" />
+                    </div>
+                    <div>
+                      <h4 className="font-black text-[#1a1a1a] text-sm">Current Prestige</h4>
+                      <p className="text-[10px] font-black text-[#8a8a8a] uppercase tracking-widest leading-none mt-1">Tier: Master Scholar</p>
+                    </div>
+                  </div>
+                  <div className="flex items-end gap-2">
+                    <span className="text-4xl font-black text-[#1a1a1a]">#{userRank || '??'}</span>
+                    <span className="text-xs font-bold text-[#8a8a8a] mb-1.5 uppercase">Local Rank</span>
+                  </div>
+                  <div className="mt-4 flex gap-1">
+                    {[1,2,3,4,5].map(i => <div key={i} className={`h-1.5 flex-1 rounded-full ${userRank && userRank <= (6-i)*10 ? 'bg-[#8B2500]' : 'bg-[#FAF7F2]'}`}></div>)}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Battle History */}
+            <div>
+              <div className="flex items-center justify-between mb-6">
+                 <h3 className="font-black text-[#1a1a1a] text-xl uppercase tracking-tighter italic flex items-center gap-3">
+                   <History className="w-6 h-6 text-[#8a8a8a]" /> Battle History
+                 </h3>
+                 <button className="text-xs font-black text-[#8B2500] hover:underline uppercase tracking-widest">View All</button>
+              </div>
+              
+              <div className="bg-white rounded-[40px] border border-[#E8DFD1] shadow-xl overflow-hidden">
+                <div className="divide-y divide-[#FAF7F2]">
+                   {history.length > 0 ? history.map((b, i) => {
+                     const isWinner = b.winner_id === user.id;
+                     const other = b.participants.find(p => p.userId !== user.id);
+                     return (
+                       <div key={b.id} className="flex items-center gap-6 p-6 hover:bg-[#FAF7F2] transition-colors group">
+                          <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-black text-xs ${isWinner ? 'bg-green-50' : 'bg-red-50'}`}>
+                            {isWinner ? <Zap className="w-5 h-5 text-[#FFD700]" /> : <Swords className="w-5 h-5 text-red-400" />}
+                          </div>
+                          <div className="flex-1">
+                            <p className="font-bold text-[#1a1a1a]">
+                              {isWinner ? 'Defeated' : 'Lost to'} "{other?.username || 'Opponent'}"
+                            </p>
+                            <p className="text-[10px] font-black text-[#8a8a8a] uppercase tracking-widest">
+                              {new Date(b.created_at).toLocaleDateString()} • {b.subject_name || 'Arena Battle'}
+                            </p>
+                          </div>
+                          <div className="text-right">
+                             <p className={`${isWinner ? 'text-green-600' : 'text-red-600'} font-black italic`}>
+                               {isWinner ? '+XP' : '-'}
+                             </p>
+                             <p className={`text-[10px] font-bold uppercase ${isWinner ? 'text-green-600' : 'text-red-500'}`}>
+                               {isWinner ? 'Victory' : 'Defeat'}
+                             </p>
+                          </div>
+                          <ChevronRight className="w-5 h-5 text-[#E8DFD1] group-hover:text-[#8B2500] transition-colors" />
+                       </div>
+                     );
+                   }) : (
+                    <div className="py-12 text-center text-[#8a8a8a] font-bold">No battles fought yet.</div>
+                   )}
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      )}
+
+        {/* Challenge Modal */}
+        <AnimatePresence>
+          {isModalOpen && (
+            <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setIsModalOpen(false)}
+                className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+              />
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0, y: 20 }}
+                animate={{ scale: 1, opacity: 1, y: 0 }}
+                exit={{ scale: 0.9, opacity: 0, y: 20 }}
+                className="relative w-full max-w-xl bg-white rounded-[40px] shadow-2xl overflow-hidden"
+              >
+                <div className="p-8 border-b border-[#FAF7F2] bg-gradient-to-r from-[#8B2500] to-[#5C1800] text-white">
+                  <div className="flex items-center gap-4">
+                    <div className="w-16 h-16 rounded-2xl overflow-hidden border-2 border-white/20">
+                      <img src={imageMap?.avatars?.[selectedFriend?.id] || `https://api.dicebear.com/7.x/avataaars/svg?seed=${selectedFriend?.username}`} alt="" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-black">Challenge {selectedFriend?.username}</h3>
+                      <p className="text-white/60 font-bold text-sm">Choose the field of battle</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-8 max-h-[70vh] overflow-y-auto custom-scrollbar">
+                  <div className="grid grid-cols-2 gap-4 mb-8">
+                    {subjects.map((s) => (
+                      <button
+                        key={s.id}
+                        onClick={() => setSelectedSubjectId(s.id)}
+                        className={`flex flex-col items-center p-4 rounded-3xl border-2 transition-all ${
+                          selectedSubjectId === s.id 
+                            ? 'bg-[#FFF4E5] border-[#8B2500] shadow-md scale-105' 
+                            : 'bg-white border-[#E8DFD1] hover:border-[#8B2500]/30'
+                        }`}
+                      >
+                        <div className="w-12 h-12 rounded-2xl bg-[#F0E6D2] mb-3 flex items-center justify-center">
+                           <Shield className={`w-6 h-6 ${selectedSubjectId === s.id ? 'text-[#8B2500]' : 'text-[#8a8a8a]'}`} />
+                        </div>
+                        <span className="font-bold text-xs text-[#1a1a1a] text-center">{s.name}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="p-8 border-t border-[#FAF7F2]">
+                  <div className="flex gap-4">
+                    <button
+                      disabled={!selectedSubjectId || loadingLevels}
+                      onClick={confirmChallenge}
+                      className="flex-1 bg-[#8B2500] text-white py-4 rounded-2xl font-black text-sm uppercase tracking-widest disabled:opacity-50 disabled:cursor-not-allowed hover:scale-[1.02] transition-transform flex items-center justify-center gap-2"
+                    >
+                      {loadingLevels ? 'PREPARING...' : 'SEND CHALLENGE'} <ArrowRight className="w-4 h-4" />
+                    </button>
+                    <button
+                      onClick={() => setIsModalOpen(false)}
+                      className="px-8 bg-[#FAF7F2] text-[#8a8a8a] py-4 rounded-2xl font-black text-sm uppercase tracking-widest hover:text-[#1a1a1a] transition-colors"
+                    >
+                      WAIT
+                    </button>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          )}
+        </AnimatePresence>
+      </div>
     </Layout>
   );
 }

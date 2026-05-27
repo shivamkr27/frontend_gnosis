@@ -28,6 +28,15 @@ module.exports = (io, redisClient) => {
       if (socket.userId) {
         await redisClient.del('gnosis:socket:' + socket.userId);
         await redisClient.del('gnosis:online:' + socket.userId);
+        
+        // If they were in a 1v1 room, terminate it
+        if (socket.roomCode) {
+          const roomData = await redisClient.hGetAll('gnosis:room:' + socket.roomCode);
+          if (roomData && roomData.type === '1v1' && roomData.status !== 'complete') {
+            io.to(socket.roomCode).emit('room:cancelled', { message: 'Opponent disconnected' });
+            await redisClient.del('gnosis:room:' + socket.roomCode);
+          }
+        }
       }
     });
 
@@ -164,10 +173,35 @@ module.exports = (io, redisClient) => {
 
         socket.emit('room:joined', {
             roomCode,
+            type: roomData.type,
             quizName: roomData.quiz_name || roomData.subject_name || '',
             players,
             playerCount: players.length
         });
+
+        // AUTO-START 1v1: Wait for both players to have active socket connections
+        if (roomData.type === '1v1' && players.length === 2 && roomData.status === 'waiting') {
+          const bothConnected = players.every(p => p.socketId && p.socketId !== '');
+          if (bothConnected) {
+              // Give 2.5s for components to mount and register listeners
+              setTimeout(async () => {
+                const currentStatus = await redisClient.hGet('gnosis:room:' + roomCode, 'status');
+                if (currentStatus === 'waiting') {
+                   await redisClient.hSet('gnosis:room:' + roomCode, 'status', 'active');
+                   
+                   const qs = JSON.parse(roomData.questions || '[]');
+                   io.to(roomCode).emit('quiz:starting', { 
+                     message: 'Battle starting in 1 second!',
+                     totalQuestions: qs.length
+                   });
+  
+                   setTimeout(() => {
+                     sendNextQuestion(io, redisClient, roomCode);
+                   }, 1000);
+                }
+              }, 2500);
+          }
+        }
     });
 
     socket.on('room:join', async ({ roomCode, userId, username }) => {
@@ -225,13 +259,13 @@ module.exports = (io, redisClient) => {
                  
                  const qs = JSON.parse(roomData.questions || '[]');
                  io.to(roomCode).emit('quiz:starting', { 
-                   message: 'Battle starting in 3 seconds!',
+                   message: 'Battle starting in 1 second!',
                    totalQuestions: qs.length
                  });
 
                  setTimeout(() => {
                    sendNextQuestion(io, redisClient, roomCode);
-                 }, 3000);
+                 }, 1000);
               }
             }, 2500);
         }
@@ -239,6 +273,7 @@ module.exports = (io, redisClient) => {
 
       socket.emit('room:joined', {
         roomCode,
+        type: roomData.type,
         quizName: roomData.quiz_name || roomData.subject_name || '',
         players,
         playerCount: players.length
@@ -260,13 +295,48 @@ module.exports = (io, redisClient) => {
       await redisClient.hSet('gnosis:room:' + roomCode, 'status', 'active');
       
       io.to(roomCode).emit('quiz:starting', { 
-        message: 'Quiz starting in 3 seconds',
+        message: 'Quiz starting in 1 second',
         totalQuestions: JSON.parse(roomData.questions).length
       });
 
       setTimeout(() => {
         sendNextQuestion(io, redisClient, roomCode);
-      }, 3000);
+      }, 1000);
+    });
+
+    socket.on('host:cancel', async ({ roomCode }) => {
+      const roomId = 'gnosis:room:' + roomCode;
+      const roomData = await redisClient.hGetAll(roomId);
+      if (!roomData || !roomData.type) return;
+
+      const isHost = roomData.host_id === socket.userId;
+      const is1v1 = roomData.type === '1v1';
+
+      if (isHost || is1v1) {
+        // FOR 1v1, BOTH SIDES MUST BE TERMINATED
+        io.to(roomCode).emit('room:cancelled', { message: is1v1 ? 'Battle terminated' : 'Host cancelled session' });
+        await redisClient.del(roomId);
+        console.log(`[Battle] Room ${roomCode} cancelled by ${isHost ? 'host' : 'participant'} in ${roomData.type} mode.`);
+      }
+    });
+
+    socket.on('room:leave', async ({ roomCode }) => {
+      const roomId = 'gnosis:room:' + roomCode;
+      const roomData = await redisClient.hGetAll(roomId);
+      if (!roomData || !roomData.type) return;
+
+      if (roomData.type === '1v1') {
+        // TERMINATE SESSION FOR BOTH PLAYERS
+        io.to(roomCode).emit('room:cancelled', { message: 'Opponent left the battle' });
+        await redisClient.del(roomId);
+        console.log(`[Battle] 1v1 Room ${roomCode} terminated because ${socket.username} left.`);
+      } else {
+        let players = JSON.parse(roomData.players || '[]');
+        players = players.filter(p => p.userId !== socket.userId);
+        await redisClient.hSet(roomId, 'players', JSON.stringify(players));
+        io.to(roomCode).emit('room:players', { players });
+        socket.leave(roomCode);
+      }
     });
 
     socket.on('quiz:answer', async ({ roomCode, questionId, selectedOptions }) => {

@@ -62,7 +62,7 @@ export default function QuizReview() {
     ? Math.round((correctCount / answers.length) * 100)
     : 0;
 
-  const totalSeconds = Math.max(
+  const totalSeconds = state?.timeSpent || Math.max(
     1,
     Math.round(answers.length * 12.4)
   );
@@ -72,40 +72,23 @@ export default function QuizReview() {
       try {
         const res = await api.get(`/content/levels/${levelId}`);
         setLevelInfo(res.data);
-
-        let subId = res.data.subject_id;
+        const subId = res.data.subject_id;
 
         if (subId) {
-          const subRes = await api.get(
-            `/content/subjects/${subId}`
-          );
-
+          const subRes = await api.get(`/content/subjects/${subId}`);
           setSubjectInfo(subRes.data);
         }
 
         // Fetch historical answers if we didn't receive them in state
         if (answers.length === 0 && user?.id && subId) {
           try {
-            const progRes = await api.get(
-              `/progress/${user.id}/subject/${subId}`
-            );
-
-            const progressLevel = progRes.data.levels.find(
-              (pl) => pl.level_id === levelId
-            );
-
-            if (
-              progressLevel &&
-              progressLevel.answers &&
-              progressLevel.answers.length > 0
-            ) {
+            const progRes = await api.get(`/progress/${user.id}/subject/${subId}`);
+            const progressLevel = progRes.data.levels.find((pl) => pl.level_id === levelId);
+            if (progressLevel?.answers?.length > 0) {
               setAnswers(progressLevel.answers);
             }
           } catch (progErr) {
-            console.error(
-              "Failed to fetch historical answers",
-              progErr
-            );
+            console.error("Failed to fetch historical answers", progErr);
           }
         }
       } catch (err) {

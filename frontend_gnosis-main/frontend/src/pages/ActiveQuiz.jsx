@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import api from "../lib/api";
 import { motion, AnimatePresence } from "framer-motion";
 import { Trophy, X, CheckCircle, XCircle } from "lucide-react";
-import useAuthStore from "../store/authStore";
+import { useAuthStore } from "../lib/store";
 
 const optionMap = [
   ["A", "option_a"],
@@ -30,6 +30,7 @@ export default function ActiveQuiz() {
 
   const [correctCount, setCorrectCount] = useState(0);
   const [answers, setAnswers] = useState([]);
+  const [quizStartTime] = useState(Date.now());
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -90,6 +91,7 @@ export default function ActiveQuiz() {
           correctCount,
           totalQuestions: questions.length,
           answers,
+          timeSpent: Math.floor((Date.now() - quizStartTime) / 1000),
         },
       });
       return;

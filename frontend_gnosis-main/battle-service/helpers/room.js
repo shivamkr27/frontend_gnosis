@@ -1,5 +1,6 @@
 const crypto = require('crypto');
 const pool = require('../db/index');
+const axios = require('axios');
 
 const generateRoomCode = async (redisClient) => {
   let code;
@@ -26,8 +27,9 @@ const endQuiz = async (io, redisClient, roomCode) => {
   if (!roomData || !roomData.players) return;
 
   const players = JSON.parse(roomData.players);
-  const sortedPlayers = players.sort((a, b) => b.score - a.score);
+  const sortedPlayers = [...players].sort((a, b) => b.score - a.score);
   const top3 = sortedPlayers.slice(0, 3);
+  const is1v1 = roomData.type === '1v1';
 
   // Emit to entire room
   io.to(roomCode).emit('quiz:results', {
@@ -39,6 +41,40 @@ const endQuiz = async (io, redisClient, roomCode) => {
     io.to(roomData.host_socket).emit('quiz:full_scoreboard', {
       allPlayers: sortedPlayers
     });
+  }
+
+  // Award XP and Update Wins/Losses
+  for (const player of players) {
+    if (player.score > 0) {
+      try {
+        await axios.post('http://xp-service:3006/xp/award', {
+          userId: player.userId,
+          username: player.username,
+          amount: player.score,
+          source: 'battle',
+          scope: 'global',
+          roomId: roomCode
+        });
+      } catch (xpErr) {
+        console.error(`Failed to award XP to ${player.username}:`, xpErr.message);
+      }
+    }
+  }
+
+  // Register Win/Loss for 1v1
+  if (is1v1 && players.length === 2) {
+    const winner = sortedPlayers[0];
+    const loser = sortedPlayers[1];
+
+    if (winner.score > loser.score) {
+      try {
+        await pool.query('UPDATE users SET battle_wins = battle_wins + 1 WHERE id = $1', [winner.userId]);
+        await pool.query('UPDATE users SET battle_losses = battle_losses + 1 WHERE id = $1', [loser.userId]);
+        console.log(`[Battle] Registered Win for ${winner.username}, Loss for ${loser.username}`);
+      } catch (dbErr) {
+        console.error('Failed to update win/loss stats:', dbErr.message);
+      }
+    }
   }
 
   // Save to DB

@@ -5,7 +5,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import { useAuthStore, useAppStore } from "./lib/store";
+import { useAuthStore, useAppStore, useSocketStore } from "./lib/store";
 import api from "./lib/api";
 import { createSocket } from "./lib/socket";
 
@@ -25,15 +25,27 @@ import BattleResults from "./pages/BattleResults";
 import ChallengeSent from "./pages/ChallengeSent";
 import LessonComplete from "./pages/LessonComplete";
 import QuizReview from "./pages/QuizReview";
+import ChallengeManager from "./components/ChallengeManager";
 
 function ProtectedRoute({ children }) {
   const { token, user } = useAuthStore();
-  
+  const [timedOut, setTimedOut] = React.useState(false);
+
+  React.useEffect(() => {
+    if (!user && token) {
+      const t = setTimeout(() => setTimedOut(true), 8000);
+      return () => clearTimeout(t);
+    }
+  }, [user, token]);
+
   if (!token) return <Navigate to="/auth" />;
-  
-  // If we have a token but user isn't loaded yet, show a loading state
-  // This prevents child components from crashing due to null user
+
   if (!user) {
+    if (timedOut) {
+      // Backend respond nahi kiya — logout karke auth pe bhejo
+      useAuthStore.getState().logout();
+      return <Navigate to="/auth" />;
+    }
     return (
       <div className="flex h-screen w-full items-center justify-center bg-background">
         <div className="flex flex-col items-center gap-4">
@@ -43,12 +55,13 @@ function ProtectedRoute({ children }) {
       </div>
     );
   }
-  
+
   return children;
 }
 
 function App() {
   const { user, token, setUser, logout } = useAuthStore();
+  const { setSocket } = useSocketStore();
   const { setImageMap } = useAppStore();
   const checkedTokenRef = React.useRef(null);
 
@@ -65,7 +78,7 @@ function App() {
     checkedTokenRef.current = token;
 
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+    const timeoutId = setTimeout(() => controller.abort(), 8000); // 8 second timeout
 
     api
       .get("/auth/me", { signal: controller.signal })
@@ -75,10 +88,15 @@ function App() {
       })
       .catch((err) => {
         clearTimeout(timeoutId);
-        if (err.name !== "CanceledError") {
-          console.error("Failed to fetch user", err);
+        if (err.name === "CanceledError") return; // timeout — spinner rehne do
+        
+        // Sirf 401 pe logout karo, network error pe nahi
+        if (err.response?.status === 401) {
+          console.error("Session expired", err);
           logout();
         }
+        // Baaki errors pe user null rahega — spinner dikhega
+        // 8 second baad ProtectedRoute timeout handle karega
       });
 
     return () => {
@@ -92,12 +110,17 @@ function App() {
  useEffect(() => {
   if (!token || !user?.id) return undefined;
   const socket = createSocket(user);
-  return () => socket.disconnect();
-}, [token, user?.id, user?.username]);
+  setSocket(socket);
+  return () => {
+    socket.disconnect();
+    setSocket(null);
+  };
+}, [token, user?.id, user?.username, setSocket]);
 
   return (
     <Router>
       <div className="min-h-screen bg-background jaali-bg text-on-surface">
+        <ChallengeManager />
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/auth" element={<AuthPage />} />

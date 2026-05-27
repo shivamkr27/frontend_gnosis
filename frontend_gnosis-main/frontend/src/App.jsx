@@ -88,8 +88,8 @@ function App() {
       })
       .catch((err) => {
         clearTimeout(timeoutId);
-        if (err.name === "CanceledError") return; // timeout — spinner rehne do
-        
+        //if (err.name === "CanceledError") return; // timeout — spinner rehne do
+        if (err.code === 'ERR_CANCELED' || err.name === 'CanceledError') return;
         // Sirf 401 pe logout karo, network error pe nahi
         if (err.response?.status === 401) {
           console.error("Session expired", err);

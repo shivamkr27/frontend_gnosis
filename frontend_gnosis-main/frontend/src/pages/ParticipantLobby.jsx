@@ -88,7 +88,7 @@ export default function ParticipantLobby() {
       // Direct notification and redirection
       alert(message);
       navigate("/battle", { replace: true });
-      window.location.reload(); // Force state clearing if necessary
+      // window.location.reload(); // Force state clearing if necessary
     });
     socket.on("quiz:error", ({ message }) => setError(message));
     socket.on("quiz:starting", () => {

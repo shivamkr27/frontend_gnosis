@@ -454,32 +454,54 @@ export default function BattleLobby() {
               <div className="bg-white rounded-[40px] border border-[#E8DFD1] shadow-xl overflow-hidden">
                 <div className="divide-y divide-[#FAF7F2]">
                    {history.length > 0 ? history.map((b, i) => {
-                     const isDraw    = b.winner_id === null || b.winner_id === undefined;
-                     const isWinner  = !isDraw && String(b.winner_id) === String(user.id);
-                     const isLoser   = !isDraw && !isWinner;
-                     const other     = b.participants.find(p => String(p.userId) !== String(user.id));
+                     const is1v1 = b.type === '1v1';
+                     const results = b.results || [];
+                     
+                     // For 1v1: determine winner/loser/draw
+                     const isDraw    = is1v1 && (b.winner_id === null || b.winner_id === undefined);
+                     const isWinner  = is1v1 && !isDraw && String(b.winner_id) === String(user.id);
+                     const isLoser   = is1v1 && !isDraw && !isWinner;
+                     
+                     // For group: find user's rank
+                     const userRank = is1v1 ? null : results.findIndex(p => String(p.userId) === String(user.id)) + 1;
+                     
+                     // Get opponent for 1v1, or generic text for group
+                     const other     = is1v1 ? b.participants.find(p => String(p.userId) !== String(user.id)) : null;
 
-                     const iconBg    = isDraw ? 'bg-yellow-50' : isWinner ? 'bg-green-50' : 'bg-red-50';
-                     const labelText = isDraw ? 'Draw'         : isWinner ? 'Victory'     : 'Defeat';
-                     const labelColor = isDraw ? 'text-yellow-600' : isWinner ? 'text-green-600' : 'text-red-500';
-                     const xpText    = isDraw ? '±XP'          : isWinner ? '+XP'         : '-';
-                     const resultVerb = isDraw ? 'Drew with'   : isWinner ? 'Defeated'    : 'Lost to';
+                     // Display logic
+                     let iconBg, labelText, labelColor, xpText, resultVerb;
+                     
+                     if (is1v1) {
+                       iconBg    = isDraw ? 'bg-yellow-50' : isWinner ? 'bg-green-50' : 'bg-red-50';
+                       labelText = isDraw ? 'Draw'         : isWinner ? 'Victory'     : 'Defeat';
+                       labelColor = isDraw ? 'text-yellow-600' : isWinner ? 'text-green-600' : 'text-red-500';
+                       xpText    = isDraw ? '±XP'          : isWinner ? '+XP'         : '-';
+                       resultVerb = isDraw ? 'Drew with'   : isWinner ? 'Defeated'    : 'Lost to';
+                     } else {
+                       // Group quiz: rank-based display
+                       const rankOrdinal = ['', 'st', 'nd', 'rd'][userRank] || 'th';
+                       iconBg = 'bg-blue-50';
+                       labelText = `Ranked ${userRank}${rankOrdinal}`;
+                       labelColor = 'text-blue-600';
+                       xpText = '+XP';
+                       resultVerb = `Competed in`;
+                     }
 
                      return (
                        <div key={b.id} className="flex items-center gap-6 p-6 hover:bg-[#FAF7F2] transition-colors group">
                           <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-black text-xs ${iconBg}`}>
-                            {isDraw ? '=' : isWinner ? <Zap className="w-5 h-5 text-[#FFD700]" /> : <Swords className="w-5 h-5 text-red-400" />}
+                            {is1v1 ? (isDraw ? '=' : isWinner ? <Zap className="w-5 h-5 text-[#FFD700]" /> : <Swords className="w-5 h-5 text-red-400" />) : <Trophy className="w-5 h-5 text-blue-500" />}
                           </div>
                           <div className="flex-1">
                             <p className="font-bold text-[#1a1a1a]">
-                              {resultVerb} "{other?.username || 'Opponent'}"
+                              {is1v1 ? `${resultVerb} "${other?.username || 'Opponent'}"` : `${resultVerb} ${b.subject_name || 'Quiz'}`}
                             </p>
                             <p className="text-[10px] font-black text-[#8a8a8a] uppercase tracking-widest">
-                              {new Date(b.created_at).toLocaleDateString()} • {b.subject_name || 'Arena Battle'}
+                              {new Date(b.created_at).toLocaleDateString()} • {is1v1 ? '1v1 Battle' : `${b.participants?.length || 0} Players`}
                             </p>
                           </div>
                           <div className="text-right">
-                             <p className={`${isDraw ? 'text-yellow-600' : isWinner ? 'text-green-600' : 'text-red-600'} font-black italic`}>
+                             <p className={`${is1v1 ? (isDraw ? 'text-yellow-600' : isWinner ? 'text-green-600' : 'text-red-600') : 'text-blue-600'} font-black italic`}>
                                {xpText}
                              </p>
                              <p className={`text-[10px] font-bold uppercase ${labelColor}`}>

@@ -24,6 +24,33 @@ const updateRoomPlayers = async (redisClient, roomCode, players) => {
   await redisClient.hSet('gnosis:room:' + roomCode, 'players', JSON.stringify(players));
 };
 
+const notifyWaitingForOpponent = async (io, redisClient, roomCode, finishedUserId) => {
+  const roomData = await redisClient.hGetAll('gnosis:room:' + roomCode);
+  if (!roomData || !roomData.questions || !roomData.players) return;
+
+  const questions = JSON.parse(roomData.questions || '[]');
+  const players = JSON.parse(roomData.players || '[]');
+  const finisher = players.find((player) => player.userId === finishedUserId);
+  if (!finisher || !finisher.socketId) return;
+
+  const pendingOpponents = players.filter(
+    (player) => player.userId !== finishedUserId && !player.finished
+  );
+  if (pendingOpponents.length === 0) return;
+
+  const timePerQuestion = questions[0]?.timer_seconds || 15;
+  const secondsRemaining = pendingOpponents.reduce((maxSeconds, opponent) => {
+    const opponentIndex = opponent.currentIndex ?? 0;
+    const remainingQuestions = Math.max(questions.length - opponentIndex, 0);
+    return Math.max(maxSeconds, remainingQuestions * timePerQuestion);
+  }, 0);
+
+  io.to(finisher.socketId).emit('quiz:opponent_finishing', {
+    opponentName: pendingOpponents.length === 1 ? pendingOpponents[0].username : 'Opponents',
+    secondsRemaining,
+  });
+};
+
 // Track active question timers so they can be cancelled when all players answer early
 const activeTimers = new Map(); // roomCode -> timeoutId
 
@@ -214,6 +241,10 @@ const sendNextQuestion = async (io, redisClient, roomCode) => {
         return;
       }
 
+      if (fp.finished) {
+        await notifyWaitingForOpponent(io, redisClient, roomCode, fp.userId);
+      }
+
       // Send next question to this player if not done
       if (!fp.finished) {
         const nextQ = questions[nextIdx];
@@ -240,6 +271,7 @@ module.exports = {
   generateRoomCode,
   getRoomPlayers,
   updateRoomPlayers,
+  notifyWaitingForOpponent,
   sendNextQuestion,
   endQuiz,
   clearRoomTimer  // NEW EXPORT — handlers.js needs this

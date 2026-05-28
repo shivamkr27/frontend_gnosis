@@ -1,8 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Layout from "../components/Layout";
-import { useAuthStore, useAppStore } from "../lib/store";
-import { createSocket } from "../lib/socket";
+import { useAuthStore, useAppStore, useSocketStore } from "../lib/store";
 import { 
   Users, Copy, Trophy, CheckCircle2, Home, RotateCcw, 
   Settings, HelpCircle, Mic, Zap, Award, MessageSquare 
@@ -22,7 +21,7 @@ export default function ParticipantLobby() {
   const navigate = useNavigate();
   const { user } = useAuthStore();
   const { imageMap } = useAppStore();
-  const socketRef = useRef(null);
+  const { socket } = useSocketStore();
   
   const queryParams = new URLSearchParams(location.search);
   const isHost = queryParams.get("host") === "1";
@@ -38,6 +37,10 @@ export default function ParticipantLobby() {
   const [answerResult, setAnswerResult] = useState(null);
   const [results, setResults] = useState(null);
   const [timeLeft, setTimeLeft] = useState(0);
+  const [waitingForOpponent, setWaitingForOpponent] = useState(false);
+  const [opponentTimeLeft, setOpponentTimeLeft] = useState(0);
+  const [opponentName, setOpponentName] = useState("");
+  const opponentTimerRef = useRef(null);
 
   const question = questionPayload?.question;
   const options = useMemo(() => {
@@ -63,17 +66,21 @@ export default function ParticipantLobby() {
   }, [question, timeLeft]);
 
   useEffect(() => {
-    if (!user?.id) return undefined;
-    const socket = createSocket(user);
-    socketRef.current = socket;
+    if (!socket || !user?.id) return undefined;
 
-    socket.on("connect", () => {
+    const emitJoin = () => {
       socket.emit(isHost ? "room:host_join" : "room:join", {
         roomCode: code,
         userId: user.id,
         username: user.username,
       });
-    });
+    };
+
+    if (socket.connected) {
+      emitJoin();
+    } else {
+      socket.on("connect", emitJoin);
+    }
 
     socket.on("room:joined", (payload) => {
       setQuizName(payload.quizName || "");
@@ -96,6 +103,13 @@ export default function ParticipantLobby() {
       setError("");
     });
     socket.on("quiz:question", (payload) => {
+      if (opponentTimerRef.current) {
+        clearInterval(opponentTimerRef.current);
+        opponentTimerRef.current = null;
+      }
+      setWaitingForOpponent(false);
+      setOpponentTimeLeft(0);
+      setOpponentName("");
       setQuestionPayload(payload);
       setTimeLeft(payload.timerSeconds || 15);
       setSelected(null);
@@ -106,36 +120,81 @@ export default function ParticipantLobby() {
     socket.on("quiz:answer_rejected", ({ reason }) => {
       setAnswerResult({ correct: false, xpEarned: 0, explanation: reason });
     });
+    socket.on("quiz:opponent_finishing", ({ opponentName: nextOpponentName, secondsRemaining }) => {
+      if (opponentTimerRef.current) {
+        clearInterval(opponentTimerRef.current);
+        opponentTimerRef.current = null;
+      }
+
+      setWaitingForOpponent(true);
+      setOpponentName(nextOpponentName || "Opponent");
+      setOpponentTimeLeft(Math.max(0, secondsRemaining || 0));
+
+      opponentTimerRef.current = setInterval(() => {
+        setOpponentTimeLeft((prev) => {
+          if (prev <= 1) {
+            if (opponentTimerRef.current) {
+              clearInterval(opponentTimerRef.current);
+              opponentTimerRef.current = null;
+            }
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+    });
     socket.on("quiz:results", (payload) => {
+        if (opponentTimerRef.current) {
+          clearInterval(opponentTimerRef.current);
+          opponentTimerRef.current = null;
+        }
+        setWaitingForOpponent(false);
+        setOpponentTimeLeft(0);
+        setOpponentName("");
         setResults(payload);
     });
 
     return () => {
-      socket.emit("room:leave", { roomCode: code });
-      socket.disconnect();
+      if (opponentTimerRef.current) {
+        clearInterval(opponentTimerRef.current);
+        opponentTimerRef.current = null;
+      }
+      socket.off("connect", emitJoin);
+      socket.off("room:joined");
+      socket.off("room:players");
+      socket.off("room:player_joined");
+      socket.off("room:error");
+      socket.off("room:cancelled");
+      socket.off("quiz:error");
+      socket.off("quiz:starting");
+      socket.off("quiz:question");
+      socket.off("quiz:answer_result");
+      socket.off("quiz:answer_rejected");
+      socket.off("quiz:opponent_finishing");
+      socket.off("quiz:results");
     };
-  }, [code, isHost, user, navigate]);
+  }, [code, isHost, user, navigate, socket]);
 
   const startQuiz = () => {
-    socketRef.current?.emit("host:start_quiz", { roomCode: code });
+    socket?.emit("host:start_quiz", { roomCode: code });
   };
 
   const cancelRoom = () => {
     const msg = roomType === '1v1' ? "Terminate this battle?" : "Cancel this session?";
     if (window.confirm(msg)) {
-      socketRef.current?.emit("host:cancel", { roomCode: code });
+      socket?.emit("host:cancel", { roomCode: code });
     }
   };
 
   const leaveRoom = () => {
-    socketRef.current?.emit("room:leave", { roomCode: code });
+    socket?.emit("room:leave", { roomCode: code });
     navigate("/battle");
   };
 
   const submitAnswer = (optionId) => {
     if (!question || selected || timeLeft <= 0) return;
     setSelected(optionId);
-    socketRef.current?.emit("quiz:answer", {
+    socket?.emit("quiz:answer", {
       roomCode: code,
       questionId: question.id,
       selectedOptions: [optionId],
@@ -237,6 +296,42 @@ export default function ParticipantLobby() {
               </button>
             </div>
           </motion.div>
+        </div>
+      </Layout>
+    );
+  }
+
+  if (waitingForOpponent) {
+    return (
+      <Layout>
+        <div className="mx-auto flex min-h-[80vh] max-w-2xl flex-col justify-center p-4 md:p-8">
+          <div className="rounded-[2.5rem] border-2 border-[#E8DFD1] bg-white p-10 text-center shadow-xl relative overflow-hidden">
+            <div className="absolute top-0 left-0 right-0 h-2 bg-[#D4641A]"></div>
+
+            <div className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-[#FFF4E5] text-[#D4641A] shadow-sm">
+              <Users className="h-12 w-12" />
+            </div>
+
+            <h1 className="mb-3 text-4xl font-black text-[#1a1a1a]">You&apos;re done for now</h1>
+            <p className="mb-2 text-sm font-black uppercase tracking-[0.3em] text-[#8B2500]">
+              {opponentName || "Opponent"} is still completing the quiz
+            </p>
+            <p className="mb-8 text-[#6b6b6b] font-bold">
+              Results will appear automatically once everyone finishes.
+            </p>
+
+            <div className="mx-auto mb-8 flex max-w-xs items-center justify-center rounded-3xl border-2 border-[#F0C090] bg-[#FFF8F0] px-6 py-5">
+              <div>
+                <div className="text-[10px] font-black uppercase tracking-[0.3em] text-[#8a8a8a]">Estimated wait</div>
+                <div className="text-4xl font-black text-[#8B2500]">{opponentTimeLeft}s</div>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-center gap-3 text-sm font-bold text-[#6E675F]">
+              <div className="h-3 w-3 animate-pulse rounded-full bg-[#D4641A]"></div>
+              Waiting for the final answer stream
+            </div>
+          </div>
         </div>
       </Layout>
     );

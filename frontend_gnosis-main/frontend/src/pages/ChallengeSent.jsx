@@ -2,8 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import Layout from "../components/Layout";
 import api from "../lib/api";
-import { useAuthStore, useAppStore } from "../lib/store";
-import { createSocket } from "../lib/socket";
+import { useAuthStore, useAppStore, useSocketStore } from "../lib/store";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Trophy, History, Zap, Lightbulb, Brain, Swords } from "lucide-react";
 
@@ -13,7 +12,8 @@ export default function ChallengeSent() {
   const navigate = useNavigate();
   const { user } = useAuthStore();
   const { imageMap } = useAppStore();
-  const socketRef = useRef(null);
+    const { socket } = useSocketStore();
+    const challengeEmitKeyRef = useRef("");
 
   const [error, setError] = useState(null);
   const [rejected, setRejected] = useState(false);
@@ -47,32 +47,39 @@ export default function ChallengeSent() {
     };
     fetchData();
 
-    const socket = createSocket(user);
-    socketRef.current = socket;
+        if (!socket) return undefined;
 
-    socket.on("connect", () => {
-      socket.emit("user:identify", { userId: user.id, username: user.username });
+        const handleChallengeError = (data) => setError(data.message);
+        const handleChallengeRejected = () => setRejected(true);
+        const handleChallengeAccepted = (payload) => {
+            if (payload.roomCode) {
+                navigate(`/battle/lobby/${payload.roomCode}?host=1&type=1v1`);
+            }
+        };
 
-      socket.emit("challenge:send", {
-          toUserId: friendId,
-          toUsername: toUsername,
-          subjectId,
-          subjectName,
-          levelId: levelId || "dummy-level-id",
-          levelNumber: parseInt(levelNumber || "1")
-      });
-    });
+        socket.on("challenge:error", handleChallengeError);
+        socket.on("challenge:rejected", handleChallengeRejected);
+        socket.on("challenge:accepted", handleChallengeAccepted);
 
-    socket.on("challenge:error", (data) => setError(data.message));
-    socket.on("challenge:rejected", () => setRejected(true));
-    socket.on("challenge:accepted", (payload) => {
-        if(payload.roomCode) {
-            navigate(`/battle/lobby/${payload.roomCode}?host=1&type=1v1`);
+        const emitKey = `${friendId}:${subjectId}:${levelId}:${levelNumber}:${user.id}`;
+        if (challengeEmitKeyRef.current !== emitKey) {
+            challengeEmitKeyRef.current = emitKey;
+            socket.emit("challenge:send", {
+                toUserId: friendId,
+                toUsername: toUsername,
+                subjectId,
+                subjectName,
+                levelId: levelId || "dummy-level-id",
+                levelNumber: parseInt(levelNumber || "1")
+            });
         }
-    });
 
-    return () => socket.disconnect();
-  }, [user, friendId, subjectId, subjectName, levelId, levelNumber, toUsername, navigate]);
+        return () => {
+            socket.off("challenge:error", handleChallengeError);
+            socket.off("challenge:rejected", handleChallengeRejected);
+            socket.off("challenge:accepted", handleChallengeAccepted);
+        };
+    }, [user, friendId, subjectId, subjectName, levelId, levelNumber, toUsername, navigate, socket]);
 
   return (
     <Layout>

@@ -3,18 +3,25 @@ import { create } from "zustand";
 export const useAuthStore = create((set) => ({
   user: null,
   token: localStorage.getItem("gnosis_token") || null,
+  authStatus: localStorage.getItem("gnosis_token") ? "checking" : "unauthenticated",
 
   login: (user, token) => {
     localStorage.setItem("gnosis_token", token);
-    set({ user, token });
+    set({ user, token, authStatus: "authenticated" });
   },
 
   logout: () => {
     localStorage.removeItem("gnosis_token");
-    set({ user: null, token: null });
+    set({ user: null, token: null, authStatus: "unauthenticated" });
   },
 
-  setUser: (user) => set({ user }),
+  setUser: (user) =>
+    set({
+      user,
+      authStatus: user ? "authenticated" : "unauthenticated",
+    }),
+
+  setAuthStatus: (authStatus) => set({ authStatus }),
 }));
 
 export const useAppStore = create((set) => ({

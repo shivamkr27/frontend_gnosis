@@ -1,13 +1,10 @@
 export { default as Landing } from "./Landing";
-export { default as Auth } from "./Auth";
 export { default as Home } from "./Home";
 export { default as SubjectDetail } from "./SubjectDetail";
 export { default as ActiveQuiz } from "./ActiveQuiz";
 export { default as QuizReview } from "./QuizReview";
 export { default as LessonComplete } from "./LessonComplete";
 export { default as BattleLobby } from "./BattleLobby";
-export { default as ChallengeWaiting } from "./ChallengeWaiting";
-export { default as ActiveBattle } from "./ActiveBattle";
 export { default as BattleResults } from "./BattleResults";
 export { default as HostConfig } from "./HostConfig";
 export { default as HostLobby } from "./HostLobby";

@@ -48,6 +48,23 @@ const createTables = async () => {
         CHECK (scope IN ('global', 'room', 'event'));
     `);
 
+    await pool.query(`
+      DO $$
+      BEGIN
+        IF to_regclass('public.users') IS NOT NULL THEN
+          UPDATE users u
+          SET total_xp = COALESCE(ledger.total_xp, 0)
+          FROM (
+            SELECT user_id, COALESCE(SUM(amount), 0) AS total_xp
+            FROM xp_ledger
+            GROUP BY user_id
+          ) ledger
+          WHERE u.id = ledger.user_id;
+        END IF;
+      END
+      $$;
+    `);
+
     console.log('XP tables ready');
   } catch (err) {
     console.error('Error creating tables', err);

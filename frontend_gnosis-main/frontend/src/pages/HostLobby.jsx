@@ -1,13 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "../components/Layout";
-import { useAuthStore } from "../lib/store";
-import { createSocket } from "../lib/socket";
+import { useAuthStore, useSocketStore } from "../lib/store";
 
 export default function HostLobby() {
   const navigate = useNavigate();
   const { user } = useAuthStore();
-  const socketRef = useRef(null);
+  const { socket } = useSocketStore();
   const [questions, setQuestions] = useState([]);
   const [quizName, setQuizName] = useState("Group Quiz");
   const [error, setError] = useState("");
@@ -19,11 +18,10 @@ export default function HostLobby() {
     d: "",
     correct: "A",
   });
+  const [editingIndex, setEditingIndex] = useState(null);
 
   useEffect(() => {
-    if (!user?.id) return undefined;
-    const socket = createSocket(user);
-    socketRef.current = socket;
+    if (!socket || !user?.id) return undefined;
 
     socket.on("group:created", ({ roomCode }) => {
       navigate(`/battle/lobby/${roomCode}?host=1`);
@@ -31,33 +29,78 @@ export default function HostLobby() {
 
     socket.on("battle:error", ({ message }) => setError(message));
 
-    return () => socket.disconnect();
-  }, [navigate, user]);
+    return () => {
+      socket.off("group:created");
+      socket.off("battle:error");
+    };
+  }, [navigate, socket, user?.id]);
+
+  const resetQuestionForm = () => {
+    setCurrentQ({ text: "", a: "", b: "", c: "", d: "", correct: "A" });
+    setEditingIndex(null);
+  };
 
   const handleAdd = () => {
     if (currentQ.text && currentQ.a && currentQ.b && currentQ.c && currentQ.d) {
-      setQuestions([
-        ...questions,
-        {
-          question_text: currentQ.text,
-          option_a: currentQ.a,
-          option_b: currentQ.b,
-          option_c: currentQ.c,
-          option_d: currentQ.d,
-          correct_options: [currentQ.correct],
-          question_type: "easy",
-          timer_seconds: 20,
-          explanation: "",
-        },
-      ]);
-      setCurrentQ({ text: "", a: "", b: "", c: "", d: "", correct: "A" });
+      const nextQuestion = {
+        question_text: currentQ.text,
+        option_a: currentQ.a,
+        option_b: currentQ.b,
+        option_c: currentQ.c,
+        option_d: currentQ.d,
+        correct_options: [currentQ.correct],
+        question_type: "easy",
+        timer_seconds: 20,
+        explanation: "",
+      };
+
+      if (editingIndex !== null) {
+        setQuestions(
+          questions.map((question, index) =>
+            index === editingIndex ? nextQuestion : question,
+          ),
+        );
+      } else {
+        setQuestions([...questions, nextQuestion]);
+      }
+
+      resetQuestionForm();
       setError("");
     }
   };
 
+  const handleEdit = (index) => {
+    const question = questions[index];
+    if (!question) return;
+
+    setCurrentQ({
+      text: question.question_text,
+      a: question.option_a,
+      b: question.option_b,
+      c: question.option_c,
+      d: question.option_d,
+      correct: question.correct_options?.[0] || "A",
+    });
+    setEditingIndex(index);
+    setError("");
+  };
+
+  const handleDelete = (index) => {
+    setQuestions(questions.filter((_, questionIndex) => questionIndex !== index));
+    if (editingIndex === index) {
+      resetQuestionForm();
+    } else if (editingIndex !== null && editingIndex > index) {
+      setEditingIndex(editingIndex - 1);
+    }
+  };
+
+  const handleCancelEdit = () => {
+    resetQuestionForm();
+  };
+
   const handleCreate = () => {
-    if (!socketRef.current || questions.length === 0) return;
-    socketRef.current.emit("group:create", {
+    if (!socket || questions.length === 0) return;
+    socket.emit("group:create", {
       hostId: user.id,
       hostUsername: user.username,
       quizName,
@@ -84,8 +127,13 @@ export default function HostLobby() {
         <div className="grid gap-8 md:grid-cols-2">
           <div className="rounded-3xl border border-surface-variant bg-white p-6 shadow-soft">
             <h2 className="mb-4 text-xl font-bold text-inverse-surface">
-              Add Question
+              {editingIndex !== null ? "Edit Question" : "Add Question"}
             </h2>
+            {editingIndex !== null && (
+              <div className="mb-4 rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 text-sm font-semibold text-amber-900">
+                Editing question {editingIndex + 1}
+              </div>
+            )}
             <div className="space-y-4">
               <input
                 value={currentQ.text}
@@ -124,8 +172,17 @@ export default function HostLobby() {
                 onClick={handleAdd}
                 className="w-full rounded-xl bg-surface-variant py-3 font-bold text-inverse-surface hover:bg-surface-dim"
               >
-                Add to Quiz
+                {editingIndex !== null ? "Save Changes" : "Add to Quiz"}
               </button>
+              {editingIndex !== null && (
+                <button
+                  onClick={handleCancelEdit}
+                  type="button"
+                  className="w-full rounded-xl border border-surface-variant py-3 font-bold text-on-surface-variant hover:bg-surface"
+                >
+                  Cancel Edit
+                </button>
+              )}
             </div>
           </div>
 
@@ -139,7 +196,32 @@ export default function HostLobby() {
                   key={`${q.question_text}-${i}`}
                   className="rounded-xl border border-surface-variant bg-surface p-3 text-sm font-medium"
                 >
-                  {i + 1}. {q.question_text}
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="min-w-0 flex-1">
+                      <div className="font-semibold text-inverse-surface">
+                        {i + 1}. {q.question_text}
+                      </div>
+                      <div className="mt-1 text-xs text-on-surface-variant">
+                        Correct: {q.correct_options?.[0] || "A"}
+                      </div>
+                    </div>
+                    <div className="flex shrink-0 items-center gap-2">
+                      <button
+                        type="button"
+                        onClick={() => handleEdit(i)}
+                        className="rounded-lg border border-surface-variant px-3 py-1 text-xs font-bold text-inverse-surface hover:bg-white"
+                      >
+                        Edit
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleDelete(i)}
+                        className="rounded-lg border border-red-200 px-3 py-1 text-xs font-bold text-red-600 hover:bg-red-50"
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </div>
                 </div>
               ))}
               {questions.length === 0 && (

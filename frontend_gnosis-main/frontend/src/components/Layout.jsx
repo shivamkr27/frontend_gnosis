@@ -4,7 +4,6 @@ import { BookOpen, Trophy, Swords, User, Bell, X, Check, ArrowRight, UserPlus } 
 import api from "../lib/api";
 import { useSocketStore, useAppStore } from "../lib/store";
 import { useAuthStore } from "../lib/store";
-import { createSocket } from "../lib/socket";
 
 export default function Layout({ children }) {
   const { user } = useAuthStore();
@@ -52,36 +51,6 @@ export default function Layout({ children }) {
       await api.delete(`/notifications/${notif.id}`);
       removeNotification(notif.id);
     } catch (err) { console.error("Failed to delete", err); }
-  };
-
-  const socketRef = useRef(null);
-  const [incomingChallenge, setIncomingChallenge] = useState(null);
-
-  useEffect(() => {
-    if (!user?.id) return;
-    const socket = createSocket(user);
-    socketRef.current = socket;
-    socket.on("connect", () => {
-      socket.emit("user:identify", { userId: user.id, username: user.username });
-    });
-    socket.on("challenge:received", (payload) => setIncomingChallenge(payload));
-    socket.on("challenge:accepted", (payload) => {
-      if (payload.roomCode) navigate(`/battle/lobby/${payload.roomCode}`);
-    });
-    return () => socket.disconnect();
-  }, [user, navigate]);
-
-  const handleRespond = (accepted) => {
-    if (!incomingChallenge || !socketRef.current) return;
-    socketRef.current.emit("challenge:respond", {
-      accepted,
-      fromUserId: incomingChallenge.fromUserId,
-      subjectId: incomingChallenge.subjectId,
-      levelId: incomingChallenge.levelId,
-      subjectName: incomingChallenge.subjectName,
-      levelNumber: incomingChallenge.levelNumber,
-    });
-    setIncomingChallenge(null);
   };
 
   const navItems = [
@@ -205,7 +174,7 @@ export default function Layout({ children }) {
               }`
             }
           >
-            <div className={({ isActive }) => isActive ? "w-14 h-14 rounded-2xl bg-white shadow-md border border-[#E8DFD1] flex items-center justify-center" : "w-14 h-14 rounded-2xl flex items-center justify-center hover:bg-white hover:shadow-sm"}>
+            <div className="w-14 h-14 rounded-2xl flex items-center justify-center hover:bg-white hover:shadow-sm">
                {item.icon}
             </div>
             <span className="text-[10px] font-bold uppercase tracking-widest">{item.label}</span>
@@ -235,35 +204,6 @@ export default function Layout({ children }) {
           </NavLink>
         ))}
       </nav>
-
-      {/* Incoming Challenge Modal */}
-      {incomingChallenge && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm">
-          <div className="bg-white rounded-3xl shadow-2xl max-w-sm w-full overflow-hidden border border-[#E8DFD1] animate-in fade-in zoom-in duration-300">
-             <div className="bg-[#8B2500] p-6 text-white text-center relative">
-               <div className="w-16 h-16 bg-white/20 rounded-full mx-auto mb-3 flex items-center justify-center backdrop-blur-md">
-                 <Swords className="w-8 h-8" />
-               </div>
-               <h3 className="text-xl font-bold">New Battle Challenge!</h3>
-               <p className="text-white/80 text-sm mt-1">Ready to defend your honor?</p>
-             </div>
-             <div className="p-6 text-center">
-               <p className="text-[#1a1a1a] font-medium leading-relaxed">
-                 <span className="font-bold text-[#8B2500]">{incomingChallenge.fromUsername}</span> wants to duel in 
-                 <span className="block font-bold text-lg mt-1">{incomingChallenge.subjectName} (Lvl {incomingChallenge.levelNumber})</span>
-               </p>
-               <div className="flex gap-3 mt-8">
-                 <button onClick={() => handleRespond(false)} className="flex-1 py-3 px-4 rounded-xl border border-[#E8DFD1] font-bold text-[#8a8a8a] hover:bg-[#FAF7F2] transition-colors">
-                   Decline
-                 </button>
-                 <button onClick={() => handleRespond(true)} className="flex-1 py-3 px-4 rounded-xl bg-[#D4641A] text-white font-bold hover:bg-[#b55213] flex items-center justify-center gap-2 shadow-lg shadow-[#D4641A]/20">
-                   <Check className="w-5 h-5" /> Accept
-                 </button>
-               </div>
-             </div>
-          </div>
-        </div>
-      )}
 
       {/* Global Toast */}
       {toastNotification && (

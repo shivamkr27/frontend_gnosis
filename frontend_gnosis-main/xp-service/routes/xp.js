@@ -14,15 +14,14 @@ module.exports = (redisClient) => {
         [userId, username, amount, source, scope, roomId]
       );
 
+      await pool.query(
+        `UPDATE users SET total_xp = COALESCE(total_xp, 0) + $1 WHERE id = $2`,
+        [amount, userId]
+      );
+
       if (scope === 'global') {
         const member = `${userId}:${username}`;
         await redisClient.zIncrBy('gnosis:leaderboard:global', amount, member);
-
-        // Also update users.total_xp
-        await pool.query(
-          `UPDATE users SET total_xp = total_xp + $1 WHERE id = $2`,
-          [amount, userId]
-        );
       }
 
       res.status(201).json({ message: 'XP awarded', amount });
@@ -126,6 +125,27 @@ module.exports = (redisClient) => {
       res.json({
         userId,
         totalXp: parseInt(result.rows[0].total, 10)
+      });
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+
+  // GET /xp/user/:userId/event-total
+  router.get('/user/:userId/event-total', async (req, res) => {
+    try {
+      const { userId } = req.params;
+      const result = await pool.query(
+        `SELECT COALESCE(SUM(amount), 0) as total
+         FROM xp_ledger
+         WHERE user_id = $1 AND scope = 'event'`,
+        [userId]
+      );
+
+      res.json({
+        userId,
+        eventXp: parseInt(result.rows[0].total, 10)
       });
     } catch (err) {
       console.error(err);

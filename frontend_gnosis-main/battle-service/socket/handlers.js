@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { generateRoomCode, updateRoomPlayers, sendNextQuestion, endQuiz, clearRoomTimer } = require('../helpers/room');
+const { generateRoomCode, updateRoomPlayers, notifyWaitingForOpponent, sendNextQuestion, endQuiz, clearRoomTimer } = require('../helpers/room');
 
 module.exports = (io, redisClient) => {
   io.on('connection', (socket) => {
@@ -419,6 +419,10 @@ module.exports = (io, redisClient) => {
         console.log(`[Battle] Room ${roomCode} all players finished — ending quiz`);
         await endQuiz(io, redisClient, roomCode);
         return;
+      }
+
+      if (players[playerIndex].finished) {
+        await notifyWaitingForOpponent(io, redisClient, roomCode, players[playerIndex].userId);
       }
 
       // Send next question to this player if not done

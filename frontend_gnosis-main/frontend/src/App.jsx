@@ -28,28 +28,15 @@ import QuizReview from "./pages/QuizReview";
 import ChallengeManager from "./components/ChallengeManager";
 
 function ProtectedRoute({ children }) {
-  const { token, user } = useAuthStore();
-  const [timedOut, setTimedOut] = React.useState(false);
-
-  // Timeout timer — 8s to load user before giving up
-  React.useEffect(() => {
-    if (!user && token) {
-      const t = setTimeout(() => setTimedOut(true), 12000);
-      return () => clearTimeout(t);
-    }
-  }, [user, token]);
-
-  // Logout must be in useEffect — never call state updates during render
-  React.useEffect(() => {
-    if (timedOut && !user) {
-      useAuthStore.getState().logout();
-    }
-  }, [timedOut, user]);
+  const { token, user, authStatus } = useAuthStore();
 
   if (!token) return <Navigate to="/auth" />;
-  if (timedOut && !user) return <Navigate to="/auth" />;
 
-  if (!user) {
+  if (authStatus === "unauthenticated") {
+    return <Navigate to="/auth" />;
+  }
+
+  if (authStatus === "checking" || !user) {
     return (
       <div className="flex h-screen w-full items-center justify-center bg-background">
         <div className="flex flex-col items-center gap-4">
@@ -64,10 +51,10 @@ function ProtectedRoute({ children }) {
 }
 
 function App() {
-  const { user, token, setUser, logout } = useAuthStore();
+  const { user, token, setUser, logout, authStatus, setAuthStatus } = useAuthStore();
   const { setSocket } = useSocketStore();
   const { setImageMap } = useAppStore();
-  const checkedTokenRef = React.useRef(null);
+  const authRetryRef = React.useRef(null);
 
   useEffect(() => {
     fetch("/assets/image_map.json")
@@ -76,38 +63,63 @@ function App() {
       .catch(() => console.log("No image map found"));
   }, [setImageMap]);
 
-  // Only check auth once on mount (not on every token change)
+  // Check auth whenever token changes.
+  // Avoid strict-mode fragile "already checked" guards that can freeze in checking state.
   useEffect(() => {
-    if (!token || checkedTokenRef.current === token) return;
-    checkedTokenRef.current = token;
+    if (!token) return;
+    setAuthStatus("checking");
 
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+    if (authRetryRef.current) {
+      clearTimeout(authRetryRef.current);
+      authRetryRef.current = null;
+    }
 
-    api
-      .get("/auth/me", { signal: controller.signal })
-      .then((res) => {
-        clearTimeout(timeoutId);
+    let disposed = false;
+
+    const runAuthCheck = async (attempt = 1) => {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 5000);
+
+      try {
+        const res = await api.get("/auth/me", { signal: controller.signal });
+        if (disposed) return;
         setUser(res.data);
-      })
-      .catch((err) => {
-        clearTimeout(timeoutId);
-        //if (err.name === "CanceledError") return; // timeout — spinner rehne do
-        if (err.code === 'ERR_CANCELED' || err.name === 'CanceledError') return;
-        // Sirf 401 pe logout karo, network error pe nahi
+        setAuthStatus("authenticated");
+      } catch (err) {
+        if (disposed) return;
+
         if (err.response?.status === 401) {
           console.error("Session expired", err);
           logout();
+          return;
         }
-        // Baaki errors pe user null rahega — spinner dikhega
-        // 8 second baad ProtectedRoute timeout handle karega
-      });
+
+        if (attempt < 2 && !authRetryRef.current) {
+          authRetryRef.current = setTimeout(() => {
+            authRetryRef.current = null;
+            runAuthCheck(attempt + 1);
+          }, 3000);
+          return;
+        }
+
+        // Any non-401 error after retry resolves auth deterministically.
+        setUser(null);
+        setAuthStatus("unauthenticated");
+      } finally {
+        clearTimeout(timeoutId);
+      }
+    };
+
+    runAuthCheck(1);
 
     return () => {
-      clearTimeout(timeoutId);
-      controller.abort();
+      disposed = true;
+      if (authRetryRef.current) {
+        clearTimeout(authRetryRef.current);
+        authRetryRef.current = null;
+      }
     };
-  }, [token, setUser, logout]);
+  }, [token, setUser, logout, setAuthStatus]);
 
   // Socket connection - only after user is loaded
   // DISABLED temporarily to debug 429 errors - socket.io might be causing cascading requests

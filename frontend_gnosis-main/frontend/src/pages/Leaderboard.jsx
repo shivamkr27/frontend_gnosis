@@ -114,7 +114,7 @@ export default function Leaderboard() {
                         <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-[#C0C0C0] rounded-full flex items-center justify-center text-white font-bold text-xs ring-4 ring-[#FAF7F2]">2</div>
                       </div>
                       <p className="font-bold text-[#1a1a1a] mb-1">{podium[1].username}</p>
-                      <p className="text-[#D4641A] font-black text-sm">{podium[1].total_xp || podium[1].totalXp || 0} XP</p>
+                      <p className="text-[#D4641A] font-black text-sm">{podium[1].total_xp || 0} XP</p>
                       <div className="w-full h-16 bg-white border-t-4 border-[#C0C0C0] rounded-t-3xl mt-4 shadow-sm flex flex-col items-center pt-4">
                         <Medal className="text-[#C0C0C0] w-6 h-6 opacity-30" />
                       </div>
@@ -134,7 +134,7 @@ export default function Leaderboard() {
                         <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-[#FFD700] rounded-full flex items-center justify-center text-white font-bold ring-4 ring-[#FAF7F2]">1</div>
                       </div>
                       <p className="font-black text-xl text-[#1a1a1a] mb-1">{podium[0].username}</p>
-                      <p className="text-[#D4641A] font-black">{podium[0].total_xp || podium[0].totalXp || 0} XP</p>
+                      <p className="text-[#D4641A] font-black">{podium[0].total_xp || 0} XP</p>
                       <div className="w-full h-24 bg-white border-t-4 border-[#FFD700] rounded-t-3xl mt-4 shadow-md flex flex-col items-center pt-6">
                         <Trophy className="text-[#FFD700] w-8 h-8 opacity-40" />
                       </div>
@@ -153,7 +153,7 @@ export default function Leaderboard() {
                         <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-[#CD7F32] rounded-full flex items-center justify-center text-white font-bold text-xs ring-4 ring-[#FAF7F2]">3</div>
                       </div>
                       <p className="font-bold text-[#1a1a1a] mb-1">{podium[2].username}</p>
-                      <p className="text-[#D4641A] font-black text-sm">{podium[2].total_xp || podium[2].totalXp || 0} XP</p>
+                      <p className="text-[#D4641A] font-black text-sm">{podium[2].total_xp || 0} XP</p>
                       <div className="w-full h-12 bg-white border-t-4 border-[#CD7F32] rounded-t-3xl mt-4 shadow-sm flex flex-col items-center pt-4">
                         <Medal className="text-[#CD7F32] w-6 h-6 opacity-30" />
                       </div>
@@ -194,7 +194,7 @@ export default function Leaderboard() {
                       </div>
                       <div className="col-span-3 text-right">
                          <div className="flex flex-col items-end">
-                            <span className="text-[#D4641A] font-black text-lg leading-none">{item.total_xp || item.totalXp || 0}</span>
+                            <span className="text-[#D4641A] font-black text-lg leading-none">{item.total_xp || 0}</span>
                             <span className="text-[8px] font-black uppercase text-[#8a8a8a] tracking-[0.2em]">Total</span>
                          </div>
                       </div>
@@ -219,7 +219,7 @@ export default function Leaderboard() {
             </div>
             <div className="flex-1 min-w-0">
               <p className="font-bold text-lg leading-tight truncate">You're catching up!</p>
-              <p className="text-white/60 text-[10px] font-black uppercase tracking-widest mt-1">Current Standing: {currentUserRank.total_xp || currentUserRank.totalXp || 0} XP</p>
+              <p className="text-white/60 text-[10px] font-black uppercase tracking-widest mt-1">Current Standing: {currentUserRank?.total_xp || 0} XP</p>
             </div>
             <div className="text-right flex-shrink-0">
               <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">

@@ -33,6 +33,7 @@ export default function BattleLobby() {
 
   const [history, setHistory] = useState([]);
   const [userRank, setUserRank] = useState(null);
+  const [battleStats, setBattleStats] = useState({ wins: 0, losses: 0 });
 
   useEffect(() => {
     fetchFriends();
@@ -40,6 +41,7 @@ export default function BattleLobby() {
     fetchSubjects();
     fetchHistory();
     fetchUserRank();
+    fetchBattleStats();
   }, [user.id, user.username]);
 
   const fetchHistory = async () => {
@@ -59,6 +61,18 @@ export default function BattleLobby() {
       }
     } catch (err) {
       console.error("Failed to fetch rank", err);
+    }
+  };
+
+  const fetchBattleStats = async () => {
+    try {
+      const res = await api.get(`/auth/me`);
+      setBattleStats({
+        wins: res.data.battle_wins || 0,
+        losses: res.data.battle_losses || 0
+      });
+    } catch (err) {
+      console.error("Failed to fetch battle stats", err);
     }
   };
 
@@ -413,6 +427,17 @@ export default function BattleLobby() {
                   <div className="mt-4 flex gap-1">
                     {[1,2,3,4,5].map(i => <div key={i} className={`h-1.5 flex-1 rounded-full ${userRank && userRank <= (6-i)*10 ? 'bg-[#8B2500]' : 'bg-[#FAF7F2]'}`}></div>)}
                   </div>
+
+                  <div className="mt-5 flex gap-3">
+                    <div className="flex-1 bg-green-50 rounded-2xl p-3 text-center border border-green-100">
+                      <p className="text-xl font-black text-green-700">{battleStats.wins}</p>
+                      <p className="text-[10px] font-black uppercase text-green-600 tracking-widest">Wins</p>
+                    </div>
+                    <div className="flex-1 bg-red-50 rounded-2xl p-3 text-center border border-red-100">
+                      <p className="text-xl font-black text-red-700">{battleStats.losses}</p>
+                      <p className="text-[10px] font-black uppercase text-red-500 tracking-widest">Losses</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -429,27 +454,36 @@ export default function BattleLobby() {
               <div className="bg-white rounded-[40px] border border-[#E8DFD1] shadow-xl overflow-hidden">
                 <div className="divide-y divide-[#FAF7F2]">
                    {history.length > 0 ? history.map((b, i) => {
-                     const isWinner = b.winner_id === user.id;
-                     const other = b.participants.find(p => p.userId !== user.id);
+                     const isDraw    = b.winner_id === null || b.winner_id === undefined;
+                     const isWinner  = !isDraw && String(b.winner_id) === String(user.id);
+                     const isLoser   = !isDraw && !isWinner;
+                     const other     = b.participants.find(p => String(p.userId) !== String(user.id));
+
+                     const iconBg    = isDraw ? 'bg-yellow-50' : isWinner ? 'bg-green-50' : 'bg-red-50';
+                     const labelText = isDraw ? 'Draw'         : isWinner ? 'Victory'     : 'Defeat';
+                     const labelColor = isDraw ? 'text-yellow-600' : isWinner ? 'text-green-600' : 'text-red-500';
+                     const xpText    = isDraw ? '±XP'          : isWinner ? '+XP'         : '-';
+                     const resultVerb = isDraw ? 'Drew with'   : isWinner ? 'Defeated'    : 'Lost to';
+
                      return (
                        <div key={b.id} className="flex items-center gap-6 p-6 hover:bg-[#FAF7F2] transition-colors group">
-                          <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-black text-xs ${isWinner ? 'bg-green-50' : 'bg-red-50'}`}>
-                            {isWinner ? <Zap className="w-5 h-5 text-[#FFD700]" /> : <Swords className="w-5 h-5 text-red-400" />}
+                          <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-black text-xs ${iconBg}`}>
+                            {isDraw ? '=' : isWinner ? <Zap className="w-5 h-5 text-[#FFD700]" /> : <Swords className="w-5 h-5 text-red-400" />}
                           </div>
                           <div className="flex-1">
                             <p className="font-bold text-[#1a1a1a]">
-                              {isWinner ? 'Defeated' : 'Lost to'} "{other?.username || 'Opponent'}"
+                              {resultVerb} "{other?.username || 'Opponent'}"
                             </p>
                             <p className="text-[10px] font-black text-[#8a8a8a] uppercase tracking-widest">
                               {new Date(b.created_at).toLocaleDateString()} • {b.subject_name || 'Arena Battle'}
                             </p>
                           </div>
                           <div className="text-right">
-                             <p className={`${isWinner ? 'text-green-600' : 'text-red-600'} font-black italic`}>
-                               {isWinner ? '+XP' : '-'}
+                             <p className={`${isDraw ? 'text-yellow-600' : isWinner ? 'text-green-600' : 'text-red-600'} font-black italic`}>
+                               {xpText}
                              </p>
-                             <p className={`text-[10px] font-bold uppercase ${isWinner ? 'text-green-600' : 'text-red-500'}`}>
-                               {isWinner ? 'Victory' : 'Defeat'}
+                             <p className={`text-[10px] font-bold uppercase ${labelColor}`}>
+                               {labelText}
                              </p>
                           </div>
                           <ChevronRight className="w-5 h-5 text-[#E8DFD1] group-hover:text-[#8B2500] transition-colors" />

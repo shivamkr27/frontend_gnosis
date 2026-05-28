@@ -143,9 +143,31 @@ export default function ParticipantLobby() {
   };
 
   if (results) {
-    const isWinner = results.top3 && results.top3[0]?.userId === user?.id;
-    const opponent = players.find(p => p.userId !== user?.id);
+    // Use winnerId from server — only reliable source
+    // Draw is true only if:
+    // 1. It's a 1v1 battle
+    // 2. Winner ID is null (both players have equal scores)
+    // 3. Both players actually answered (not both zero from inactivity)
+    const is1v1 = roomType === '1v1';
+    const hasWinner = results.winnerId !== null && results.winnerId !== undefined;
+    const isDraw = is1v1 && !hasWinner && results.top3 && results.top3.length === 2 && 
+                   results.top3[0] && results.top3[1] && 
+                   results.top3[0].score > 0 && results.top3[0].score === results.top3[1].score;
     
+    const isWinner = !isDraw && is1v1 && hasWinner && results.winnerId === user?.id;
+    const opponent = players.find(p => p.userId !== user?.id);
+
+    const accentColor = isDraw ? 'bg-yellow-400' : isWinner ? 'bg-green-500' : 'bg-red-500';
+    const trophyColor = isDraw ? 'text-yellow-500' : isWinner ? 'text-[#D4641A]' : 'text-[#8a8a8a]';
+    const trophyBg    = isDraw ? 'bg-yellow-50'   : isWinner ? 'bg-[#FFF4E5]'  : 'bg-[#F5F5F5]';
+
+    let headline = 'Battle Results';
+    if (is1v1) {
+      if (isDraw)        headline = 'HONOURABLE DRAW';
+      else if (isWinner) headline = 'COLOSSAL VICTORY!';
+      else               headline = 'VALIANT DEFEAT';
+    }
+
     return (
       <Layout>
         <div className="mx-auto flex min-h-[80vh] max-w-2xl flex-col justify-center p-4 md:p-8">
@@ -155,11 +177,11 @@ export default function ParticipantLobby() {
             className="rounded-[2.5rem] border-2 border-[#E8DFD1] bg-white p-10 text-center shadow-xl relative overflow-hidden"
           >
             {/* Background Accent */}
-            <div className={`absolute top-0 left-0 right-0 h-2 ${isWinner ? 'bg-green-500' : 'bg-red-500'}`}></div>
+            <div className={`absolute top-0 left-0 right-0 h-2 ${accentColor}`}></div>
 
             <div className="mb-8 relative inline-block">
-               <div className={`w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-4 ${isWinner ? 'bg-[#FFF4E5]' : 'bg-[#F5F5F5]'}`}>
-                  <Trophy className={`w-16 h-16 ${isWinner ? 'text-[#D4641A]' : 'text-[#8a8a8a]'}`} />
+               <div className={`w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-4 ${trophyBg}`}>
+                  <Trophy className={`w-16 h-16 ${trophyColor}`} />
                </div>
                {isWinner && (
                  <motion.div 
@@ -171,7 +193,7 @@ export default function ParticipantLobby() {
             </div>
 
             <h1 className="mb-2 text-4xl font-black text-[#1a1a1a]">
-              {roomType === '1v1' ? (isWinner ? "COLOSSAL VICTORY!" : "VALIANT DEFEAT") : "Battle Results"}
+              {headline}
             </h1>
             
             <p className="text-[#6b6b6b] mb-10 font-bold uppercase tracking-widest text-xs">

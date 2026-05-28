@@ -161,7 +161,7 @@ export default function LessonComplete() {
 
   // Dynamic Level Computation
   const currentGlobalXp =
-    user?.xp || 0;
+    user?.total_xp || 0;
 
   const globalLevelNumber =
     user?.level ||
@@ -182,8 +182,17 @@ export default function LessonComplete() {
       )
     );
 
-  const levelTitle =
-    user?.title || "Sage";
+  // Level titles based on XP thresholds
+  const getLevelTitle = (xp) => {
+    if (xp < 500) return "Novice";
+    if (xp < 1000) return "Apprentice";
+    if (xp < 2000) return "Scholar";
+    if (xp < 3500) return "Sage";
+    if (xp < 5000) return "Master";
+    return "Grandmaster";
+  };
+
+  const levelTitle = getLevelTitle(currentGlobalXp);
 
   return (
     <div className="min-h-screen bg-[#FAF6EE] text-[#5A5349] overflow-hidden">
@@ -373,11 +382,11 @@ export default function LessonComplete() {
               <div className="space-y-0">
                 <div className="flex items-center justify-between py-4 border-b border-[#EFE3D5]">
                   <span className="text-[#6E675F] font-medium">
-                    Base Experience
+                    Base Experience ({correctCount}/{totalQuestions})
                   </span>
 
                   <span className="text-2xl font-extrabold text-[#A34714]">
-                    +30 XP
+                    +{Math.round((correctCount / totalQuestions) * 25)} XP
                   </span>
                 </div>
 
@@ -387,17 +396,17 @@ export default function LessonComplete() {
                   </span>
 
                   <span className="text-2xl font-extrabold text-[#D57B1E]">
-                    +10 XP
+                    +{streakCount > 0 ? 10 : 0} XP
                   </span>
                 </div>
 
                 <div className="flex items-center justify-between py-4 border-b border-[#EFE3D5]">
                   <span className="text-[#6E675F] font-medium">
-                    Streak Bonus
+                    Streak Bonus (×{streakCount})
                   </span>
 
                   <span className="text-2xl font-extrabold text-[#6C7BAA]">
-                    +10 XP
+                    +{streakCount * 5} XP
                   </span>
                 </div>
               </div>

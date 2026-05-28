@@ -31,6 +31,7 @@ function ProtectedRoute({ children }) {
   const { token, user } = useAuthStore();
   const [timedOut, setTimedOut] = React.useState(false);
 
+  // Timeout timer — 8s to load user before giving up
   React.useEffect(() => {
     if (!user && token) {
       const t = setTimeout(() => setTimedOut(true), 8000);
@@ -38,14 +39,17 @@ function ProtectedRoute({ children }) {
     }
   }, [user, token]);
 
+  // Logout must be in useEffect — never call state updates during render
+  React.useEffect(() => {
+    if (timedOut && !user) {
+      useAuthStore.getState().logout();
+    }
+  }, [timedOut, user]);
+
   if (!token) return <Navigate to="/auth" />;
+  if (timedOut && !user) return <Navigate to="/auth" />;
 
   if (!user) {
-    if (timedOut) {
-      // Backend respond nahi kiya — logout karke auth pe bhejo
-      useAuthStore.getState().logout();
-      return <Navigate to="/auth" />;
-    }
     return (
       <div className="flex h-screen w-full items-center justify-center bg-background">
         <div className="flex flex-col items-center gap-4">

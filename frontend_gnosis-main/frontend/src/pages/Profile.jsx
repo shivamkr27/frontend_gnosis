@@ -21,6 +21,7 @@ export default function Profile() {
   const [showAllMomentum, setShowAllMomentum] = useState(false);
   const [totalSubjects, setTotalSubjects] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [eventXp, setEventXp] = useState(0);
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -33,6 +34,14 @@ export default function Profile() {
           api.get("/content/subjects"),
           api.get(`/xp/leaderboard/global?currentUserId=${targetId}`),
         ]);
+
+        // Event XP — separate call so profile doesn't crash if xp-service not restarted yet
+        try {
+          const eventXpRes = await api.get(`/xp/user/${targetId}/event-total`);
+          setEventXp(eventXpRes.data.eventXp || 0);
+        } catch {
+          setEventXp(0);
+        }
 
         const merged = contentRes.data
           .map((cs) => {
@@ -99,6 +108,7 @@ export default function Profile() {
     { label: "Streak", value: `${profile.streak_count || 0} Days`, icon: <Flame className="text-[#FF5252]" />, sub: "Keep it up!", color: "text-[#FF5252]" },
     { label: "Subjects", value: String(progress.length).padStart(2, '0'), icon: <BookOpen className="text-blue-500" />, sub: "Knowledge Base", color: "text-blue-600" },
     { label: "Global Rank", value: globalRank ? `#${globalRank}` : "N/A", icon: <Trophy className="text-[#D57B1E]" />, sub: "World Standing", color: "text-[#D57B1E]" },
+    { label: "Arena XP", value: eventXp.toLocaleString(), icon: <Swords className="text-purple-500" />, sub: "Group Quiz Glory", color: "text-purple-600" },
   ];
 
   const userLevel = Math.floor((profile.total_xp || 0) / 1000) + 1;
@@ -180,7 +190,7 @@ export default function Profile() {
             </div>
 
             {/* Statistics Grid */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                 {stats.map((stat, idx) => (
                     <motion.div
                         key={stat.label}

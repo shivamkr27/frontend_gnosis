@@ -31,13 +31,24 @@ const createTables = async () => {
         source VARCHAR(30) CHECK (source IN (
           'lesson', 'streak_bonus', 'level_complete', 'battle'
         )),
-        scope VARCHAR(10) CHECK (scope IN ('global', 'room')),
+        scope VARCHAR(10) CHECK (scope IN ('global', 'room', 'event')),
         room_id VARCHAR(20),
         awarded_at TIMESTAMP DEFAULT NOW()
       );
     `);
 
-    console.log('Tables created or already exist');
+    // Safe migration: Update constraint to support 'event' scope
+    await pool.query(`
+      ALTER TABLE xp_ledger
+        DROP CONSTRAINT IF EXISTS xp_ledger_scope_check;
+    `);
+    await pool.query(`
+      ALTER TABLE xp_ledger
+        ADD CONSTRAINT xp_ledger_scope_check
+        CHECK (scope IN ('global', 'room', 'event'));
+    `);
+
+    console.log('XP tables ready');
   } catch (err) {
     console.error('Error creating tables', err);
     process.exit(1);

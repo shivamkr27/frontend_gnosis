@@ -62,7 +62,7 @@ export default function Profile() {
           .filter((s) => s.completedCount > 0)
           .sort((a, b) => new Date(b.lastAccessed) - new Date(a.lastAccessed));
 
-        const leaderboard = rankRes.data.globalLeaderboard || [];
+        const leaderboard = rankRes.data.leaderboard || [];
         const currentIndex = leaderboard.findIndex(l => l.userId === targetId);
         if (currentIndex > 0) {
           setNearestCompetitor(leaderboard[currentIndex - 1]);

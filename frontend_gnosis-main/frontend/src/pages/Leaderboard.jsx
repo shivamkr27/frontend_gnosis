@@ -59,7 +59,7 @@ export default function Leaderboard() {
     };
 
     fetchRankings();
-  }, [activeTab, user.id, user.username, user.total_xp]);
+  }, [activeTab, user.id]);
 
   const podium = rankings.slice(0, 3);
   const listItems = rankings.slice(3);
@@ -219,7 +219,7 @@ export default function Leaderboard() {
             </div>
             <div className="flex-1 min-w-0">
               <p className="font-bold text-lg leading-tight truncate">You're catching up!</p>
-              <p className="text-white/60 text-[10px] font-black uppercase tracking-widest mt-1">Current Standing: {currentUserRank?.total_xp || 0} XP</p>
+              <p className="text-white/60 text-[10px] font-black uppercase tracking-widest mt-1">{activeTab === 'friends' ? 'Battle XP' : 'Global XP'}: {currentUserRank?.total_xp || 0}</p>
             </div>
             <div className="text-right flex-shrink-0">
               <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">

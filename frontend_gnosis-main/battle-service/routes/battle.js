@@ -8,9 +8,12 @@ module.exports = (redisClient) => {
     const { userId } = req.params;
     try {
       const result = await pool.query(
-        `SELECT * FROM battle_history
+        `SELECT id, room_code, type, subject_name, level_number,
+                participants, results, winner_id, created_at
+         FROM battle_history
          WHERE participants @> $1::jsonb
-         ORDER BY created_at DESC LIMIT 10`,
+         ORDER BY created_at DESC
+         LIMIT 4`,
         [JSON.stringify([{ userId }])]
       );
       res.json(result.rows);

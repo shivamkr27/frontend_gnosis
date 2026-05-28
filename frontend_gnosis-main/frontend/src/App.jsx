@@ -34,7 +34,7 @@ function ProtectedRoute({ children }) {
   // Timeout timer — 8s to load user before giving up
   React.useEffect(() => {
     if (!user && token) {
-      const t = setTimeout(() => setTimedOut(true), 8000);
+      const t = setTimeout(() => setTimedOut(true), 12000);
       return () => clearTimeout(t);
     }
   }, [user, token]);
@@ -82,7 +82,7 @@ function App() {
     checkedTokenRef.current = token;
 
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 8000); // 8 second timeout
+    const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
 
     api
       .get("/auth/me", { signal: controller.signal })

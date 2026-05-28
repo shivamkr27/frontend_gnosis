@@ -111,7 +111,7 @@ router.use(authenticateToken);
 router.get('/me', async (req, res) => {
   try {
     const query = `
-      SELECT id, username, email, total_xp, streak_count, last_active_date, created_at
+      SELECT id, username, email, total_xp, streak_count, last_active_date, battle_wins, battle_losses, created_at
       FROM users
       WHERE id = $1
     `;

@@ -68,7 +68,19 @@ async function initialize() {
     `);
 
     await client.query(`
-      ALTER TABLE questions ADD CONSTRAINT unique_question UNIQUE (level_id, question_text);
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1
+    FROM pg_constraint
+    WHERE conname = 'unique_question'
+  ) THEN
+    ALTER TABLE questions
+    ADD CONSTRAINT unique_question
+    UNIQUE (level_id, question_text);
+  END IF;
+END
+$$;
     `);
 
   } catch(e) {

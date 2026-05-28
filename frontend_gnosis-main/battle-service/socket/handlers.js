@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { generateRoomCode, updateRoomPlayers, sendNextQuestion, endQuiz } = require('../helpers/room');
+const { generateRoomCode, updateRoomPlayers, sendNextQuestion, endQuiz, clearRoomTimer } = require('../helpers/room');
 
 module.exports = (io, redisClient) => {
   io.on('connection', (socket) => {
@@ -56,6 +56,7 @@ module.exports = (io, redisClient) => {
         }),
         { EX: 60 }
       );
+      await redisClient.set('gnosis:challenger:' + socket.userId, socket.username, { EX: 60 });
 
       io.to(targetSocketId).emit('challenge:received', {
         fromUserId: socket.userId,
@@ -99,8 +100,7 @@ module.exports = (io, redisClient) => {
         return;
       }
 
-      const challengerDataRaw = await redisClient.get('gnosis:challenge:' + socket.userId);
-      const challengerUsername = challengerDataRaw ? JSON.parse(challengerDataRaw).fromUsername : 'Challenger';
+      const challengerUsername = await redisClient.get('gnosis:challenger:' + fromUserId) || 'Challenger';
 
       const players = [
         { userId: fromUserId, username: challengerUsername, socketId: '', score: 0, answered: false },
@@ -165,9 +165,14 @@ module.exports = (io, redisClient) => {
         let players = JSON.parse(roomData.players || '[]');
         
         // Update host socket in players array if it's a 1v1 (host IS a player)
+        // For group quiz, add host to players array if not already present
         const playerIndex = players.findIndex(p => p.userId === userId);
         if (playerIndex !== -1) {
             players[playerIndex].socketId = socket.id;
+            await updateRoomPlayers(redisClient, roomCode, players);
+        } else if (roomData.type === 'group') {
+            // Host joining group quiz — add to players array
+            players.push({ userId, username, socketId: socket.id, score: 0, answered: false });
             await updateRoomPlayers(redisClient, roomCode, players);
         }
 
@@ -181,26 +186,32 @@ module.exports = (io, redisClient) => {
 
         // AUTO-START 1v1: Wait for both players to have active socket connections
         if (roomData.type === '1v1' && players.length === 2 && roomData.status === 'waiting') {
-          const bothConnected = players.every(p => p.socketId && p.socketId !== '');
-          if (bothConnected) {
-              // Give 2.5s for components to mount and register listeners
-              setTimeout(async () => {
-                const currentStatus = await redisClient.hGet('gnosis:room:' + roomCode, 'status');
-                if (currentStatus === 'waiting') {
-                   await redisClient.hSet('gnosis:room:' + roomCode, 'status', 'active');
-                   
-                   const qs = JSON.parse(roomData.questions || '[]');
-                   io.to(roomCode).emit('quiz:starting', { 
-                     message: 'Battle starting in 1 second!',
-                     totalQuestions: qs.length
-                   });
-  
-                   setTimeout(() => {
-                     sendNextQuestion(io, redisClient, roomCode);
-                   }, 1000);
-                }
-              }, 2500);
-          }
+          // Give 2.5s for components to mount and register listeners, then check fresh data
+          setTimeout(async () => {
+            const currentStatus = await redisClient.hGet('gnosis:room:' + roomCode, 'status');
+            if (currentStatus !== 'waiting') return;
+            
+            // Fresh players read from Redis
+            const freshPlayers = JSON.parse(
+              await redisClient.hGet('gnosis:room:' + roomCode, 'players') || '[]'
+            );
+            const bothConnected = freshPlayers.length === 2 && 
+                                  freshPlayers.every(p => p.socketId && p.socketId !== '');
+            
+            if (bothConnected) {
+              await redisClient.hSet('gnosis:room:' + roomCode, 'status', 'active');
+              const roomDataFresh = await redisClient.hGetAll('gnosis:room:' + roomCode);
+              const qs = JSON.parse(roomDataFresh.questions || '[]');
+              io.to(roomCode).emit('quiz:starting', { 
+                message: 'Battle starting in 1 second!',
+                totalQuestions: qs.length
+              });
+              
+              setTimeout(() => {
+                sendNextQuestion(io, redisClient, roomCode);
+              }, 1000);
+            }
+          }, 2500);
         }
     });
 
@@ -249,26 +260,32 @@ module.exports = (io, redisClient) => {
 
       // AUTO-START 1v1: Wait for both players to have active socket connections
       if (roomData.type === '1v1' && players.length === 2 && roomData.status === 'waiting') {
-        const bothConnected = players.every(p => p.socketId && p.socketId !== '');
-        if (bothConnected) {
-            // Give 2.5s for components to mount and register listeners
-            setTimeout(async () => {
-              const currentStatus = await redisClient.hGet('gnosis:room:' + roomCode, 'status');
-              if (currentStatus === 'waiting') {
-                 await redisClient.hSet('gnosis:room:' + roomCode, 'status', 'active');
-                 
-                 const qs = JSON.parse(roomData.questions || '[]');
-                 io.to(roomCode).emit('quiz:starting', { 
-                   message: 'Battle starting in 1 second!',
-                   totalQuestions: qs.length
-                 });
-
-                 setTimeout(() => {
-                   sendNextQuestion(io, redisClient, roomCode);
-                 }, 1000);
-              }
-            }, 2500);
-        }
+        // Give 2.5s for components to mount and register listeners, then check fresh data
+        setTimeout(async () => {
+          const currentStatus = await redisClient.hGet('gnosis:room:' + roomCode, 'status');
+          if (currentStatus !== 'waiting') return;
+          
+          // Fresh players read from Redis
+          const freshPlayers = JSON.parse(
+            await redisClient.hGet('gnosis:room:' + roomCode, 'players') || '[]'
+          );
+          const bothConnected = freshPlayers.length === 2 && 
+                                freshPlayers.every(p => p.socketId && p.socketId !== '');
+          
+          if (bothConnected) {
+            await redisClient.hSet('gnosis:room:' + roomCode, 'status', 'active');
+            const roomDataFresh = await redisClient.hGetAll('gnosis:room:' + roomCode);
+            const qs = JSON.parse(roomDataFresh.questions || '[]');
+            io.to(roomCode).emit('quiz:starting', { 
+              message: 'Battle starting in 1 second!',
+              totalQuestions: qs.length
+            });
+            
+            setTimeout(() => {
+              sendNextQuestion(io, redisClient, roomCode);
+            }, 1000);
+          }
+        }, 2500);
       }
 
       socket.emit('room:joined', {
@@ -305,35 +322,28 @@ module.exports = (io, redisClient) => {
     });
 
     socket.on('host:cancel', async ({ roomCode }) => {
-      const roomId = 'gnosis:room:' + roomCode;
-      const roomData = await redisClient.hGetAll(roomId);
+      const roomData = await redisClient.hGetAll('gnosis:room:' + roomCode);
       if (!roomData || !roomData.type) return;
-
-      const isHost = roomData.host_id === socket.userId;
-      const is1v1 = roomData.type === '1v1';
-
-      if (isHost || is1v1) {
-        // FOR 1v1, BOTH SIDES MUST BE TERMINATED
-        io.to(roomCode).emit('room:cancelled', { message: is1v1 ? 'Battle terminated' : 'Host cancelled session' });
-        await redisClient.del(roomId);
-        console.log(`[Battle] Room ${roomCode} cancelled by ${isHost ? 'host' : 'participant'} in ${roomData.type} mode.`);
+      if (roomData.host_id === socket.userId || roomData.type === '1v1') {
+        clearRoomTimer(roomCode);
+        io.to(roomCode).emit('room:cancelled', {
+          message: roomData.type === '1v1' ? 'Battle terminated' : 'Host cancelled the session'
+        });
+        await redisClient.del('gnosis:room:' + roomCode);
       }
     });
 
     socket.on('room:leave', async ({ roomCode }) => {
-      const roomId = 'gnosis:room:' + roomCode;
-      const roomData = await redisClient.hGetAll(roomId);
+      const roomData = await redisClient.hGetAll('gnosis:room:' + roomCode);
       if (!roomData || !roomData.type) return;
-
       if (roomData.type === '1v1') {
-        // TERMINATE SESSION FOR BOTH PLAYERS
+        clearRoomTimer(roomCode);
         io.to(roomCode).emit('room:cancelled', { message: 'Opponent left the battle' });
-        await redisClient.del(roomId);
-        console.log(`[Battle] 1v1 Room ${roomCode} terminated because ${socket.username} left.`);
+        await redisClient.del('gnosis:room:' + roomCode);
       } else {
         let players = JSON.parse(roomData.players || '[]');
         players = players.filter(p => p.userId !== socket.userId);
-        await redisClient.hSet(roomId, 'players', JSON.stringify(players));
+        await redisClient.hSet('gnosis:room:' + roomCode, 'players', JSON.stringify(players));
         io.to(roomCode).emit('room:players', { players });
         socket.leave(roomCode);
       }
@@ -343,74 +353,105 @@ module.exports = (io, redisClient) => {
       const roomData = await redisClient.hGetAll('gnosis:room:' + roomCode);
       if (!roomData || roomData.status !== 'active') return;
 
-      const qSentAt = parseInt(roomData.q_sent_at);
-      const now = Date.now();
       const questions = JSON.parse(roomData.questions);
-      const currentIndex = parseInt(roomData.current_index);
-      const currentQuestion = questions[currentIndex];
-      const allowedMs = (currentQuestion.timer_seconds || 15) * 1000;
+      let players = JSON.parse(roomData.players || '[]');
+      const playerIndex = players.findIndex(p => p.userId === socket.userId);
+      if (playerIndex === -1) return;
 
-      if (now - qSentAt > allowedMs + 2000) { // 2s grace period
-        socket.emit('quiz:answer_rejected', { reason: 'timeout', questionId });
+      // INDIVIDUAL FLOW: Use player's own currentIndex
+      const pCurrentIndex = players[playerIndex].currentIndex ?? 0;
+      const currentQuestion = questions[pCurrentIndex];
+      if (!currentQuestion) return;
+
+      // Guard: answer must be for the current question (only if question has ID — group quiz may not)
+      if (currentQuestion?.id && currentQuestion.id !== questionId) {
+        socket.emit('quiz:answer_rejected', { reason: 'stale_question', questionId });
         return;
       }
 
-      // ROBUST ANSWER VERIFICATION
+      // Guard: don't allow double-answer from same player
+      if (players[playerIndex].answered) return;
+
+      // Score it
       const normalize = (arr) => {
         if (!arr || !Array.isArray(arr)) return [];
         return arr.map(v => String(v).trim().toLowerCase()).sort();
       };
-
       const correctOptions = currentQuestion.correct_options || [];
       const normalizedSelected = normalize(selectedOptions);
       const normalizedCorrect = normalize(correctOptions);
-      
-      const isCorrect = normalizedSelected.length === normalizedCorrect.length && 
-                        normalizedSelected.every((val, index) => val === normalizedCorrect[index]);
+      const isCorrect = normalizedSelected.length === normalizedCorrect.length &&
+                        normalizedSelected.every((val, i) => val === normalizedCorrect[i]);
 
       let xpEarned = 0;
       if (isCorrect) {
         const isMulti = currentQuestion.question_type === 'multi_correct';
         xpEarned = isMulti ? 15 : 10;
-        const timeTaken = now - qSentAt;
-        if (timeTaken < 5000) xpEarned += 5;
-        else if (timeTaken < 8000) xpEarned += 2;
+        // Speed bonus (optional)
+        // const timeTaken = Date.now() - sentAt;
+        // if (timeTaken < 5000) xpEarned += 5;
+        // else if (timeTaken < 8000) xpEarned += 2;
       }
 
-      const players = JSON.parse(roomData.players);
-      const playerIndex = players.findIndex(p => p.userId === socket.userId);
-      if (playerIndex !== -1) {
-        players[playerIndex].score += xpEarned;
-        players[playerIndex].answered = true;
-        await updateRoomPlayers(redisClient, roomCode, players);
-      }
+      players[playerIndex].score += xpEarned;
+      players[playerIndex].answered = true;
 
       socket.emit('quiz:answer_result', {
-        correct: isCorrect,
-        xpEarned,
-        correctOptions,
-        explanation: currentQuestion.explanation || '',
-        questionId
+        correct: isCorrect, xpEarned, correctOptions,
+        explanation: currentQuestion.explanation || '', questionId
       });
 
-      // Filter out disconnected or inactive players before deciding if everyone answered
-      // Fix: Don't rely on io.sockets.sockets.has() as it might not be fully accurate, just check all players
-      const allAnswered = players.every(p => p.answered);
+      // INDIVIDUAL PROGRESSION: Advance only this player
+      const pNextIndex = pCurrentIndex + 1;
+      players[playerIndex].currentIndex = pNextIndex;
+      players[playerIndex].answered = false;
 
-      if (allAnswered) {
-        const nextIndex = currentIndex + 1;
-        await redisClient.hSet('gnosis:room:' + roomCode, 'current_index', nextIndex.toString());
-        if (nextIndex >= questions.length) {
-          await endQuiz(io, redisClient, roomCode);
-        } else {
-          sendNextQuestion(io, redisClient, roomCode);
-        }
+      if (pNextIndex >= questions.length) {
+        // This player finished all questions
+        players[playerIndex].finished = true;
+      }
+
+      await updateRoomPlayers(redisClient, roomCode, players);
+
+      // Check if ALL players finished
+      const allFinished = players.every(p => p.finished);
+      if (allFinished) {
+        console.log(`[Battle] Room ${roomCode} all players finished — ending quiz`);
+        await endQuiz(io, redisClient, roomCode);
+        return;
+      }
+
+      // Send next question to this player if not done
+      if (!players[playerIndex].finished) {
+        const nextQ = questions[pNextIndex];
+        const nextQClient = { ...nextQ };
+        delete nextQClient.correct_options;
+        delete nextQClient.explanation;
+
+        setTimeout(() => {
+          socket.emit('quiz:question', {
+            question: nextQClient,
+            qIndex: pNextIndex + 1,
+            total: questions.length,
+            timerSeconds: nextQ.timer_seconds || 15,
+            sentAt: Date.now()
+          });
+        }, 1500);
       }
     });
 
     socket.on('disconnect', async () => {
       if (socket.userId) {
         await redisClient.del('gnosis:socket:' + socket.userId);
+        await redisClient.del('gnosis:online:' + socket.userId);
+      }
+      if (socket.roomCode) {
+        const roomData = await redisClient.hGetAll('gnosis:room:' + socket.roomCode);
+        if (roomData && roomData.type === '1v1' && roomData.status !== 'complete') {
+          clearRoomTimer(socket.roomCode);
+          io.to(socket.roomCode).emit('room:cancelled', { message: 'Opponent disconnected' });
+          await redisClient.del('gnosis:room:' + socket.roomCode);
+        }
       }
     });
   });

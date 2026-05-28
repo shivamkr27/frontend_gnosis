@@ -32,8 +32,14 @@ const createTables = async () => {
         level_number INT,
         participants JSONB,
         results JSONB,
+        winner_id UUID,
         created_at TIMESTAMP DEFAULT NOW()
       );
+    `);
+
+    // Add winner_id if upgrading from old schema (safe to run multiple times)
+    await pool.query(`
+      ALTER TABLE battle_history ADD COLUMN IF NOT EXISTS winner_id UUID;
     `);
 
     // Add wins and losses to users table if they don't exist

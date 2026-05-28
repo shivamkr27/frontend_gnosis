@@ -33,38 +33,38 @@ module.exports = (redisClient) => {
   });
 
   // GET /xp/leaderboard/global
+  // Query from users.total_xp directly (authoritative source, not Redis)
   router.get('/leaderboard/global', async (req, res) => {
     try {
       const { currentUserId } = req.query;
       
-      const results = await redisClient.zRangeWithScores('gnosis:leaderboard:global', 0, 19, { REV: true });
-      
-      const leaderboard = results.map((result, index) => {
-        const [userId, username] = result.value.split(':');
-        return {
-          rank: index + 1,
-          userId,
-          username,
-          xp: result.score
-        };
-      });
+      // Fetch top 20 users by total_xp from users table
+      const result = await pool.query(
+        `SELECT id as user_id, username, total_xp
+         FROM users
+         WHERE total_xp > 0
+         ORDER BY total_xp DESC
+         LIMIT 20`
+      );
+
+      const leaderboard = result.rows.map((row, index) => ({
+        rank: index + 1,
+        userId: row.user_id,
+        username: row.username,
+        total_xp: parseInt(row.total_xp, 10)
+      }));
 
       const response = { leaderboard };
 
       if (currentUserId) {
-        // Need to find the member string for currentUserId. This might be tricky if we don't know the username.
-        // Assuming currentUserId contains the username as well or we find it in DB. 
-        // Wait, the prompt says ZREVRANK gnosis:leaderboard:global "{userId}:{username}".
-        // We will query the DB to get the username if needed, or assume currentUserId comes with username if needed.
-        // But let's check if the query can just provide the full member string, or if we need to search it.
-        // For simplicity, let's query the DB for the username.
-        const userRes = await pool.query('SELECT username FROM xp_ledger WHERE user_id = $1 LIMIT 1', [currentUserId]);
-        if (userRes.rows.length > 0) {
-          const member = `${currentUserId}:${userRes.rows[0].username}`;
-          const rank = await redisClient.zRevRank('gnosis:leaderboard:global', member);
-          if (rank !== null) {
-            response.currentUserRank = rank + 1;
-          }
+        // Get current user's rank
+        const rankResult = await pool.query(
+          `SELECT COUNT(*) + 1 as rank FROM users 
+           WHERE total_xp > (SELECT total_xp FROM users WHERE id = $1)`,
+          [currentUserId]
+        );
+        if (rankResult.rows.length > 0) {
+          response.currentUserRank = parseInt(rankResult.rows[0].rank, 10);
         }
       }
 
@@ -89,12 +89,11 @@ module.exports = (redisClient) => {
         allIds.push(userId);
       }
 
+      // Query from users table directly (authoritative source)
       const result = await pool.query(
-        `SELECT user_id, username, SUM(amount) as total_xp
-         FROM xp_ledger
-         WHERE scope = 'global'
-         AND user_id = ANY($1::uuid[])
-         GROUP BY user_id, username
+        `SELECT id as user_id, username, total_xp
+         FROM users
+         WHERE id = ANY($1::uuid[])
          ORDER BY total_xp DESC`,
         [allIds]
       );
@@ -103,7 +102,7 @@ module.exports = (redisClient) => {
         rank: index + 1,
         userId: row.user_id,
         username: row.username,
-        totalXp: parseInt(row.total_xp, 10)
+        total_xp: parseInt(row.total_xp, 10)
       }));
 
       res.json(ranked);

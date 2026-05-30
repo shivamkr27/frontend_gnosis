@@ -13,24 +13,48 @@ const io = new Server(server, {
 });
 
 const PORT = process.env.PORT || 3005;
+const REDIS_HOST = process.env.REDIS_HOST || 'redis';
+const REDIS_PORT = Number(process.env.REDIS_PORT || 6379);
+const REDIS_URL = process.env.REDIS_URL || `redis://${REDIS_HOST}:${REDIS_PORT}`;
 
 app.use(cors());
 app.use(express.json());
 
 // Setup Redis
+console.log({
+  REDIS_HOST: process.env.REDIS_HOST,
+  REDIS_PORT: process.env.REDIS_PORT,
+  REDIS_URL: process.env.REDIS_URL,
+});
+console.log(`[battle-service] Redis host: ${REDIS_HOST}`);
+console.log(`[battle-service] Redis port: ${REDIS_PORT}`);
+console.log(`[battle-service] Redis URL: ${REDIS_URL}`);
+
 const redisClient = createClient({
-  url: process.env.REDIS_URL
+  url: REDIS_URL,
+  socket: {
+    host: REDIS_HOST,
+    port: REDIS_PORT,
+    reconnectStrategy: (retries) => {
+      const delay = Math.min(retries * 100, 3000);
+      console.log(`[battle-service] Redis reconnect attempt ${retries} in ${delay}ms`);
+      return delay;
+    }
+  }
 });
 
 redisClient.on('error', (err) => {
-  console.error('Redis connection error', err);
-  process.exit(1);
+  console.error('[battle-service] Redis connection error', err);
+});
+
+redisClient.on('reconnecting', () => {
+  console.log('[battle-service] Redis reconnecting');
 });
 
 const startServer = async () => {
   try {
     await redisClient.connect();
-    console.log('Connected to Redis');
+    console.log('[battle-service] Connected to Redis');
     
     // Setup Database logic checks by requiring the pool which connects automatically
     // The db/index.js will print 'Connected to PostgreSQL'
@@ -54,7 +78,7 @@ const startServer = async () => {
     });
   } catch (err) {
     console.error('Failed to start server:', err);
-    process.exit(1);
+    setTimeout(startServer, 2000);
   }
 };
 

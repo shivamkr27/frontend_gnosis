@@ -12,6 +12,9 @@ const io = new Server(server, {
 });
 
 const PORT = process.env.PORT || 3006;
+const REDIS_HOST = process.env.REDIS_HOST || 'redis';
+const REDIS_PORT = Number(process.env.REDIS_PORT || 6379);
+const REDIS_URL = process.env.REDIS_URL || `redis://${REDIS_HOST}:${REDIS_PORT}`;
 
 app.use(cors());
 app.use(express.json());
@@ -22,19 +25,40 @@ app.use((req, res, next) => {
   next();
 });
 
+console.log({
+  REDIS_HOST: process.env.REDIS_HOST,
+  REDIS_PORT: process.env.REDIS_PORT,
+  REDIS_URL: process.env.REDIS_URL,
+});
+console.log(`[notification-service] Redis host: ${REDIS_HOST}`);
+console.log(`[notification-service] Redis port: ${REDIS_PORT}`);
+console.log(`[notification-service] Redis URL: ${REDIS_URL}`);
+
 const redisClient = createClient({
-  url: process.env.REDIS_URL
+  url: REDIS_URL,
+  socket: {
+    host: REDIS_HOST,
+    port: REDIS_PORT,
+    reconnectStrategy: (retries) => {
+      const delay = Math.min(retries * 100, 3000);
+      console.log(`[notification-service] Redis reconnect attempt ${retries} in ${delay}ms`);
+      return delay;
+    }
+  }
 });
 
 redisClient.on('error', (err) => {
-  console.error('Redis connection error:', err);
-  process.exit(1);
+  console.error('[notification-service] Redis connection error:', err);
+});
+
+redisClient.on('reconnecting', () => {
+  console.log('[notification-service] Redis reconnecting');
 });
 
 const startServer = async () => {
   try {
     await redisClient.connect();
-    console.log('Connected to Redis');
+    console.log('[notification-service] Connected to Redis');
 
     // Load Socket handlers
     require('./socket/handlers')(io, redisClient);
@@ -53,7 +77,7 @@ const startServer = async () => {
     });
   } catch (err) {
     console.error('Failed to start server:', err);
-    process.exit(1);
+    setTimeout(startServer, 2000);
   }
 };
 

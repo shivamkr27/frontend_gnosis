@@ -77,6 +77,8 @@ services:
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_NAME=gnosis
       - JWT_SECRET=${JWT_SECRET}
+      - REDIS_HOST=${REDIS_HOST}
+      - REDIS_PORT=${REDIS_PORT}
       - REDIS_URL=${REDIS_URL}
       - PROGRESS_SERVICE_URL=http://progress-service:3003
     depends_on:
@@ -101,6 +103,8 @@ services:
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_NAME=gnosis
       - JWT_SECRET=${JWT_SECRET}
+      - REDIS_HOST=${REDIS_HOST}
+      - REDIS_PORT=${REDIS_PORT}
       - REDIS_URL=${REDIS_URL}
       - GEMINI_API_KEY=${GEMINI_API_KEY}
     depends_on:
@@ -125,6 +129,8 @@ services:
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_NAME=gnosis
       - JWT_SECRET=${JWT_SECRET}
+      - REDIS_HOST=${REDIS_HOST}
+      - REDIS_PORT=${REDIS_PORT}
       - REDIS_URL=${REDIS_URL}
       - CONTENT_SERVICE_URL=http://content-service:3002
       - XP_SERVICE_URL=http://xp-service:3004
@@ -150,6 +156,8 @@ services:
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_NAME=gnosis
       - JWT_SECRET=${JWT_SECRET}
+      - REDIS_HOST=${REDIS_HOST}
+      - REDIS_PORT=${REDIS_PORT}
       - REDIS_URL=${REDIS_URL}
     depends_on:
       postgres:
@@ -173,6 +181,8 @@ services:
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_NAME=gnosis
       - JWT_SECRET=${JWT_SECRET}
+      - REDIS_HOST=${REDIS_HOST}
+      - REDIS_PORT=${REDIS_PORT}
       - REDIS_URL=${REDIS_URL}
     depends_on:
       postgres:
@@ -196,6 +206,8 @@ services:
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_NAME=gnosis
       - JWT_SECRET=${JWT_SECRET}
+      - REDIS_HOST=${REDIS_HOST}
+      - REDIS_PORT=${REDIS_PORT}
       - REDIS_URL=${REDIS_URL}
     depends_on:
       postgres:

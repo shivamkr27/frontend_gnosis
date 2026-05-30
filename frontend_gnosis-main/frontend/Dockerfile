@@ -7,6 +7,8 @@ RUN npm install
 COPY .env ./.env
 COPY index.html ./index.html
 COPY vite.config.js ./vite.config.js
+COPY postcss.config.js ./postcss.config.js
+COPY tailwind.config.js ./tailwind.config.js
 COPY public ./public
 COPY src ./src
 

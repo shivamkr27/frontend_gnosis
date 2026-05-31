@@ -1,0 +1,96 @@
+# ─── PodDisruptionBudgets ────────────────────────────────────────────
+# Ensures at least 1 pod stays alive during:
+#   - Node drains (kubectl drain)
+#   - Cluster Autoscaler scale-downs
+#   - Rolling updates
+# Deploy: kubectl apply -f gitops/k8s/pdb.yaml
+# ─────────────────────────────────────────────────────────────────────
+
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: api-gateway-pdb
+  namespace: gnosis
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: api-gateway
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: auth-service-pdb
+  namespace: gnosis
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: auth-service
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: content-service-pdb
+  namespace: gnosis
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: content-service
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: progress-service-pdb
+  namespace: gnosis
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: progress-service
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: xp-service-pdb
+  namespace: gnosis
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: xp-service
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: battle-service-pdb
+  namespace: gnosis
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: battle-service
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: notification-service-pdb
+  namespace: gnosis
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: notification-service
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: frontend-pdb
+  namespace: gnosis
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: frontend
